@@ -11,6 +11,7 @@ negative label unless the frame is listed there).
 from __future__ import annotations
 
 import json
+import re
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
 from typing import Any
@@ -99,7 +100,7 @@ def parse_egoexo_hand_pose_annotations(
     camera_pose: Mapping[str, Any],
     *,
     camera_name: str = "aria",
-    min_views_for_3d: int = 3,
+    min_views_for_3d: int | None = 3,
     source_to_model_units: float = 1.0,
     strict_camera_pose: bool = True,
 ) -> dict[int, dict[str, torch.Tensor]]:
@@ -113,10 +114,11 @@ def parse_egoexo_hand_pose_annotations(
     wrist, thumb(1..4), index(1..4), middle(1..4), ring(1..4), pinky(1..4).
     Coordinates are multiplied by source_to_model_units after camera
     transformation. Its default 1.0 preserves source units; it does not assert
-    that the source unit is meters.
+    that the source unit is meters. Set min_views_for_3d=None for the official
+    automatic-annotation path, which does not apply the manual >=3-view filter.
     """
-    if min_views_for_3d < 0:
-        raise ValueError("min_views_for_3d must be non-negative.")
+    if min_views_for_3d is not None and min_views_for_3d < 0:
+        raise ValueError("min_views_for_3d must be non-negative or None.")
     if not np.isfinite(source_to_model_units) or source_to_model_units <= 0:
         raise ValueError("source_to_model_units must be finite and positive.")
     if not isinstance(annotations, Mapping) or not isinstance(camera_pose, Mapping):
@@ -165,7 +167,10 @@ def parse_egoexo_hand_pose_annotations(
                     view_count = int(joint["num_views_for_3d"])
                 except (KeyError, TypeError, ValueError):
                     continue
-                if view_count < min_views_for_3d or not np.isfinite(point).all():
+                if (
+                    (min_views_for_3d is not None and view_count < min_views_for_3d)
+                    or not np.isfinite(point).all()
+                ):
                     continue
                 keypoints_world[hand_index, joint_index] = point
                 valid[hand_index, joint_index] = True
@@ -267,7 +272,12 @@ def build_egoexo_relation_clip_targets(
     inferred_size = image_size
 
     for object_name in sorted(object_masks):
-        if exclude_hand_tracks and "hand" in str(object_name).lower():
+        normalized_name = re.sub(r"[_\s]+", " ", str(object_name).lower()).strip()
+        is_hand_track = re.fullmatch(
+            r"(?:(?:left|right) )?hand(?: \d+)?",
+            normalized_name,
+        ) is not None
+        if exclude_hand_tracks and is_hand_track:
             continue
         cameras = object_masks[object_name]
         if not isinstance(cameras, Mapping) or camera_name not in cameras:
@@ -486,19 +496,28 @@ def build_egoexo_anticipation_target(
     if not np.isfinite(cutoff) or cutoff < 0:
         raise ValueError("observation_end_time must be finite and non-negative.")
 
-    future_segments: list[tuple[float, int]] = []
+    future_segments: list[tuple[float, float, int]] = []
     for index, segment in enumerate(segments):
         if not isinstance(segment, Mapping):
             raise TypeError(f"segments[{index}] must be an object.")
         try:
             start_time = float(segment["start_time"])
+            end_time = float(segment["end_time"])
             step_id = int(segment["step_unique_id"])
         except (KeyError, TypeError, ValueError) as exc:
-            raise ValueError(f"segments[{index}] has invalid start_time/step_unique_id.") from exc
-        if not np.isfinite(start_time) or start_time < 0 or step_id < 0:
-            raise ValueError(f"segments[{index}] has invalid start time or step ID.")
+            raise ValueError(
+                f"segments[{index}] has invalid start_time/end_time/step_unique_id."
+            ) from exc
+        if (
+            not np.isfinite(start_time)
+            or not np.isfinite(end_time)
+            or start_time < 0
+            or end_time <= start_time
+            or step_id < 0
+        ):
+            raise ValueError(f"segments[{index}] has invalid interval or step ID.")
         if start_time > cutoff:
-            future_segments.append((start_time, step_id))
+            future_segments.append((start_time, end_time, step_id))
 
     if not future_segments:
         return {
@@ -510,20 +529,26 @@ def build_egoexo_anticipation_target(
             "time_valid": False,
         }
 
-    event_start, step_id = min(future_segments, key=lambda item: item[0])
+    event_start, _, step_id = min(future_segments, key=lambda item: (item[0], item[1], item[2]))
     prefixed_key = action_label_key("egoexo4d", f"step_unique_id={step_id}")
     if prefixed_key in action_vocabulary:
-        action_label = int(action_vocabulary[prefixed_key])
+        raw_action_label = action_vocabulary[prefixed_key]
         action_valid = True
     elif step_id in action_vocabulary:
         # Compatibility for an Ego-Exo4D-only vocabulary.
-        action_label = int(action_vocabulary[step_id])
+        raw_action_label = action_vocabulary[step_id]
         action_valid = True
     else:
-        action_label = -1
+        raw_action_label = -1
         action_valid = False
-    if action_valid and action_label < 0:
-        raise ValueError("Ego-Exo4D action vocabulary indices must be non-negative.")
+    if action_valid:
+        if isinstance(raw_action_label, bool) or not isinstance(raw_action_label, (int, np.integer)):
+            raise TypeError("Ego-Exo4D action vocabulary indices must be integers.")
+        action_label = int(raw_action_label)
+        if action_label < 0:
+            raise ValueError("Ego-Exo4D action vocabulary indices must be non-negative.")
+    else:
+        action_label = -1
     return {
         "target_entity_track_id": -1,
         "target_entity_valid": False,

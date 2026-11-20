@@ -238,9 +238,12 @@ def parse_hoi4d_action_segments(
     if not isinstance(annotation, Mapping):
         raise TypeError("HOI4D action annotation root must be an object.")
     if category is not None and (
-        not category.startswith("C") or not category[1:].isdigit()
+        not isinstance(category, str)
+        or not category.startswith("C")
+        or not category[1:].isdigit()
+        or not 1 <= int(category[1:]) <= 20
     ):
-        raise ValueError("category must be a HOI4D code such as 'C1' or 'C20'.")
+        raise ValueError("category must be a HOI4D code from 'C1' through 'C20'.")
 
     info = annotation.get("info", {})
     if info is not None and not isinstance(info, Mapping):
@@ -277,7 +280,6 @@ def parse_hoi4d_action_segments(
     if not isinstance(raw_events, Sequence) or isinstance(raw_events, (str, bytes)):
         raise TypeError("HOI4D action events/marks must be a list.")
     segments: list[dict[str, Any]] = []
-    tolerance = 1.0 / 15.0
     for index, raw_event in enumerate(raw_events):
         if not isinstance(raw_event, Mapping):
             raise TypeError(f"HOI4D action event {index} must be an object.")
@@ -296,7 +298,8 @@ def parse_hoi4d_action_segments(
             or not np.isfinite(end_time)
             or start_time < 0
             or end_time <= start_time
-            or end_time > duration + tolerance
+            or start_time >= duration
+            or end_time > duration
         ):
             raise ValueError(
                 f"HOI4D action event {index} has an invalid interval "
@@ -305,7 +308,7 @@ def parse_hoi4d_action_segments(
         segment = {
             "event": label.strip(),
             "start_time": start_time,
-            "end_time": min(end_time, duration),
+            "end_time": end_time,
         }
         if category is not None:
             segment["category"] = category
@@ -343,10 +346,13 @@ def build_hoi4d_action_vocabulary(
                 raise ValueError("HOI4D training action labels must be non-empty strings.")
             category = segment.get("category")
             if category is not None:
-                if not isinstance(category, str) or (
-                    not category.startswith("C") or not category[1:].isdigit()
+                if (
+                    not isinstance(category, str)
+                    or not category.startswith("C")
+                    or not category[1:].isdigit()
+                    or not 1 <= int(category[1:]) <= 20
                 ):
-                    raise ValueError("HOI4D segment category must be a category code such as C1.")
+                    raise ValueError("HOI4D segment category must be a code from C1 through C20.")
                 label = f"{category}::{label.strip()}"
             else:
                 label = label.strip()
@@ -377,16 +383,27 @@ def build_hoi4d_anticipation_target(
             raise TypeError(f"segments[{index}] must be an object.")
         try:
             start_time = float(segment["start_time"])
-            event = str(segment["event"]).strip()
+            raw_event = segment["event"]
+            if not isinstance(raw_event, str):
+                raise TypeError("event must be a string.")
+            event = raw_event.strip()
+            end_time = float(segment["end_time"])
             category = segment.get("category")
         except (KeyError, TypeError, ValueError) as exc:
             raise ValueError(f"segments[{index}] has invalid event/start_time.") from exc
-        if not np.isfinite(start_time) or start_time < 0 or not event:
-            raise ValueError(f"segments[{index}] has invalid event/start_time.")
+        if (
+            not np.isfinite(start_time)
+            or not np.isfinite(end_time)
+            or start_time < 0
+            or end_time <= start_time
+            or not event
+        ):
+            raise ValueError(f"segments[{index}] has invalid event interval.")
         if category is not None and (
             not isinstance(category, str)
             or not category.startswith("C")
             or not category[1:].isdigit()
+            or not 1 <= int(category[1:]) <= 20
         ):
             raise ValueError(f"segments[{index}] has an invalid HOI4D category.")
         if start_time > cutoff:
@@ -406,21 +423,27 @@ def build_hoi4d_anticipation_target(
     category_label = f"{category}::{event_name}" if category is not None else event_name
     prefixed_key = action_label_key("hoi4d", category_label)
     if prefixed_key in action_vocabulary:
-        action_label = int(action_vocabulary[prefixed_key])
+        raw_action_label = action_vocabulary[prefixed_key]
         action_valid = True
     elif category_label in action_vocabulary:
         # Compatibility for a category-aware HOI4D-only vocabulary.
-        action_label = int(action_vocabulary[category_label])
+        raw_action_label = action_vocabulary[category_label]
         action_valid = True
     elif event_name in action_vocabulary:
         # Compatibility for an event-only HOI4D vocabulary.
-        action_label = int(action_vocabulary[event_name])
+        raw_action_label = action_vocabulary[event_name]
         action_valid = True
     else:
-        action_label = -1
+        raw_action_label = -1
         action_valid = False
-    if action_valid and action_label < 0:
-        raise ValueError("HOI4D action vocabulary indices must be non-negative.")
+    if action_valid:
+        if isinstance(raw_action_label, bool) or not isinstance(raw_action_label, (int, np.integer)):
+            raise TypeError("HOI4D action vocabulary indices must be integers.")
+        action_label = int(raw_action_label)
+        if action_label < 0:
+            raise ValueError("HOI4D action vocabulary indices must be non-negative.")
+    else:
+        action_label = -1
     return {
         "target_entity_track_id": -1,
         "target_entity_valid": False,

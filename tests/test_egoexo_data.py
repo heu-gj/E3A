@@ -61,6 +61,29 @@ def test_egoexo_hand_pose_reorders_joints_and_transforms_world_to_camera():
     np.testing.assert_allclose(frame["keypoints_camera"][0, 0].numpy(), [0, 0, 0])
 
 
+def test_egoexo_hand_pose_auto_annotation_can_disable_manual_view_threshold():
+    annotations = make_hand_annotation(low_view_joint=("right", "wrist"))
+    camera_pose = {
+        "12": {
+            "aria": {
+                "camera_extrinsics": [
+                    [1.0, 0.0, 0.0, 0.0],
+                    [0.0, 1.0, 0.0, 0.0],
+                    [0.0, 0.0, 1.0, 0.0],
+                ]
+            }
+        }
+    }
+
+    parsed = parse_egoexo_hand_pose_annotations(
+        annotations,
+        camera_pose,
+        min_views_for_3d=None,
+    )
+
+    assert parsed[12]["valid"][0, 0].item() is True
+
+
 def test_egoexo_hand_pose_supports_official_camera_first_pose_layout():
     annotations = make_hand_annotation()
     camera_pose = {
@@ -143,6 +166,46 @@ def test_egoexo_relation_targets_distinguish_absence_from_unannotated_frames():
     assert targets["masks"].shape == (1, 4, 2, 3)
     assert targets["masks"][0, 1].sum().item() == 0
     assert targets["masks"][0, 2].sum().item() == 1
+
+
+def test_egoexo_hand_filter_keeps_non_hand_objects_containing_the_word_hand():
+    mask = np.ones((2, 2), dtype=np.bool_)
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_masks": {
+                    "hand blender_0": {
+                        "cam04": {
+                            "annotated_frames": [0],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    targets = build_egoexo_relation_clip_targets(
+        relation,
+        "take-1",
+        "cam04",
+        [0],
+        mask_decoder=lambda _: mask,
+    )
+
+    assert targets["track_names"] == ["hand blender_0"]
+    assert targets["ids"].tolist() == [[0]]
+
+
+def test_egoexo_anticipation_rejects_invalid_segment_end_time():
+    with pytest.raises(ValueError, match="invalid interval or step ID"):
+        build_egoexo_anticipation_target(
+            [{"start_time": 2.0, "end_time": 1.0, "step_unique_id": 42}],
+            observation_end_time=1.0,
+            action_vocabulary={42: 0},
+        )
 
 
 def test_egoexo_relation_rejects_mask_frames_outside_annotated_coverage():

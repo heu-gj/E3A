@@ -116,6 +116,37 @@ def test_hoi4d_action_parser_supports_documented_single_interval_layout():
     ]
 
 
+def test_hoi4d_action_parser_rejects_even_small_interval_overruns():
+    with pytest.raises(ValueError, match="invalid interval"):
+        parse_hoi4d_action_segments(
+            {
+                "duration": 2.0,
+                "event": "pour",
+                "startTime": 1.9,
+                "endTime": 2.01,
+            }
+        )
+
+    with pytest.raises(ValueError, match="invalid interval"):
+        parse_hoi4d_action_segments(
+            {
+                "duration": 2.0,
+                "event": "pour",
+                "startTime": 2.01,
+                "endTime": 2.02,
+            }
+        )
+
+
+def test_hoi4d_anticipation_rejects_non_string_event_labels():
+    with pytest.raises(ValueError, match="invalid event/start_time"):
+        build_hoi4d_anticipation_target(
+            [{"event": None, "start_time": 2.0, "end_time": 3.0}],
+            observation_end_time=1.0,
+            action_vocabulary={},
+        )
+
+
 def test_hoi4d_action_parser_rejects_intervals_outside_video_duration():
     with pytest.raises(ValueError, match="invalid interval"):
         parse_hoi4d_action_segments(
