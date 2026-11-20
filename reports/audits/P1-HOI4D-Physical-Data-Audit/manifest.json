@@ -2,10 +2,10 @@
   "repository": "https://github.com/heu-gj/E3A",
   "branch": "audit/p1-hoi4d-physical-data",
   "base_commit": "9f96d5813655e0fb9ceebad107b2ff2d1d2d5d07",
-  "current_commit": "9f96d5813655e0fb9ceebad107b2ff2d1d2d5d07",
-  "audit_commit": null,
+  "current_commit": "a1457730abc8dd36e91b1b5a01cc56dc8799b648",
+  "audit_commit": "a1457730abc8dd36e91b1b5a01cc56dc8799b648",
   "commit_semantics": "current_commit is the archival parent HEAD at sealing; final pushed HEAD is external to this self-contained manifest.",
-  "execution_timestamp_utc": "2026-11-20T17:43:45.808909+00:00",
+  "execution_timestamp_utc": "2026-11-20T17:44:54.072893+00:00",
   "original_audit_timestamp_utc": "UNKNOWN (local date 2026-11-21 recorded)",
   "dataset_version": "UNKNOWN (local release directories; no version manifest)",
   "audited_sequence": "ZY20210800001/H1/C20/N30/S295/s04/T4",
@@ -7627,8 +7627,8 @@
     },
     {
       "archive_path": "report.json",
-      "bytes": 7763,
-      "sha256": "4465377b5b3a6f1029a62636391968fd79965e97e11e8bbb4aa5f56d98ebda02"
+      "bytes": 7801,
+      "sha256": "dbb8a31f20945b27d94ddea1a7fe4b7ca687dd2eb89a402fe0ef6d5034ce7d3d"
     },
     {
       "archive_path": "report.md",
@@ -7888,7 +7888,7 @@
     "logs/archival_provenance.json": "5be4bed097ebd18522d154de6adc14bcd5621985a41089f1cd0300502468fb96",
     "logs/pytest.txt": "7e3a21796164b7ecb5c6de5a1d0834896df94d051a3b732b89b7b432a089ef52",
     "logs/tests.json": "45dda4a6d2aa90db7af2b0b90e201d4acd192ab0050bff5c2fbc115b2dd0b50a",
-    "report.json": "4465377b5b3a6f1029a62636391968fd79965e97e11e8bbb4aa5f56d98ebda02",
+    "report.json": "dbb8a31f20945b27d94ddea1a7fe4b7ca687dd2eb89a402fe0ef6d5034ce7d3d",
     "report.md": "a217ab2e775d3da6bcb9c9d5d636b26402be83d28a0f27c28dfd813ed8be1bac",
     "visualizations/README.md": "76910713c46a06c6e0737588066dbd1319e7effe0ce1b2e4857912f2f6e6bc9d"
   }

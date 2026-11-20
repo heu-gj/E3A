@@ -2,7 +2,7 @@
   "task_id": "P1-HOI4D-Physical-Data-Audit",
   "task_status": "PARTIAL",
   "base_commit": "9f96d5813655e0fb9ceebad107b2ff2d1d2d5d07",
-  "audit_commit": null,
+  "audit_commit": "a1457730abc8dd36e91b1b5a01cc56dc8799b648",
   "branch": "audit/p1-hoi4d-physical-data",
   "commit_semantics": "audit_commit pins the payload commit after sealing; final pushed HEAD is reported in the PR.",
   "dataset": {
