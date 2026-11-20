@@ -100,6 +100,8 @@ def test_adapter_converts_e3a_outputs_to_official_videomt_frame_contract():
     assert matcher.targets[1]["ids"].shape == (1, 1)
     assert matcher.targets[0]["masks"].shape == (1, 1, 8, 8)
     assert matcher.targets[1]["masks"].shape == (1, 1, 8, 8)
+    assert matcher.targets[0]["mask_valid"].tolist() == [[True]]
+    assert matcher.targets[1]["mask_valid"].tolist() == [[True]]
     torch.testing.assert_close(matcher.targets[0]["ids"], torch.tensor([[41]]))
     torch.testing.assert_close(matcher.targets[1]["ids"], torch.tensor([[41]]))
 
@@ -144,6 +146,8 @@ def test_adapter_skips_unannotated_mask_frames_but_keeps_explicit_absence():
 
     assert track_to_slot == [{41: 0}]
     assert criterion.mask_loss_indices is not None
+    assert matcher.targets[0]["mask_valid"].tolist() == [[True]]
+    assert matcher.targets[1]["mask_valid"].tolist() == [[False]]
     assert criterion.mask_loss_indices[0][1].tolist() == [0]
     assert criterion.mask_loss_indices[1][1].numel() == 0
     assert torch.isfinite(losses["loss_objective"])
@@ -327,6 +331,27 @@ def test_padded_targets_stay_batch_aligned_under_upstream_gradient_accumulation(
     assert torch.isfinite(losses["loss_objective"])
     assert len(matcher.targets) == 2 * frames
     assert [target["labels"].numel() for target in matcher.targets] == [1, 1, 0, 0]
+
+
+def test_legacy_padded_batch_without_mask_valid_marks_only_real_rows_annotated():
+    adapter = make_criterion()
+    clips = [make_clip_target(), {
+        "labels": torch.empty(0, dtype=torch.int64),
+        "ids": torch.empty(0, 2, dtype=torch.int64),
+        "masks": torch.empty(0, 2, 8, 8),
+    }]
+    padded = collate_entity_targets(clips)
+    legacy_padded = {key: value for key, value in padded.items() if key != "mask_valid"}
+
+    unpacked = adapter._unpack_batched_targets(
+        legacy_padded,
+        batch_size=2,
+        num_frames=2,
+        device=torch.device("cpu"),
+    )
+
+    assert unpacked[0]["mask_valid"].tolist() == [[True, True]]
+    assert unpacked[1]["mask_valid"].shape == (0, 2)
 
 
 def test_adapter_rejects_trainer_batch_without_entity_targets():

@@ -296,6 +296,15 @@ class VidEoMTMaskCriterion(nn.Module):
             masks = target["masks"]
             if not all(torch.is_tensor(value) for value in (labels, track_ids, masks)):
                 raise TypeError("labels, ids, and masks must be torch tensors.")
+            mask_valid = target.get(
+                "mask_valid",
+                torch.ones_like(track_ids, dtype=torch.bool),
+            )
+            if not torch.is_tensor(mask_valid):
+                raise TypeError("mask_valid must be a torch tensor.")
+            if mask_valid.dtype != torch.bool or mask_valid.shape != track_ids.shape:
+                raise ValueError("clip mask_valid must be bool with shape [N,T].")
+
             if labels.ndim != 1:
                 raise ValueError("clip labels must have shape [N].")
             if track_ids.ndim != 2 or track_ids.shape[1] != num_frames:
@@ -323,16 +332,15 @@ class VidEoMTMaskCriterion(nn.Module):
                     "all clips in a batch must use the same padded target-mask size."
                 )
 
-            if labels.dtype not in (torch.int8, torch.int16, torch.int32, torch.int64):
+            integer_dtypes = (torch.int8, torch.int16, torch.int32, torch.int64)
+            if labels.dtype not in integer_dtypes:
                 raise TypeError("labels must use an integer dtype.")
-            if track_ids.dtype not in (
-                torch.int8,
-                torch.int16,
-                torch.int32,
-                torch.int64,
-            ):
+            if track_ids.dtype not in integer_dtypes:
                 raise TypeError("ids must use an integer dtype.")
-            if labels.device != device or track_ids.device != device or masks.device != device:
+            if any(
+                value.device != device
+                for value in (labels, track_ids, masks, mask_valid)
+            ):
                 raise ValueError("predictions and all target tensors must share one device.")
             if not torch.isfinite(masks).all():
                 raise ValueError("target masks must contain only finite values.")
@@ -345,7 +353,11 @@ class VidEoMTMaskCriterion(nn.Module):
             if track_ids.numel() and (track_ids < -1).any():
                 raise ValueError("track IDs must be non-negative or -1 for not visible.")
 
+            track_ids = track_ids.to(dtype=torch.int64)
+            mask_valid = mask_valid.to(dtype=torch.bool)
             visible = track_ids >= 0
+            if (visible & ~mask_valid).any():
+                raise ValueError("unannotated frames must use track ID -1.")
             track_count = int(visible.any(dim=1).sum().item())
             if track_count > num_queries:
                 raise ValueError(
@@ -379,15 +391,14 @@ class VidEoMTMaskCriterion(nn.Module):
                     raise ValueError(
                         f"clip {clip_index} has a visible track frame with an empty mask."
                     )
-                missing_masks = row_masks[~visible[row]].to(torch.float32)
-                if (missing_masks.flatten(1).sum(dim=1) > 0).any():
+                absent_masks = row_masks[~visible[row]].to(torch.float32)
+                if (absent_masks.flatten(1).sum(dim=1) > 0).any():
                     raise ValueError(
                         f"clip {clip_index} must use zero masks wherever track ID is -1."
                     )
 
             any_visible = any_visible or track_count > 0
             labels = labels.to(dtype=torch.int64)
-            track_ids = track_ids.to(dtype=torch.int64)
             masks = masks.to(dtype=torch.float32)
             for frame_index in range(num_frames):
                 flattened.append(
@@ -395,6 +406,7 @@ class VidEoMTMaskCriterion(nn.Module):
                         "labels": labels,
                         "ids": track_ids[:, frame_index : frame_index + 1],
                         "masks": masks[:, frame_index : frame_index + 1],
+                        "mask_valid": mask_valid[:, frame_index : frame_index + 1],
                     }
                 )
 
