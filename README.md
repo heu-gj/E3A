@@ -16,7 +16,7 @@ The upstream projects are tracked as Git submodules. Revisions are pinned in the
 |---|---|---|
 | [VGGT-Ω](https://github.com/facebookresearch/vggt-omega) | Primary geometry/video backbone; official camera and dense-depth heads | 48b23c8ce72c9a8fcf987f0d7f43d8e4870759f6 |
 | [SAM 3](https://github.com/facebookresearch/sam3) | Optional SAM 3.1 video segmentation/tracking teacher and independent baseline | 31cb7e624e4fe95301b1be1d4e809111593d2e45 |
-| [VidEoMT](https://github.com/tue-mps/videomt) | Optional query-propagation/video-mask reference implementation | 40a4fa4a048b00f97f36b3eee66ab62a4e1bea23 |
+| [VidEoMT](https://github.com/tue-mps/videomt) | Official clip-consistent entity matcher and video mask criterion, reused through a thin E3A adapter | 40a4fa4a048b00f97f36b3eee66ab62a4e1bea23 |
 
 EntitySAM is a method/paper reference only. Its public repository currently has no repository-level LICENSE file, so its source is not copied or vendored.
 
@@ -43,6 +43,8 @@ SAM 3.1 is optional and has stricter upstream environment guidance (Python 3.12+
 
 SAM 3.1 checkpoints require Hugging Face access approval/authentication unless a local checkpoint is supplied. VGGT-Ω checkpoints also have an access request process. Upstream source checkouts do not include pretrained weights.
 
+VidEoMT's matcher/criterion additionally require SciPy and Detectron2. Detectron2 must be built for the target PyTorch/CUDA version; do not install an arbitrary prebuilt wheel.
+
 ## Architecture policy
 
 - VGGT-Ω is the primary geometry encoder. Keep its released checkpoint-compatible modules intact wherever possible.
@@ -62,4 +64,4 @@ No project-wide E3A license is declared yet. Each upstream's terms continue to a
 
 ## Current implementation status
 
-The current foundation includes pinned upstream revisions, thin official-API adapters, optional VGGT-Ω compatibility patches, an E3A token bank, a SAM 3 MaskPredictor adapter, official VGGT-Ω camera/depth unprojection, differentiable 3D entity pooling, and an E3ARepresentationModel composition path. CPU CI tests pass. The repository is not yet a complete/trainable action-anticipation system: full-checkpoint parity, target-environment SAM 3 validation, dataset/label auditing, clip-level identity matching, and future target/action/time heads remain open. See docs/implementation/roadmap.md.
+The current foundation includes pinned upstream revisions, thin official-API adapters, optional VGGT-Ω compatibility patches, an E3A token bank, a SAM 3 MaskPredictor adapter, official VGGT-Ω camera/depth unprojection, differentiable 3D entity pooling, an E3ARepresentationModel composition path, and a VidEoMT mask-criterion adapter. CPU CI tests cover the adapters and geometry utilities. The repository is not yet a complete/trainable action-anticipation system: full-checkpoint parity, target-environment SAM 3/VidEoMT validation, dataset/label auditing, dataset-backed clip matching, hand/object interaction heads, and future target/action/time heads remain open. See docs/implementation/roadmap.md.

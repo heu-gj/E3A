@@ -1,0 +1,202 @@
+import pytest
+import torch
+from torch import nn
+
+from e3a.adapters.videomt import VidEoMTMaskCriterion
+
+
+class RecordingMatcher(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.outputs = None
+        self.targets = None
+
+    def forward(self, outputs, targets):
+        self.outputs = outputs
+        self.targets = targets
+        return [
+            (
+                torch.tensor([0], dtype=torch.int64, device=outputs["pred_logits"].device),
+                torch.tensor([0], dtype=torch.int64, device=outputs["pred_logits"].device),
+            )
+            if target["labels"].numel()
+            else (
+                torch.empty(0, dtype=torch.int64, device=outputs["pred_logits"].device),
+                torch.empty(0, dtype=torch.int64, device=outputs["pred_logits"].device),
+            )
+            for target in targets
+        ]
+
+
+class RecordingCriterion(nn.Module):
+    def __init__(self, matcher):
+        super().__init__()
+        self.matcher = matcher
+
+    def forward(self, outputs, targets):
+        self.matcher(outputs, targets)
+        masks = outputs["pred_masks"]
+        logits = outputs["pred_logits"]
+        return {
+            "loss_ce": logits.square().mean(),
+            "loss_mask": masks.square().mean(),
+            "loss_dice": masks.abs().mean(),
+        }
+
+    def loss_labels(self, outputs, targets, indices, num_masks):
+        return {"loss_ce": outputs["pred_logits"].square().mean()}
+
+
+def make_criterion(frames=2, matcher=None, criterion=None):
+    matcher = matcher or RecordingMatcher()
+    criterion = criterion or RecordingCriterion(matcher)
+    return VidEoMTMaskCriterion(
+        frames=frames,
+        num_points=32,
+        loss_weights={"loss_ce": 1.0, "loss_mask": 2.0, "loss_dice": 3.0},
+        matcher=matcher,
+        criterion=criterion,
+    )
+
+
+def make_clip_target():
+    labels = torch.tensor([0], dtype=torch.int64)
+    ids = torch.tensor([[41, 41]], dtype=torch.int64)
+    masks = torch.zeros(1, 2, 8, 8)
+    masks[0, 0, 1:4, 1:4] = 1
+    masks[0, 1, 2:6, 2:6] = 1
+    return {"labels": labels, "ids": ids, "masks": masks}
+
+
+def test_adapter_converts_e3a_outputs_to_official_videomt_frame_contract():
+    matcher = RecordingMatcher()
+    criterion = RecordingCriterion(matcher)
+    adapter = make_criterion(matcher=matcher, criterion=criterion)
+    mask_logits = torch.randn(1, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.randn(1, 2, 3, requires_grad=True)
+
+    losses = adapter(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [make_clip_target()],
+    )
+
+    assert matcher.outputs["pred_masks"].shape == (2, 3, 1, 8, 8)
+    assert matcher.outputs["pred_logits"].shape == (2, 3, 2)
+    torch.testing.assert_close(
+        matcher.outputs["pred_logits"][0],
+        matcher.outputs["pred_logits"][1],
+    )
+    assert len(matcher.targets) == 2
+    assert matcher.targets[0]["ids"].shape == (1, 1)
+    assert matcher.targets[1]["ids"].shape == (1, 1)
+    assert matcher.targets[0]["masks"].shape == (1, 1, 8, 8)
+    assert matcher.targets[1]["masks"].shape == (1, 1, 8, 8)
+    torch.testing.assert_close(matcher.targets[0]["ids"], torch.tensor([[41]]))
+    torch.testing.assert_close(matcher.targets[1]["ids"], torch.tensor([[41]]))
+
+    expected_objective = (
+        losses["loss_ce"] + 2.0 * losses["loss_mask"] + 3.0 * losses["loss_dice"]
+    )
+    torch.testing.assert_close(losses["loss_objective"], expected_objective)
+    losses["loss_objective"].backward()
+    assert mask_logits.grad is not None
+    assert objectness_logits.grad is not None
+
+
+def test_adapter_handles_an_all_empty_batch_without_sampling_empty_masks():
+    matcher = RecordingMatcher()
+    criterion = RecordingCriterion(matcher)
+    adapter = make_criterion(matcher=matcher, criterion=criterion)
+    mask_logits = torch.randn(1, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.randn(1, 2, 3, requires_grad=True)
+    empty_target = {
+        "labels": torch.empty(0, dtype=torch.int64),
+        "ids": torch.empty(0, 2, dtype=torch.int64),
+        "masks": torch.empty(0, 2, 8, 8),
+    }
+
+    losses = adapter(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [empty_target],
+    )
+
+    assert losses["loss_ce"].isfinite()
+    assert losses["loss_mask"].item() == 0
+    assert losses["loss_dice"].item() == 0
+    losses["loss_objective"].backward()
+    assert objectness_logits.grad is not None
+    assert mask_logits.grad is not None
+    assert torch.count_nonzero(mask_logits.grad) == 0
+
+
+def test_adapter_rejects_track_id_changes_within_a_clip():
+    adapter = make_criterion()
+    target = make_clip_target()
+    target["ids"] = torch.tensor([[41, 42]], dtype=torch.int64)
+
+    with pytest.raises(ValueError, match="changes ID across frames"):
+        adapter(
+            {
+                "mask_logits": torch.randn(1, 2, 3, 8, 8),
+                "objectness_logits": torch.randn(1, 2, 3),
+            },
+            [target],
+        )
+
+
+def test_adapter_rejects_more_visible_tracks_than_entity_slots():
+    adapter = make_criterion()
+    target = {
+        "labels": torch.tensor([0, 0, 0, 0], dtype=torch.int64),
+        "ids": torch.tensor([[1, 1], [2, 2], [3, 3], [4, 4]], dtype=torch.int64),
+        "masks": torch.ones(4, 2, 8, 8),
+    }
+
+    with pytest.raises(ValueError, match="only 3 entity slots"):
+        adapter(
+            {
+                "mask_logits": torch.randn(1, 2, 3, 8, 8),
+                "objectness_logits": torch.randn(1, 2, 3),
+            },
+            [target],
+        )
+
+
+def test_adapter_rejects_nonzero_mask_for_a_missing_track_frame():
+    adapter = make_criterion()
+    target = make_clip_target()
+    target["ids"] = torch.tensor([[41, -1]], dtype=torch.int64)
+    target["masks"][0, 1, 2:6, 2:6] = 0.5
+
+    with pytest.raises(ValueError, match="zero masks wherever track ID is -1"):
+        adapter(
+            {
+                "mask_logits": torch.randn(1, 2, 3, 8, 8),
+                "objectness_logits": torch.randn(1, 2, 3),
+            },
+            [target],
+        )
+
+
+def test_real_videomt_criterion_contract_when_optional_dependencies_are_installed():
+    pytest.importorskip("detectron2")
+    pytest.importorskip("scipy")
+
+    adapter = VidEoMTMaskCriterion(
+        frames=2,
+        num_points=32,
+        loss_weights={"loss_ce": 1.0, "loss_mask": 1.0, "loss_dice": 1.0},
+    )
+    mask_logits = torch.randn(1, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.randn(1, 2, 3, requires_grad=True)
+
+    losses = adapter(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [make_clip_target()],
+    )
+
+    assert {"loss_ce", "loss_mask", "loss_dice", "loss_objective"} <= set(losses)
+    assert all(torch.isfinite(value) for value in losses.values())
+    losses["loss_objective"].backward()
+    assert mask_logits.grad is not None
+    assert objectness_logits.grad is not None

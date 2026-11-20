@@ -95,19 +95,27 @@ Relevant upstream implementations:
 - videomt/modeling/matcher.py::VideoHungarianMatcher_Consistent
 - videomt/criterion_videomt.py::VideoSetCriterion
 
-VideoHungarianMatcher_Consistent is not merely a frame-independent matcher. It:
+The upstream VideoHungarianMatcher_Consistent does not compute a full-tube matching cost. VidEoMT's caller first flattens video outputs into B*T frame entries and gives each entry a singleton temporal mask dimension:
 
-1. Groups flattened frame entries into clips using the configured frame count.
-2. Finds the first frame in which each ground-truth track ID appears.
-3. Computes Hungarian matching for the newly appearing tracks using class cost and mask/dice costs over the full predicted and ground-truth tubes.
-4. Prevents already assigned query indices from being reused for later tracks in the same clip.
-5. Returns the same clip-level query/target assignment for every frame entry in that clip.
+- pred_logits: [B*T,Q,C+1]
+- pred_masks: [B*T,Q,1,H,W]
+- each target entry has labels [N], ids [N,1], masks [N,1,H,W]
 
-This is directly relevant to E3A's clip-local Entity Slots and should be the first implementation candidate. Prefer adapting this official matcher and VideoSetCriterion over writing a new Hungarian mask matcher.
+The matcher groups those entries back into clips using its configured frame count. It finds the first visible frame of each GT track, performs Hungarian assignment on that frame's class and mask costs, prevents query reuse within the clip, and repeats the same query/target assignment for every frame in that clip. VideoSetCriterion then supervises each frame's classification and mask output using those consistent assignments.
 
-It is not a zero-change drop-in. The upstream contract expects flattened B*T entries, per-frame target IDs indicating presence/absence, full-tube target masks [N,T,H,W], and repeated tube predictions [Q,T,H,W] in each frame entry. It also imports Detectron2 point sampling/distributed utilities and SciPy's linear_sum_assignment. Before integration, E3A's dataset adapter must prove that GT track IDs, missing-frame sentinels, class labels, and tube masks map exactly to this contract. The optional Detectron2 dependency and its PyTorch/CUDA compatibility must also be validated.
+E3A's src/e3a/adapters/videomt.py::VidEoMTMaskCriterion is a thin adapter around those upstream classes. It converts E3A's clip-level outputs/targets to the exact flattened frame contract and returns the weighted loss_objective required by VGGT-Ω's Trainer. It does not copy or reimplement Hungarian matching or the upstream point-sampled mask losses.
 
-VidEoMT is MIT-licensed. Keep it as a pinned submodule and import the upstream matcher/criterion where practical; keep only the E3A-specific target/output adapter in this repository.
+The adapter's current target contract is intentionally explicit:
+
+- labels: [N], int64, all zero for the single foreground class "entity"
+- ids: [N,T], stable non-negative track ID while visible and -1 when not visible
+- masks: [N,T,H,W], binary/soft masks; all-zero wherever the corresponding ID is -1
+
+The adapter fails closed on changing/duplicate track IDs, invalid class labels, nonzero masks for missing frames, empty masks on visible frames, and more visible tracks than E3A entity slots. All clips in a batch must use the same padded target-mask size. The dataset adapter must prove that its source annotations really support these semantics before training.
+
+VidEoMT imports Detectron2 point-sampling/distributed utilities and SciPy's linear_sum_assignment. Those dependencies and their PyTorch/CUDA compatibility must be validated in the target environment. The optional real-upstream integration test is skipped when Detectron2 is unavailable; injected-contract tests run in the CPU CI.
+
+VidEoMT is MIT-licensed. Keep it as a pinned submodule and import the upstream matcher/criterion; keep only the E3A-specific shape/semantic adapter in this repository.
 
 ## EntitySAM
 

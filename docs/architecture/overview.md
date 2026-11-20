@@ -12,11 +12,10 @@ The architecture is organized around one geometry-aware video representation, no
 |---|---|
 | Multi-frame geometry features, camera pose, dense depth | Official VGGT-Ω |
 | Optional video mask generation and tracking baseline/teacher | Official SAM 3.1 |
-| Query-propagation research baseline | Official VidEoMT |
+| Clip-consistent entity query assignment and mask criterion | Official VidEoMT matcher and VideoSetCriterion through an E3A adapter |
 | Entity mask prediction | E3A feature adapter plus the official SAM 3 MaskPredictor |
-| Entity-to-future-target association | E3A-owned task head and matching/loss code |
 | 3D human-object relative state | E3A geometry adapter using official VGGT-Ω outputs |
-| Future action and event-time prediction | E3A-owned anticipation head |
+| Future target/action/time prediction | E3A-owned anticipation heads, pending dataset label audit |
 | Dataset semantics, event windows, split policy | E3A-owned audited data pipeline |
 
 ## Important architectural choices
@@ -26,6 +25,7 @@ The architecture is organized around one geometry-aware video representation, no
 - E3A reuses SAM 3's official MaskPredictor query-to-mask module, not the full SAM 3 detector/tracker. Its weights are newly initialized for VGGT-Ω features; SAM 3 checkpoint transfer is not assumed.
 - E3A entity slots are clip-local slots, not permanent global object IDs. Clip-level matching is valid only after the dataset adapter supplies consistent track IDs and explicit disappearance/occlusion semantics.
 - The number of entity slots, object classes, hand joints, and action classes must be selected from dataset statistics and annotation audits, not copied from illustrative code.
+- VidEoMT's consistent matcher assigns a query at the first visible frame and reuses that assignment across the clip. It is not a full-tube matching-cost implementation. The E3A adapter preserves the upstream B*T frame-wise contract.
 
 ## VGGT-Ω feature path
 
@@ -37,10 +37,12 @@ E3ARepresentationModel currently composes:
 3. Official VGGT-Ω camera decoding and depth unprojection.
 4. Differentiable soft-mask pooling of world-space points into entity centers and covariance.
 
+The optional VidEoMTMaskCriterion consumes the representation model's mask/objectness outputs and audited per-clip track IDs/masks. It is not yet connected to a dataset-specific training config.
+
 Depth confidence is deliberately not treated as a probability; the official VGGT-Ω loss uses it as a learned positive weighting term.
 
 See docs/architecture/upstream-integration.md for pinned API details, patch contracts, coordinate conventions, and required tests.
 
 ## Current scope
 
-The repository now has a testable entity/3D representation path. It is not yet a complete/trainable action-anticipation model: dataset/event-label semantics, tube-level identity matching, hand supervision, and future target/action/time losses remain to be implemented after data auditing.
+The repository now has a testable entity/3D representation path and a contract-checked adapter to VidEoMT's clip-consistent mask matcher/criterion. It is not yet a complete/trainable action-anticipation model: dataset/event-label semantics, validated track-ID conversion, hand supervision, and future target/action/time losses remain open.
