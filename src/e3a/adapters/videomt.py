@@ -191,7 +191,7 @@ class VidEoMTMaskCriterion(nn.Module):
         num_frames: int,
         device: torch.device,
     ) -> list[dict[str, torch.Tensor]]:
-        """Unpack padded tensor targets that remain batch-aligned under upstream chunking."""
+        """Unpack padded targets while preserving per-track annotation coverage."""
         required = {"labels", "ids", "masks", "track_counts"}
         missing = required.difference(targets)
         if missing:
@@ -203,17 +203,37 @@ class VidEoMTMaskCriterion(nn.Module):
         track_ids = targets["ids"]
         masks = targets["masks"]
         track_counts = targets["track_counts"]
-        if not all(
-            torch.is_tensor(value)
-            for value in (labels, track_ids, masks, track_counts)
-        ):
+        base_values = (labels, track_ids, masks, track_counts)
+        if not all(torch.is_tensor(value) for value in base_values):
             raise TypeError("batched entity_targets values must all be torch tensors.")
+        if "mask_valid" in targets:
+            mask_valid = targets["mask_valid"]
+        elif (
+            track_ids.ndim == 3
+            and track_counts.ndim == 1
+            and track_counts.shape[0] == track_ids.shape[0]
+        ):
+            # Backward compatibility for old padded batches: real track rows
+            # are fully annotated, while collator padding is never supervision.
+            row_valid = (
+                torch.arange(track_ids.shape[1], device=track_ids.device)[None, :]
+                < track_counts.to(device=track_ids.device, dtype=torch.int64)[:, None]
+            )
+            mask_valid = row_valid[:, :, None].expand_as(track_ids)
+        else:
+            mask_valid = torch.ones_like(track_ids, dtype=torch.bool)
+        if not torch.is_tensor(mask_valid):
+            raise TypeError("batched mask_valid must be a torch tensor.")
+        values = (*base_values, mask_valid)
+
         if labels.ndim != 2:
             raise ValueError("batched labels must have shape [B,Nmax].")
         if track_ids.ndim != 3 or track_ids.shape[2] != num_frames:
             raise ValueError("batched ids must have shape [B,Nmax,T].")
         if masks.ndim != 5 or masks.shape[2] != num_frames:
             raise ValueError("batched masks must have shape [B,Nmax,T,H,W].")
+        if mask_valid.dtype != torch.bool or mask_valid.shape != track_ids.shape:
+            raise ValueError("batched mask_valid must be bool with shape [B,Nmax,T].")
         if track_counts.ndim != 1:
             raise ValueError("track_counts must have shape [B].")
         if (
@@ -232,10 +252,7 @@ class VidEoMTMaskCriterion(nn.Module):
             raise TypeError("batched ids must use an integer dtype.")
         if track_counts.dtype not in integer_dtypes:
             raise TypeError("track_counts must use an integer dtype.")
-        if any(
-            value.device != device
-            for value in (labels, track_ids, masks, track_counts)
-        ):
+        if any(value.device != device for value in values):
             raise ValueError("predictions and all batched target tensors must share one device.")
 
         max_tracks = labels.shape[1]
@@ -250,18 +267,22 @@ class VidEoMTMaskCriterion(nn.Module):
                 padded_ids = track_ids[batch_index, count:]
                 padded_masks = masks[batch_index, count:].to(torch.float32)
                 padded_labels = labels[batch_index, count:]
+                padded_mask_valid = mask_valid[batch_index, count:]
                 if padded_ids.numel() and not torch.all(padded_ids == -1):
                     raise ValueError("padded entity ID rows must be filled with -1.")
                 if padded_masks.numel() and torch.any(padded_masks != 0):
                     raise ValueError("padded entity mask rows must be all zero.")
                 if padded_labels.numel() and not torch.all(padded_labels == 0):
                     raise ValueError("padded entity label rows must be filled with 0.")
+                if padded_mask_valid.numel() and padded_mask_valid.any():
+                    raise ValueError("padded mask_valid rows must be false.")
 
             clips.append(
                 {
                     "labels": labels[batch_index, :count],
                     "ids": track_ids[batch_index, :count],
                     "masks": masks[batch_index, :count],
+                    "mask_valid": mask_valid[batch_index, :count],
                 }
             )
         return clips

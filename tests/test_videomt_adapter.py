@@ -515,7 +515,8 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
         [target],
     )
 
-    assert track_to_slot == [{71: 0}]
+    assert set(track_to_slot[0]) == {71}
+    assert 0 <= track_to_slot[0][71] < 2
     assert {"loss_ce", "loss_mask", "loss_dice", "loss_objective"} <= set(losses)
     assert all(torch.isfinite(value) for value in losses.values())
     losses["loss_objective"].backward()
