@@ -321,7 +321,7 @@ def finalize():
                 'dynamic_instance_id':'UNKNOWN'})
     e['index_validation']={'mask_indices_complete':sorted(x['frame'] for x in stats)==list(range(300)),
         'objpose_indices_complete':sorted(x['file_index'] for x in poses)==list(range(300)),
-        'annotation_timestamp':'UNKNOWN; masks and MANO have filenames only; objpose.frameId=filename+1',
+        'annotation_timestamp':'UNKNOWN; masks and MANO have filenames only; objpose.frameId uses mixed numbering and must not be substituted for filename/video index',
         'video_timestamps_equal':np.allclose(e['videos']['rgb']['timestamps_ms'],e['videos']['depth']['timestamps_ms']),
         'sensor_dropped_frames':'UNKNOWN; encoded continuity does not prove original sensor continuity'}
     e['sources']={
@@ -366,7 +366,7 @@ def finalize():
         'src/e3a/data/hoi4d_dataset.py (new)':'separate source roots, video reader, coverage and event windows',
         'src/e3a/data/hoi4d_geometry.py (new)':'licensed MANO and objpose coordinate adapters after validation',
         'src/e3a/data/collate.py':'clip-level entity_supervision_valid with criterion integration',
-        'tests/test_hoi4d_data.py':'real-release opt-in fixtures including frame220 unknown color, 1-based frameId, depth uint16',
+        'tests/test_hoi4d_data.py':'real-release opt-in fixtures including frame220 unknown color, mixed raw frameId numbering, depth uint16',
         'docs/implementation/roadmap.md':'update only verified acceptance gates',
         'docs/implementation/training.md':'record source-backed supervision availability',
         'src/e3a/data/actions.py':'no parser defect observed; build actual vocabulary from audited training split'}

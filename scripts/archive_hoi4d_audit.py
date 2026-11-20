@@ -221,20 +221,24 @@ snapshots are also excluded. Local-only files are not expected in a public clone
     print('Prepared sanitized public text and preserved all restricted evidence locally; git mv remains to run.')
 
 
-def run_tests():
+def run_tests(followup=False):
     command=[__import__('sys').executable,'-m','pytest','-q',
         'tests/test_hoi4d_data.py','tests/test_action_vocabulary.py',
         'tests/test_entity_target_collate.py','tests/test_e3a_collate.py','tests/test_hoi4d_archive.py']
+    if followup:
+        command.append('tests/test_hoi4d_identity_bridge.py')
     result=subprocess.run(command,capture_output=True,text=True)
     text=result.stdout+result.stderr
     assert not re.search(r'/(?:home|shares2|tmp)/',text), 'Test output requires path sanitization'
-    (DEST/'logs/pytest.txt').write_text(text)
-    write_json(DEST/'logs/tests.json',{'execution_timestamp_utc':datetime.now(timezone.utc).isoformat(),
+    name='followup_tests' if followup else 'tests'
+    logfile='followup_pytest.txt' if followup else 'pytest.txt'
+    (DEST/'logs'/logfile).write_text(text)
+    write_json(DEST/'logs'/f'{name}.json',{'execution_timestamp_utc':datetime.now(timezone.utc).isoformat(),
         'command':['python',*command[1:]],'exit_code':result.returncode,
         'status':'PASS' if result.returncode==0 else 'BLOCKED',
         'level':'SYNTHETIC_PARSER_COLLATION_AND_ARCHIVE_INTEGRITY; NOT REAL_DATA_PHYSICAL_VALIDATION',
         'passed':int(re.search(r'(\d+) passed',text).group(1)) if result.returncode==0 else None,
-        'real_data_reaudit':'NOT_RUN','log':'logs/pytest.txt'})
+        'real_data_reaudit':'SEPARATE_EVIDENCE_NOT_MEASURED_BY_THESE_TESTS' if followup else 'NOT_RUN','log':'logs/'+logfile})
     if result.returncode: raise SystemExit(result.returncode)
     print(text)
 
@@ -243,6 +247,8 @@ def seal(audit_commit):
     report=json.loads((DEST/'report.json').read_text())
     report['audit_commit']=audit_commit
     report['tests']['archival_rerun']=json.loads((DEST/'logs/tests.json').read_text())
+    if (DEST/'logs/followup_tests.json').exists():
+        report['tests']['identity_geometry_followup']=json.loads((DEST/'logs/followup_tests.json').read_text())
     write_json(DEST/'report.json',report)
     published=[];withheld=[]
     for p in sorted(DEST.rglob('*')):
@@ -263,6 +269,10 @@ def seal(audit_commit):
         'artifact_inventory':published,'withheld_local_inventory':withheld,
         'checksum_policy':'Artifact inventory excludes manifest.json and SHA256SUMS.txt; SHA256SUMS.txt includes manifest.json but excludes itself.',
         'sha256_checksums':{x['archive_path']:x['sha256'] for x in published}}
+    if report.get('followup'):
+        manifest['official_hoi4d_commit']=report['official_hoi4d_commit']
+        manifest['followup']=report['followup']
+        manifest['followup_source_checksums']=json.loads((DEST/'evidence/objpose_frameid_audit.json').read_text())['records']
     source_hashes={x['path']:x['sha256'] for x in manifest['source_checksums']}
     for item in manifest['file_inventory']:
         item['sha256']=source_hashes.get(item['path'])
@@ -277,7 +287,8 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action',choices=['prepare','tests','seal'])
     parser.add_argument('--audit-commit')
+    parser.add_argument('--followup',action='store_true')
     args=parser.parse_args()
     if args.action=='prepare':prepare()
-    elif args.action=='tests':run_tests()
+    elif args.action=='tests':run_tests(args.followup)
     else:seal(args.audit_commit)

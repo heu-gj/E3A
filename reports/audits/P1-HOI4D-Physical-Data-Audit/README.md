@@ -3,6 +3,13 @@
 Final status: **PARTIAL**. Start with [report.md](report.md), [report.json](report.json)
 and [manifest.json](manifest.json). Shared policy: [REVIEW_PROTOCOL.md](../../../docs/data_audit/REVIEW_PROTOCOL.md).
 
+Identity & Geometry follow-up retracts the original constant-frameId-offset claim.
+See report section14 and evidence/{objpose_frameid_audit,identity_mapping,
+dynamic_4d_pipeline_audit,frame220_palette_audit,multi_object_target_audit}.json
+plus objpose_frameid_audit.csv. The follow-up reread actual source files and used
+HOI4D_Script commit `788b43552176c77c01c3e98dd5f101fd6a94ee7a`.
+Original28 tests/logs remain; follow-up regression/helper checks have separate logs.
+
 Published evidence is metadata/statistics only. All dataset paths are relative to
 the dataset root; repository and archive references have separate namespaces.
 Original videos, masks, depth arrays, full annotation copies, checkpoints, secrets
@@ -13,7 +20,8 @@ See [visualization policy](visualizations/README.md).
 The archive does not claim verified physical coordinates, persistent entity IDs,
 contact labels, action targets or recovered MANO joints. Every PASS is scoped to
 the evidence named in report.json. Parser/collation tests are synthetic; actual
-dataset observations are recorded separately. Archival is not a rerun of the data audit.
+dataset observations are recorded separately. Initial archival was not a rerun;
+the subsequent follow-up is a new real-data audit, explicitly described in section14.
 
 `base_commit` is the original audited source. `audit_commit` pins the payload
 commit. `manifest.current_commit` is the HEAD observed when sealing metadata;

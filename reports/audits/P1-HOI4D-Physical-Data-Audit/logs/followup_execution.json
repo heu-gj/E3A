@@ -1,0 +1,31 @@
+{
+  "timestamp_utc": "2026-11-20T18:30:55.122368+00:00",
+  "source_script": "scripts/audit_hoi4d_identity_bridge.py",
+  "official_commit": "788b43552176c77c01c3e98dd5f101fd6a94ee7a",
+  "actual_operations": {
+    "C20_original_objpose_jsons_reread": 300,
+    "C20_masks_geometry_checked": 300,
+    "C20_rgb_decoded_frames": 300,
+    "C20_log_matrices_read": 300,
+    "official_selector_frame220": "EXECUTED",
+    "C13_masks_inspected": 300,
+    "C13_objpose_files_read": 300,
+    "static_depth_reprojection_samples": 5,
+    "official_4D_label_generation": "NOT_RUN",
+    "production_decoder_changed": false,
+    "model_heads_losses_trainer_changed": false,
+    "C13_rgb_decoded_frames": 300,
+    "C13_depth_decoded_frames": 300
+  },
+  "real_data_validation": "Recorded separately from helper and parser tests; coordinate/unit/target caveats retained",
+  "new_visualizations": "5 local-only images, not published",
+  "github_pr": {
+    "number": 1,
+    "head": "audit/p1-hoi4d-physical-data",
+    "base": "feat/e3a-foundation",
+    "state_at_read": "open",
+    "merged_at_read": false,
+    "description_payload": "logs/pr_description.md",
+    "description_update_status": "BLOCKED: API authentication unavailable; prepared payload preserved"
+  }
+}

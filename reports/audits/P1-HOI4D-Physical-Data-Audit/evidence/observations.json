@@ -812,7 +812,9 @@
     "units": "UNKNOWN",
     "transform_direction": "UNKNOWN",
     "representation": "Euler XYZ, radians per official SciPy reader; not quaternion or supplied 4x4",
-    "physical_gt_status": "NEEDS_REVIEW"
+    "physical_gt_status": "NEEDS_REVIEW",
+    "frameId_semantics": "UNKNOWN; see objpose_frameid_audit.json",
+    "fixed_frameId_offset_supported": false
   },
   "mano": {
     "right": {
@@ -2764,17 +2766,17 @@
   "index_validation": {
     "mask_indices_complete": true,
     "objpose_indices_complete": true,
-    "annotation_timestamp": "UNKNOWN; masks and MANO have filenames only; objpose.frameId=filename+1",
+    "annotation_timestamp": "UNKNOWN; raw frameId mixed numbering, not a video index",
     "video_timestamps_equal": true,
     "sensor_dropped_frames": "UNKNOWN; encoded continuity does not prove original sensor continuity"
   },
   "sources": {
     "instructions": "https://github.com/leolyliu/HOI4D-Instructions",
-    "decode": "https://github.com/hoi4d/HOI4D_Script/blob/main/utils/decode.py",
-    "palette": "https://github.com/hoi4d/HOI4D_Script/blob/main/utils/color_map.py",
-    "parts": "https://github.com/hoi4d/HOI4D_Script/blob/main/definitions/motion%20segmentation/label.csv",
-    "instance_map": "https://github.com/hoi4d/HOI4D_Script/blob/main/prepare_4Dseg/utils.py",
-    "dynamic_conversion": "https://github.com/hoi4d/HOI4D_Script/blob/main/prepare_4Dseg/scene2frame.py",
+    "decode": "https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/utils/decode.py",
+    "palette": "https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/utils/color_map.py",
+    "parts": "https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/definitions/motion%20segmentation/label.csv",
+    "instance_map": "https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/prepare_4Dseg/utils.py",
+    "dynamic_conversion": "https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/prepare_4Dseg/scene2frame.py",
     "mano_layer": "https://github.com/hassony2/manopth/blob/master/manopth/manolayer.py",
     "mano_license": "https://mano.is.tue.mpg.de/"
   },
@@ -2894,5 +2896,7 @@
       "semantic": "UNKNOWN",
       "instance": "UNKNOWN"
     }
-  ]
+  ],
+  "official_hoi4d_commit": "788b43552176c77c01c3e98dd5f101fd6a94ee7a",
+  "followup_timestamp_utc": "2026-11-20T18:25:57.493224+00:00"
 }

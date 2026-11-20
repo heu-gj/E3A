@@ -2,6 +2,8 @@
 
 审计日期：2026-11-21。最终状态：**PARTIAL**。已完成本地单序列审计，完整训练监督链路仍有阻塞。
 
+Identity & Geometry follow-up 已重读原始数据，撤回首轮 frameId 固定偏移结论。以下正文已更正；新增证据和范围见第14节。模型、Heads、Loss、Trainer 和正式 decoder 未修改。
+
 ## 1. 范围、环境与证据
 
 初始 `git status --short --branch`：工作区干净，分支 `feat/e3a-foundation`，HEAD `9f96d5813655e0fb9ceebad107b2ff2d1d2d5d07`。未修改原始数据、模型、正式 adapter 或训练配置；未解压归档、安装依赖或执行 GPU 训练。
@@ -74,7 +76,7 @@ Clip contract：labels `[N]` 为前景0，ids `[N,T]` 是稳定 clip-local ID，
 
 五张六联图：0（本地保留、未公开：visualizations/local_only/frame_00000_audit.jpg）、75（本地保留、未公开：visualizations/local_only/frame_00075_audit.jpg）、150（本地保留、未公开：visualizations/local_only/frame_00150_audit.jpg）、224（本地保留、未公开：visualizations/local_only/frame_00224_audit.jpg）、299（本地保留、未公开：visualizations/local_only/frame_00299_audit.jpg）。每个时间位置另有 RGB、Motion、provisional instance、overlay PNG 及 `depth_raw.npy`。
 
-官方 [decode.py](https://github.com/hoi4d/HOI4D_Script/blob/main/utils/decode.py) 指定15 FPS、从0编号；与此处视频一致。这支持编码帧序号对应，但 mask/MANO 没有独立时间字段，不能仅凭同名给出严格同步 PASS。
+官方 [decode.py](https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/utils/decode.py) 指定15 FPS、从0编号；与此处视频一致。这支持编码帧序号对应，但 mask/MANO 没有独立时间字段，不能仅凭同名给出严格同步 PASS。
 
 空间检查：椅子在 RGB、Depth 和 mask 的位置/轮廓整体对应。`frame_*_depth_edges.jpg` 以青色显示深度跳变、洋红色显示椅子 mask 边界。JSON `physical_diagnostics` 提供零偏移和 ±16px 网格平移的边缘距离；该度量受无效深度、遮挡和稀疏边缘影响，**不是标定结果**，不能宣布像素级零偏移。未估计或写入坐标变换。
 
@@ -84,13 +86,13 @@ Depth 原始值的非零分位数和零值比例逐样本见 JSON。首帧范围
 
 逐帧真实 PNG 以 Pillow 转为 RGB 后调用现有 `decode_hoi4d_motion_mask()`。完整色彩、semantic、每个 provisional 实例的像素面积、bbox 和失败记录见 [mask_statistics.json](evidence/mask_statistics.json)。正确色彩顺序可由 `[128,0,0]` 椅子色与 overlay 复核。
 
-官方 [label.csv](https://github.com/hoi4d/HOI4D_Script/blob/main/definitions/motion%20segmentation/label.csv) 的 C20 是 Chair / Right Hand / Left Hand；现有 semantic map 是2 /47 /47，实例1 /2 /3。真实后段出现 `[0,0,128]`（palette index4）：属于全局官方 palette，却超出 C20 官方表和代码映射。**unknown 的是类别语义/物理实体，不是调色板算法。** 精确失败帧和像素总数在 JSON `mask.raw_decoder_failed_frames/unknown_pixels`。
+官方 [label.csv](https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/definitions/motion%20segmentation/label.csv) 的 C20 是 Chair / Right Hand / Left Hand；现有 semantic map 是2 /47 /47，实例1 /2 /3。真实后段出现 `[0,0,128]`（palette index4）：属于全局官方 palette，却超出 C20 官方表和代码映射。**unknown 的是类别语义/物理实体，不是调色板算法。** 精确失败帧和像素总数在 JSON `mask.raw_decoder_failed_frames/unknown_pixels`。
 
 保留 fail-closed 结果。诊断程序仅为展示已知区域，将未知像素在临时副本中置背景以调用原 decoder，再将这些区域恢复为 semantic/instance `-1`；实例图用黄色标出 UNKNOWN。此图不是新增 GT。正式 Dataset 未使用该回退，未扩充代码中的类别映射。
 
 实际异常仅 **frame220 / `2Dseg/mask/00220.png` 的37像素**，299帧直接解码通过；不能把一个局部异常夸大为全部mask损坏。该异常需隔离或确认语义后处理。异常全图（本地保留、未公开：visualizations/local_only/unknown_frame_00220.png） 与 局部放大（本地保留、未公开：visualizations/local_only/unknown_frame_00220_crop.png） 标黄显示未知区域。源PNG均为P模式，先显式转RGB；不是将索引数组直接交给decoder。
 
-官方 [4D mapping](https://github.com/hoi4d/HOI4D_Script/blob/main/prepare_4Dseg/utils.py) 只定义类别局部编号。[scene2frame.py](https://github.com/hoi4d/HOI4D_Script/blob/main/prepare_4Dseg/scene2frame.py) 对动态前景 ID 加上静态场景的最大实例 ID。因此 decoder 的1/2/3 **不必等于最终4D输出的ID**。必须验证 offset 和源文件，而不是比较数字相等。
+官方 [4D mapping](https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/prepare_4Dseg/utils.py) 只定义类别局部编号。[scene2frame.py](https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/prepare_4Dseg/scene2frame.py) 对动态前景 ID 加上静态场景的最大实例 ID。因此 decoder 的1/2/3 **不必等于最终4D输出的ID**。必须验证 offset 和源文件，而不是比较数字相等。
 
 本条 `3Dseg/label.pcd` 的实际字段为 `x y z rgb label ID`，是静态点云；字段集合、静态 ID 范围见 JSON `static_pcd`。未找到选中序列的逐帧动态4D文件。源目录 N30、objpose.id=1、provisional instance1、static PCD ID 是四个不同命名空间，尚无验证的 join 表。
 
@@ -100,7 +102,7 @@ Depth 原始值的非零分位数和零值比例逐样本见 JSON。首帧范围
 
 真实 `objpose/0.json` root：`frameId,filePath,isEffective,dataList`；对象字段 `id,label,2dBox,center,dimensions,rotation,properties`。首项 `id=1,label=chair`；center `(-0.05367000165,0.16870085862,1.05134063188)`；rotation `(2.65051698685,-0.06126411259,-1.57726144791)`；dimensions `length=.37789615979,width=.35440362967,height=.51267838268`。`properties={}`。公开逐帧索引及数值诊断见 [objpose_statistics.json](evidence/objpose_statistics.json)。
 
-全部 filename `0..299`；实际 `frameId=filename+1`，这是验证到的偏移规律，不能把 frameId 直接当0起始视频索引。`filePath` 是发布前内部PCD路径，不是本地可读取文件；文件没有显式采集时间戳。`isEffective` 不等于手或实例可见性。
+全部 filename `0..299`；首轮关于固定偏移的结论错误，现已撤回。原始300份JSON中269份的frameId等于文件索引；另31份（0、10、…、290、299）含非空filePath，其frameId依次为1至31。字段可能混用了关键帧序号和插值文件索引，但官方文档未定义该语义，必须保留 **UNKNOWN**。`filePath` 是发布前内部PCD路径，不是本地可读取路径；没有显式采集时间戳。`isEffective=1` 的300条记录也不能证明可见性或时间对齐。详见 [原始字段复核](evidence/objpose_frameid_audit.json)。
 
 300次Euler重建的最大 `||RᵀR-I||=1.92556890852693e-15`，det范围 `[0.9999999999999988,1.0000000000000016]`。静态label.pcd实际300,179点，静态ID为0、1、2；与前景局部ID数字重合不能视为物理身份相同。
 
@@ -145,10 +147,12 @@ Right 234帧，Left 233帧；并非300帧都有手姿，缺帧完整列表在 JS
 | Frame | RGB / Depth | Motion | Instance ID | Object Pose | MANO | Action at i/15 |
 |---|---|---|---|---|---|---|
 | 0 | 两视频frame0 | 00000.png | 椅子provisional1；动态UNKNOWN | 0.json / frameId1 | 双手缺失 | rest |
-| 75 | frame75 | 00075.png | 已知色按1/2/3；动态UNKNOWN | 75.json / frameId76 | Right/Left 75.pickle均存在 | Carrywithbothhands |
-| 150 | frame150 | 00150.png | 同上 | 150.json / frameId151 | Right/Left 150.pickle均存在 | Stop |
-| 224 | frame224 | 00224.png | 同上；本帧无未知色 | 224.json / frameId225 | Right/Left 224.pickle均存在 | carry |
-| 299 | frame299 | 00299.png | 动态UNKNOWN | 299.json / frameId300 | 双手缺失 | rest |
+| 75 | frame75（候选关联） | 00075.png | 已知色按1/2/3；动态UNKNOWN | 75.json / raw frameId75 | Right/Left 75.pickle均存在 | Carrywithbothhands |
+| 150 | frame150（候选关联） | 00150.png | 同上 | 150.json / raw frameId16 | Right/Left 150.pickle均存在 | Stop |
+| 224 | frame224（候选关联） | 00224.png | 同上；本帧无未知色 | 224.json / raw frameId224 | Right/Left 224.pickle均存在 | carry |
+| 299 | frame299（候选关联） | 00299.png | 动态UNKNOWN | 299.json / raw frameId31 | 双手缺失 | rest |
+
+表中同号文件与视频的关联仅为待验证候选；CSV新增独立的文件索引、raw frameId、候选解码索引/实测PTS、UNKNOWN的已验证姿态视频索引及标注时间戳。它们不是严格同步GT。
 
 | Loss | 状态 | 允许使用的证据与门槛 |
 |---|---|---|
@@ -170,7 +174,7 @@ Hand → Entity 有2D图像层面的部分对应；3D坐标和接触未验证。
 3. 新增 MANO/objpose adapter（可置 `src/e3a/data/hoi4d_geometry.py`）：锁定合法模型版本、坐标/单位、canonical joint order；在源投影对比通过前不对外启用3D GT。
 4. `src/e3a/data/collate.py` 及相关criterion adapter：增加clip级entity监督有效标志，确保无标注/全遮挡窗口不被训练成全负类。
 5. `src/e3a/data/actions.py`：基础词表逻辑无此序列发现的解析缺陷；需要实际train split生成可追溯类别词表与split manifest，不需更改未来严格大于定义。
-6. `tests/test_hoi4d_data.py`：增加受环境变量控制的真实数据集成检查、未知色负例、1-based frameId、真实微小重叠边界、Depth uint16保真、手缺帧；不能用synthetic测试替代这些门槛。
+6. `tests/test_hoi4d_data.py`：增加受环境变量控制的真实数据集成检查、未知色负例、混合frameId编号、真实微小重叠边界、Depth uint16保真、手缺帧；不能用synthetic测试替代这些门槛。
 7. `docs/implementation/{roadmap,training}.md`：在后续核验完成时逐项更新，当前P1实体/坐标验收不能打勾。
 
 ## 12. 剩余阻塞与复现
@@ -208,3 +212,90 @@ PYTHONPATH=src python -m pytest -q tests/test_hoi4d_data.py tests/test_action_vo
 | 完整Hand→Entity→Action链路 | BLOCKED | 缺目标、接触与3D对应证据 |
 
 测试结果单独记录在logs；合成测试不用于提升真实数据结论等级。源数据重审未在归档阶段重复执行。归档阶段仅整理先前结果并重新运行已有解析/colllation测试及归档完整性检查。详见README与manifest。
+
+## 14. Identity & Geometry Bridge Follow-up
+
+本节是归档之后的新一次真实数据复核，不与首轮合成测试或归档过程混淆。所有官方HOI4D结论固定到 **788b43552176c77c01c3e98dd5f101fd6a94ee7a**。[官方README](https://github.com/hoi4d/HOI4D_Script/blob/788b43552176c77c01c3e98dd5f101fd6a94ee7a/README.md)、任务/类别CSV及四份生成脚本的URL与逐文件SHA256保存在 [dynamic_4d_pipeline_audit.json](evidence/dynamic_4d_pipeline_audit.json)。未以main作为唯一依据。
+
+### 14.1 frameId 与索引纠错
+
+[JSON](evidence/objpose_frameid_audit.json) / [CSV](evidence/objpose_frameid_audit.csv) 记录重新读取的全部300份源文件SHA256、filename index、raw frameId、isEffective、dataList数量/字段及object id/label。filePath公开其内部路径的basename与完整字段SHA256，剔除其中的人名等内部目录信息；原始JSON保留在数据集原位，未修改。31份非空filePath的PCD basename数字都等于文件索引，但这仅是内部索引证据，不是视频同步证明。
+
+| 文件索引 | raw frameId | filePath basename |
+|---:|---:|---|
+| 0 | 1 | 0.pcd |
+| 1 | 1 | 空 |
+| 9 | 9 | 空 |
+| 10 | 2 | 10.pcd |
+| 11 | 11 | 空 |
+| 19 | 19 | 空 |
+| 20 | 3 | 20.pcd |
+| 21 | 21 | 空 |
+| 149 | 149 | 空 |
+| 150 | 16 | 150.pcd |
+| 151 | 151 | 空 |
+| 299 | 31 | 299.pcd |
+
+**PASS仅限异常识别和原始字段测量**；frameId的实际业务含义 **UNKNOWN / NEEDS_REVIEW**。269份空filePath记录的frameId等于索引，31份非空记录依次编号，更像关键帧与插值输出混合，但只是推断。文件索引与视频帧的同号关联获得下节几何支持，仍为PARTIAL，不能声称每帧或采集时间戳已验证。
+
+### 14.2 N30 → Chair mask → objpose → dynamic ID → slot
+
+[identity_mapping.json](evidence/identity_mapping.json) 中，300份objpose均仅有 `id=1,label=chair`；C20/N30目录和非空filePath中的椅子30名称支持N30为本序列主要椅子实例。它不是最终E3A slot编号，也没有以数字相同进行join。
+
+只有31帧有实际非空2dBox；与同号Chair mask的bbox IoU范围 **0.4999–0.6562**、中位数 **0.6054**。其余269帧没有2dBox，不能报告为“300帧box匹配成功”。将center作为camera坐标、使用实际intrin.npy投影的候选检验在300/300帧落入Chair mask；这支持粗粒度物体关联，却不能单独证明坐标约定、精确时序、物理单位和CAD身份。结果 **PARTIAL**。
+
+静态PCD实例集合为 `{0,1,2}`。官方前景规则 `max(static IDs)+local foreground ID` 因此条件性给出 Chair=3、Right=4、Left=5。**规则计算PASS，生成实例身份NOT_RUN**，不能把这些预测编号冒充已经产生的标签。E3A slot需要观测clip中matcher assignment，本阶段未运行，保持NOT_RUN。
+
+### 14.3 官方动态4D链路与相机方向
+
+`3Dseg/output.log`实测1500行、300组三整数header+4×4矩阵，header为 `[i,i,i+1]`。旋转最大正交误差约 `2.29e-8`。Open3D **0.19.0** 读出300组extrinsic，逐元素与 `inverse(raw log matrix)` 的最大差为 `3.33e-16`；直接与raw比较最大差约1.423。
+
+[Open3D LOG实现](https://github.com/isl-org/Open3D/blob/v0.19.0/cpp/open3d/io/file_format/FileLOG.cpp) 在读取时求逆，[点云factory实现](https://github.com/isl-org/Open3D/blob/v0.19.0/cpp/open3d/geometry/PointCloudFactory.cpp) 又将extrinsic求逆后把camera点变到scene。因此在该工具链约定下，**raw log是camera→scene，解析出的extrinsic是scene→camera**。此结论有源码和本地API测量支持（PASS：约定与数值），不等于所有数据的标定已通过。
+
+另对5帧做真实静态PCD到Depth的投影诊断，未生成任何4D labels：每5点采样、zbuffer、排除前景与零深度，使用实际intrin.npy。假设深度比例1000时，官方方向在0/75/150/224/299帧的绝对误差中位数为 **24.20 / 6.21 / 4.59 / 12.75 / 8.38 原始depth单位**；错误地直接使用raw矩阵为 **24.20 / 280.66 / 382.77 / 73.40 / 88.56**。首帧identity无方向区分力。数据支持官方方向，几何整体仍 **PARTIAL**：稀疏投影、遮挡、帧关联和物理单位未完全标定；比例1000尚非数据单位认证。
+
+生成链路的具体缺口：
+
+- 实际有 `label.pcd`（字段x/y/z/rgb/label/ID），没有 `label.txt`；不能直接重命名或跳过header当成等价输入。
+- 有 `2Dseg/mask`，没有 `refine_2Dseg`；palette可供选择器读取不等于精修标注质量/来源一致。
+- 固定commit的README和生成器自身使用不同输入名，证明不能仅以“main版本漂移”解释。发布revision差异(B)和其他标注包(D)仍UNKNOWN；需要格式转换、解码等预处理(C)，但官方所需转换与精修来源未获确认。
+- wrapper对 `data_dir` 的迭代与join类型/目录查找不一致；读取mask路径和refine检查不一致；视频需要先解码，而生成器读取无padding的i.jpg/i.png，decode.py写入5位padding。
+- `plyfile`缺失，未安装。默认入口300帧/24进程并捕获隐藏异常，未运行；1–5帧官方最小生成也因前提不满足而 **NOT_RUN / BLOCKED**。
+- LOG reader提供的默认内参为525/640×480，官方生成器改用Kinect2固定参数，又不同于实际intrin.npy（例如cy=545.9533 vs523.2619）；不能把默认或硬编码内参当作已标定参数。
+
+### 14.4 frame220 官方与E3A行为
+
+[frame220_palette_audit.json](evidence/frame220_palette_audit.json)：在真实00220.png上执行固定commit的pixel2category.f，验证 `[0,0,128]` 是palette index4、37像素，超出C20三个前景标签后被官方 `continue` 跳过。官方scene2frame也因所有非黑像素从background剔除而不会把这些像素生成为background点。现有E3A decoder则ValueError，行为仍未改变。
+
+技术建议：保留全部已知区域，将未知像素设 `ignore_index=-1` 并传递pixel validity。不能仅把未知像素清零后当成负背景训练，也不能只有track级mask_valid而忽略逐像素排除。建议的诊断实现和测试放在审计脚本；没有修改正式decoder或Loss。
+
+### 14.5 C13/T4 多物体目标
+
+[multi_object_target_audit.json](evidence/multi_object_target_audit.json)：本地有56条C13/T4候选，按所需模态完整性、min(mask,objpose,right)、总文件数和字典序排序，选 **ZY20210800001/H1/C13/N12/S179/s03/T4**。有300 mask、300 objpose、254 Right MANO、RGB/Depth视频及16个Action事件，无Left MANO。无需回退到C7。
+
+该序列RGB与Depth也已各顺序解码300帧，实际15FPS、1920×1080；Depth读取为单通道uint16。实测PTS和首帧dtype/shape在JSON的videos中，cut图像的时间对应基于这份实测编码流，而不是假定沿用C20元数据。
+
+官方映射 palette1=Knife（semantic31、local instance1），2=Right Hand（47、2），3=Apple（46、3）。Apple独立区域在 **300/300帧** 可见。全部objpose却仅有 **id=2,label=knife**，不是mask1，也没有Apple pose。数字2在此处甚至与mask中手的编号相同，进一步证明不能按数字join。
+
+真实cut事件区间 **[14.998,16.716]秒**；本地抽样225、250帧可见手持所标注的刀朝Apple区域执行切割，其他刀具在背景中。源事件properties均空、无实体字段。任务和图像支持cut阶段Knife为工具、Apple为受作用实体；Grasp/Pickup等阶段又可能针对Knife，故 **N12不能自动成为所有未来事件的目标**。
+
+Apple是独立2D实体（PASS：类别定义和像素统计），持久物理身份仅PARTIAL，没有独立4D生成/碎片身份说明；与每个Action的target relation未标注。Apple可作为人工复核候选，**不能输出有效Target Entity GT**。`target_entity_valid=False, track_id=-1`。所有衍生图片仅本地保留，不公开。
+
+### 14.6 监督门槛与证据等级
+
+| 项目 | 状态 | 证据等级 |
+|---|---|---|
+| 原始frameId异常及非固定偏移 | PASS | 300原JSON重读及SHA256 |
+| frameId业务语义/采集时间戳 | NEEDS_REVIEW | 仅模式推断，保持UNKNOWN |
+| Chair pose/mask对应 | PARTIAL | 31实际box、300投影候选；非精确同步认证 |
+| LOG解析与逆矩阵约定 | PASS | 固定Open3D源码、本地300组API读值 |
+| 相机物理几何 | PARTIAL | 5帧真实静态投影诊断，无单位认证 |
+| 官方4D前景offset规则 | PASS | 固定代码与实际静态ID；生成结果NOT_RUN |
+| 完整官方4D生成 | BLOCKED / NOT_RUN | 输入/预处理/依赖缺失，未偷偷替换 |
+| frame220官方skip行为 | PASS | 固定选择器在真实mask执行 |
+| Apple独立mask | PASS | 官方类别表+300帧像素统计 |
+| Apple事件目标GT | BLOCKED | 无明确事件→实体关系与matcher映射 |
+
+必须保持invalid：未知像素的监督；无来源映射的未来Target；无接触真值的Interaction；未恢复校验的MANO Hand；未经物理单位/坐标验证的objpose 3D GT；遮挡/出画/缺标伪负例及未验证的动态实例/slot映射。Action/Time解析可保留现有有效性规则，但不能据此启用Target监督。
+
+复现补审：先在独立目录检出上述官方commit，再运行 `python scripts/audit_hoi4d_identity_bridge.py --root "$HOI4D_ROOT" --official-root <pinned-checkout>`；投影诊断追加 `--camera-only`。运行前设置真实本地HOI4D_ROOT。代码仅写归档，图片进入local_only，不写数据集。测试命令为 `python scripts/archive_hoi4d_audit.py tests --followup`；原28项保留，新增9项索引/ignore/offset/多物体映射/target门控回归。新增合成测试与发布证据回归不是额外物理认证。

@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "evidence_level": "PINNED_OFFICIAL_SELECTOR_EXECUTED_ON_REAL_MASK",
+  "source_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00220.png",
+  "sha256": "fbc54e7ce5bfaf9f68759b944f29b0ad06213d0af08841614ef00eb8a2ee6649",
+  "colors": [
+    {
+      "rgb": [
+        0,
+        0,
+        0
+      ],
+      "palette_index": 0,
+      "pixels": 1607947,
+      "official_behavior": "background"
+    },
+    {
+      "rgb": [
+        0,
+        0,
+        128
+      ],
+      "palette_index": 4,
+      "pixels": 37,
+      "official_behavior": "skip: outside C20 mapping"
+    },
+    {
+      "rgb": [
+        0,
+        128,
+        0
+      ],
+      "palette_index": 2,
+      "pixels": 60502,
+      "official_behavior": "foreground mapping"
+    },
+    {
+      "rgb": [
+        128,
+        0,
+        0
+      ],
+      "palette_index": 1,
+      "pixels": 337883,
+      "official_behavior": "foreground mapping"
+    },
+    {
+      "rgb": [
+        128,
+        128,
+        0
+      ],
+      "palette_index": 3,
+      "pixels": 67231,
+      "official_behavior": "foreground mapping"
+    }
+  ],
+  "official_commit": "788b43552176c77c01c3e98dd5f101fd6a94ee7a",
+  "official_semantics": [
+    2,
+    47,
+    47
+  ],
+  "official_instances": [
+    1,
+    2,
+    3
+  ],
+  "official_ignored_foreground_pixels": 37,
+  "official_background_behavior": "scene2frame excludes all nonblack mask pixels from background even if pixel2category skips their class",
+  "e3a_behavior": "ValueError (fail closed)",
+  "e3a_error": "HOI4D mask contains colors not defined by the official category palette for C20: [[0, 0, 128]]",
+  "ignore_index_proposal": -1,
+  "proposal_ignored_pixels": 37,
+  "production_decoder_changed": false,
+  "recommendation": "Keep known masks; ignore unknown pixels in class/mask losses with pixel-level validity. Do not convert unknown to negative background. Current adapter lacks this pixel-level validity contract."
+}
