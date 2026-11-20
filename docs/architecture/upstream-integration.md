@@ -23,9 +23,9 @@ Verified files:
 5. CameraHead attends over the prefix tokens passed through patch_token_start, then reads the first camera token.
 6. Official camera decoding is provided by encoding_to_camera(pose_enc, image_size).
 
-### Minimal patch plan (not yet applied)
+### Minimal patch implementation (under CI validation)
 
-When adding E3A Entity/Hand/Future tokens:
+The implementation is stored in patches/vggt-omega/0001-extra-tokens-and-dense-features.patch and is applied by scripts/apply_patches.sh. It makes the following changes:
 
 - Add an optional extra_tokens: [B,T,N_extra,D] argument to Aggregator.forward. Keep the default None path numerically and structurally identical to upstream.
 - Preserve the original camera/register prefix length separately from the expanded prefix length. Pass the expanded prefix length to DenseHead so patch tokens are sliced correctly.

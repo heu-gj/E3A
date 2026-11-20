@@ -26,10 +26,10 @@ Acceptance: a deterministic dataset sample can be traced back to original annota
 
 ## P2 — VGGT-Ω feature integration
 
-- [ ] Add the minimal optional extra-token path to the pinned Aggregator.
-- [ ] Preserve the original camera/register prefix for CameraHead.
-- [ ] Add opt-in DenseHead fused-feature return while preserving default outputs.
-- [ ] Add E3A token bank and verify token/feature shapes.
+- [x] Add the minimal optional extra-token path to the pinned Aggregator (patch committed; CI validation pending).
+- [x] Preserve the original camera/register prefix for CameraHead in the E3A feature adapter.
+- [x] Add opt-in DenseHead fused-feature return while preserving default outputs (patch committed; CI validation pending).
+- [x] Add E3A token bank and unit shape/gradient tests.
 - [ ] Run no-extra-token parity and checkpoint compatibility tests.
 
 Acceptance: pretrained geometry outputs remain unchanged when E3A tokens are absent; E3A tokens receive gradients when enabled.

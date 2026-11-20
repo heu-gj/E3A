@@ -204,7 +204,7 @@ class VGGTOmegaAdapter(nn.Module):
                 predictions.update(
                     self.model.text_alignment_head(
                         aggregated_tokens_list,
-                        patch_token_start=expanded_prefix,
+                        patch_token_start=original_prefix,
                     )
                 )
 
