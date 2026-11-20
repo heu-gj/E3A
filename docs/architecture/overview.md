@@ -81,7 +81,7 @@ E3AMultiTaskLoss combines:
 
 Every task uses an explicit validity mask. Missing annotations are ignored, not converted into negative labels. The loss returns one loss_objective for VGGT-Ω's existing Trainer, so there is one optimizer and one joint backward pass.
 
-collate_e3a_batch pads variable entity tracks while keeping all targets batch-first for the upstream gradient-accumulation chunker.
+collate_e3a_batch pads variable entity tracks and per-track mask-annotation validity while keeping all targets batch-first for the upstream gradient-accumulation chunker.
 
 ## Dataset responsibilities
 

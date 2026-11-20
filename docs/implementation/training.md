@@ -24,27 +24,28 @@ Use e3a.data.collate.collate_e3a_batch to collate per-sample dictionaries. Every
 
 - images: [T,3,H,W] RGB float tensor
 - timestamps: [T] seconds, monotonically non-decreasing
-- entity_targets: labels [N], ids [N,T], masks [N,T,H,W]
+- entity_targets: labels [N], ids [N,T], masks [N,T,H,W], optional mask_valid [N,T]
 - optional hand_targets: keypoints_camera [T,2,21,3], valid [T,2,21], optional visibility and visibility_valid
 - optional interaction_targets: contact [T,2,N], valid [T,2,N]
 - optional anticipation_targets: target_entity_track_id, target_entity_valid, action_label, action_valid, time_to_event, time_valid
 
 The collator returns batch-first tensors:
 - images [B,T,3,H,W], timestamps [B,T]
-- entity_targets labels [B,Nmax], ids [B,Nmax,T], masks [B,Nmax,T,H,W], track_counts [B]
+- entity_targets labels [B,Nmax], ids [B,Nmax,T], masks [B,Nmax,T,H,W], mask_valid [B,Nmax,T], track_counts [B]
 - hand_targets keypoints_camera [B,T,2,21,3], valid [B,T,2,21]
 - interaction_targets contact/valid [B,T,2,Nmax]
 - anticipation_targets one scalar per clip
 
-Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Hand joint order is wrist, thumb, index, middle, ring, pinky, four joints per finger. All 3D hand labels must be transformed to the per-frame camera coordinate frame before collation.
+Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The VidEoMT adapter filters only invalid matched mask pairs from the upstream point-sampled mask loss while retaining clip-consistent matching and class supervision. Hand joint order is wrist, thumb, index, middle, ring, pinky, four joints per finger. All 3D hand labels must be transformed to the per-frame camera coordinate frame before collation.
 
 ## Entity matching contract
 
 The entity target contract remains:
 
 - labels [N]: int64, zero for the single foreground class "entity"
-- ids [N,T]: int64, stable non-negative clip-local track ID while visible, -1 for frames without a visible annotation
+- ids [N,T]: int64, stable non-negative clip-local track ID while visible, -1 for frames without a visible object
 - masks [N,T,H,W]: binary/soft masks, zero wherever ids == -1
+- mask_valid [N,T]: bool, true when the frame/track mask annotation is covered; false for unannotated frames. A valid frame with ID -1 is an explicitly annotated absence; an invalid frame is ignored by mask loss
 - each GT track row has one stable ID throughout the clip and a non-empty mask on visible frames
 
 VidEoMT's consistent matcher assigns each GT track to one query slot across the clip. That assignment is used for both mask loss and downstream target/interaction losses. The current target-entity head only supervises a target that is visible and matched in the observed prefix. An absent/unseen future target must be marked invalid until an explicit unseen-target class is designed and audited.

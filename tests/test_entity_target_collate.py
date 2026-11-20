@@ -33,6 +33,10 @@ def test_collator_pads_variable_track_counts_for_batch_first_chunking():
     assert torch.all(batch["ids"][2, 1] == -1)
     assert torch.count_nonzero(batch["masks"][2, 1]) == 0
     assert batch["masks"].dtype == torch.float32
+    assert batch["mask_valid"].shape == (3, 2, 2)
+    assert batch["mask_valid"][0].all()
+    assert not batch["mask_valid"][1].any()
+    assert not batch["mask_valid"][2, 1].any()
 
 
 def test_collator_rejects_mismatched_frame_counts():
@@ -58,3 +62,16 @@ def test_collator_rejects_mismatched_padded_mask_sizes():
 def test_collator_rejects_empty_input():
     with pytest.raises(ValueError, match="non-empty sequence"):
         collate_entity_targets([])
+
+
+
+def test_collator_preserves_per_track_annotation_coverage():
+    target = make_clip_target(1)
+    target["ids"][0, 1] = -1
+    target["masks"][0, 1].zero_()
+    target["mask_valid"] = torch.tensor([[True, False]])
+
+    batch = collate_entity_targets([target])
+
+    assert batch["mask_valid"].tolist() == [[[True, False]]]
+    assert batch["ids"].tolist() == [[[100, -1]]]

@@ -479,7 +479,10 @@ class VidEoMTMaskCriterion(nn.Module):
         upstream_outputs = {"pred_logits": flat_logits, "pred_masks": flat_masks}
 
         indices = None
-        if any_visible:
+        all_masks_annotated = all(
+            bool(target["mask_valid"].all().item()) for target in flattened_targets
+        )
+        if any_visible and all_masks_annotated:
             if return_matches:
                 criterion_forward = self.criterion.forward
                 supports_match_return = (
@@ -502,21 +505,69 @@ class VidEoMTMaskCriterion(nn.Module):
             matcher = self.matcher
             if matcher is None or not hasattr(self.criterion, "loss_labels"):
                 raise TypeError(
-                    "All-empty batches require the official matcher and loss_labels method."
+                    "Partially annotated or all-empty batches require the official "
+                    "matcher and VideoSetCriterion loss methods."
                 )
             indices = matcher(upstream_outputs, flattened_targets)
-            losses = self.criterion.loss_labels(
-                upstream_outputs,
-                flattened_targets,
-                indices,
-                num_masks=1.0,
-            )
-            zero_mask_loss = flat_masks.sum() * 0.0
-            losses = {
-                **losses,
-                "loss_mask": zero_mask_loss,
-                "loss_dice": zero_mask_loss,
-            }
+            losses = {}
+            criterion_losses = getattr(self.criterion, "losses", ("labels", "masks"))
+            if "labels" in criterion_losses:
+                losses.update(
+                    self.criterion.loss_labels(
+                        upstream_outputs,
+                        flattened_targets,
+                        indices,
+                        num_masks=1.0,
+                    )
+                )
+            if "masks" in criterion_losses:
+                zero_mask_loss = flat_masks.sum() * 0.0
+                if any_visible:
+                    valid_indices = []
+                    valid_match_count = 0
+                    for target, (source_index, target_index) in zip(
+                        flattened_targets, indices, strict=True
+                    ):
+                        valid_for_matches = target["mask_valid"].reshape(-1)[target_index]
+                        valid_indices.append(
+                            (
+                                source_index[valid_for_matches],
+                                target_index[valid_for_matches],
+                            )
+                        )
+                        valid_match_count += int(valid_for_matches.sum().item())
+                    if valid_match_count:
+                        if not hasattr(self.criterion, "loss_masks"):
+                            raise TypeError(
+                                "Partially annotated clips require VideoSetCriterion.loss_masks."
+                            )
+                        losses.update(
+                            self.criterion.loss_masks(
+                                upstream_outputs,
+                                flattened_targets,
+                                valid_indices,
+                                num_masks=float(valid_match_count),
+                            )
+                        )
+                    else:
+                        losses.update(
+                            {
+                                "loss_mask": zero_mask_loss,
+                                "loss_dice": zero_mask_loss,
+                            }
+                        )
+                else:
+                    losses.update(
+                        {
+                            "loss_mask": zero_mask_loss,
+                            "loss_dice": zero_mask_loss,
+                        }
+                    )
+            unsupported = set(criterion_losses).difference({"labels", "masks"})
+            if unsupported:
+                raise ValueError(
+                    f"E3A adapter only supports VidEoMT labels/masks losses, got {sorted(unsupported)}."
+                )
 
         missing_losses = set(self._LOSS_KEYS).difference(losses)
         if missing_losses:

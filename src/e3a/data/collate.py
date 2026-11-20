@@ -30,7 +30,7 @@ def collate_entity_targets(
     if not isinstance(clip_targets, Sequence) or len(clip_targets) == 0:
         raise ValueError("clip_targets must be a non-empty sequence.")
 
-    normalized: list[tuple[torch.Tensor, torch.Tensor, torch.Tensor]] = []
+    normalized: list[tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]] = []
     batch_size = len(clip_targets)
     max_tracks = 0
     num_frames: int | None = None
@@ -85,6 +85,20 @@ def collate_entity_targets(
         elif clip_mask_size != mask_size:
             raise ValueError("all clips in a batch must use the same padded mask size.")
 
+        mask_valid = target.get(
+            "mask_valid",
+            torch.ones_like(track_ids, dtype=torch.bool),
+        )
+        if (
+            not torch.is_tensor(mask_valid)
+            or mask_valid.dtype != torch.bool
+            or tuple(mask_valid.shape) != tuple(track_ids.shape)
+        ):
+            raise ValueError("mask_valid must be a boolean tensor with shape [N,T].")
+        if mask_valid.device != clip_device:
+            raise ValueError("mask_valid must share the entity target device.")
+        mask_valid = mask_valid.to(torch.bool)
+
         masks_float = masks.to(torch.float32)
         if not torch.isfinite(masks_float).all():
             raise ValueError(f"clip_targets[{clip_index}] masks must be finite.")
@@ -93,11 +107,19 @@ def collate_entity_targets(
         ):
             raise ValueError("entity masks must contain values in [0,1].")
 
+        track_ids_int = track_ids.to(torch.int64)
+        invisible_annotations = ~mask_valid
+        if invisible_annotations.any():
+            if (track_ids_int[invisible_annotations] != -1).any():
+                raise ValueError("unannotated track frames must use track ID -1.")
+            if (masks_float[invisible_annotations].flatten(1).sum(dim=1) > 0).any():
+                raise ValueError("unannotated track frames must have zero masks.")
         normalized.append(
             (
                 labels.to(torch.int64),
-                track_ids.to(torch.int64),
+                track_ids_int,
                 masks_float,
+                mask_valid,
             )
         )
         max_tracks = max(max_tracks, int(labels.shape[0]))
@@ -126,8 +148,15 @@ def collate_entity_targets(
         device=device,
     )
     track_counts = torch.zeros(batch_size, dtype=torch.int64, device=device)
+    mask_valid_batch = torch.zeros(
+        batch_size,
+        max_tracks,
+        num_frames,
+        dtype=torch.bool,
+        device=device,
+    )
 
-    for batch_index, (labels, track_ids, masks) in enumerate(normalized):
+    for batch_index, (labels, track_ids, masks, mask_valid) in enumerate(normalized):
         count = labels.shape[0]
         track_counts[batch_index] = count
         if count == 0:
@@ -135,11 +164,13 @@ def collate_entity_targets(
         labels_batch[batch_index, :count] = labels
         ids_batch[batch_index, :count] = track_ids
         masks_batch[batch_index, :count] = masks
+        mask_valid_batch[batch_index, :count] = mask_valid
 
     return {
         "labels": labels_batch,
         "ids": ids_batch,
         "masks": masks_batch,
+        "mask_valid": mask_valid_batch,
         "track_counts": track_counts,
     }
 
