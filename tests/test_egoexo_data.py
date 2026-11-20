@@ -1,0 +1,195 @@
+import numpy as np
+import pytest
+
+from e3a.data.egoexo import (
+    EGOEXO_HAND_JOINTS,
+    build_egoexo_relation_clip_targets,
+    parse_egoexo_hand_pose_annotations,
+    resolve_egoexo_video_path,
+)
+
+
+def make_hand_annotation(*, low_view_joint=None):
+    joints = {}
+    for hand_index, hand in enumerate(("right", "left")):
+        for joint_index, joint_name in enumerate(EGOEXO_HAND_JOINTS):
+            view_count = 2 if (hand, joint_name) == low_view_joint else 3
+            joints[f"{hand}_{joint_name}"] = {
+                "x": float(joint_index + 1),
+                "y": float(hand_index + 2),
+                "z": 3.0,
+                "num_views_for_3d": view_count,
+            }
+    return {"12": [{"annotation3D": joints}]}
+
+
+def test_egoexo_hand_pose_reorders_joints_and_transforms_world_to_camera():
+    annotations = make_hand_annotation(low_view_joint=("right", "wrist"))
+    camera_pose = {
+        "12": {
+            "aria": {
+                "camera_extrinsics": [
+                    [1.0, 0.0, 0.0, -1.0],
+                    [0.0, 1.0, 0.0, -2.0],
+                    [0.0, 0.0, 1.0, -3.0],
+                ]
+            }
+        }
+    }
+
+    parsed = parse_egoexo_hand_pose_annotations(
+        annotations,
+        camera_pose,
+        camera_name="aria",
+        min_views_for_3d=3,
+        source_to_model_units=2.0,
+    )
+
+    frame = parsed[12]
+    assert frame["keypoints_camera"].shape == (2, 21, 3)
+    assert frame["valid"].shape == (2, 21)
+    assert frame["valid"][0, 0].item() is False
+    assert frame["valid"][0, 1].item() is True
+    # right thumb_1 world=(2,2,3), then world-to-camera=(-?); scale is applied last.
+    np.testing.assert_allclose(
+        frame["keypoints_camera"][0, 1].numpy(),
+        np.asarray([2.0, 0.0, 0.0], dtype=np.float32),
+    )
+    np.testing.assert_allclose(frame["keypoints_camera"][0, 0].numpy(), [0, 0, 0])
+
+
+def test_egoexo_hand_pose_supports_official_camera_first_pose_layout():
+    annotations = make_hand_annotation()
+    camera_pose = {
+        "aria": {
+            "camera_intrinsics": np.eye(3).tolist(),
+            "camera_extrinsics": {
+                "12": [
+                    [1.0, 0.0, 0.0, 0.0],
+                    [0.0, 1.0, 0.0, 0.0],
+                    [0.0, 0.0, 1.0, 0.0],
+                ]
+            },
+        }
+    }
+
+    parsed = parse_egoexo_hand_pose_annotations(annotations, camera_pose)
+
+    assert parsed[12]["valid"].all()
+    np.testing.assert_allclose(
+        parsed[12]["keypoints_camera"][1, 0].numpy(),
+        np.asarray([1.0, 3.0, 3.0], dtype=np.float32),
+    )
+
+
+def test_egoexo_hand_pose_fails_closed_when_camera_pose_is_missing():
+    with pytest.raises(KeyError, match="camera_extrinsics"):
+        parse_egoexo_hand_pose_annotations(
+            make_hand_annotation(),
+            {},
+            camera_name="aria",
+        )
+
+
+def test_egoexo_relation_targets_distinguish_absence_from_unannotated_frames():
+    mask0 = np.zeros((2, 3), dtype=np.bool_)
+    mask0[0, 1] = True
+    mask2 = np.zeros((2, 3), dtype=np.bool_)
+    mask2[1, 2] = True
+
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_masks": {
+                    "stainless bowl_0": {
+                        "aria01_214-1": {
+                            "annotated_frames": [0, 1, 2],
+                            "annotation": {
+                                "0": {"width": 3, "height": 2, "encodedMask": "m0"},
+                                "2": {"width": 3, "height": 2, "encodedMask": "m2"},
+                            },
+                        }
+                    },
+                    "left hand_0": {
+                        "aria01_214-1": {
+                            "annotated_frames": [0, 1, 2],
+                            "annotation": {
+                                "0": {"width": 3, "height": 2, "encodedMask": "hand"}
+                            },
+                        }
+                    },
+                }
+            }
+        }
+    }
+
+    def decoder(record):
+        return {"m0": mask0, "m2": mask2, "hand": mask0}[record["encodedMask"]]
+
+    targets = build_egoexo_relation_clip_targets(
+        relation,
+        "take-1",
+        "aria01_214-1",
+        [0, 1, 2, 3],
+        mask_decoder=decoder,
+    )
+
+    assert targets["track_names"] == ["stainless bowl_0"]
+    assert targets["ids"].tolist() == [[0, -1, 0, -1]]
+    assert targets["mask_valid"].tolist() == [[True, True, True, False]]
+    assert targets["masks"].shape == (1, 4, 2, 3)
+    assert targets["masks"][0, 1].sum().item() == 0
+    assert targets["masks"][0, 2].sum().item() == 1
+
+
+def test_egoexo_relation_rejects_mask_frames_outside_annotated_coverage():
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_masks": {
+                    "object_0": {
+                        "cam04": {
+                            "annotated_frames": [0],
+                            "annotation": {
+                                "1": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    with pytest.raises(ValueError, match="outside annotated_frames"):
+        build_egoexo_relation_clip_targets(
+            relation,
+            "take-1",
+            "cam04",
+            [0, 1],
+            mask_decoder=lambda _: np.ones((2, 2), dtype=np.bool_),
+        )
+
+
+def test_egoexo_video_path_uses_official_aria_stream_alias(tmp_path):
+    relative = "aria01/rgb.mp4"
+    path = tmp_path / "takes" / relative
+    path.parent.mkdir(parents=True)
+    path.write_bytes(b"video")
+    takes = [
+        {
+            "take_uid": "take-1",
+            "root_dir": "takes",
+            "frame_aligned_videos": {
+                "aria01": {"rgb": {"relative_path": relative}}
+            },
+        }
+    ]
+
+    resolved = resolve_egoexo_video_path(
+        tmp_path,
+        takes,
+        "take-1",
+        "aria01_214-1",
+    )
+
+    assert resolved == path

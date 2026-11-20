@@ -36,7 +36,26 @@ The collator returns batch-first tensors:
 - interaction_targets contact/valid [B,T,2,Nmax]
 - anticipation_targets one scalar per clip
 
-Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The VidEoMT adapter filters only invalid matched mask pairs from the upstream point-sampled mask loss while retaining clip-consistent matching and class supervision. Hand joint order is wrist, thumb, index, middle, ring, pinky, four joints per finger. All 3D hand labels must be transformed to the per-frame camera coordinate frame before collation.
+Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The VidEoMT adapter filters only invalid matched mask pairs from the upstream point-sampled mask loss while retaining clip-consistent matching and class supervision.
+
+## Source annotation adapters
+
+### HOI4D
+
+- decode_hoi4d_motion_mask accepts an RGB palette image (not OpenCV BGR) and a category code such as C8. It reproduces the official palette and category-to-semantic/category-to-instance tables.
+- build_hoi4d_entity_clip_targets groups non-hand semantic parts sharing the official instance ID into one object track. Semantic class 47 (hands) is excluded because E3A has a separate hand-pose head.
+- A present mask image marks every returned object track/frame as annotated. An absent object in that image uses ID -1 and a zero mask; a missing image uses mask_valid=False.
+
+### Ego-Exo4D
+
+- parse_egoexo_hand_pose_annotations reads annotation3D world-frame joints and applies the per-frame camera_extrinsics as p_camera = R p_world + t. It supports both the documented frame-first JSON layout and the official baseline's camera-first layout.
+- Hand order is right then left. Within each hand the 21 joints are wrist, thumb(1..4), index(1..4), middle(1..4), ring(1..4), pinky(1..4), matching the official baseline reader.
+- source_to_model_units defaults to 1.0 and preserves source units. The source annotation docs do not establish a physical unit here; set this scale only after auditing the downloaded release and VGGT depth units. Manual annotations can be filtered with min_views_for_3d=3.
+- build_egoexo_relation_clip_targets uses annotated_frames as the coverage mask. A frame listed in annotated_frames without an encoded mask is explicit absence; a frame outside that list is unannotated. It excludes hand-named relation tracks by default to avoid duplicating the dedicated hand head.
+- Relation encodedMask decoding uses the official Ego4D SDK decoder and pycocotools. Install the optional dependencies with pip install -e ".[egoexo]".
+- resolve_egoexo_video_path follows the official Ego4D notebook's frame_aligned_videos/root_dir/relative_path convention, including the aria01_214-1 to rgb stream alias.
+
+These are annotation-level adapters, not yet complete end-to-end Dataset/DataLoader implementations. Video frame decoding, release-version indexing, cross-source coordinate/unit auditing, action-vocabulary construction, event-window sampling, and source-video-level split generation remain gated.
 
 ## Entity matching contract
 

@@ -23,6 +23,10 @@ dev = [
     "pytest>=8",
     "ruff>=0.6",
 ]
+egoexo = [
+    "ego4d",
+    "pycocotools>=2.0.7",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -40,4 +44,5 @@ line-length = 100
 target-version = "py310"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP", "B"]
+select = ["E", "F", "I", "UP", "B"
+]

@@ -5,7 +5,7 @@ A milestone is complete only when its acceptance tests pass and the evidence is 
 ## P0 — Reproducible upstream baseline
 
 - [x] Pin VGGT-Ω, SAM 3, and VidEoMT as Git submodules.
-- [x] Add thin wrappers around official VGGT-Ω and SAM 3.1 APIs.
+- [x] Add thin official-API adapters.
 - [ ] Create a clean environment using the pinned upstreams.
 - [ ] Load an approved VGGT-Ω checkpoint with strict state-dict loading.
 - [ ] Run official and adapter inference on the same frames; compare every output key and tensor.
@@ -17,12 +17,15 @@ Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model h
 
 - [x] Verify official HOI4D data organization, action interval fields, palette-coded 2D motion masks, category/instance maps, object pose fields, and MANO parameter fields.
 - [x] Verify Ego-Exo4D relation mask JSON fields, encoded-mask representation, annotated_frames semantics, EgoPose 3D hand-joint schema, and Keystep segment schema.
+- [x] Implement the official HOI4D RGB palette decoder and clip-level object-track conversion.
+- [x] Implement Ego-Exo4D EgoPose world-to-camera hand-joint parsing with both published camera-pose JSON layouts.
+- [x] Implement Ego-Exo4D relation mask parsing with annotated_frames-aware validity.
 - [ ] Audit the locally downloaded release versions, video FPS/frame indexing, image/depth alignment, and annotation coverage.
-- [ ] Implement source-to-canonical clip readers for both datasets.
-- [ ] Define camera coordinate transforms and canonical hand-joint order with round-trip tests.
+- [ ] Implement end-to-end source-video Dataset/DataLoader classes for both datasets.
+- [ ] Audit source-to-canonical coordinate transforms and physical units on real sequences.
 - [ ] Build a dataset-prefixed union action vocabulary; do not merge classes based on name similarity alone.
 - [ ] Define observation cutoffs, future event windows, target-entity mapping, and time-to-event semantics without future-frame leakage.
-- [ ] Define missing/occluded/disappeared-object semantics and annotation-validity masks.
+- [ ] Define missing/occluded/disappeared-object semantics across all source annotations.
 - [ ] Create source-video/subject-level train/validation/test splits to prevent leakage.
 
 Acceptance: a deterministic sample from each dataset can be traced to source annotations with verified units, coordinate frames, track IDs, event boundaries, and annotation-validity semantics.
@@ -84,7 +87,7 @@ Acceptance: the model predicts future target/action/time from observed frames on
 
 - [x] Add E3AMultiTaskLoss with one loss_objective for the upstream VGGT-Ω Trainer.
 - [x] Add batch-first E3A collation for entity, hand, interaction, and anticipation targets.
-- [ ] Add the audited HOI4D and Ego-Exo4D dataset readers and deterministic sampling.
+- [ ] Add deterministic source-video sampling and complete dataset readers.
 - [ ] Create the runnable Hydra training config after the label vocabulary and dataset schema are frozen.
 - [ ] Start with frozen VGGT-Ω and train only E3A-owned modules.
 - [ ] Unfreeze selected upstream blocks only after stable baselines.
