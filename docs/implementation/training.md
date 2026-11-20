@@ -64,6 +64,8 @@ build_dataset_prefixed_action_vocabulary combines source labels without merging 
 
 These are annotation-level adapters, not yet complete end-to-end Dataset/DataLoader implementations. Video frame decoding, release-version indexing, cross-source coordinate/unit auditing, building the actual vocabulary from audited training annotations, event-window sampling, and source-video-level split generation remain gated.
 
+**Empty-clip safety:** the current VidEoMT adapter treats a clip with zero GT tracks as an all-no-object example. Do not pass a zero-track window merely because masks are missing, objects are out of view, or no relation track is visible in the sampled window. Until a clip-level entity_supervision_valid field is implemented, drop such windows unless the source explicitly establishes a fully annotated empty scene. HOI4D has no explicit per-track absence/occlusion flag in its motion masks; its adapter therefore marks an instance/frame valid only when pixels are visible. Ego-Exo4D relation annotated_frames can establish explicit absence for a listed object/frame.
+
 ## Entity matching contract
 
 The entity target contract remains:

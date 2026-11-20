@@ -32,6 +32,7 @@ Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model h
 - [ ] Confirm the locally downloaded HOI4D action JSON variant, frame/time alignment, observation cutoffs, and future event-window policy.
 - [ ] Define target-entity mapping for HOI4D without inferring an object from action labels alone.
 - [ ] Define missing/occluded/disappeared-object semantics across all source annotations.
+- [ ] Add clip-level entity-supervision validity so empty/unannotated windows cannot silently become all-no-object training examples.
 - [ ] Create source-video/subject-level train/validation/test splits to prevent leakage.
 
 Acceptance: a deterministic sample from each dataset can be traced to source annotations with verified units, coordinate frames, track IDs, event boundaries, and annotation-validity semantics.
