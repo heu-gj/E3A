@@ -6,6 +6,7 @@ import math
 import sys
 from collections.abc import Mapping, Sequence
 from pathlib import Path
+from types import ModuleType
 from typing import Any
 
 import torch
@@ -127,25 +128,53 @@ class VidEoMTMaskCriterion(nn.Module):
         self._matcher_fallback = matcher if not hasattr(criterion, "matcher") else None
 
     @staticmethod
-    def _load_upstream_classes():
+    def _register_upstream_package(name: str, package_path: Path) -> None:
+        """Register a narrow package path without executing VidEoMT's root __init__."""
+        package_path = package_path.resolve()
+        package = sys.modules.get(name)
+        if package is None:
+            package = ModuleType(name)
+            package.__path__ = [str(package_path)]
+            package.__package__ = name
+            sys.modules[name] = package
+            return
+
+        existing_paths = {
+            Path(path).resolve()
+            for path in getattr(package, "__path__", [])
+        }
+        if package_path not in existing_paths:
+            raise ImportError(
+                f"{name} is already imported from a different location; "
+                "E3A requires the pinned third_party/videomt source."
+            )
+
+    @classmethod
+    def _load_upstream_classes(cls):
         repo_root = Path(__file__).resolve().parents[3]
         upstream_root = repo_root / "third_party" / "videomt"
-        if not upstream_root.is_dir():
+        package_root = upstream_root / "videomt"
+        if not package_root.is_dir():
             raise ImportError(
                 "VidEoMT source is missing. Run "
                 "git submodule update --init third_party/videomt."
             )
-        if str(upstream_root) not in sys.path:
-            sys.path.insert(0, str(upstream_root))
+
+        # Import only the pinned matcher, criterion, and shared misc module.
+        # The upstream root __init__ eagerly imports its full Detectron2 model,
+        # dataset, and config stack, none of which E3A needs for these losses.
+        cls._register_upstream_package("videomt", package_root)
+        cls._register_upstream_package("videomt.modeling", package_root / "modeling")
+        cls._register_upstream_package("videomt.utils", package_root / "utils")
 
         try:
             from videomt.criterion_videomt import VideoSetCriterion
             from videomt.modeling.matcher import VideoHungarianMatcher_Consistent
         except ImportError as exc:
             raise ImportError(
-                "VidEoMT and its optional dependencies are required. Initialize "
+                "VidEoMT matcher/criterion dependencies are required. Initialize "
                 "third_party/videomt and install compatible SciPy and Detectron2 "
-                "dependencies in the target PyTorch/CUDA environment."
+                "point-sampling utilities in the target PyTorch/CUDA environment."
             ) from exc
         return VideoHungarianMatcher_Consistent, VideoSetCriterion
 

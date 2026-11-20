@@ -386,21 +386,6 @@ def _install_detectron2_point_sampling_stubs(monkeypatch):
         monkeypatch.setitem(sys.modules, name, module)
 
 
-def _install_videomt_import_shims(monkeypatch, videomt_root):
-    """Bypass unrelated package-level detector imports, not the target modules."""
-    import sys
-    from types import ModuleType
-
-    package_root = videomt_root / "videomt"
-    videomt_package = ModuleType("videomt")
-    videomt_package.__path__ = [str(package_root)]
-    modeling_package = ModuleType("videomt.modeling")
-    modeling_package.__path__ = [str(package_root / "modeling")]
-
-    monkeypatch.setitem(sys.modules, "videomt", videomt_package)
-    monkeypatch.setitem(sys.modules, "videomt.modeling", modeling_package)
-
-
 def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_stubs(
     monkeypatch,
 ):
@@ -418,10 +403,6 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
     except ImportError:
         _install_detectron2_point_sampling_stubs(monkeypatch)
 
-    if str(videomt_root) not in sys.path:
-        sys.path.insert(0, str(videomt_root))
-    _install_videomt_import_shims(monkeypatch, videomt_root)
-
     adapter = VidEoMTMaskCriterion(
         frames=3,
         num_points=32,
@@ -429,6 +410,8 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
     )
     assert adapter.matcher.__class__.__name__ == "VideoHungarianMatcher_Consistent"
     assert adapter.criterion.__class__.__name__ == "VideoSetCriterion"
+    assert "videomt.config" not in sys.modules
+    assert "videomt.videomt" not in sys.modules
 
     target = {
         "labels": torch.tensor([0], dtype=torch.int64),
