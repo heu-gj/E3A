@@ -380,8 +380,8 @@ class VidEoMTMaskCriterion(nn.Module):
         """Accept either a clip-target list or the official VGGT Trainer call.
 
         VGGT Trainer calls every criterion as loss(predictions, batch,
-        schedule_progress). In that form, the clip target list must be stored
-        under batch["entity_targets"]. In training, that value is a padded tensor
+        schedule_progress). In that form, a batch-first padded target mapping
+        must be stored under batch["entity_targets"]. A per-clip target list
         mapping with labels, ids, masks, and track_counts; a per-clip target list
         is also accepted for direct use and unit tests.
         """

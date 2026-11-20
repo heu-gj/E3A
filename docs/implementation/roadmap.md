@@ -44,7 +44,8 @@ Acceptance: pretrained geometry outputs remain unchanged when E3A tokens are abs
 - [x] Decode camera parameters with official VGGT-Ω utilities and unproject depth with the official helper.
 - [x] Add differentiable soft-mask pooling for world-space entity centers and covariance.
 - [x] Add a thin adapter to VidEoMT's official VideoHungarianMatcher_Consistent and VideoSetCriterion, including a fail-closed clip target contract.
-- [x] Add CPU tests for the VidEoMT frame-wise input conversion, loss aggregation, empty clips, and track-ID validation.
+- [x] Add CPU tests for VidEoMT frame-wise input conversion, loss aggregation, empty clips, track-ID validation, and batch-first target collation.
+- [x] Verify padded entity targets remain aligned when the pinned VGGT-Ω gradient-accumulation chunker splits a batch.
 - [ ] Validate the real SAM 3 MaskPredictor import and forward pass in the target GPU environment.
 - [ ] Validate the real VidEoMT matcher/criterion with compatible Detectron2/SciPy dependencies.
 - [ ] Confirm the dataset's track IDs, visibility, and masks satisfy the adapter contract.
