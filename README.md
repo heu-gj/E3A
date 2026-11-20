@@ -1,56 +1,65 @@
 # E3A
 
-**Entity-grounded 3D Action Anticipation**
+Entity-grounded 3D Action Anticipation
 
-E3A is a research codebase for predicting future human-object interactions from observed video, using temporally consistent entity representations and 3D geometry.
+E3A is a research codebase for predicting future human-object interactions from observed video using temporally consistent entity representations and 3D geometry.
 
-> Development policy: reuse upstream implementations wherever their APIs and licenses permit. E3A should contain integration code, task-specific heads/losses/data adapters, tests, and minimal upstream patches—not reimplementations of foundation models.
+## Development policy
 
-## Upstream code
+Reuse upstream implementations wherever their APIs and licenses permit. E3A should contain integration code, task-specific prediction heads, dataset adapters, losses, tests, and only minimal upstream patches. Do not reimplement foundation models, segmentation trackers, or generic training infrastructure when a maintained upstream implementation already provides them.
 
-The following repositories are tracked as pinned Git submodules (see `.gitmodules`):
+## Pinned upstreams
 
-| Upstream | Role in E3A | Pinned revision |
+The upstream projects are tracked as Git submodules. Revisions are pinned in the Git tree, not floating branches.
+
+| Upstream | E3A role | Revision |
 |---|---|---|
-| [VGGT-Ω](https://github.com/facebookresearch/vggt-omega) | Primary geometry/video backbone and camera/depth heads | `48b23c8ce72c9a8fcf987f0d7f43d8e4870759f6` |
-| [SAM 3](https://github.com/facebookresearch/sam3) | Optional video segmentation/tracking teacher and baseline; current upstream includes SAM 3.1 multiplex | `31cb7e624e4fe95301b1be1d4e809111593d2e45` |
-| [VidEoMT](https://github.com/tue-mps/videomt) | Optional reference implementation for query propagation and video-mask training | `40a4fa4a048b00f97f36b3eee66ab62a4e1bea23` |
+| [VGGT-Ω](https://github.com/facebookresearch/vggt-omega) | Primary geometry/video backbone; official camera and dense-depth heads | 48b23c8ce72c9a8fcf987f0d7f43d8e4870759f6 |
+| [SAM 3](https://github.com/facebookresearch/sam3) | Optional SAM 3.1 video segmentation/tracking teacher and independent baseline | 31cb7e624e4fe95301b1be1d4e809111593d2e45 |
+| [VidEoMT](https://github.com/tue-mps/videomt) | Optional query-propagation/video-mask reference implementation | 40a4fa4a048b00f97f36b3eee66ab62a4e1bea23 |
 
-EntitySAM is tracked as a paper/method reference only for now. Its public repository does not expose a repository-level LICENSE file, so E3A will not vendor or copy its source until reuse permissions are confirmed.
-
-## Repository layout
-
-The E3A-owned implementation lives under `src/e3a/`. Upstream repositories remain unmodified in `third_party/`; any required compatibility changes must be kept as small, reviewable patch files under `patches/` and covered by parity tests.
+EntitySAM is a method/paper reference only. Its public repository currently has no repository-level LICENSE file, so its source is not copied or vendored.
 
 ## Checkout
 
-```bash
-git clone --recurse-submodules https://github.com/heu-gj/E3A.git
-cd E3A
-git submodule status
-```
+    git clone --recurse-submodules https://github.com/heu-gj/E3A.git
+    cd E3A
+    git submodule status
 
-If the repository was cloned without submodules:
+If already cloned without submodules:
 
-```bash
-git submodule update --init --recursive
-```
+    git submodule update --init --recursive
 
-## Model checkpoints
+## Install the primary development environment
 
-Upstream code and pretrained weights are separate. In particular, VGGT-Ω and SAM 3 checkpoints may require accepting the respective model terms and requesting Hugging Face access. Checkpoints must be downloaded by the user into a local, ignored directory; do not commit model weights or access tokens.
+Use a PyTorch/CUDA build compatible with the target machine first. The base E3A package follows VGGT-Ω's PyTorch 2.6+ requirements.
+
+    python -m pip install -e ".[dev]"
+    python -m pip install -e third_party/vggt-omega
+
+SAM 3.1 is optional and has stricter upstream environment guidance (Python 3.12+, PyTorch 2.10+, CUDA 12.8+ in its current README). Install it only in a compatible environment:
+
+    python -m pip install -e third_party/sam3
+
+SAM 3.1 checkpoints require Hugging Face access approval/authentication unless a local checkpoint is supplied. VGGT-Ω checkpoints also have an access request process. Upstream source checkouts do not include pretrained weights.
+
+## Architecture policy
+
+- VGGT-Ω is the primary geometry encoder. Keep its released checkpoint-compatible modules intact wherever possible.
+- SAM 3.1 is initially an offline teacher / segmentation-tracking baseline, not a second online backbone in the E3A forward pass. It has its own large vision encoder and should not be run alongside VGGT-Ω by default.
+- E3A-owned code should focus on temporal entity representation, 3D human-object relations, and future target/action/time prediction.
+- The exact entity/mask integration point is documented in docs/architecture/upstream-integration.md. Do not change token offsets or head inputs without parity tests.
+- Dataset-specific label semantics and sampling rules must be audited before finalizing loss functions or action vocabularies.
 
 ## Licensing
 
-Upstream licenses are not interchangeable:
+- VGGT-Ω: FAIR Noncommercial Research License. Use is restricted to noncommercial research uses under its agreement.
+- SAM 3: SAM License. Review its terms before using or redistributing SAM Materials.
+- VidEoMT: MIT License.
+- EntitySAM: no repository-level LICENSE file was found; no source is copied.
 
-- VGGT-Ω is distributed under the FAIR Noncommercial Research License. Its use is restricted to noncommercial research uses under that agreement.
-- SAM 3 is distributed under the SAM License. Review its terms before using or redistributing SAM Materials.
-- VidEoMT is distributed under the MIT License.
-- EntitySAM currently has no repository-level LICENSE file visible in its public repository; its code is therefore not copied into E3A.
+No project-wide E3A license is declared yet. Each upstream's terms continue to apply to its own source and derivative materials. Do not commit datasets, model weights, access tokens, or private annotations.
 
-No project-wide E3A license is declared yet. Third-party terms continue to apply to their respective submodules and derived materials.
+## Current implementation status
 
-## Status
-
-The repository is being initialized. The first implementation milestone is a reproducible upstream checkout and a verified VGGT-Ω adapter with checkpoint-loading and output-parity tests. No claim of a trainable E3A model is made until those tests and the dataset/label contracts pass.
+The initial foundation milestone is to pin upstream revisions, provide thin official-API adapters, and establish shape/contract tests. The E3A model is not yet claimed to be trainable. See docs/implementation/roadmap.md for gated milestones and acceptance criteria.
