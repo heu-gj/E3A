@@ -1,0 +1,5367 @@
+[
+  {
+    "modality": "rgb",
+    "path": "extracted/release/HOI4D_release/ZY20210800001/H1/C20/N30/S295/s04/T4/align_rgb/image.mp4",
+    "bytes": 9695354
+  },
+  {
+    "modality": "depth",
+    "path": "extracted/depth/HOI4D_depth_video/ZY20210800001/H1/C20/N30/S295/s04/T4/align_depth/depth_video.avi",
+    "bytes": 50654776
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00000.png",
+    "bytes": 6351
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00001.png",
+    "bytes": 6273
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00002.png",
+    "bytes": 6268
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00003.png",
+    "bytes": 6233
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00004.png",
+    "bytes": 6208
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00005.png",
+    "bytes": 6203
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00006.png",
+    "bytes": 6230
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00007.png",
+    "bytes": 6164
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00008.png",
+    "bytes": 6235
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00009.png",
+    "bytes": 6217
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00010.png",
+    "bytes": 6247
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00011.png",
+    "bytes": 6196
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00012.png",
+    "bytes": 6174
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00013.png",
+    "bytes": 6174
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00014.png",
+    "bytes": 6149
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00015.png",
+    "bytes": 6120
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00016.png",
+    "bytes": 6150
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00017.png",
+    "bytes": 6188
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00018.png",
+    "bytes": 6161
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00019.png",
+    "bytes": 6233
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00020.png",
+    "bytes": 6252
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00021.png",
+    "bytes": 6222
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00022.png",
+    "bytes": 6259
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00023.png",
+    "bytes": 6362
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00024.png",
+    "bytes": 6377
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00025.png",
+    "bytes": 6389
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00026.png",
+    "bytes": 6538
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00027.png",
+    "bytes": 6962
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00028.png",
+    "bytes": 7512
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00029.png",
+    "bytes": 8002
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00030.png",
+    "bytes": 8229
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00031.png",
+    "bytes": 8714
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00032.png",
+    "bytes": 8995
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00033.png",
+    "bytes": 9352
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00034.png",
+    "bytes": 9917
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00035.png",
+    "bytes": 10571
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00036.png",
+    "bytes": 11001
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00037.png",
+    "bytes": 11566
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00038.png",
+    "bytes": 12083
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00039.png",
+    "bytes": 12692
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00040.png",
+    "bytes": 12933
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00041.png",
+    "bytes": 13053
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00042.png",
+    "bytes": 12916
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00043.png",
+    "bytes": 12705
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00044.png",
+    "bytes": 12453
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00045.png",
+    "bytes": 12009
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00046.png",
+    "bytes": 11679
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00047.png",
+    "bytes": 11315
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00048.png",
+    "bytes": 10771
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00049.png",
+    "bytes": 10425
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00050.png",
+    "bytes": 10200
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00051.png",
+    "bytes": 10306
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00052.png",
+    "bytes": 10339
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00053.png",
+    "bytes": 10389
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00054.png",
+    "bytes": 10392
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00055.png",
+    "bytes": 10478
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00056.png",
+    "bytes": 10623
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00057.png",
+    "bytes": 10682
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00058.png",
+    "bytes": 10871
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00059.png",
+    "bytes": 10781
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00060.png",
+    "bytes": 10646
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00061.png",
+    "bytes": 10548
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00062.png",
+    "bytes": 10516
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00063.png",
+    "bytes": 10583
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00064.png",
+    "bytes": 10575
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00065.png",
+    "bytes": 10689
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00066.png",
+    "bytes": 10693
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00067.png",
+    "bytes": 10705
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00068.png",
+    "bytes": 10519
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00069.png",
+    "bytes": 10525
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00070.png",
+    "bytes": 10386
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00071.png",
+    "bytes": 10365
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00072.png",
+    "bytes": 10402
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00073.png",
+    "bytes": 10479
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00074.png",
+    "bytes": 10513
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00075.png",
+    "bytes": 10546
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00076.png",
+    "bytes": 10557
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00077.png",
+    "bytes": 10552
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00078.png",
+    "bytes": 10592
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00079.png",
+    "bytes": 10631
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00080.png",
+    "bytes": 10605
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00081.png",
+    "bytes": 10680
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00082.png",
+    "bytes": 10789
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00083.png",
+    "bytes": 10916
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00084.png",
+    "bytes": 10988
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00085.png",
+    "bytes": 10989
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00086.png",
+    "bytes": 11050
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00087.png",
+    "bytes": 11087
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00088.png",
+    "bytes": 11158
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00089.png",
+    "bytes": 11177
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00090.png",
+    "bytes": 11276
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00091.png",
+    "bytes": 11214
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00092.png",
+    "bytes": 11279
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00093.png",
+    "bytes": 11402
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00094.png",
+    "bytes": 11598
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00095.png",
+    "bytes": 11545
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00096.png",
+    "bytes": 11550
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00097.png",
+    "bytes": 11437
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00098.png",
+    "bytes": 11375
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00099.png",
+    "bytes": 11439
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00100.png",
+    "bytes": 11550
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00101.png",
+    "bytes": 11653
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00102.png",
+    "bytes": 11718
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00103.png",
+    "bytes": 11685
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00104.png",
+    "bytes": 11663
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00105.png",
+    "bytes": 11672
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00106.png",
+    "bytes": 11551
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00107.png",
+    "bytes": 11521
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00108.png",
+    "bytes": 11483
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00109.png",
+    "bytes": 11477
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00110.png",
+    "bytes": 11494
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00111.png",
+    "bytes": 11508
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00112.png",
+    "bytes": 11486
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00113.png",
+    "bytes": 11455
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00114.png",
+    "bytes": 11428
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00115.png",
+    "bytes": 11492
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00116.png",
+    "bytes": 11428
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00117.png",
+    "bytes": 11465
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00118.png",
+    "bytes": 11455
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00119.png",
+    "bytes": 11460
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00120.png",
+    "bytes": 11467
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00121.png",
+    "bytes": 11435
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00122.png",
+    "bytes": 11457
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00123.png",
+    "bytes": 11497
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00124.png",
+    "bytes": 11537
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00125.png",
+    "bytes": 11452
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00126.png",
+    "bytes": 11291
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00127.png",
+    "bytes": 11099
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00128.png",
+    "bytes": 11016
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00129.png",
+    "bytes": 11048
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00130.png",
+    "bytes": 11185
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00131.png",
+    "bytes": 11171
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00132.png",
+    "bytes": 11251
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00133.png",
+    "bytes": 11161
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00134.png",
+    "bytes": 11094
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00135.png",
+    "bytes": 11031
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00136.png",
+    "bytes": 10918
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00137.png",
+    "bytes": 10975
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00138.png",
+    "bytes": 10969
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00139.png",
+    "bytes": 11143
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00140.png",
+    "bytes": 11276
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00141.png",
+    "bytes": 11475
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00142.png",
+    "bytes": 11642
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00143.png",
+    "bytes": 12084
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00144.png",
+    "bytes": 12003
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00145.png",
+    "bytes": 11467
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00146.png",
+    "bytes": 10912
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00147.png",
+    "bytes": 10420
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00148.png",
+    "bytes": 10023
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00149.png",
+    "bytes": 9635
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00150.png",
+    "bytes": 8636
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00151.png",
+    "bytes": 7439
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00152.png",
+    "bytes": 6843
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00153.png",
+    "bytes": 6808
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00154.png",
+    "bytes": 6809
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00155.png",
+    "bytes": 6770
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00156.png",
+    "bytes": 6768
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00157.png",
+    "bytes": 6766
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00158.png",
+    "bytes": 6807
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00159.png",
+    "bytes": 6840
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00160.png",
+    "bytes": 6882
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00161.png",
+    "bytes": 6874
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00162.png",
+    "bytes": 6879
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00163.png",
+    "bytes": 6893
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00164.png",
+    "bytes": 7172
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00165.png",
+    "bytes": 8189
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00166.png",
+    "bytes": 8965
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00167.png",
+    "bytes": 9443
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00168.png",
+    "bytes": 9902
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00169.png",
+    "bytes": 10306
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00170.png",
+    "bytes": 11059
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00171.png",
+    "bytes": 11802
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00172.png",
+    "bytes": 12308
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00173.png",
+    "bytes": 12731
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00174.png",
+    "bytes": 12958
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00175.png",
+    "bytes": 13043
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00176.png",
+    "bytes": 13026
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00177.png",
+    "bytes": 12980
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00178.png",
+    "bytes": 12613
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00179.png",
+    "bytes": 12141
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00180.png",
+    "bytes": 11854
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00181.png",
+    "bytes": 11486
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00182.png",
+    "bytes": 11452
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00183.png",
+    "bytes": 11453
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00184.png",
+    "bytes": 11257
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00185.png",
+    "bytes": 11081
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00186.png",
+    "bytes": 11086
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00187.png",
+    "bytes": 10983
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00188.png",
+    "bytes": 11037
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00189.png",
+    "bytes": 11233
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00190.png",
+    "bytes": 11459
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00191.png",
+    "bytes": 11315
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00192.png",
+    "bytes": 11326
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00193.png",
+    "bytes": 11322
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00194.png",
+    "bytes": 11177
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00195.png",
+    "bytes": 11290
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00196.png",
+    "bytes": 11269
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00197.png",
+    "bytes": 11141
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00198.png",
+    "bytes": 11160
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00199.png",
+    "bytes": 11162
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00200.png",
+    "bytes": 11248
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00201.png",
+    "bytes": 11238
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00202.png",
+    "bytes": 11328
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00203.png",
+    "bytes": 11387
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00204.png",
+    "bytes": 11478
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00205.png",
+    "bytes": 11539
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00206.png",
+    "bytes": 11558
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00207.png",
+    "bytes": 11471
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00208.png",
+    "bytes": 11467
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00209.png",
+    "bytes": 11334
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00210.png",
+    "bytes": 11653
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00211.png",
+    "bytes": 11727
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00212.png",
+    "bytes": 11796
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00213.png",
+    "bytes": 11897
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00214.png",
+    "bytes": 11892
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00215.png",
+    "bytes": 11854
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00216.png",
+    "bytes": 11895
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00217.png",
+    "bytes": 11921
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00218.png",
+    "bytes": 11923
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00219.png",
+    "bytes": 11825
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00220.png",
+    "bytes": 11913
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00221.png",
+    "bytes": 12027
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00222.png",
+    "bytes": 11961
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00223.png",
+    "bytes": 12002
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00224.png",
+    "bytes": 11886
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00225.png",
+    "bytes": 11834
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00226.png",
+    "bytes": 11881
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00227.png",
+    "bytes": 11950
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00228.png",
+    "bytes": 11844
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00229.png",
+    "bytes": 11804
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00230.png",
+    "bytes": 11842
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00231.png",
+    "bytes": 11861
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00232.png",
+    "bytes": 11748
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00233.png",
+    "bytes": 11686
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00234.png",
+    "bytes": 11673
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00235.png",
+    "bytes": 11740
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00236.png",
+    "bytes": 11866
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00237.png",
+    "bytes": 11845
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00238.png",
+    "bytes": 11820
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00239.png",
+    "bytes": 11814
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00240.png",
+    "bytes": 11684
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00241.png",
+    "bytes": 11582
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00242.png",
+    "bytes": 11639
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00243.png",
+    "bytes": 11705
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00244.png",
+    "bytes": 11776
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00245.png",
+    "bytes": 11893
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00246.png",
+    "bytes": 11946
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00247.png",
+    "bytes": 11950
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00248.png",
+    "bytes": 11937
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00249.png",
+    "bytes": 11986
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00250.png",
+    "bytes": 12106
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00251.png",
+    "bytes": 12042
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00252.png",
+    "bytes": 12025
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00253.png",
+    "bytes": 11982
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00254.png",
+    "bytes": 11942
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00255.png",
+    "bytes": 11931
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00256.png",
+    "bytes": 11930
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00257.png",
+    "bytes": 12095
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00258.png",
+    "bytes": 12182
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00259.png",
+    "bytes": 12177
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00260.png",
+    "bytes": 12148
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00261.png",
+    "bytes": 12116
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00262.png",
+    "bytes": 12068
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00263.png",
+    "bytes": 12174
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00264.png",
+    "bytes": 12315
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00265.png",
+    "bytes": 12724
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00266.png",
+    "bytes": 12927
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00267.png",
+    "bytes": 12698
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00268.png",
+    "bytes": 12596
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00269.png",
+    "bytes": 11996
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00270.png",
+    "bytes": 11204
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00271.png",
+    "bytes": 10302
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00272.png",
+    "bytes": 9396
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00273.png",
+    "bytes": 7474
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00274.png",
+    "bytes": 6511
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00275.png",
+    "bytes": 6446
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00276.png",
+    "bytes": 6204
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00277.png",
+    "bytes": 6283
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00278.png",
+    "bytes": 6267
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00279.png",
+    "bytes": 6220
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00280.png",
+    "bytes": 6261
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00281.png",
+    "bytes": 6135
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00282.png",
+    "bytes": 6197
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00283.png",
+    "bytes": 6155
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00284.png",
+    "bytes": 6117
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00285.png",
+    "bytes": 6063
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00286.png",
+    "bytes": 6128
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00287.png",
+    "bytes": 6079
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00288.png",
+    "bytes": 6121
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00289.png",
+    "bytes": 6123
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00290.png",
+    "bytes": 6176
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00291.png",
+    "bytes": 6155
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00292.png",
+    "bytes": 6131
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00293.png",
+    "bytes": 6102
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00294.png",
+    "bytes": 6131
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00295.png",
+    "bytes": 6149
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00296.png",
+    "bytes": 6133
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00297.png",
+    "bytes": 6159
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00298.png",
+    "bytes": 6148
+  },
+  {
+    "modality": "mask",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/2Dseg/mask/00299.png",
+    "bytes": 6138
+  },
+  {
+    "modality": "instance4d",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/3Dseg/label.pcd",
+    "bytes": 15659951
+  },
+  {
+    "modality": "instance4d",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/3Dseg/output.log",
+    "bytes": 57850
+  },
+  {
+    "modality": "instance4d",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/3Dseg/raw_pc.pcd",
+    "bytes": 4803005
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/0.json",
+    "bytes": 620
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/1.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/10.json",
+    "bytes": 620
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/100.json",
+    "bytes": 630
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/101.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/102.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/103.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/104.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/105.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/106.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/107.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/108.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/109.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/11.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/110.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/111.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/112.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/113.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/114.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/115.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/116.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/117.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/118.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/119.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/12.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/120.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/121.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/122.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/123.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/124.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/125.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/126.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/127.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/128.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/129.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/13.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/130.json",
+    "bytes": 628
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/131.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/132.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/133.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/134.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/135.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/136.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/137.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/138.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/139.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/14.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/140.json",
+    "bytes": 625
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/141.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/142.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/143.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/144.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/145.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/146.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/147.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/148.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/149.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/15.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/150.json",
+    "bytes": 622
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/151.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/152.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/153.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/154.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/155.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/156.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/157.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/158.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/159.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/16.json",
+    "bytes": 418
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/160.json",
+    "bytes": 625
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/161.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/162.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/163.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/164.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/165.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/166.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/167.json",
+    "bytes": 426
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/168.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/169.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/17.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/170.json",
+    "bytes": 628
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/171.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/172.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/173.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/174.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/175.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/176.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/177.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/178.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/179.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/18.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/180.json",
+    "bytes": 625
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/181.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/182.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/183.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/184.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/185.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/186.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/187.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/188.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/189.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/19.json",
+    "bytes": 418
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/190.json",
+    "bytes": 623
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/191.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/192.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/193.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/194.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/195.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/196.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/197.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/198.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/199.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/2.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/20.json",
+    "bytes": 623
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/200.json",
+    "bytes": 623
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/201.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/202.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/203.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/204.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/205.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/206.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/207.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/208.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/209.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/21.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/210.json",
+    "bytes": 625
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/211.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/212.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/213.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/214.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/215.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/216.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/217.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/218.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/219.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/22.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/220.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/221.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/222.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/223.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/224.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/225.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/226.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/227.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/228.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/229.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/23.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/230.json",
+    "bytes": 611
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/231.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/232.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/233.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/234.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/235.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/236.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/237.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/238.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/239.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/24.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/240.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/241.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/242.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/243.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/244.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/245.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/246.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/247.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/248.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/249.json",
+    "bytes": 426
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/25.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/250.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/251.json",
+    "bytes": 426
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/252.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/253.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/254.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/255.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/256.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/257.json",
+    "bytes": 427
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/258.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/259.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/26.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/260.json",
+    "bytes": 612
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/261.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/262.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/263.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/264.json",
+    "bytes": 426
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/265.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/266.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/267.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/268.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/269.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/27.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/270.json",
+    "bytes": 623
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/271.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/272.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/273.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/274.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/275.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/276.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/277.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/278.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/279.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/28.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/280.json",
+    "bytes": 622
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/281.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/282.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/283.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/284.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/285.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/286.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/287.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/288.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/289.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/29.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/290.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/291.json",
+    "bytes": 425
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/292.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/293.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/294.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/295.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/296.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/297.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/298.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/299.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/3.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/30.json",
+    "bytes": 620
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/31.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/32.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/33.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/34.json",
+    "bytes": 419
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/35.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/36.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/37.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/38.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/39.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/4.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/40.json",
+    "bytes": 623
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/41.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/42.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/43.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/44.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/45.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/46.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/47.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/48.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/49.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/5.json",
+    "bytes": 419
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/50.json",
+    "bytes": 622
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/51.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/52.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/53.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/54.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/55.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/56.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/57.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/58.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/59.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/6.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/60.json",
+    "bytes": 623
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/61.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/62.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/63.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/64.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/65.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/66.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/67.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/68.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/69.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/7.json",
+    "bytes": 418
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/70.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/71.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/72.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/73.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/74.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/75.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/76.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/77.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/78.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/79.json",
+    "bytes": 420
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/8.json",
+    "bytes": 419
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/80.json",
+    "bytes": 622
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/81.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/82.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/83.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/84.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/85.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/86.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/87.json",
+    "bytes": 424
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/88.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/89.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/9.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/90.json",
+    "bytes": 624
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/91.json",
+    "bytes": 421
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/92.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/93.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/94.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/95.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/96.json",
+    "bytes": 422
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/97.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/98.json",
+    "bytes": 423
+  },
+  {
+    "modality": "objpose",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/99.json",
+    "bytes": 422
+  },
+  {
+    "modality": "action",
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/action/color.json",
+    "bytes": 2481
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/100.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/101.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/102.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/103.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/104.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/105.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/106.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/107.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/108.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/109.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/110.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/111.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/112.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/113.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/114.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/115.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/116.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/117.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/118.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/119.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/120.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/121.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/122.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/123.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/124.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/125.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/126.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/127.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/128.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/129.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/130.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/131.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/132.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/133.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/134.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/135.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/136.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/137.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/138.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/139.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/140.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/141.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/142.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/143.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/144.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/145.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/146.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/147.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/148.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/149.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/150.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/151.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/165.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/166.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/167.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/168.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/169.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/170.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/171.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/172.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/173.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/174.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/175.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/176.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/177.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/178.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/179.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/180.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/181.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/182.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/183.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/184.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/185.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/186.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/187.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/188.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/189.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/190.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/191.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/192.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/193.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/194.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/195.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/196.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/197.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/198.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/199.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/200.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/201.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/202.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/203.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/204.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/205.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/206.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/207.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/208.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/209.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/210.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/211.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/212.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/213.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/214.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/215.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/216.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/217.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/218.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/219.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/220.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/221.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/222.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/223.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/224.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/225.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/226.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/227.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/228.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/229.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/230.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/231.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/232.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/233.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/234.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/235.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/236.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/237.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/238.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/239.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/240.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/241.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/242.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/243.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/244.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/245.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/246.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/247.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/248.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/249.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/250.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/251.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/252.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/253.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/254.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/255.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/256.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/257.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/258.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/259.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/26.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/260.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/261.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/262.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/263.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/264.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/265.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/266.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/267.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/268.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/269.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/27.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/270.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/271.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/272.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/28.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/29.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/30.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/31.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/32.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/33.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/34.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/35.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/36.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/37.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/38.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/39.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/40.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/41.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/42.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/43.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/44.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/45.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/46.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/47.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/48.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/49.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/50.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/51.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/52.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/53.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/54.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/55.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/56.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/57.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/58.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/59.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/60.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/61.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/62.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/63.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/64.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/65.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/66.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/67.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/68.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/69.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/70.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/71.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/72.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/73.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/74.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/75.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/76.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/77.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/78.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/79.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/80.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/81.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/82.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/83.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/84.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/85.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/86.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/87.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/88.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/89.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/90.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/91.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/92.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/93.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/94.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/95.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/96.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/97.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/98.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "right",
+    "path": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/99.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/100.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/101.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/102.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/103.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/104.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/105.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/106.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/107.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/108.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/109.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/110.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/111.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/112.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/113.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/114.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/115.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/116.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/117.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/118.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/119.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/120.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/121.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/122.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/123.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/124.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/125.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/126.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/127.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/128.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/129.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/130.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/131.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/132.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/133.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/134.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/135.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/136.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/137.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/138.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/139.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/140.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/141.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/142.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/143.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/144.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/145.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/146.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/147.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/148.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/149.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/150.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/151.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/165.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/166.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/167.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/168.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/169.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/170.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/171.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/172.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/173.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/174.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/175.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/176.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/177.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/178.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/179.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/180.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/181.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/182.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/183.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/184.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/185.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/186.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/187.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/188.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/189.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/190.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/191.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/192.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/193.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/194.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/195.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/196.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/197.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/198.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/199.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/200.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/201.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/202.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/203.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/204.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/205.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/206.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/207.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/208.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/209.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/210.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/211.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/212.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/213.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/214.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/215.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/216.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/217.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/218.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/219.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/220.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/221.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/222.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/223.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/224.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/225.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/226.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/227.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/228.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/229.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/230.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/231.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/232.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/233.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/234.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/235.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/236.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/237.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/238.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/239.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/240.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/241.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/242.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/243.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/244.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/245.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/246.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/247.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/248.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/249.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/250.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/251.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/252.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/253.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/254.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/255.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/256.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/257.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/258.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/259.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/260.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/261.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/262.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/263.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/264.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/265.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/266.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/267.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/268.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/269.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/27.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/270.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/271.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/272.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/28.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/29.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/30.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/31.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/32.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/33.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/34.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/35.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/36.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/37.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/38.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/39.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/40.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/41.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/42.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/43.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/44.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/45.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/46.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/47.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/48.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/49.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/50.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/51.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/52.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/53.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/54.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/55.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/56.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/57.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/58.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/59.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/60.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/61.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/62.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/63.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/64.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/65.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/66.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/67.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/68.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/69.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/70.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/71.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/72.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/73.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/74.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/75.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/76.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/77.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/78.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/79.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/80.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/81.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/82.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/83.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/84.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/85.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/86.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/87.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/88.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/89.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/90.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/91.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/92.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/93.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/94.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/95.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/96.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/97.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/98.pickle",
+    "bytes": 895
+  },
+  {
+    "modality": "left",
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/99.pickle",
+    "bytes": 895
+  }
+]

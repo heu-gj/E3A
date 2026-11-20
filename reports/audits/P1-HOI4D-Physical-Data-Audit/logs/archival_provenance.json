@@ -1,0 +1,280 @@
+{
+  "timestamp_utc": "2026-11-20T17:41:14.673539+00:00",
+  "base_commit": "9f96d5813655e0fb9ceebad107b2ff2d1d2d5d07",
+  "initial_branch": "feat/e3a-foundation",
+  "initial_head": "9f96d5813655e0fb9ceebad107b2ff2d1d2d5d07",
+  "existing_open_prs": [],
+  "initial_artifacts_tracked": false,
+  "duplicate_json_bytes_equal": true,
+  "original_artifacts": [
+    {
+      "source_repo_path": "reports/hoi4d_audit/README.md",
+      "bytes": 2006,
+      "sha256_before_sanitization": "8d263fd4bdb8c57271f7a91ea29d7c447629d20ee8b7a02e72d18a07b2d78692"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/audit_evidence.json",
+      "bytes": 76249,
+      "sha256_before_sanitization": "d1f16a9bda953f850badf33dcf298c47bd885a4febdbd70609360c47e9c03912"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/candidates.json",
+      "bytes": 4105742,
+      "sha256_before_sanitization": "7c704bbcd2c7f4f9856842e9d3de9bde1e521be25d6d2e130c534f7fc0d6d305"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/cross_modal_frames.csv",
+      "bytes": 242995,
+      "sha256_before_sanitization": "837d612fcf83797d4b30be5933e613f39a5c4a6663b9ffdba713def247824549"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00000_audit.jpg",
+      "bytes": 39797,
+      "sha256_before_sanitization": "8279047e391d3f46b933a35de1c642bcb99f03c8160b4052224d9790cdb60158"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00000_depth_edges.jpg",
+      "bytes": 34905,
+      "sha256_before_sanitization": "eecfe21fbf69c2460c8fa86db8d9e912b646b48ca1574ce72e5a7425f19d3678"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00000_depth_raw.npy",
+      "bytes": 4147328,
+      "sha256_before_sanitization": "ba54434bced9eca570d161d9de98aa28734c1a4280a1e444b9f63013748782bb"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00000_depth_visual.png",
+      "bytes": 198028,
+      "sha256_before_sanitization": "6ae77f01be541fca50567408f5d53bcceee761226aa527324a8aaaea5d84f3c3"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00000_instance_PROVISIONAL.png",
+      "bytes": 8411,
+      "sha256_before_sanitization": "e59bdb8c5e1e11e5041a44cce93fd27f8c65d27fddf14cae8510cb9b12a77a4f"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00000_motion.png",
+      "bytes": 8411,
+      "sha256_before_sanitization": "e59bdb8c5e1e11e5041a44cce93fd27f8c65d27fddf14cae8510cb9b12a77a4f"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00000_overlay.png",
+      "bytes": 756811,
+      "sha256_before_sanitization": "d14d1faa94c59946459caadb2299adc2b22079996f4ae48c1eb98fe599035541"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00000_rgb.png",
+      "bytes": 759700,
+      "sha256_before_sanitization": "d9f50ca4c8f84f1cf5f0ec8bd46447e69dabae221793fab19f11ccaa212f5a51"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00075_audit.jpg",
+      "bytes": 45681,
+      "sha256_before_sanitization": "d3b45aaf963bf5214cdf30efb2a034ff45295f22b93d59e806c71a0f745a7cdc"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00075_depth_edges.jpg",
+      "bytes": 35859,
+      "sha256_before_sanitization": "d64f7dcc10c7071988823a4f5560823acaff50fa1d0a13a6ec94d2e4c51f2cb6"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00075_depth_raw.npy",
+      "bytes": 4147328,
+      "sha256_before_sanitization": "8a12362319178120233d13f7853290b4f88f219a7dcba0a8390119af7251043a"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00075_depth_visual.png",
+      "bytes": 212662,
+      "sha256_before_sanitization": "b974087e671c55726c27d617573833de11ce0c225442552d4519ff5c68a5310b"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00075_instance_PROVISIONAL.png",
+      "bytes": 12055,
+      "sha256_before_sanitization": "20702e7ff79c083f15e7d063d2ea2c67530118326082a96d83ee9aad8736c1ad"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00075_motion.png",
+      "bytes": 12055,
+      "sha256_before_sanitization": "20702e7ff79c083f15e7d063d2ea2c67530118326082a96d83ee9aad8736c1ad"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00075_overlay.png",
+      "bytes": 1038999,
+      "sha256_before_sanitization": "2f1d9c629f43be9817c409293ea795413dc9c0e06f927f6a98946cabd70131d1"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00075_rgb.png",
+      "bytes": 1062513,
+      "sha256_before_sanitization": "d93661310542c7e7cfd0614372f93c69025a2c3d9fef732034f500e9a650b422"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00150_audit.jpg",
+      "bytes": 41250,
+      "sha256_before_sanitization": "cc28037bf202b6a0df161b083eab703e92cb55de2bc1ba69710f3e4b444abfba"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00150_depth_edges.jpg",
+      "bytes": 32664,
+      "sha256_before_sanitization": "1b77189ba300116613b9f605d05edd14b804c5475f9f8c388729871a9eb11b11"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00150_depth_raw.npy",
+      "bytes": 4147328,
+      "sha256_before_sanitization": "d8af25e45b7ec5bb2604a46a35372ba4a7070201da406b1d0cdeccf574ce0eaf"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00150_depth_visual.png",
+      "bytes": 212718,
+      "sha256_before_sanitization": "8950f94af9f0b016e1914b586064b47bf989d3fac3853c805451c9d8792b3ed3"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00150_instance_PROVISIONAL.png",
+      "bytes": 10023,
+      "sha256_before_sanitization": "ffc019ed5a85ccfedcc35c7733b11fbe8d4872b0cc6be9b2b2c71487bb3fa4d2"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00150_motion.png",
+      "bytes": 10023,
+      "sha256_before_sanitization": "ffc019ed5a85ccfedcc35c7733b11fbe8d4872b0cc6be9b2b2c71487bb3fa4d2"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00150_overlay.png",
+      "bytes": 1074209,
+      "sha256_before_sanitization": "9de8e9c6dc63390cf80f9b71bedcd7f99fe1fb903926071b1727ea5a8c8e2656"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00150_rgb.png",
+      "bytes": 1085949,
+      "sha256_before_sanitization": "9a7356e68bbfae3ce555f0a70b3754c70a28c4766e9c8c8d887ff4740a02bed6"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00224_audit.jpg",
+      "bytes": 49025,
+      "sha256_before_sanitization": "14fb7c45dffd3544f2e6ffc1fa1bf1a08e9e0b965b7f8c678198240a9b91f83c"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00224_depth_edges.jpg",
+      "bytes": 40740,
+      "sha256_before_sanitization": "d8a0e9b98231ec09cb2c21df7f5e0fe10eda0771fdde6220326be957d9bb76a1"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00224_depth_raw.npy",
+      "bytes": 4147328,
+      "sha256_before_sanitization": "4eeb7690757e7df822b7d8d317d774816b27c32cee5668275a50a07c5a520893"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00224_depth_visual.png",
+      "bytes": 200438,
+      "sha256_before_sanitization": "14f8b16303af6521d78c61cbe166c6255080f3a2406cdc347959199006ff4693"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00224_instance_PROVISIONAL.png",
+      "bytes": 12768,
+      "sha256_before_sanitization": "ed5965611515f8492c7dab8e8cdeeb819eb5f110fd45ff80df3d8dc2106e166c"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00224_motion.png",
+      "bytes": 12768,
+      "sha256_before_sanitization": "ed5965611515f8492c7dab8e8cdeeb819eb5f110fd45ff80df3d8dc2106e166c"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00224_overlay.png",
+      "bytes": 890306,
+      "sha256_before_sanitization": "a6d7a0eeec1d9b2dcae2afddb2df64e6bbd79848b259adf5bc8446383f054b12"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00224_rgb.png",
+      "bytes": 910039,
+      "sha256_before_sanitization": "6abb9db85b325d5ef998c338c6c61f324fae615a3cfb142c89ca8aa402d97407"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00299_audit.jpg",
+      "bytes": 40007,
+      "sha256_before_sanitization": "23910bee85117dae48d49786cce7c4b06866b2c1c9ff17d0a8e64959e22f1735"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00299_depth_edges.jpg",
+      "bytes": 37260,
+      "sha256_before_sanitization": "54768029dec8def48db96f0e17ce2e273feb79aed0bfc31b52933f700ee0a780"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00299_depth_raw.npy",
+      "bytes": 4147328,
+      "sha256_before_sanitization": "be19099c467150ce04a390f605d016a8c384ed9c9fada67a698e617fd7cd9b77"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00299_depth_visual.png",
+      "bytes": 208896,
+      "sha256_before_sanitization": "44c2eb14eee74158ecf4191bede416e69108815c2b79a57b32906441ac27ad01"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00299_instance_PROVISIONAL.png",
+      "bytes": 8394,
+      "sha256_before_sanitization": "ff9a34a53c842480169c1113689dc1db96d8a4b0feaaa2ccedcd4fa82f0a4ed5"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00299_motion.png",
+      "bytes": 8394,
+      "sha256_before_sanitization": "ff9a34a53c842480169c1113689dc1db96d8a4b0feaaa2ccedcd4fa82f0a4ed5"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00299_overlay.png",
+      "bytes": 1260257,
+      "sha256_before_sanitization": "92d0e9350ca8990011bbe686617d17962eb46c2f87e83199fb90c969bb6f2bd9"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/frame_00299_rgb.png",
+      "bytes": 1269189,
+      "sha256_before_sanitization": "297e5f1f1717e3b4974791ec6ada30b4612f91abb6a33f0268778570270587fb"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/inventory.json",
+      "bytes": 212435,
+      "sha256_before_sanitization": "a0ed8161976fcbc6510b20b1ba59da3466f2c50507a3251d8914b32a2a90176e"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/mano_left_records.json",
+      "bytes": 183790,
+      "sha256_before_sanitization": "318c781dae3fce5f7c550bce99e2b27b5746d949e5ab663e1b9a9ada7aba5f95"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/mano_right_records.json",
+      "bytes": 184964,
+      "sha256_before_sanitization": "0a7dbcab8cb0c46bf62c0e333cfec7ebf429890b4b4c7f5355f35372b8cc2768"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/mask_statistics.json",
+      "bytes": 340120,
+      "sha256_before_sanitization": "e39fd4d4b7f8d6a19d07891c3015b7ae9ef844896354d4425ce6390334ea6a22"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/objpose_records.json",
+      "bytes": 279447,
+      "sha256_before_sanitization": "c8089096c9169c8a570b2f887a61a7382a6c8dd55427983858e483877ed4d4e8"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/unknown_frame_00220.png",
+      "bytes": 12636,
+      "sha256_before_sanitization": "41d3d5cba3f39cebadf0f74d68cfad4eb4d99bd089060f36763bccab0c022ef2"
+    },
+    {
+      "source_repo_path": "reports/hoi4d_audit/unknown_frame_00220_crop.png",
+      "bytes": 6094,
+      "sha256_before_sanitization": "c7d69bb79c839299d17cfa84673db91929e176913631cf13eac186c614fda678"
+    },
+    {
+      "source_repo_path": "docs/data_audit/hoi4d_single_sequence.json",
+      "bytes": 76249,
+      "sha256_before_sanitization": "d1f16a9bda953f850badf33dcf298c47bd885a4febdbd70609360c47e9c03912"
+    },
+    {
+      "source_repo_path": "docs/data_audit/hoi4d_single_sequence.md",
+      "bytes": 22149,
+      "sha256_before_sanitization": "9e7bd0477d3cbf27b01a5efc0537fd5be349479ef76cedcb0a3924118df12b82"
+    }
+  ],
+  "relocation_policy": "Sanitized public text is staged then git mv. Initially untracked restricted files use local rename, never staged. No evidence deleted.",
+  "sanitization": "Dataset-root-relative source paths; interpreter replaced with python; full annotation snapshots withheld; public statistics derived from prior evidence.",
+  "original_audit_timestamp_utc": "UNKNOWN; prior report recorded local date 2026-11-21 only",
+  "archival_real_data_rerun": "NOT_RUN"
+}

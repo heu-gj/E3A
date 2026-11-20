@@ -1,0 +1,7202 @@
+[
+  {
+    "file_index": 0,
+    "frameId": 1,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/0.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.25012322310934e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 1,
+    "frameId": 1,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/1.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.860727597739586e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 2,
+    "frameId": 2,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/2.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.282685190751351e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 3,
+    "frameId": 3,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/3.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.751863044140144e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 4,
+    "frameId": 4,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/4.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.651770451322308e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 5,
+    "frameId": 5,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/5.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.762338617754879e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 6,
+    "frameId": 6,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/6.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.85410477621437e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 7,
+    "frameId": 7,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/7.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.1501140581323864e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 8,
+    "frameId": 8,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/8.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.452699047464468e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 9,
+    "frameId": 9,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/9.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.4026946612207955e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 10,
+    "frameId": 2,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/10.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.7178145349882145e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 11,
+    "frameId": 11,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/11.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.3754683233894454e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 12,
+    "frameId": 12,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/12.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0385086153180615e-15,
+    "determinant": 0.999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 13,
+    "frameId": 13,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/13.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.759156427946637e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 14,
+    "frameId": 14,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/14.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.0615599831624085e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 15,
+    "frameId": 15,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/15.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.38337674344107e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 16,
+    "frameId": 16,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/16.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.241822687569383e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 17,
+    "frameId": 17,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/17.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.685251369955639e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 18,
+    "frameId": 18,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/18.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.208930029697066e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 19,
+    "frameId": 19,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/19.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.697145997874936e-16,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 20,
+    "frameId": 3,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/20.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.6127750328859933e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 21,
+    "frameId": 21,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/21.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.360370847994551e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 22,
+    "frameId": 22,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/22.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.289051432323681e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 23,
+    "frameId": 23,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/23.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.8909009724611595e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 24,
+    "frameId": 24,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/24.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.655021620583711e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 25,
+    "frameId": 25,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/25.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.154612130175567e-15,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 26,
+    "frameId": 26,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/26.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.92033347677831e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 27,
+    "frameId": 27,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/27.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0188926733632762e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 28,
+    "frameId": 28,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/28.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.9506888327197616e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 29,
+    "frameId": 29,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/29.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.657199360393205e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 30,
+    "frameId": 4,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/30.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.876676943009429e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 31,
+    "frameId": 31,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/31.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.5739626102718728e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 32,
+    "frameId": 32,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/32.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.536177321756641e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 33,
+    "frameId": 33,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/33.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.536414729086052e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 34,
+    "frameId": 34,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/34.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.2390981623837678e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 35,
+    "frameId": 35,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/35.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.522139893348542e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 36,
+    "frameId": 36,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/36.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.5777098851729453e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 37,
+    "frameId": 37,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/37.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.5083195786698827e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 38,
+    "frameId": 38,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/38.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 8.430040363641005e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 39,
+    "frameId": 39,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/39.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.423621849659068e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 40,
+    "frameId": 5,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/40.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.3925060376820467e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 41,
+    "frameId": 41,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/41.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.486604497028457e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 42,
+    "frameId": 42,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/42.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.789058527311827e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 43,
+    "frameId": 43,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/43.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.387536177213498e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 44,
+    "frameId": 44,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/44.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.144854919158756e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 45,
+    "frameId": 45,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/45.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.348337285404724e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 46,
+    "frameId": 46,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/46.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.615784891068445e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 47,
+    "frameId": 47,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/47.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.8155502203584735e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 48,
+    "frameId": 48,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/48.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.299678282472374e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 49,
+    "frameId": 49,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/49.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.495694710454879e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 50,
+    "frameId": 6,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/50.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.17026994507044e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 51,
+    "frameId": 51,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/51.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.92556890852693e-15,
+    "determinant": 1.0000000000000016,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 52,
+    "frameId": 52,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/52.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.413173182522555e-15,
+    "determinant": 0.9999999999999988,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 53,
+    "frameId": 53,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/53.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8525911015076077e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 54,
+    "frameId": 54,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/54.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.676270711021723e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 55,
+    "frameId": 55,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/55.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.00656124045823e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 56,
+    "frameId": 56,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/56.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.746458715875033e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 57,
+    "frameId": 57,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/57.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.437205690869412e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 58,
+    "frameId": 58,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/58.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.1838151642773695e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 59,
+    "frameId": 59,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/59.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.304170087861746e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 60,
+    "frameId": 7,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/60.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.160857857007416e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 61,
+    "frameId": 61,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/61.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.692110469454777e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 62,
+    "frameId": 62,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/62.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.885260889142745e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 63,
+    "frameId": 63,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/63.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.1698099325549706e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 64,
+    "frameId": 64,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/64.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.322590483502769e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 65,
+    "frameId": 65,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/65.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.856107061799129e-17,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 66,
+    "frameId": 66,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/66.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.9724606029598196e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 67,
+    "frameId": 67,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/67.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.1782395666370926e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 68,
+    "frameId": 68,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/68.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.12856423127733e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 69,
+    "frameId": 69,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/69.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.9190887912700397e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 70,
+    "frameId": 8,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/70.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 8.421734516908199e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 71,
+    "frameId": 71,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/71.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.920330477328703e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 72,
+    "frameId": 72,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/72.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.809540459861893e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 73,
+    "frameId": 73,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/73.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.2960737228134704e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 74,
+    "frameId": 74,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/74.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0431707610921967e-15,
+    "determinant": 1.000000000000001,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 75,
+    "frameId": 75,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/75.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.1657732875356037e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 76,
+    "frameId": 76,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/76.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.022195801288785e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 77,
+    "frameId": 77,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/77.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.043953430329366e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 78,
+    "frameId": 78,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/78.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.386439140157489e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 79,
+    "frameId": 79,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/79.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.2665062179974585e-17,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 80,
+    "frameId": 9,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/80.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 8.340851030383079e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 81,
+    "frameId": 81,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/81.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.707065340503054e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 82,
+    "frameId": 82,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/82.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.524258571764046e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 83,
+    "frameId": 83,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/83.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.889426022448817e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 84,
+    "frameId": 84,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/84.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.82723800451442e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 85,
+    "frameId": 85,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/85.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.827051016980692e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 86,
+    "frameId": 86,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/86.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.6620400988646165e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 87,
+    "frameId": 87,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/87.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8742383638507393e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 88,
+    "frameId": 88,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/88.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.3620125282795464e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 89,
+    "frameId": 89,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/89.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.46403182204619e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 90,
+    "frameId": 10,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/90.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.405954969841218e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 91,
+    "frameId": 91,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/91.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.6300045266328035e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 92,
+    "frameId": 92,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/92.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.265498578104756e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 93,
+    "frameId": 93,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/93.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.757659977187267e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 94,
+    "frameId": 94,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/94.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.181090772485254e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 95,
+    "frameId": 95,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/95.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.1663729251887133e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 96,
+    "frameId": 96,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/96.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.103625203749367e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 97,
+    "frameId": 97,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/97.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.118299747365398e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 98,
+    "frameId": 98,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/98.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.60577924626259e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 99,
+    "frameId": 99,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/99.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.223849503678396e-15,
+    "determinant": 0.9999999999999988,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 100,
+    "frameId": 11,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/100.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.1550976059964962e-15,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 101,
+    "frameId": 101,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/101.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0356789188399e-15,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 102,
+    "frameId": 102,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/102.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.295724230423586e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 103,
+    "frameId": 103,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/103.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.666785972334234e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 104,
+    "frameId": 104,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/104.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.336549638673394e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 105,
+    "frameId": 105,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/105.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.375676763980166e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 106,
+    "frameId": 106,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/106.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.2022840592550253e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 107,
+    "frameId": 107,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/107.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.731177671360261e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 108,
+    "frameId": 108,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/108.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.962230440240808e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 109,
+    "frameId": 109,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/109.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.209796299673926e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 110,
+    "frameId": 12,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/110.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.076981529387022e-15,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 111,
+    "frameId": 111,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/111.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.5386216164622468e-15,
+    "determinant": 1.000000000000001,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 112,
+    "frameId": 112,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/112.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.9151790465469353e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 113,
+    "frameId": 113,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/113.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.8692265248513e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 114,
+    "frameId": 114,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/114.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.428310279501388e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 115,
+    "frameId": 115,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/115.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.2954525098595013e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 116,
+    "frameId": 116,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/116.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.4812918962962e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 117,
+    "frameId": 117,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/117.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.853051137965871e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 118,
+    "frameId": 118,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/118.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.868163438456564e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 119,
+    "frameId": 119,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/119.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.7596097449096544e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 120,
+    "frameId": 13,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/120.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.17658570721821e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 121,
+    "frameId": 121,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/121.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.673228625352734e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 122,
+    "frameId": 122,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/122.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.4246305351552206e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 123,
+    "frameId": 123,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/123.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0425852427716375e-15,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 124,
+    "frameId": 124,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/124.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.185432141780183e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 125,
+    "frameId": 125,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/125.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.468968484878236e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 126,
+    "frameId": 126,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/126.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.660408013760079e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 127,
+    "frameId": 127,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/127.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.5860462616977774e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 128,
+    "frameId": 128,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/128.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.4838073493318305e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 129,
+    "frameId": 129,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/129.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.1428622070992193e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 130,
+    "frameId": 14,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/130.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.0706457769150742e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 131,
+    "frameId": 131,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/131.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.250334241528235e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 132,
+    "frameId": 132,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/132.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.638696234526261e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 133,
+    "frameId": 133,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/133.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.1298832973716e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 134,
+    "frameId": 134,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/134.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.319517242091905e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 135,
+    "frameId": 135,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/135.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8858370776222867e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 136,
+    "frameId": 136,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/136.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.243049710993753e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 137,
+    "frameId": 137,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/137.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.683593503560965e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 138,
+    "frameId": 138,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/138.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.696268869376346e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 139,
+    "frameId": 139,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/139.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.47544406771191e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 140,
+    "frameId": 15,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/140.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0022766502122495e-15,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 141,
+    "frameId": 141,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/141.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.199294469129624e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 142,
+    "frameId": 142,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/142.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.0553252991960373e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 143,
+    "frameId": 143,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/143.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.85280620202217e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 144,
+    "frameId": 144,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/144.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.191752231022306e-16,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 145,
+    "frameId": 145,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/145.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.636903438695037e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 146,
+    "frameId": 146,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/146.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.770436521263502e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 147,
+    "frameId": 147,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/147.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.780673079088932e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 148,
+    "frameId": 148,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/148.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.879723847986341e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 149,
+    "frameId": 149,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/149.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.1595871432433844e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 150,
+    "frameId": 16,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/150.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.673135961222637e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 151,
+    "frameId": 151,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/151.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.1976299902603118e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 152,
+    "frameId": 152,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/152.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.539090667942769e-15,
+    "determinant": 1.0000000000000013,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 153,
+    "frameId": 153,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/153.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.6624447313357087e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 154,
+    "frameId": 154,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/154.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.582424413656566e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 155,
+    "frameId": 155,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/155.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.667907366310909e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 156,
+    "frameId": 156,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/156.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.348640233702293e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 157,
+    "frameId": 157,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/157.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.533997918217716e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 158,
+    "frameId": 158,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/158.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.868296356458522e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 159,
+    "frameId": 159,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/159.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.292271304458097e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 160,
+    "frameId": 17,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/160.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 8.315717707238039e-16,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 161,
+    "frameId": 161,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/161.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.331140159212741e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 162,
+    "frameId": 162,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/162.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.146589826675118e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 163,
+    "frameId": 163,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/163.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.872143931037055e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 164,
+    "frameId": 164,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/164.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.17078244606849e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 165,
+    "frameId": 165,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/165.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.710556587723614e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 166,
+    "frameId": 166,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/166.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.466866491585784e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 167,
+    "frameId": 167,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/167.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.1492489106326963e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 168,
+    "frameId": 168,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/168.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8519837026382376e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 169,
+    "frameId": 169,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/169.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.035228847461168e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 170,
+    "frameId": 18,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/170.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.293238993974147e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 171,
+    "frameId": 171,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/171.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.364557676196833e-17,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 172,
+    "frameId": 172,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/172.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.1477854278209777e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 173,
+    "frameId": 173,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/173.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.620590804630131e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 174,
+    "frameId": 174,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/174.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.69037233065895e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 175,
+    "frameId": 175,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/175.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.81369504941648e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 176,
+    "frameId": 176,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/176.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.036035973590717e-15,
+    "determinant": 0.9999999999999991,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 177,
+    "frameId": 177,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/177.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.226305959388088e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 178,
+    "frameId": 178,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/178.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.69816126416908e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 179,
+    "frameId": 179,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/179.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.745968769073182e-16,
+    "determinant": 0.9999999999999991,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 180,
+    "frameId": 19,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/180.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.2631580039216525e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 181,
+    "frameId": 181,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/181.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.445594435488683e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 182,
+    "frameId": 182,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/182.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.926578173055905e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 183,
+    "frameId": 183,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/183.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.7694912065566835e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 184,
+    "frameId": 184,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/184.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.9082668203407537e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 185,
+    "frameId": 185,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/185.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.975517010180428e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 186,
+    "frameId": 186,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/186.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.506434106073502e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 187,
+    "frameId": 187,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/187.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.558177657246867e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 188,
+    "frameId": 188,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/188.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.573562404524508e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 189,
+    "frameId": 189,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/189.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.5389192132698311e-15,
+    "determinant": 1.0000000000000013,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 190,
+    "frameId": 20,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/190.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.19553722964815e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 191,
+    "frameId": 191,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/191.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.2412941954675643e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 192,
+    "frameId": 192,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/192.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.696955047211902e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 193,
+    "frameId": 193,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/193.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.191472098295055e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 194,
+    "frameId": 194,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/194.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.2447299586467417e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 195,
+    "frameId": 195,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/195.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.046434309142242e-15,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 196,
+    "frameId": 196,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/196.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.16157774074602e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 197,
+    "frameId": 197,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/197.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.220642040600422e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 198,
+    "frameId": 198,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/198.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.040388033530536e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 199,
+    "frameId": 199,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/199.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.475513051888534e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 200,
+    "frameId": 21,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/200.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.168084291409432e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 201,
+    "frameId": 201,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/201.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.704549925035583e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 202,
+    "frameId": 202,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/202.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.515598339267058e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 203,
+    "frameId": 203,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/203.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.5181794808478396e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 204,
+    "frameId": 204,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/204.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.3863341371627764e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 205,
+    "frameId": 205,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/205.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.1700089824052825e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 206,
+    "frameId": 206,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/206.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.5527572348526924e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 207,
+    "frameId": 207,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/207.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.159592420938214e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 208,
+    "frameId": 208,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/208.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.8642958099947886e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 209,
+    "frameId": 209,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/209.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.175759681114735e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 210,
+    "frameId": 22,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/210.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.756848580615313e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 211,
+    "frameId": 211,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/211.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.44079343203435e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 212,
+    "frameId": 212,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/212.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.67370544948489e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 213,
+    "frameId": 213,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/213.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.386810338536497e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 214,
+    "frameId": 214,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/214.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.687329827040544e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 215,
+    "frameId": 215,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/215.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.218593771162109e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 216,
+    "frameId": 216,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/216.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.867669336677624e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 217,
+    "frameId": 217,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/217.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.731433257154807e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 218,
+    "frameId": 218,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/218.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.199540598887995e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 219,
+    "frameId": 219,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/219.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8828973985526157e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 220,
+    "frameId": 23,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/220.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.981422166192286e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 221,
+    "frameId": 221,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/221.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.403672619095292e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 222,
+    "frameId": 222,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/222.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.596093403816778e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 223,
+    "frameId": 223,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/223.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.4147724595737716e-15,
+    "determinant": 0.9999999999999988,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 224,
+    "frameId": 224,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/224.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.448250954154871e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 225,
+    "frameId": 225,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/225.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.9339391251119404e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 226,
+    "frameId": 226,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/226.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.209866105954146e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 227,
+    "frameId": 227,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/227.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.155934819816198e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 228,
+    "frameId": 228,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/228.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.745380368918977e-16,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 229,
+    "frameId": 229,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/229.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.1448434098985427e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 230,
+    "frameId": 24,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/230.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.2629466236262073e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 231,
+    "frameId": 231,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/231.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.9367464401697097e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 232,
+    "frameId": 232,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/232.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.2009124855718594e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 233,
+    "frameId": 233,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/233.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.711476635141757e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 234,
+    "frameId": 234,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/234.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.863864703963628e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 235,
+    "frameId": 235,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/235.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.320685910374494e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 236,
+    "frameId": 236,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/236.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.120870122644663e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 237,
+    "frameId": 237,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/237.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.498987018919565e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 238,
+    "frameId": 238,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/238.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.544501442768851e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 239,
+    "frameId": 239,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/239.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.2302432755241436e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 240,
+    "frameId": 25,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/240.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0438633420818733e-15,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 241,
+    "frameId": 241,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/241.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.861849171684776e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 242,
+    "frameId": 242,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/242.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.515404360873139e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 243,
+    "frameId": 243,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/243.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.2157430770857347e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 244,
+    "frameId": 244,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/244.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.826293437935125e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 245,
+    "frameId": 245,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/245.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8866799155188783e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 246,
+    "frameId": 246,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/246.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.808045304114771e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 247,
+    "frameId": 247,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/247.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.24797008658735e-16,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 248,
+    "frameId": 248,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/248.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.189653923046638e-16,
+    "determinant": 0.9999999999999993,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 249,
+    "frameId": 249,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/249.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.86134945912012e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 250,
+    "frameId": 26,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/250.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.662756073325466e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 251,
+    "frameId": 251,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/251.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.1725435191774826e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 252,
+    "frameId": 252,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/252.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.454090404589175e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 253,
+    "frameId": 253,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/253.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.851259420865207e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 254,
+    "frameId": 254,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/254.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.446984363850367e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 255,
+    "frameId": 255,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/255.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.310258870136531e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 256,
+    "frameId": 256,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/256.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.226377814969921e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 257,
+    "frameId": 257,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/257.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.044647294228013e-15,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 258,
+    "frameId": 258,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/258.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.3830586113180367e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 259,
+    "frameId": 259,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/259.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8996049688741617e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 260,
+    "frameId": 27,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/260.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.011753691155683e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 261,
+    "frameId": 261,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/261.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.828988102604843e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 262,
+    "frameId": 262,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/262.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0422276810450855e-15,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 263,
+    "frameId": 263,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/263.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.443535548560696e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 264,
+    "frameId": 264,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/264.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.7125714107602064e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 265,
+    "frameId": 265,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/265.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.024135970757579e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 266,
+    "frameId": 266,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/266.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.595074073015242e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 267,
+    "frameId": 267,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/267.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.532776687326902e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 268,
+    "frameId": 268,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/268.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.315858504713041e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 269,
+    "frameId": 269,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/269.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 4.595096380055427e-16,
+    "determinant": 0.9999999999999997,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 270,
+    "frameId": 28,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/270.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.479967322263331e-16,
+    "determinant": 0.9999999999999996,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 271,
+    "frameId": 271,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/271.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.525105516668321e-17,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 272,
+    "frameId": 272,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/272.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.04090120136294e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 273,
+    "frameId": 273,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/273.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.2544669043658644e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 274,
+    "frameId": 274,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/274.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0425752589005554e-15,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 275,
+    "frameId": 275,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/275.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.87831086311423e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 276,
+    "frameId": 276,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/276.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.76935596281514e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 277,
+    "frameId": 277,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/277.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.7446227811876865e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 278,
+    "frameId": 278,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/278.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.0426155089072992e-15,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 279,
+    "frameId": 279,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/279.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.884082241232831e-16,
+    "determinant": 0.9999999999999992,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 280,
+    "frameId": 29,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/280.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.7908080193143224e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 281,
+    "frameId": 281,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/281.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8751156545321565e-16,
+    "determinant": 1.0000000000000004,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 282,
+    "frameId": 282,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/282.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.608249019330322e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 283,
+    "frameId": 283,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/283.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 7.747715400428539e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 284,
+    "frameId": 284,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/284.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.8688514456321703e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 285,
+    "frameId": 285,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/285.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.532881703307799e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 286,
+    "frameId": 286,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/286.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 5.99372248292949e-16,
+    "determinant": 0.9999999999999994,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 287,
+    "frameId": 287,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/287.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.166491206391684e-16,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 288,
+    "frameId": 288,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/288.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.275966006775745e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 289,
+    "frameId": 289,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/289.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.6274133315301276e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 290,
+    "frameId": 30,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/290.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.236490050802287e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 291,
+    "frameId": 291,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/291.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 1.8578161298729002e-16,
+    "determinant": 0.9999999999999999,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 292,
+    "frameId": 292,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/292.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.167930725712762e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 293,
+    "frameId": 293,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/293.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.16464742960224e-16,
+    "determinant": 1.0000000000000009,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 294,
+    "frameId": 294,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/294.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 6.673985790602089e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 295,
+    "frameId": 295,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/295.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 9.161458804499403e-16,
+    "determinant": 1.0000000000000007,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 296,
+    "frameId": 296,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/296.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 3.211559471809389e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 297,
+    "frameId": 297,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/297.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.270205349488379e-16,
+    "determinant": 1.0,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 298,
+    "frameId": 298,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/298.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.7671163024979474e-16,
+    "determinant": 0.9999999999999998,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  },
+  {
+    "file_index": 299,
+    "frameId": 31,
+    "path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C20/N30/S295/s04/T4/objpose/299.json",
+    "root_keys": [
+      "frameId",
+      "filePath",
+      "isEffective",
+      "dataList"
+    ],
+    "orthogonality_error": 2.248578173799552e-16,
+    "determinant": 1.0000000000000002,
+    "object_keys": [
+      "id",
+      "label",
+      "2dBox",
+      "center",
+      "dimensions",
+      "rotation",
+      "properties"
+    ],
+    "id": 1,
+    "label": "chair"
+  }
+]
