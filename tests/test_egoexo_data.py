@@ -100,7 +100,11 @@ def test_egoexo_hand_pose_supports_official_camera_first_pose_layout():
         }
     }
 
-    parsed = parse_egoexo_hand_pose_annotations(annotations, camera_pose)
+    parsed = parse_egoexo_hand_pose_annotations(
+        annotations,
+        camera_pose,
+        min_views_for_3d=3,
+    )
 
     assert parsed[12]["valid"].all()
     np.testing.assert_allclose(
@@ -115,6 +119,7 @@ def test_egoexo_hand_pose_fails_closed_when_camera_pose_is_missing():
             make_hand_annotation(),
             {},
             camera_name="aria",
+            min_views_for_3d=3,
         )
 
 

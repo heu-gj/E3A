@@ -100,7 +100,7 @@ def parse_egoexo_hand_pose_annotations(
     camera_pose: Mapping[str, Any],
     *,
     camera_name: str = "aria",
-    min_views_for_3d: int | None = 3,
+    min_views_for_3d: int | None,
     source_to_model_units: float = 1.0,
     strict_camera_pose: bool = True,
 ) -> dict[int, dict[str, torch.Tensor]]:
@@ -114,7 +114,9 @@ def parse_egoexo_hand_pose_annotations(
     wrist, thumb(1..4), index(1..4), middle(1..4), ring(1..4), pinky(1..4).
     Coordinates are multiplied by source_to_model_units after camera
     transformation. Its default 1.0 preserves source units; it does not assert
-    that the source unit is meters. Set min_views_for_3d=None for the official
+    that the source unit is meters. min_views_for_3d is required so the caller
+    must choose the manual/automatic annotation policy explicitly. Set it to
+    None for the official
     automatic-annotation path, which does not apply the manual >=3-view filter.
     """
     if min_views_for_3d is not None and min_views_for_3d < 0:
