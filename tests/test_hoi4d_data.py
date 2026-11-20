@@ -2,9 +2,12 @@ import numpy as np
 import pytest
 
 from e3a.data.hoi4d import (
+    build_hoi4d_action_vocabulary,
+    build_hoi4d_anticipation_target,
+    build_hoi4d_entity_clip_targets,
     decode_hoi4d_motion_mask,
     hoi4d_color_palette,
-    build_hoi4d_entity_clip_targets,
+    parse_hoi4d_action_segments,
 )
 
 
@@ -61,3 +64,101 @@ def test_hoi4d_decoder_rejects_unknown_non_background_palette_colors():
 def test_hoi4d_clip_requires_at_least_one_available_mask_frame():
     with pytest.raises(ValueError, match="At least one HOI4D mask frame"):
         build_hoi4d_entity_clip_targets([None, None], "C1")
+
+
+
+def test_hoi4d_action_parser_supports_current_events_layout():
+    parsed = parse_hoi4d_action_segments(
+        {
+            "info": {"duration": 10.0},
+            "events": [
+                {"event": "pour", "startTime": 3.0, "endTime": 5.0},
+                {"event": "grasp", "startTime": 1.0, "endTime": 2.0},
+            ],
+        }
+    )
+
+    assert [item["event"] for item in parsed] == ["grasp", "pour"]
+    assert parsed[0]["start_time"] == 1.0
+    assert parsed[1]["end_time"] == 5.0
+
+
+def test_hoi4d_action_parser_supports_legacy_markresult_layout():
+    parsed = parse_hoi4d_action_segments(
+        {
+            "info": {"duration": 10.0},
+            "markResult": {
+                "marks": [
+                    {"event": "open", "hdTimeStart": 2.0, "hdTimeEnd": 4.0}
+                ]
+            },
+        }
+    )
+
+    assert parsed == [
+        {"event": "open", "start_time": 2.0, "end_time": 4.0}
+    ]
+
+
+def test_hoi4d_action_parser_supports_documented_single_interval_layout():
+    parsed = parse_hoi4d_action_segments(
+        {
+            "duration": 10.5,
+            "event": "pour",
+            "startTime": 2.1,
+            "endTime": 5.3,
+        }
+    )
+
+    assert parsed == [
+        {"event": "pour", "start_time": 2.1, "end_time": 5.3}
+    ]
+
+
+def test_hoi4d_action_parser_rejects_intervals_outside_video_duration():
+    with pytest.raises(ValueError, match="invalid interval"):
+        parse_hoi4d_action_segments(
+            {
+                "duration": 2.0,
+                "events": [
+                    {"event": "pour", "startTime": 1.0, "endTime": 3.0}
+                ],
+            }
+        )
+
+
+def test_hoi4d_anticipation_uses_future_event_and_train_only_vocabulary():
+    segments = [
+        {"event": "grasp", "start_time": 0.0, "end_time": 1.0},
+        {"event": "pour", "start_time": 2.0, "end_time": 3.0},
+        {"event": "open", "start_time": 4.0, "end_time": 5.0},
+    ]
+    vocabulary = build_hoi4d_action_vocabulary([segments[:2]])
+
+    target = build_hoi4d_anticipation_target(
+        segments,
+        observation_end_time=1.0,
+        action_vocabulary=vocabulary,
+    )
+
+    assert target == {
+        "target_entity_track_id": -1,
+        "target_entity_valid": False,
+        "action_label": vocabulary["pour"],
+        "action_valid": True,
+        "time_to_event": 1.0,
+        "time_valid": True,
+    }
+
+
+def test_hoi4d_anticipation_unknown_action_keeps_time_target_only():
+    target = build_hoi4d_anticipation_target(
+        [{"event": "unseen", "start_time": 2.0, "end_time": 3.0}],
+        observation_end_time=1.0,
+        action_vocabulary={"grasp": 0},
+    )
+
+    assert target["action_valid"] is False
+    assert target["time_valid"] is True
+    assert target["time_to_event"] == 1.0
+    assert target["target_entity_valid"] is False

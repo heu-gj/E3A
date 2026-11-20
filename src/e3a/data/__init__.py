@@ -12,9 +12,13 @@ from e3a.data.egoexo import (
     resolve_egoexo_video_path,
 )
 from e3a.data.hoi4d import (
+    build_hoi4d_action_vocabulary,
+    build_hoi4d_anticipation_target,
     build_hoi4d_entity_clip_targets,
     decode_hoi4d_motion_mask,
     hoi4d_color_palette,
+    load_hoi4d_action_segments,
+    parse_hoi4d_action_segments,
 )
 
 __all__ = [
@@ -23,6 +27,10 @@ __all__ = [
     "hoi4d_color_palette",
     "decode_hoi4d_motion_mask",
     "build_hoi4d_entity_clip_targets",
+    "parse_hoi4d_action_segments",
+    "load_hoi4d_action_segments",
+    "build_hoi4d_action_vocabulary",
+    "build_hoi4d_anticipation_target",
     "parse_egoexo_hand_pose_annotations",
     "load_egoexo_hand_pose_annotations",
     "parse_egoexo_keystep_segments",

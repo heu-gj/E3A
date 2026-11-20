@@ -8,7 +8,10 @@ files as unannotated rather than as negative masks.
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+import json
+from collections.abc import Mapping, Sequence
+from pathlib import Path
+from typing import Any
 
 import numpy as np
 import torch
@@ -209,4 +212,183 @@ def build_hoi4d_entity_clip_targets(
         "ids": track_ids,
         "masks": masks,
         "mask_valid": mask_valid,
+    }
+
+
+
+def parse_hoi4d_action_segments(
+    annotation: Mapping[str, Any],
+) -> list[dict[str, Any]]:
+    """Parse supported HOI4D action/color.json layouts into second-based intervals.
+
+    Supported source variants:
+      1. Current events list: info.duration + events[{event,startTime,endTime}].
+      2. Legacy markResult: markResult.marks[{event,hdTimeStart,hdTimeEnd}].
+      3. Single-interval form documented in the dataset README:
+         duration + event + startTime + endTime.
+
+    Unknown layouts and malformed intervals fail closed. Times remain in
+    seconds; conversion to frame indices is deferred until the actual video
+    stream frame rate has been audited.
+    """
+    if not isinstance(annotation, Mapping):
+        raise TypeError("HOI4D action annotation root must be an object.")
+
+    info = annotation.get("info", {})
+    if info is not None and not isinstance(info, Mapping):
+        raise TypeError("HOI4D action annotation info must be an object.")
+    duration_value = None
+    if isinstance(info, Mapping):
+        duration_value = info.get("duration", info.get("Duration"))
+    if duration_value is None:
+        duration_value = annotation.get("duration", annotation.get("Duration"))
+    if duration_value is None:
+        raise ValueError("HOI4D action annotation is missing duration.")
+    duration = float(duration_value)
+    if not np.isfinite(duration) or duration <= 0:
+        raise ValueError("HOI4D action duration must be finite and positive.")
+
+    if "events" in annotation:
+        raw_events = annotation["events"]
+        start_key, end_key = "startTime", "endTime"
+    elif "markResult" in annotation:
+        mark_result = annotation["markResult"]
+        if not isinstance(mark_result, Mapping):
+            raise TypeError("HOI4D markResult must be an object.")
+        raw_events = mark_result.get("marks")
+        start_key, end_key = "hdTimeStart", "hdTimeEnd"
+    elif {"event", "startTime", "endTime"}.issubset(annotation):
+        raw_events = [annotation]
+        start_key, end_key = "startTime", "endTime"
+    else:
+        raise ValueError(
+            "Unsupported HOI4D action/color.json layout; expected events, markResult, "
+            "or a single event/startTime/endTime record."
+        )
+
+    if not isinstance(raw_events, Sequence) or isinstance(raw_events, (str, bytes)):
+        raise TypeError("HOI4D action events/marks must be a list.")
+    segments: list[dict[str, Any]] = []
+    tolerance = 1.0 / 15.0
+    for index, raw_event in enumerate(raw_events):
+        if not isinstance(raw_event, Mapping):
+            raise TypeError(f"HOI4D action event {index} must be an object.")
+        label = raw_event.get("event", raw_event.get("label"))
+        if not isinstance(label, str) or not label.strip():
+            raise ValueError(f"HOI4D action event {index} has no non-empty event label.")
+        try:
+            start_time = float(raw_event[start_key])
+            end_time = float(raw_event[end_key])
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ValueError(
+                f"HOI4D action event {index} is missing valid {start_key}/{end_key}."
+            ) from exc
+        if (
+            not np.isfinite(start_time)
+            or not np.isfinite(end_time)
+            or start_time < 0
+            or end_time <= start_time
+            or end_time > duration + tolerance
+        ):
+            raise ValueError(
+                f"HOI4D action event {index} has an invalid interval "
+                f"[{start_time}, {end_time}] for duration {duration}."
+            )
+        segments.append(
+            {
+                "event": label.strip(),
+                "start_time": start_time,
+                "end_time": min(end_time, duration),
+            }
+        )
+    segments.sort(key=lambda item: (item["start_time"], item["end_time"]))
+    return segments
+
+
+def load_hoi4d_action_segments(
+    annotation_path: str | Path,
+) -> list[dict[str, Any]]:
+    """Load and parse one HOI4D action/color.json file."""
+    with Path(annotation_path).expanduser().open("r", encoding="utf-8") as stream:
+        annotation = json.load(stream)
+    if not isinstance(annotation, Mapping):
+        raise TypeError("HOI4D action/color.json root must be an object.")
+    return parse_hoi4d_action_segments(annotation)
+
+
+def build_hoi4d_action_vocabulary(
+    training_segments: Sequence[Sequence[Mapping[str, Any]]],
+) -> dict[str, int]:
+    """Build a deterministic HOI4D-only action vocabulary from training segments."""
+    labels: set[str] = set()
+    for sequence_index, segments in enumerate(training_segments):
+        for segment_index, segment in enumerate(segments):
+            if not isinstance(segment, Mapping):
+                raise TypeError(
+                    f"training_segments[{sequence_index}][{segment_index}] must be an object."
+                )
+            label = segment.get("event")
+            if not isinstance(label, str) or not label.strip():
+                raise ValueError("HOI4D training action labels must be non-empty strings.")
+            labels.add(label.strip())
+    return {label: index for index, label in enumerate(sorted(labels))}
+
+
+def build_hoi4d_anticipation_target(
+    segments: Sequence[Mapping[str, Any]],
+    observation_end_time: float,
+    action_vocabulary: Mapping[str, int],
+) -> dict[str, Any]:
+    """Create future action/time labels from HOI4D intervals after the observed prefix.
+
+    The first event whose start_time is strictly after the observation cutoff
+    defines the future event. Action labels absent from the training vocabulary
+    disable action classification but retain time-to-event supervision.
+    HOI4D action intervals do not directly identify a matched target entity, so
+    target-entity supervision remains invalid.
+    """
+    cutoff = float(observation_end_time)
+    if not np.isfinite(cutoff) or cutoff < 0:
+        raise ValueError("observation_end_time must be finite and non-negative.")
+
+    future_events: list[tuple[float, str]] = []
+    for index, segment in enumerate(segments):
+        if not isinstance(segment, Mapping):
+            raise TypeError(f"segments[{index}] must be an object.")
+        try:
+            start_time = float(segment["start_time"])
+            event = str(segment["event"]).strip()
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ValueError(f"segments[{index}] has invalid event/start_time.") from exc
+        if not np.isfinite(start_time) or start_time < 0 or not event:
+            raise ValueError(f"segments[{index}] has invalid event/start_time.")
+        if start_time > cutoff:
+            future_events.append((start_time, event))
+
+    if not future_events:
+        return {
+            "target_entity_track_id": -1,
+            "target_entity_valid": False,
+            "action_label": -1,
+            "action_valid": False,
+            "time_to_event": 0.0,
+            "time_valid": False,
+        }
+
+    event_start, event_name = min(future_events, key=lambda item: item[0])
+    if event_name in action_vocabulary:
+        action_label = int(action_vocabulary[event_name])
+        if action_label < 0:
+            raise ValueError("HOI4D action vocabulary indices must be non-negative.")
+        action_valid = True
+    else:
+        action_label = -1
+        action_valid = False
+    return {
+        "target_entity_track_id": -1,
+        "target_entity_valid": False,
+        "action_label": action_label,
+        "action_valid": action_valid,
+        "time_to_event": float(event_start - cutoff),
+        "time_valid": True,
     }
