@@ -1,19 +1,17 @@
 diff --git a/vggt_omega/models/aggregator.py b/vggt_omega/models/aggregator.py
-index 09ea54a..09ea54a 100644
 --- a/vggt_omega/models/aggregator.py
 +++ b/vggt_omega/models/aggregator.py
-@@ -95,6 +95,7 @@ class Aggregator(nn.Module):
-     def forward(
-         self,
-         images: torch.Tensor,
+@@ -114,4 +114,5 @@
+-    def forward(
+-        self,
+-        images: torch.Tensor,
+-    ) -> tuple[list[torch.Tensor | None], int]:
++    def forward(
++        self,
++        images: torch.Tensor,
 +        extra_tokens: torch.Tensor | None = None,
-     ) -> tuple[list[torch.Tensor | None], int]:
-         batch_size, num_frames, num_channels, height, width = images.shape
-         if num_channels != 3:
-@@ -108,7 +109,29 @@ class Aggregator(nn.Module):
-         if isinstance(patch_tokens, dict):
-             patch_tokens = patch_tokens["x_norm_patchtokens"]
-
++    ) -> tuple[list[torch.Tensor | None], int]:
+@@ -132,1 +133,28 @@
 -        tokens = torch.cat([camera_token, register_token, patch_tokens], dim=1)
 +        if extra_tokens is None:
 +            tokens = torch.cat([camera_token, register_token, patch_tokens], dim=1)
@@ -43,111 +41,163 @@ index 09ea54a..09ea54a 100644
 +                [camera_token, register_token, extra_tokens, patch_tokens], dim=1
 +            )
 +            patch_token_start = self.patch_token_start + num_extra_tokens
-+
-         _, num_tokens, embed_dim = tokens.shape
-
-         patch_grid_size = (height // self.patch_size, width // self.patch_size)
-@@ -137,6 +160,7 @@ class Aggregator(nn.Module):
-                 embed_dim,
-                 block_idx,
-                 self.inter_frame_attention_types[block_idx],
+@@ -154,9 +182,10 @@
+-            tokens = self._run_inter_frame_attention_block(
+-                tokens,
+-                batch_size,
+-                num_frames,
+-                num_tokens,
+-                embed_dim,
+-                block_idx,
+-                self.inter_frame_attention_types[block_idx],
+-            )
++            tokens = self._run_inter_frame_attention_block(
++                tokens,
++                batch_size,
++                num_frames,
++                num_tokens,
++                embed_dim,
++                block_idx,
++                self.inter_frame_attention_types[block_idx],
 +                patch_token_start,
-             )
-             if block_idx in self.cached_layer_indices:
-                 outputs.append(torch.cat([frame_tokens, tokens], dim=-1))
-@@ -144,7 +168,7 @@ class Aggregator(nn.Module):
-                 outputs.append(None)
-
++            )
+@@ -168,1 +197,1 @@
 -        return outputs, self.patch_token_start
 +        return outputs, patch_token_start
-
-     def _run_frame_block(
-         self,
-@@ -171,6 +195,7 @@ class Aggregator(nn.Module):
-         embed_dim: int,
-         block_idx: int,
-         attention_type: str,
+@@ -184,10 +213,11 @@
+-    def _run_inter_frame_attention_block(
+-        self,
+-        tokens: torch.Tensor,
+-        batch_size: int,
+-        num_frames: int,
+-        num_tokens: int,
+-        embed_dim: int,
+-        block_idx: int,
+-        attention_type: str,
+-    ) -> torch.Tensor:
++    def _run_inter_frame_attention_block(
++        self,
++        tokens: torch.Tensor,
++        batch_size: int,
++        num_frames: int,
++        num_tokens: int,
++        embed_dim: int,
++        block_idx: int,
++        attention_type: str,
 +        patch_token_start: int,
-     ) -> torch.Tensor:
-         tokens = tokens.view(batch_size, num_frames, num_tokens, embed_dim)
-
-@@ -181,7 +206,6 @@ class Aggregator(nn.Module):
-         if attention_type != "register":
-             raise ValueError(f"Unknown inter-frame attention type: {attention_type}")
-
++    ) -> torch.Tensor:
+@@ -204,1 +234,0 @@
 -        patch_token_start = self.patch_token_start
-         camera_and_register_tokens = tokens[:, :, :patch_token_start].reshape(
-             batch_size,
-             num_frames * patch_token_start,
+
 diff --git a/vggt_omega/models/heads/dense_head.py b/vggt_omega/models/heads/dense_head.py
-index 4713aa5..4713aa5 100644
 --- a/vggt_omega/models/heads/dense_head.py
 +++ b/vggt_omega/models/heads/dense_head.py
-@@ -71,9 +71,10 @@ class DenseHead(nn.Module):
-         aggregated_tokens_list: list[torch.Tensor | None],
-         images: torch.Tensor,
-         patch_token_start: int,
-         frames_chunk_size: int | None = 8,
+@@ -72,32 +72,46 @@
+-    def forward(
+-        self,
+-        aggregated_tokens_list: list[torch.Tensor | None],
+-        images: torch.Tensor,
+-        patch_token_start: int,
+-        frames_chunk_size: int | None = 8,
 -    ) -> tuple[torch.Tensor, torch.Tensor]:
+-        if patch_token_start is None:
+-            raise ValueError("patch_token_start is required for DenseHead")
+-
+-        _, num_frames, _, _, _ = images.shape
+-
+-        if frames_chunk_size is None or frames_chunk_size >= num_frames:
+-            return self._forward_impl(aggregated_tokens_list, images, patch_token_start)
+-
+-        assert frames_chunk_size > 0
+-
+-        depth_chunks = []
+-        depth_conf_chunks = []
+-        for frames_start_idx in range(0, num_frames, frames_chunk_size):
+-            frames_end_idx = min(frames_start_idx + frames_chunk_size, num_frames)
+-            depth_chunk, depth_conf_chunk = self._forward_impl(
+-                aggregated_tokens_list,
+-                images,
+-                patch_token_start,
+-                frames_start_idx,
+-                frames_end_idx,
+-            )
+-            depth_chunks.append(depth_chunk)
+-            depth_conf_chunks.append(depth_conf_chunk)
+-
+-        return torch.cat(depth_chunks, dim=1), torch.cat(depth_conf_chunks, dim=1)
++    def forward(
++        self,
++        aggregated_tokens_list: list[torch.Tensor | None],
++        images: torch.Tensor,
++        patch_token_start: int,
++        frames_chunk_size: int | None = 8,
 +        return_features: bool = False,
 +    ) -> tuple[torch.Tensor, torch.Tensor] | tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-         if patch_token_start is None:
-             raise ValueError("patch_token_start is required for DenseHead")
-
-         _, num_frames, _, _, _ = images.shape
-
-         if frames_chunk_size is None or frames_chunk_size >= num_frames:
--            return self._forward_impl(aggregated_tokens_list, images, patch_token_start)
++        if patch_token_start is None:
++            raise ValueError("patch_token_start is required for DenseHead")
++
++        _, num_frames, _, _, _ = images.shape
++
++        if frames_chunk_size is None or frames_chunk_size >= num_frames:
 +            return self._forward_impl(
 +                aggregated_tokens_list, images, patch_token_start, return_features=return_features
 +            )
-
-         assert frames_chunk_size > 0
-
-         depth_chunks = []
-         depth_conf_chunks = []
++
++        assert frames_chunk_size > 0
++
++        depth_chunks = []
++        depth_conf_chunks = []
 +        fused_chunks = []
-         for frames_start_idx in range(0, num_frames, frames_chunk_size):
-             frames_end_idx = min(frames_start_idx + frames_chunk_size, num_frames)
--            depth_chunk, depth_conf_chunk = self._forward_impl(
++        for frames_start_idx in range(0, num_frames, frames_chunk_size):
++            frames_end_idx = min(frames_start_idx + frames_chunk_size, num_frames)
 +            chunk_output = self._forward_impl(
-                 aggregated_tokens_list,
-                 images,
-                 patch_token_start,
-                 frames_start_idx,
-                 frames_end_idx,
++                aggregated_tokens_list,
++                images,
++                patch_token_start,
++                frames_start_idx,
++                frames_end_idx,
 +                return_features=return_features,
-             )
++            )
 +            if return_features:
 +                depth_chunk, depth_conf_chunk, fused_chunk = chunk_output
 +                fused_chunks.append(fused_chunk)
 +            else:
 +                depth_chunk, depth_conf_chunk = chunk_output
-             depth_chunks.append(depth_chunk)
-             depth_conf_chunks.append(depth_conf_chunk)
-
--        return torch.cat(depth_chunks, dim=1), torch.cat(depth_conf_chunks, dim=1)
++            depth_chunks.append(depth_chunk)
++            depth_conf_chunks.append(depth_conf_chunk)
++
 +        depth = torch.cat(depth_chunks, dim=1)
 +        depth_conf = torch.cat(depth_conf_chunks, dim=1)
 +        if return_features:
 +            return depth, depth_conf, torch.cat(fused_chunks, dim=1)
 +        return depth, depth_conf
-
-     def _forward_impl(
-         self,
-         aggregated_tokens_list: list[torch.Tensor | None],
-         images: torch.Tensor,
-         patch_token_start: int,
-         frames_start_idx: int | None = None,
-         frames_end_idx: int | None = None,
+@@ -105,8 +119,9 @@
+-    def _forward_impl(
+-        self,
+-        aggregated_tokens_list: list[torch.Tensor | None],
+-        images: torch.Tensor,
+-        patch_token_start: int,
+-        frames_start_idx: int | None = None,
+-        frames_end_idx: int | None = None,
 -    ) -> tuple[torch.Tensor, torch.Tensor]:
++    def _forward_impl(
++        self,
++        aggregated_tokens_list: list[torch.Tensor | None],
++        images: torch.Tensor,
++        patch_token_start: int,
++        frames_start_idx: int | None = None,
++        frames_end_idx: int | None = None,
 +        return_features: bool = False,
 +    ) -> tuple[torch.Tensor, torch.Tensor] | tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-@@ -140,7 +153,10 @@ class DenseHead(nn.Module):
-         if depth.dtype != torch.float32 or depth_conf.dtype != torch.float32:
-             raise TypeError(f"DenseHead outputs must be fp32, got depth={depth.dtype}, conf={depth_conf.dtype}")
-
+@@ -155,4 +170,7 @@
+-        if depth.dtype != torch.float32 or depth_conf.dtype != torch.float32:
+-            raise TypeError(f"DenseHead outputs must be fp32, got depth={depth.dtype}, conf={depth_conf.dtype}")
+-
+-        return depth, depth_conf
++        if depth.dtype != torch.float32 or depth_conf.dtype != torch.float32:
++            raise TypeError(f"DenseHead outputs must be fp32, got depth={depth.dtype}, conf={depth_conf.dtype}")
++
 +        if return_features:
 +            fused = fused.view(batch_size, num_frames, *fused.shape[1:])
 +            return depth, depth_conf, fused
-         return depth, depth_conf
++        return depth, depth_conf
