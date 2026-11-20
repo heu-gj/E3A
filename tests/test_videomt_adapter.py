@@ -422,6 +422,23 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
     target["masks"][0, 0, 1:4, 1:4] = 1
     target["masks"][0, 2, 2:6, 2:6] = 1
 
+    flat_targets, _ = adapter._validate_targets(
+        [target],
+        batch_size=1,
+        num_frames=3,
+        num_queries=2,
+        device=torch.device("cpu"),
+    )
+    matcher_outputs = {
+        "pred_logits": torch.randn(3, 2, 2),
+        "pred_masks": torch.randn(3, 2, 1, 8, 8),
+    }
+    matches = adapter.matcher(matcher_outputs, flat_targets)
+    assert len(matches) == 3
+    assert all(torch.equal(matches[0][0], item[0]) for item in matches[1:])
+    assert all(torch.equal(matches[0][1], item[1]) for item in matches[1:])
+    assert matches[0][1].tolist() == [0]
+
     mask_logits = torch.randn(1, 3, 2, 8, 8, requires_grad=True)
     objectness_logits = torch.randn(1, 3, 2, requires_grad=True)
     losses = adapter(
@@ -436,3 +453,19 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
     assert objectness_logits.grad is not None
     assert torch.isfinite(mask_logits.grad).all()
     assert torch.isfinite(objectness_logits.grad).all()
+
+    empty_target = {
+        "labels": torch.empty(0, dtype=torch.int64),
+        "ids": torch.empty(0, 3, dtype=torch.int64),
+        "masks": torch.empty(0, 3, 8, 8),
+    }
+    empty_losses = adapter(
+        {
+            "mask_logits": torch.randn(1, 3, 2, 8, 8, requires_grad=True),
+            "objectness_logits": torch.randn(1, 3, 2, requires_grad=True),
+        },
+        [empty_target],
+    )
+    assert torch.isfinite(empty_losses["loss_ce"])
+    assert empty_losses["loss_mask"].item() == 0
+    assert empty_losses["loss_dice"].item() == 0
