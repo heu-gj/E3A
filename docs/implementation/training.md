@@ -6,29 +6,61 @@ E3A reuses the VGGT-Ω training implementation in third_party/vggt-omega/trainin
 - train_utils: distributed setup, checkpoint helpers, optimizer construction, gradient clipping, and device transfer.
 - Hydra: component construction from E3A-owned configs.
 
-E3A does not fork the training loop. E3ATrainer overrides only task-specific assumptions in the upstream Trainer:
+E3A does not fork the training loop. E3ATrainer overrides only task-specific assumptions:
 
-1. Pass the batch timestamps to the E3A model along with RGB frames.
+1. Pass batch timestamps to E3AModel along with RGB frames.
 2. Derive batch size from the RGB tensor instead of requiring batch["extrinsics"].
-3. Wrap a predicted pose_enc in pose_enc_list, matching the official VGGT-Ω MultitaskLoss interface when camera supervision is retained as an auxiliary objective.
+3. Wrap predicted pose_enc in pose_enc_list when the official camera loss is retained.
 
-For entity-mask supervision, use e3a.adapters.videomt.VidEoMTMaskCriterion. It accepts the same loss call signature as the upstream Trainer: loss(predictions, batch, schedule_progress). The batch must contain entity_targets as a padded tensor mapping so the upstream recursive gradient-accumulation chunker splits targets along the video batch dimension rather than along the entity dimension.
+## Model and objective
 
-The entity_targets mapping uses:
+Instantiate e3a.models.e3a_model.E3AModel as the model and e3a.engine.losses.E3AMultiTaskLoss as the loss. E3AModel performs one shared VGGT-Ω forward and returns masks, 3D entity states, hand pose, pairwise interactions, target-entity logits, action logits, and time-to-event distribution parameters.
 
-- labels [B,Nmax]: int64, zero for real and padded rows (the one foreground category is "entity")
-- ids [B,Nmax,T]: int64, stable non-negative track ID while visible, -1 for missing frames and padded rows
-- masks [B,Nmax,T,H,W]: binary/soft masks, zero wherever ids == -1 and for padded rows
-- track_counts [B]: int64 number of real track rows in each clip
+E3AMultiTaskLoss returns the single loss_objective required by the upstream Trainer. It internally calls VidEoMTMaskCriterion.forward_with_matches once; the returned clip-local GT-track-to-query-slot map is reused to supervise interaction pairs and target-entity selection. There is one optimizer and one joint backward pass.
 
-Each unpadded clip target uses labels [N], ids [N,T], and masks [N,T,H,W]. The adapter unwraps the padded mapping, validates stable/unique track IDs and visibility/mask semantics, then converts the clip-level target schema to VidEoMT's B*T frame-wise contract. It wraps the pinned upstream VideoHungarianMatcher_Consistent and VideoSetCriterion and returns loss_objective for the upstream optimizer loop. It requires the number of visible tracks in each clip not to exceed the configured E3A entity slots. This is an adapter contract, not a claim that any particular dataset already conforms to it.
+## Canonical batch contract
 
-Use e3a.data.collate.collate_entity_targets(per_clip_targets) to create the padded entity_targets mapping from variable-length per-clip annotations. The E3A dataset must return at least images [B,T,3,H,W], timestamps [B,T], entity_targets, and any additional fields required by the selected criterion. The padded entity_targets tensors must all have B as their first dimension so the upstream gradient-accumulation chunker keeps them aligned. The criterion must return loss_objective, as expected by the upstream optimizer loop.
+Use e3a.data.collate.collate_e3a_batch to collate per-sample dictionaries. Every sample contains:
+
+- images: [T,3,H,W] RGB float tensor
+- timestamps: [T] seconds, monotonically non-decreasing
+- entity_targets: labels [N], ids [N,T], masks [N,T,H,W]
+- optional hand_targets: keypoints_camera [T,2,21,3], valid [T,2,21], optional visibility and visibility_valid
+- optional interaction_targets: contact [T,2,N], valid [T,2,N]
+- optional anticipation_targets: target_entity_track_id, target_entity_valid, action_label, action_valid, time_to_event, time_valid
+
+The collator returns batch-first tensors:
+- images [B,T,3,H,W], timestamps [B,T]
+- entity_targets labels [B,Nmax], ids [B,Nmax,T], masks [B,Nmax,T,H,W], track_counts [B]
+- hand_targets keypoints_camera [B,T,2,21,3], valid [B,T,2,21]
+- interaction_targets contact/valid [B,T,2,Nmax]
+- anticipation_targets one scalar per clip
+
+Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Hand joint order is wrist, thumb, index, middle, ring, pinky, four joints per finger. All 3D hand labels must be transformed to the per-frame camera coordinate frame before collation.
+
+## Entity matching contract
+
+The entity target contract remains:
+
+- labels [N]: int64, zero for the single foreground class "entity"
+- ids [N,T]: int64, stable non-negative clip-local track ID while visible, -1 for frames without a visible annotation
+- masks [N,T,H,W]: binary/soft masks, zero wherever ids == -1
+- each GT track row has one stable ID throughout the clip and a non-empty mask on visible frames
+
+VidEoMT's consistent matcher assigns each GT track to one query slot across the clip. That assignment is used for both mask loss and downstream target/interaction losses. The current target-entity head only supervises a target that is visible and matched in the observed prefix. An absent/unseen future target must be marked invalid until an explicit unseen-target class is designed and audited.
+
+## Dataset-specific supervision
+
+HOI4D and Ego-Exo4D retain their own raw taxonomies. Build a dataset-prefixed union action vocabulary rather than assuming similarly named classes are equivalent. The data adapters must provide explicit masks for annotation availability, occlusion, and missing frames. In particular, Ego-Exo4D annotated_frames records annotation coverage, not necessarily object visibility; only frames absent from that list are unlabeled, while frames in the list but without an encoded mask are explicit annotated absence.
+
+HOI4D motion segmentation is palette-coded and must be decoded using the official category-to-semantic and category-to-instance maps. Its MANO hand annotations need to be converted to the canonical 21-joint order and camera-frame meters. Dataset-specific coordinate conversion must be tested before enabling the corresponding loss.
+
+## Environment
 
 Install the upstream training extra:
 
     python -m pip install -e "third_party/vggt-omega[train]"
 
-VidEoMT additionally requires compatible Detectron2 and SciPy dependencies. E3A pins NumPy below 2, so use a compatible SciPy release (for example, SciPy 1.13.x). Install/validate Detectron2 against the target PyTorch/CUDA environment before enabling the full real-dependency path.
+VidEoMT additionally requires compatible Detectron2 and SciPy dependencies. E3A pins NumPy below 2, so use a compatible SciPy release (for example, SciPy 1.13.x). Build Detectron2 against the target PyTorch/CUDA environment; do not install an arbitrary prebuilt wheel.
 
-The actual training config is intentionally deferred until the dataset sample schema, event labels, and loss contract are audited. Do not create a runnable-looking config with guessed label names or dimensions.
+A fully runnable training config remains gated on raw dataset readers, action vocabulary generation, event-window sampling, coordinate-transform validation, and source-video-level split auditing.

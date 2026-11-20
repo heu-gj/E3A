@@ -400,19 +400,17 @@ class VidEoMTMaskCriterion(nn.Module):
 
         return flattened, any_visible
 
-    def forward(
+    def _forward_impl(
         self,
         predictions: Mapping[str, torch.Tensor],
         batch_or_targets: Mapping[str, Any] | Sequence[Mapping[str, torch.Tensor]],
-        schedule_progress: float | None = None,
-    ) -> dict[str, torch.Tensor]:
-        """Accept either a clip-target list or the official VGGT Trainer call.
+        schedule_progress: float | None,
+        *,
+        return_matches: bool,
+    ):
+        """Shared implementation for loss-only and loss-plus-track-assignment calls."""
+        import inspect
 
-        VGGT Trainer calls every criterion as loss(predictions, batch,
-        schedule_progress). In that form, a batch-first padded target mapping
-        must be stored under batch["entity_targets"]. A per-clip target list is
-        also accepted for direct use and unit tests.
-        """
         if isinstance(batch_or_targets, Mapping):
             if "entity_targets" not in batch_or_targets:
                 raise ValueError(
@@ -424,7 +422,6 @@ class VidEoMTMaskCriterion(nn.Module):
 
         if schedule_progress is not None and not math.isfinite(float(schedule_progress)):
             raise ValueError("schedule_progress must be finite when supplied.")
-
         if "mask_logits" not in predictions or "objectness_logits" not in predictions:
             raise ValueError("predictions must contain mask_logits and objectness_logits.")
 
@@ -466,8 +463,6 @@ class VidEoMTMaskCriterion(nn.Module):
             device=mask_logits.device,
         )
 
-        # VidEoMT expects one mask frame per flattened B*T entry. The
-        # consistent matcher enforces one query/track assignment per clip.
         flat_masks = mask_logits.float().reshape(
             batch_size * num_frames,
             num_queries,
@@ -478,18 +473,31 @@ class VidEoMTMaskCriterion(nn.Module):
         clip_objectness = objectness_logits.float().mean(dim=1, keepdim=True)
         flat_objectness = clip_objectness.expand(-1, num_frames, -1)
         no_object_logits = torch.zeros_like(flat_objectness)
-        flat_logits = torch.stack(
-            (flat_objectness, no_object_logits),
-            dim=-1,
-        ).reshape(batch_size * num_frames, num_queries, 2)
+        flat_logits = torch.stack((flat_objectness, no_object_logits), dim=-1).reshape(
+            batch_size * num_frames, num_queries, 2
+        )
+        upstream_outputs = {"pred_logits": flat_logits, "pred_masks": flat_masks}
 
-        upstream_outputs = {
-            "pred_logits": flat_logits,
-            "pred_masks": flat_masks,
-        }
-
+        indices = None
         if any_visible:
-            losses = self.criterion(upstream_outputs, flattened_targets)
+            if return_matches:
+                criterion_forward = self.criterion.forward
+                supports_match_return = (
+                    "ret_match_result" in inspect.signature(criterion_forward).parameters
+                )
+                if supports_match_return:
+                    losses, indices = self.criterion(
+                        upstream_outputs,
+                        flattened_targets,
+                        ret_match_result=True,
+                    )
+                else:
+                    # Test doubles and older compatible criteria may not expose
+                    # the upstream optional return. Keep the fallback explicit.
+                    indices = self.matcher(upstream_outputs, flattened_targets)
+                    losses = self.criterion(upstream_outputs, flattened_targets)
+            else:
+                losses = self.criterion(upstream_outputs, flattened_targets)
         else:
             matcher = self.matcher
             if matcher is None or not hasattr(self.criterion, "loss_labels"):
@@ -518,4 +526,59 @@ class VidEoMTMaskCriterion(nn.Module):
         objective = sum(
             losses[key] * weight for key, weight in self.loss_weights.items()
         )
-        return {**losses, "loss_objective": objective}
+        result = {**losses, "loss_objective": objective}
+
+        if not return_matches:
+            return result
+
+        if indices is None or len(indices) != batch_size * num_frames:
+            raise RuntimeError("VidEoMT did not return one match result per clip frame.")
+        track_to_slot: list[dict[int, int]] = [dict() for _ in range(batch_size)]
+        for batch_index in range(batch_size):
+            mapping = track_to_slot[batch_index]
+            for frame_index in range(num_frames):
+                flat_index = batch_index * num_frames + frame_index
+                source_indices, target_indices = indices[flat_index]
+                frame_track_ids = flattened_targets[flat_index]["ids"].reshape(-1)
+                for source_index, target_index in zip(
+                    source_indices.tolist(), target_indices.tolist(), strict=True
+                ):
+                    track_id = int(frame_track_ids[target_index].item())
+                    if track_id < 0:
+                        continue
+                    previous_slot = mapping.get(track_id)
+                    if previous_slot is not None and previous_slot != source_index:
+                        raise RuntimeError(
+                            "VidEoMT returned inconsistent query slots for clip track "
+                            f"{track_id}: {previous_slot} then {source_index}."
+                        )
+                    mapping[track_id] = int(source_index)
+        return result, track_to_slot
+
+    def forward(
+        self,
+        predictions: Mapping[str, torch.Tensor],
+        batch_or_targets: Mapping[str, Any] | Sequence[Mapping[str, torch.Tensor]],
+        schedule_progress: float | None = None,
+    ) -> dict[str, torch.Tensor]:
+        """Return VidEoMT's mask/class losses in the VGGT Trainer contract."""
+        return self._forward_impl(
+            predictions,
+            batch_or_targets,
+            schedule_progress,
+            return_matches=False,
+        )
+
+    def forward_with_matches(
+        self,
+        predictions: Mapping[str, torch.Tensor],
+        batch_or_targets: Mapping[str, Any] | Sequence[Mapping[str, torch.Tensor]],
+        schedule_progress: float | None = None,
+    ) -> tuple[dict[str, torch.Tensor], list[dict[int, int]]]:
+        """Return mask losses plus GT-track-ID to predicted-slot assignments."""
+        return self._forward_impl(
+            predictions,
+            batch_or_targets,
+            schedule_progress,
+            return_matches=True,
+        )

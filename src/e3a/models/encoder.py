@@ -13,11 +13,10 @@ from e3a.models.token_bank import E3ATokenBank
 
 
 class E3AEncoder(nn.Module):
-    """Inject E3A tokens into VGGT-Ω and expose shared geometry/entity features.
+    """Inject E3A tokens into VGGT-Ω and expose shared task features.
 
-    This is the representation stage, not the complete action-anticipation
-    model. Mask, interaction, and future prediction heads are added only after
-    dataset contracts and the feature path have passed validation.
+    The resulting entity, hand, and future tokens are consumed by E3AModel's
+    parallel geometry, entity, interaction, and anticipation heads.
     """
 
     def __init__(

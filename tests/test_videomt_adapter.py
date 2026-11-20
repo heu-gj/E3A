@@ -104,6 +104,19 @@ def test_adapter_converts_e3a_outputs_to_official_videomt_frame_contract():
     assert objectness_logits.grad is not None
 
 
+def test_adapter_exposes_the_same_clip_consistent_track_to_slot_assignment():
+    adapter = make_criterion()
+    losses, track_to_slot = adapter.forward_with_matches(
+        {
+            "mask_logits": torch.randn(1, 2, 3, 8, 8, requires_grad=True),
+            "objectness_logits": torch.randn(1, 2, 3, requires_grad=True),
+        },
+        [make_clip_target()],
+    )
+    assert torch.isfinite(losses["loss_objective"])
+    assert track_to_slot == [{41: 0}]
+
+
 def test_adapter_handles_an_all_empty_batch_without_sampling_empty_masks():
     matcher = RecordingMatcher()
     criterion = RecordingCriterion(matcher)
@@ -440,11 +453,12 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
 
     mask_logits = torch.randn(1, 3, 2, 8, 8, requires_grad=True)
     objectness_logits = torch.randn(1, 3, 2, requires_grad=True)
-    losses = adapter(
+    losses, track_to_slot = adapter.forward_with_matches(
         {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
         [target],
     )
 
+    assert track_to_slot == [{71: 0}]
     assert {"loss_ce", "loss_mask", "loss_dice", "loss_objective"} <= set(losses)
     assert all(torch.isfinite(value) for value in losses.values())
     losses["loss_objective"].backward()

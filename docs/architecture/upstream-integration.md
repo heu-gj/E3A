@@ -76,15 +76,18 @@ The E3A adapter in src/e3a/adapters/sam3_video.py is intentionally a thin reques
 
 The adapter does not reinterpret masks or track IDs. Output tensor layout, object-ID semantics, and frame indexing must be inspected from actual upstream outputs and covered by conversion tests before teacher outputs enter E3A training.
 
-### Reusing the SAM 3 MaskPredictor
+### Online E3A mask prediction
 
-The pinned upstream sam3/model/maskformer_segmentation.py::MaskPredictor accepts object queries [B,Q,C] and pixel embeddings [B,C,H,W]. It applies the upstream query MLP and computes query-pixel mask logits with an einsum, returning [B,Q,H,W].
+The online model does not import SAM 3's MaskPredictor. E3A's native EntityMaskHead:
 
-EntityMaskHead reuses this exact class and adds only the feature-dimension projections needed to connect VGGT-Ω's 2048-D cached entity tokens and 256-D fused features to the SAM 3 mask dimension. Its loader exposes only the pinned sam3/model package path so importing MaskPredictor does not execute SAM 3's root __init__ and eagerly load the full model-builder stack. The predictor instance is newly initialized for E3A; SAM 3 checkpoint weights are not assumed to transfer to VGGT-Ω features. This does not instantiate SAM 3's separate 848M-parameter vision-language detector/tracker in the online E3A path.
+- projects the 2048-D VGGT-Ω cached entity query into a mask embedding,
+- projects the 256-channel fused DenseHead feature into the same mask space,
+- computes per-slot mask logits with a scaled query-pixel dot product,
+- predicts objectness from the entity query.
 
-SAM 3.1's multiplex video predictor remains an optional offline teacher/baseline. It is a separate large model with its own visual encoder, tracker memory, preprocessing, session state, checkpoint, and latency/memory costs. Do not load it alongside VGGT-Ω in the default E3A forward pass.
+This keeps one online visual backbone and makes the mask head directly trainable with E3A's entity and anticipation objectives. SAM 3.1's multiplex video predictor remains an optional offline teacher/baseline. It is a separate large model with its own visual encoder, tracker memory, preprocessing, session state, checkpoint, and latency/memory costs. Do not load it alongside VGGT-Ω in the default E3A forward pass.
 
-CPU CI checks out the pinned SAM 3 source and exercises the real MaskPredictor forward and gradient path using small synthetic features. This does not validate the full SAM 3.1 video predictor, its preprocessing/session behavior, checkpoint loading, or GPU memory/runtime.
+SAM 3 is not checked out or imported by the online model tests. The optional teacher adapter is tested through its request contract; full SAM 3.1 checkpoint loading, preprocessing/session behavior, and GPU memory/runtime remain separate baseline validation tasks.
 
 SAM 3.1 checkpoints may require Hugging Face access approval/authentication. Do not commit checkpoints or access tokens.
 
@@ -105,7 +108,7 @@ The upstream VideoHungarianMatcher_Consistent does not compute a full-tube match
 
 The matcher groups those entries back into clips using its configured frame count. It finds the first visible frame of each GT track, performs Hungarian assignment on that frame's class and mask costs, prevents query reuse within the clip, and repeats the same query/target assignment for every frame in that clip. VideoSetCriterion then supervises each frame's classification and mask output using those consistent assignments.
 
-E3A's src/e3a/adapters/videomt.py::VidEoMTMaskCriterion is a thin adapter around those upstream classes. It converts E3A's clip-level outputs/targets to the exact flattened frame contract and returns the weighted loss_objective required by VGGT-Ω's Trainer. It does not copy or reimplement Hungarian matching or the upstream point-sampled mask losses.
+E3A's src/e3a/adapters/videomt.py::VidEoMTMaskCriterion is a thin adapter around those upstream classes. It converts E3A's clip-level outputs/targets to the exact flattened frame contract and returns the weighted loss_objective required by VGGT-Ω's Trainer. Its forward_with_matches path uses the upstream criterion's ret_match_result=True option and exposes a clip-local {gt_track_id: query_slot} map. E3AMultiTaskLoss reuses that map for interaction and future target supervision. E3A does not copy or reimplement Hungarian matching or the upstream point-sampled mask losses.
 
 The adapter's current target contract is intentionally explicit:
 

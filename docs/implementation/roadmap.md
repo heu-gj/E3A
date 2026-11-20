@@ -13,16 +13,19 @@ A milestone is complete only when its acceptance tests pass and the evidence is 
 
 Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model head is claimed yet.
 
-## P1 — Dataset and label contract
+## P1 — HOI4D + Ego-Exo4D data and label contract
 
-- [ ] Audit source video frame rates, timestamps, image/depth alignment, camera metadata, instance masks, track IDs, hand annotations, action labels, and event boundaries.
-- [ ] Define a clip sample schema with explicit coordinate frames and units.
-- [ ] Define observation cutoff and future prediction windows without future-frame leakage.
-- [ ] Define missing/occluded/disappeared-object semantics.
-- [ ] Define train/validation/test splits at the source-video/subject level to prevent leakage.
-- [ ] Add visual inspection and round-trip tests.
+- [x] Verify official HOI4D data organization, action interval fields, palette-coded 2D motion masks, category/instance maps, object pose fields, and MANO parameter fields.
+- [x] Verify Ego-Exo4D relation mask JSON fields, encoded-mask representation, annotated_frames semantics, EgoPose 3D hand-joint schema, and Keystep segment schema.
+- [ ] Audit the locally downloaded release versions, video FPS/frame indexing, image/depth alignment, and annotation coverage.
+- [ ] Implement source-to-canonical clip readers for both datasets.
+- [ ] Define camera coordinate transforms and canonical hand-joint order with round-trip tests.
+- [ ] Build a dataset-prefixed union action vocabulary; do not merge classes based on name similarity alone.
+- [ ] Define observation cutoffs, future event windows, target-entity mapping, and time-to-event semantics without future-frame leakage.
+- [ ] Define missing/occluded/disappeared-object semantics and annotation-validity masks.
+- [ ] Create source-video/subject-level train/validation/test splits to prevent leakage.
 
-Acceptance: a deterministic dataset sample can be traced back to original annotations, with all units and coordinate conventions documented.
+Acceptance: a deterministic sample from each dataset can be traced to source annotations with verified units, coordinate frames, track IDs, event boundaries, and annotation-validity semantics.
 
 ## P2 — VGGT-Ω feature integration
 
@@ -38,45 +41,51 @@ Acceptance: a deterministic dataset sample can be traced back to original annota
 
 Acceptance: pretrained geometry outputs remain unchanged when E3A tokens are absent; E3A tokens receive gradients when enabled.
 
-## P3 — Entity masks and 3D entity state
+## P3 — Persistent entity masks and 3D state
 
-- [x] Add the E3A dimension adapter around SAM 3's official MaskPredictor.
+- [x] Replace the online SAM 3 MaskPredictor dependency with a native query-to-pixel EntityMaskHead.
 - [x] Decode camera parameters with official VGGT-Ω utilities and unproject depth with the official helper.
-- [x] Add differentiable soft-mask pooling for world-space entity centers and covariance.
-- [x] Add a thin adapter to VidEoMT's official VideoHungarianMatcher_Consistent and VideoSetCriterion, including a fail-closed clip target contract.
-- [x] Add CPU tests for VidEoMT frame-wise input conversion, loss aggregation, empty clips, track-ID validation, and batch-first target collation.
-- [x] Verify padded entity targets remain aligned when the pinned VGGT-Ω gradient-accumulation chunker splits a batch.
-- [x] Run the pinned VidEoMT matcher and criterion in CPU CI with only Detectron2 point-sampling utilities replaced by test stubs.
-- [x] Run the real pinned SAM 3 MaskPredictor forward and gradient test in CPU CI.
-- [ ] Validate the real SAM 3 MaskPredictor import and forward pass in the target GPU environment.
-- [ ] Validate the real VidEoMT matcher/criterion with compatible Detectron2/SciPy dependencies.
-- [ ] Confirm the dataset's track IDs, visibility, and masks satisfy the adapter contract.
-- [ ] Decide whether initial supervision comes from dataset GT masks, SAM 3.1 teacher outputs, or both.
+- [x] Add differentiable soft-mask pooling for per-frame 3D entity centers and covariance.
+- [x] Add learned temporal pooling to create clip-level persistent entity states.
+- [x] Reuse VidEoMT's official clip-consistent matcher and criterion.
+- [x] Expose the upstream matcher assignment as GT-track-ID to E3A-slot mapping for downstream target/interaction supervision.
+- [x] Add CPU tests for native mask decoding, gradients, temporal pooling, matcher assignments, and empty clips.
+- [ ] Validate source dataset track IDs, visibility, and masks against the adapter contract.
 - [ ] Add dataset-backed tests for partial visibility, occlusion, invalid depth, and coordinate transforms.
+- [ ] Run the full model with an approved VGGT-Ω checkpoint on target GPU hardware.
 
-Acceptance: per-clip entity masks/IDs and 3D states can be evaluated against held-out annotations.
+Acceptance: held-out entity masks/IDs and 3D states can be evaluated on both datasets.
 
 ## P4 — Human-object interaction representation
 
-- [ ] Select hand representation from actual available annotations (2D, 3D, keypoints, or masks).
-- [ ] Define hand-object relative geometry with explicit units and coordinate frame.
-- [ ] Add missing-hand and low-confidence handling.
-- [ ] Verify that geometry features improve a controlled baseline.
+- [x] Add a two-hand, 21-joint camera-frame HandPoseHead.
+- [x] Convert predicted hand keypoints to world coordinates using VGGT-Ω camera extrinsics.
+- [x] Add a lightweight pairwise InteractionHead using relative position, velocity, distance, and shared entity/hand features.
+- [x] Add masked hand-pose and matched-slot contact losses.
+- [ ] Convert HOI4D MANO and Ego-Exo4D EgoPose annotations into the canonical joint order and camera coordinate frame.
+- [ ] Verify physical units and coordinate transforms on sampled real sequences.
+- [ ] Evaluate hand pose and contact on held-out data.
 
 Acceptance: hand/object relation features are finite, physically interpretable, and evaluated on held-out data.
 
 ## P5 — Future target/action/time prediction
 
-- [ ] Define action taxonomy and label mapping from the dataset.
-- [ ] Define future target identity mapping to clip-local entity IDs.
-- [ ] Define event onset and time-to-event semantics.
-- [ ] Implement target, action, and time losses with class imbalance and missing-label handling.
-- [ ] Add no-future-leakage tests and baseline comparisons.
+- [x] Add an AnticipationHead that predicts target entity slot, action class, and log-normal time-to-event parameters.
+- [x] Use the matcher-provided GT-track-to-slot mapping for target-entity supervision.
+- [x] Add masked target-entity, action, and time-to-event losses.
+- [ ] Generate the dataset-prefixed union action vocabulary from audited source labels.
+- [ ] Define future event onset and target-entity mapping for HOI4D and Ego-Exo4D separately.
+- [ ] Ensure all target labels are derived only from future annotations and all model inputs stop at the observation cutoff.
+- [ ] Add no-future-leakage tests and anticipation baselines.
 
 Acceptance: the model predicts future target/action/time from observed frames only, with valid metrics and reproducible splits.
 
 ## P6 — Joint training and paper experiments
 
+- [x] Add E3AMultiTaskLoss with one loss_objective for the upstream VGGT-Ω Trainer.
+- [x] Add batch-first E3A collation for entity, hand, interaction, and anticipation targets.
+- [ ] Add the audited HOI4D and Ego-Exo4D dataset readers and deterministic sampling.
+- [ ] Create the runnable Hydra training config after the label vocabulary and dataset schema are frozen.
 - [ ] Start with frozen VGGT-Ω and train only E3A-owned modules.
 - [ ] Unfreeze selected upstream blocks only after stable baselines.
 - [ ] Compare RGB-only, geometry-only, entity-only, and full E3A variants.

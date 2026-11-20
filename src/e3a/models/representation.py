@@ -12,11 +12,10 @@ from e3a.models.heads.entity_mask_head import EntityMaskHead
 
 
 class E3ARepresentationModel(nn.Module):
-    """Compose VGGT-Ω entity tokens, SAM 3 mask prediction, and 3D pooling.
+    """Compose VGGT-Ω entity tokens, the native E3A query-mask head, and 3D pooling.
 
-    This module intentionally stops before future action anticipation. The
-    target/action/time heads and their losses depend on the audited dataset
-    event schema and are not guessed here.
+    This representation-only wrapper is retained for geometry/mask ablations.
+    The complete one-forward multi-task architecture is E3AModel.
     """
 
     def __init__(
