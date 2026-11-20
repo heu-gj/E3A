@@ -183,7 +183,9 @@ class E3AMultiTaskLoss(nn.Module):
             raise ValueError("entity target IDs must have shape [B,Nmax,T].")
         if contact.shape[3] != ids.shape[1] or counts.shape != (batch_size,):
             raise ValueError("interaction targets must align with padded entity tracks.")
-        if not torch.isfinite(contact).all() or (contact.numel() and ((contact < 0).any() or (contact > 1).any())):
+        if not torch.isfinite(contact).all() or (
+            contact.numel() and ((contact < 0).any() or (contact > 1).any())
+        ):
             raise ValueError("contact targets must be finite values in [0,1].")
 
         mapped_targets = torch.zeros_like(logits, dtype=torch.float32)
@@ -319,7 +321,9 @@ class E3AMultiTaskLoss(nn.Module):
             if not torch.isfinite(time_mu[time_valid]).all() or not torch.isfinite(
                 time_log_scale[time_valid]
             ).all():
-                raise FloatingPointError("Valid time-to-event distribution parameters must be finite.")
+                raise FloatingPointError(
+                    "Valid time-to-event distribution parameters must be finite."
+                )
             selected_time = time_values[time_valid]
             if not torch.isfinite(selected_time).all() or (selected_time <= 0).any():
                 raise ValueError("Valid time_to_event labels must be finite positive seconds.")

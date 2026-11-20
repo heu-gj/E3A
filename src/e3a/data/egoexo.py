@@ -272,7 +272,9 @@ def build_egoexo_relation_clip_targets(
             continue
         camera_record = cameras[camera_name]
         if not isinstance(camera_record, Mapping):
-            raise TypeError(f"Relation camera record for {object_name}/{camera_name} must be an object.")
+            raise TypeError(
+                f"Relation camera record for {object_name}/{camera_name} must be an object."
+            )
 
         annotated_frames_raw = camera_record.get("annotated_frames")
         annotation = camera_record.get("annotation")
