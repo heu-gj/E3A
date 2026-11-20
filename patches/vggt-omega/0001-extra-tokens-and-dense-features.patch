@@ -1,7 +1,8 @@
 diff --git a/vggt_omega/models/aggregator.py b/vggt_omega/models/aggregator.py
 --- a/vggt_omega/models/aggregator.py
 +++ b/vggt_omega/models/aggregator.py
-@@ -114,4 +114,5 @@
+@@ -113,6 +113,7 @@
+ 
 -    def forward(
 -        self,
 -        images: torch.Tensor,
@@ -11,7 +12,9 @@ diff --git a/vggt_omega/models/aggregator.py b/vggt_omega/models/aggregator.py
 +        images: torch.Tensor,
 +        extra_tokens: torch.Tensor | None = None,
 +    ) -> tuple[list[torch.Tensor | None], int]:
-@@ -132,1 +133,28 @@
+         batch_size, num_frames, num_channels, height, width = images.shape
+@@ -131,3 +132,30 @@
+ 
 -        tokens = torch.cat([camera_token, register_token, patch_tokens], dim=1)
 +        if extra_tokens is None:
 +            tokens = torch.cat([camera_token, register_token, patch_tokens], dim=1)
@@ -41,7 +44,9 @@ diff --git a/vggt_omega/models/aggregator.py b/vggt_omega/models/aggregator.py
 +                [camera_token, register_token, extra_tokens, patch_tokens], dim=1
 +            )
 +            patch_token_start = self.patch_token_start + num_extra_tokens
-@@ -154,9 +182,10 @@
+         _, num_tokens, embed_dim = tokens.shape
+@@ -153,11 +181,12 @@
+             )
 -            tokens = self._run_inter_frame_attention_block(
 -                tokens,
 -                batch_size,
@@ -61,10 +66,14 @@ diff --git a/vggt_omega/models/aggregator.py b/vggt_omega/models/aggregator.py
 +                self.inter_frame_attention_types[block_idx],
 +                patch_token_start,
 +            )
-@@ -168,1 +197,1 @@
+             if block_idx in self.cached_layer_indices:
+@@ -167,3 +196,3 @@
+ 
 -        return outputs, self.patch_token_start
 +        return outputs, patch_token_start
-@@ -184,10 +213,11 @@
+ 
+@@ -183,12 +212,13 @@
+ 
 -    def _run_inter_frame_attention_block(
 -        self,
 -        tokens: torch.Tensor,
@@ -86,13 +95,16 @@ diff --git a/vggt_omega/models/aggregator.py b/vggt_omega/models/aggregator.py
 +        attention_type: str,
 +        patch_token_start: int,
 +    ) -> torch.Tensor:
-@@ -204,1 +234,0 @@
+         tokens = tokens.view(batch_size, num_frames, num_tokens, embed_dim)
+@@ -203,3 +233,2 @@
+ 
 -        patch_token_start = self.patch_token_start
-
+         camera_and_register_tokens = tokens[:, :, :patch_token_start].reshape(
 diff --git a/vggt_omega/models/heads/dense_head.py b/vggt_omega/models/heads/dense_head.py
 --- a/vggt_omega/models/heads/dense_head.py
 +++ b/vggt_omega/models/heads/dense_head.py
-@@ -72,32 +72,46 @@
+@@ -71,34 +71,48 @@
+ 
 -    def forward(
 -        self,
 -        aggregated_tokens_list: list[torch.Tensor | None],
@@ -171,7 +183,8 @@ diff --git a/vggt_omega/models/heads/dense_head.py b/vggt_omega/models/heads/den
 +        if return_features:
 +            return depth, depth_conf, torch.cat(fused_chunks, dim=1)
 +        return depth, depth_conf
-@@ -105,8 +119,9 @@
+ 
+@@ -105,9 +119,10 @@
 -    def _forward_impl(
 -        self,
 -        aggregated_tokens_list: list[torch.Tensor | None],
@@ -189,7 +202,9 @@ diff --git a/vggt_omega/models/heads/dense_head.py b/vggt_omega/models/heads/den
 +        frames_end_idx: int | None = None,
 +        return_features: bool = False,
 +    ) -> tuple[torch.Tensor, torch.Tensor] | tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-@@ -155,4 +170,7 @@
+         if frames_start_idx is not None and frames_end_idx is not None:
+@@ -154,6 +169,9 @@
+ 
 -        if depth.dtype != torch.float32 or depth_conf.dtype != torch.float32:
 -            raise TypeError(f"DenseHead outputs must be fp32, got depth={depth.dtype}, conf={depth_conf.dtype}")
 -
@@ -201,3 +216,4 @@ diff --git a/vggt_omega/models/heads/dense_head.py b/vggt_omega/models/heads/den
 +            fused = fused.view(batch_size, num_frames, *fused.shape[1:])
 +            return depth, depth_conf, fused
 +        return depth, depth_conf
+ 
