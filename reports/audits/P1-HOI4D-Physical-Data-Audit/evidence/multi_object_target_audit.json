@@ -1,0 +1,4031 @@
+{
+  "status": "PARTIAL",
+  "evidence_level": "REAL_MASKS_POSE_SCHEMA_ACTION_EVENTS_AND_PINNED_TASK_DEFINITION",
+  "sequence_id": "ZY20210800001/H1/C13/N12/S179/s03/T4",
+  "category": "C13",
+  "selected": {
+    "sequence": "ZY20210800001/H1/C13/N12/S179/s03/T4",
+    "counts": {
+      "rgb": 1,
+      "depth": 1,
+      "mask": 300,
+      "instance4d": 3,
+      "objpose": 300,
+      "action": 1,
+      "right": 254,
+      "left": 0
+    },
+    "score": 7,
+    "paths": {
+      "rgb": "extracted/release/HOI4D_release/ZY20210800001/H1/C13/N12/S179/s03/T4/align_rgb/image.mp4",
+      "depth": "extracted/depth/HOI4D_depth_video/ZY20210800001/H1/C13/N12/S179/s03/T4/align_depth",
+      "mask": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask",
+      "instance4d": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/3Dseg",
+      "objpose": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/objpose",
+      "action": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/action",
+      "right": "extracted/hand_pose/Hand_pose/handpose_right_hand/ZY20210800001/H1/C13/N12/S179/s03/T4",
+      "left": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C13/N12/S179/s03/T4"
+    },
+    "actual_counts": {
+      "rgb": 1,
+      "depth": 1,
+      "mask": 300,
+      "instance4d": 3,
+      "objpose": 300,
+      "action": 1,
+      "right": 254,
+      "left": 0
+    }
+  },
+  "selection": "C13/T4 first; six required modalities present. Descending minimum(mask,objpose,right) then total files then lexical sequence.",
+  "candidate_count": 56,
+  "ranked_candidates": [
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N12/S179/s03/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 254,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N11/S179/s03/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 237,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N17/S179/s05/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 234,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N40/S366/s01/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 233,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N50/S238/s03/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 233,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N48/S238/s03/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 231,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N13/S179/s04/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 230,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N42/S238/s02/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 230,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N18/S179/s05/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 229,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N15/S179/s04/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 227,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N19/S179/s05/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 226,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N44/S238/s02/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 226,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N40/S238/s02/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 223,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N46/S238/s03/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 220,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N14/S179/s04/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 202,
+        "left": 0
+      }
+    },
+    {
+      "sequence_id": "ZY20210800001/H1/C13/N16/S179/s04/T4",
+      "counts": {
+        "rgb": 1,
+        "depth": 1,
+        "mask": 300,
+        "instance4d": 3,
+        "objpose": 300,
+        "action": 1,
+        "right": 202,
+        "left": 0
+      }
+    }
+  ],
+  "official_task": "Cut apple",
+  "source_events": [
+    {
+      "event_index": 0,
+      "label": "rest",
+      "start_time": 0,
+      "end_time": 1.6720000000000002,
+      "properties_keys": []
+    },
+    {
+      "event_index": 1,
+      "label": "Reachout",
+      "start_time": 1.6720000000000002,
+      "end_time": 3.408,
+      "properties_keys": []
+    },
+    {
+      "event_index": 2,
+      "label": "Grasp",
+      "start_time": 3.408,
+      "end_time": 4.325,
+      "properties_keys": []
+    },
+    {
+      "event_index": 3,
+      "label": "Pickup",
+      "start_time": 4.325,
+      "end_time": 4.833,
+      "properties_keys": []
+    },
+    {
+      "event_index": 4,
+      "label": "carry",
+      "start_time": 4.833,
+      "end_time": 7.330560975609756,
+      "properties_keys": []
+    },
+    {
+      "event_index": 5,
+      "label": "putdown",
+      "start_time": 7.331,
+      "end_time": 8.774000000000001,
+      "properties_keys": []
+    },
+    {
+      "event_index": 6,
+      "label": "Stop",
+      "start_time": 8.774000000000001,
+      "end_time": 10.511,
+      "properties_keys": []
+    },
+    {
+      "event_index": 7,
+      "label": "rest",
+      "start_time": 10.511,
+      "end_time": 11.74,
+      "properties_keys": []
+    },
+    {
+      "event_index": 8,
+      "label": "Reachout",
+      "start_time": 11.74,
+      "end_time": 13.223,
+      "properties_keys": []
+    },
+    {
+      "event_index": 9,
+      "label": "Grasp",
+      "start_time": 13.223,
+      "end_time": 13.672048780487804,
+      "properties_keys": []
+    },
+    {
+      "event_index": 10,
+      "label": "Pickup",
+      "start_time": 13.672,
+      "end_time": 14.647,
+      "properties_keys": []
+    },
+    {
+      "event_index": 11,
+      "label": "carry",
+      "start_time": 14.647,
+      "end_time": 14.998,
+      "properties_keys": []
+    },
+    {
+      "event_index": 12,
+      "label": "cut",
+      "start_time": 14.998,
+      "end_time": 16.716,
+      "properties_keys": []
+    },
+    {
+      "event_index": 13,
+      "label": "Pickup",
+      "start_time": 16.716,
+      "end_time": 17.262,
+      "properties_keys": []
+    },
+    {
+      "event_index": 14,
+      "label": "putdown",
+      "start_time": 17.262,
+      "end_time": 18.276,
+      "properties_keys": []
+    },
+    {
+      "event_index": 15,
+      "label": "Stop",
+      "start_time": 18.276,
+      "end_time": 20,
+      "properties_keys": []
+    }
+  ],
+  "action_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/action/color.json",
+  "event_schema_keys": [
+    "id",
+    "event",
+    "startTime",
+    "endTime",
+    "properties"
+  ],
+  "explicit_event_to_instance_mapping": false,
+  "pose_id_label_counts": [
+    {
+      "id": 2,
+      "label": "knife",
+      "count": 300
+    }
+  ],
+  "local_instances": {
+    "1": "Knife (candidate tool)",
+    "2": "Right Hand",
+    "3": "Apple (candidate patient/target)"
+  },
+  "instance_3_visible_frames": 300,
+  "per_frame_masks": [
+    {
+      "file_index": 0,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00000.png",
+      "instance_pixel_counts": {
+        "1": 10125,
+        "2": 0,
+        "3": 2471
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 1,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00001.png",
+      "instance_pixel_counts": {
+        "1": 10362,
+        "2": 0,
+        "3": 2657
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 2,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00002.png",
+      "instance_pixel_counts": {
+        "1": 10311,
+        "2": 0,
+        "3": 2647
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 3,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00003.png",
+      "instance_pixel_counts": {
+        "1": 10246,
+        "2": 0,
+        "3": 2636
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 4,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00004.png",
+      "instance_pixel_counts": {
+        "1": 10199,
+        "2": 0,
+        "3": 2649
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 5,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00005.png",
+      "instance_pixel_counts": {
+        "1": 10159,
+        "2": 0,
+        "3": 2672
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 6,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00006.png",
+      "instance_pixel_counts": {
+        "1": 10185,
+        "2": 0,
+        "3": 2647
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 7,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00007.png",
+      "instance_pixel_counts": {
+        "1": 10187,
+        "2": 0,
+        "3": 2646
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 8,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00008.png",
+      "instance_pixel_counts": {
+        "1": 10177,
+        "2": 0,
+        "3": 2639
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 9,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00009.png",
+      "instance_pixel_counts": {
+        "1": 10132,
+        "2": 0,
+        "3": 2636
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 10,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00010.png",
+      "instance_pixel_counts": {
+        "1": 9916,
+        "2": 0,
+        "3": 2524
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 11,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00011.png",
+      "instance_pixel_counts": {
+        "1": 10191,
+        "2": 0,
+        "3": 2714
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 12,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00012.png",
+      "instance_pixel_counts": {
+        "1": 10253,
+        "2": 0,
+        "3": 2708
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 13,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00013.png",
+      "instance_pixel_counts": {
+        "1": 10246,
+        "2": 0,
+        "3": 2660
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 14,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00014.png",
+      "instance_pixel_counts": {
+        "1": 10166,
+        "2": 0,
+        "3": 2643
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 15,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00015.png",
+      "instance_pixel_counts": {
+        "1": 10204,
+        "2": 0,
+        "3": 2606
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 16,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00016.png",
+      "instance_pixel_counts": {
+        "1": 10282,
+        "2": 0,
+        "3": 2625
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 17,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00017.png",
+      "instance_pixel_counts": {
+        "1": 10265,
+        "2": 0,
+        "3": 2622
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 18,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00018.png",
+      "instance_pixel_counts": {
+        "1": 10341,
+        "2": 0,
+        "3": 2632
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 19,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00019.png",
+      "instance_pixel_counts": {
+        "1": 10304,
+        "2": 0,
+        "3": 2640
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 20,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00020.png",
+      "instance_pixel_counts": {
+        "1": 10162,
+        "2": 0,
+        "3": 2530
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 21,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00021.png",
+      "instance_pixel_counts": {
+        "1": 10527,
+        "2": 0,
+        "3": 2680
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 22,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00022.png",
+      "instance_pixel_counts": {
+        "1": 10464,
+        "2": 0,
+        "3": 2681
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 23,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00023.png",
+      "instance_pixel_counts": {
+        "1": 10500,
+        "2": 0,
+        "3": 2717
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 24,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00024.png",
+      "instance_pixel_counts": {
+        "1": 10424,
+        "2": 0,
+        "3": 2687
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 25,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00025.png",
+      "instance_pixel_counts": {
+        "1": 10389,
+        "2": 0,
+        "3": 2634
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 26,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00026.png",
+      "instance_pixel_counts": {
+        "1": 10418,
+        "2": 0,
+        "3": 2640
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 27,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00027.png",
+      "instance_pixel_counts": {
+        "1": 10438,
+        "2": 1823,
+        "3": 2576
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 28,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00028.png",
+      "instance_pixel_counts": {
+        "1": 10522,
+        "2": 7097,
+        "3": 2584
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 29,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00029.png",
+      "instance_pixel_counts": {
+        "1": 10632,
+        "2": 13481,
+        "3": 2575
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 30,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00030.png",
+      "instance_pixel_counts": {
+        "1": 10590,
+        "2": 19084,
+        "3": 2601
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 31,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00031.png",
+      "instance_pixel_counts": {
+        "1": 10799,
+        "2": 23245,
+        "3": 2767
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 32,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00032.png",
+      "instance_pixel_counts": {
+        "1": 10837,
+        "2": 26373,
+        "3": 2917
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 33,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00033.png",
+      "instance_pixel_counts": {
+        "1": 10902,
+        "2": 28408,
+        "3": 2822
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 34,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00034.png",
+      "instance_pixel_counts": {
+        "1": 11024,
+        "2": 29949,
+        "3": 2770
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 35,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00035.png",
+      "instance_pixel_counts": {
+        "1": 11080,
+        "2": 30720,
+        "3": 2719
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 36,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00036.png",
+      "instance_pixel_counts": {
+        "1": 11159,
+        "2": 31283,
+        "3": 2799
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 37,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00037.png",
+      "instance_pixel_counts": {
+        "1": 11321,
+        "2": 31836,
+        "3": 2842
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 38,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00038.png",
+      "instance_pixel_counts": {
+        "1": 11239,
+        "2": 32452,
+        "3": 2709
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 39,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00039.png",
+      "instance_pixel_counts": {
+        "1": 11171,
+        "2": 33634,
+        "3": 2405
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 40,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00040.png",
+      "instance_pixel_counts": {
+        "1": 11010,
+        "2": 34474,
+        "3": 2073
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 41,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00041.png",
+      "instance_pixel_counts": {
+        "1": 11118,
+        "2": 36633,
+        "3": 1813
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 42,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00042.png",
+      "instance_pixel_counts": {
+        "1": 10783,
+        "2": 37815,
+        "3": 1473
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 43,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00043.png",
+      "instance_pixel_counts": {
+        "1": 10539,
+        "2": 37517,
+        "3": 1087
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 44,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00044.png",
+      "instance_pixel_counts": {
+        "1": 10521,
+        "2": 36407,
+        "3": 692
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 45,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00045.png",
+      "instance_pixel_counts": {
+        "1": 10543,
+        "2": 35295,
+        "3": 533
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 46,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00046.png",
+      "instance_pixel_counts": {
+        "1": 10493,
+        "2": 34263,
+        "3": 526
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 47,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00047.png",
+      "instance_pixel_counts": {
+        "1": 10505,
+        "2": 32999,
+        "3": 650
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 48,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00048.png",
+      "instance_pixel_counts": {
+        "1": 10518,
+        "2": 32902,
+        "3": 771
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 49,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00049.png",
+      "instance_pixel_counts": {
+        "1": 10531,
+        "2": 32500,
+        "3": 906
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 50,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00050.png",
+      "instance_pixel_counts": {
+        "1": 10459,
+        "2": 31880,
+        "3": 973
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 51,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00051.png",
+      "instance_pixel_counts": {
+        "1": 10661,
+        "2": 31831,
+        "3": 1044
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 52,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00052.png",
+      "instance_pixel_counts": {
+        "1": 10726,
+        "2": 31731,
+        "3": 1153
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 53,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00053.png",
+      "instance_pixel_counts": {
+        "1": 10709,
+        "2": 31158,
+        "3": 1155
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 54,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00054.png",
+      "instance_pixel_counts": {
+        "1": 10604,
+        "2": 30941,
+        "3": 1206
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 55,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00055.png",
+      "instance_pixel_counts": {
+        "1": 10759,
+        "2": 30359,
+        "3": 1310
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 56,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00056.png",
+      "instance_pixel_counts": {
+        "1": 10555,
+        "2": 30307,
+        "3": 1389
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 57,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00057.png",
+      "instance_pixel_counts": {
+        "1": 10657,
+        "2": 30447,
+        "3": 1440
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 58,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00058.png",
+      "instance_pixel_counts": {
+        "1": 10926,
+        "2": 31070,
+        "3": 1422
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 59,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00059.png",
+      "instance_pixel_counts": {
+        "1": 11057,
+        "2": 31815,
+        "3": 1288
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 60,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00060.png",
+      "instance_pixel_counts": {
+        "1": 10782,
+        "2": 31927,
+        "3": 1055
+      },
+      "unknown_pixels": 25
+    },
+    {
+      "file_index": 61,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00061.png",
+      "instance_pixel_counts": {
+        "1": 11322,
+        "2": 31504,
+        "3": 1000
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 62,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00062.png",
+      "instance_pixel_counts": {
+        "1": 11464,
+        "2": 31028,
+        "3": 966
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 63,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00063.png",
+      "instance_pixel_counts": {
+        "1": 11457,
+        "2": 30858,
+        "3": 1123
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 64,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00064.png",
+      "instance_pixel_counts": {
+        "1": 11344,
+        "2": 30935,
+        "3": 1324
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 65,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00065.png",
+      "instance_pixel_counts": {
+        "1": 11353,
+        "2": 31305,
+        "3": 1496
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 66,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00066.png",
+      "instance_pixel_counts": {
+        "1": 11159,
+        "2": 31803,
+        "3": 1743
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 67,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00067.png",
+      "instance_pixel_counts": {
+        "1": 11589,
+        "2": 32333,
+        "3": 1984
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 68,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00068.png",
+      "instance_pixel_counts": {
+        "1": 11411,
+        "2": 32765,
+        "3": 2068
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 69,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00069.png",
+      "instance_pixel_counts": {
+        "1": 11160,
+        "2": 33217,
+        "3": 2058
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 70,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00070.png",
+      "instance_pixel_counts": {
+        "1": 10747,
+        "2": 34170,
+        "3": 2111
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 71,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00071.png",
+      "instance_pixel_counts": {
+        "1": 10971,
+        "2": 35152,
+        "3": 2356
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 72,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00072.png",
+      "instance_pixel_counts": {
+        "1": 10941,
+        "2": 35838,
+        "3": 2539
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 73,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00073.png",
+      "instance_pixel_counts": {
+        "1": 10741,
+        "2": 36238,
+        "3": 2655
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 74,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00074.png",
+      "instance_pixel_counts": {
+        "1": 10709,
+        "2": 36863,
+        "3": 2654
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 75,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00075.png",
+      "instance_pixel_counts": {
+        "1": 10520,
+        "2": 37279,
+        "3": 2713
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 76,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00076.png",
+      "instance_pixel_counts": {
+        "1": 10461,
+        "2": 37557,
+        "3": 2691
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 77,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00077.png",
+      "instance_pixel_counts": {
+        "1": 10585,
+        "2": 38102,
+        "3": 2623
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 78,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00078.png",
+      "instance_pixel_counts": {
+        "1": 10722,
+        "2": 39003,
+        "3": 2615
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 79,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00079.png",
+      "instance_pixel_counts": {
+        "1": 10884,
+        "2": 40111,
+        "3": 2502
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 80,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00080.png",
+      "instance_pixel_counts": {
+        "1": 10448,
+        "2": 41533,
+        "3": 2466
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 81,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00081.png",
+      "instance_pixel_counts": {
+        "1": 10750,
+        "2": 43273,
+        "3": 2426
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 82,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00082.png",
+      "instance_pixel_counts": {
+        "1": 10840,
+        "2": 44707,
+        "3": 2400
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 83,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00083.png",
+      "instance_pixel_counts": {
+        "1": 10742,
+        "2": 46112,
+        "3": 2330
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 84,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00084.png",
+      "instance_pixel_counts": {
+        "1": 10636,
+        "2": 47119,
+        "3": 2222
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 85,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00085.png",
+      "instance_pixel_counts": {
+        "1": 10646,
+        "2": 47786,
+        "3": 2149
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 86,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00086.png",
+      "instance_pixel_counts": {
+        "1": 10371,
+        "2": 48476,
+        "3": 2119
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 87,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00087.png",
+      "instance_pixel_counts": {
+        "1": 10392,
+        "2": 48518,
+        "3": 2015
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 88,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00088.png",
+      "instance_pixel_counts": {
+        "1": 10364,
+        "2": 48353,
+        "3": 1970
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 89,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00089.png",
+      "instance_pixel_counts": {
+        "1": 10372,
+        "2": 47941,
+        "3": 1880
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 90,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00090.png",
+      "instance_pixel_counts": {
+        "1": 9744,
+        "2": 48149,
+        "3": 1803
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 91,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00091.png",
+      "instance_pixel_counts": {
+        "1": 9900,
+        "2": 48194,
+        "3": 1834
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 92,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00092.png",
+      "instance_pixel_counts": {
+        "1": 10503,
+        "2": 48319,
+        "3": 1754
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 93,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00093.png",
+      "instance_pixel_counts": {
+        "1": 10510,
+        "2": 48635,
+        "3": 1804
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 94,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00094.png",
+      "instance_pixel_counts": {
+        "1": 10772,
+        "2": 48684,
+        "3": 1732
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 95,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00095.png",
+      "instance_pixel_counts": {
+        "1": 10687,
+        "2": 48442,
+        "3": 1739
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 96,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00096.png",
+      "instance_pixel_counts": {
+        "1": 10746,
+        "2": 47894,
+        "3": 1657
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 97,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00097.png",
+      "instance_pixel_counts": {
+        "1": 10577,
+        "2": 48193,
+        "3": 1641
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 98,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00098.png",
+      "instance_pixel_counts": {
+        "1": 10695,
+        "2": 47452,
+        "3": 1567
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 99,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00099.png",
+      "instance_pixel_counts": {
+        "1": 10431,
+        "2": 46344,
+        "3": 1595
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 100,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00100.png",
+      "instance_pixel_counts": {
+        "1": 10151,
+        "2": 45928,
+        "3": 1545
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 101,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00101.png",
+      "instance_pixel_counts": {
+        "1": 10311,
+        "2": 44962,
+        "3": 1587
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 102,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00102.png",
+      "instance_pixel_counts": {
+        "1": 10106,
+        "2": 44472,
+        "3": 1587
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 103,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00103.png",
+      "instance_pixel_counts": {
+        "1": 9988,
+        "2": 44240,
+        "3": 1614
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 104,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00104.png",
+      "instance_pixel_counts": {
+        "1": 9888,
+        "2": 44132,
+        "3": 1626
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 105,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00105.png",
+      "instance_pixel_counts": {
+        "1": 10019,
+        "2": 43091,
+        "3": 1650
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 106,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00106.png",
+      "instance_pixel_counts": {
+        "1": 10111,
+        "2": 42533,
+        "3": 1672
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 107,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00107.png",
+      "instance_pixel_counts": {
+        "1": 10101,
+        "2": 41966,
+        "3": 1671
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 108,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00108.png",
+      "instance_pixel_counts": {
+        "1": 10057,
+        "2": 41705,
+        "3": 1685
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 109,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00109.png",
+      "instance_pixel_counts": {
+        "1": 10157,
+        "2": 41837,
+        "3": 1688
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 110,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00110.png",
+      "instance_pixel_counts": {
+        "1": 10030,
+        "2": 43741,
+        "3": 1667
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 111,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00111.png",
+      "instance_pixel_counts": {
+        "1": 10511,
+        "2": 45186,
+        "3": 1694
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 112,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00112.png",
+      "instance_pixel_counts": {
+        "1": 10260,
+        "2": 46909,
+        "3": 1770
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 113,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00113.png",
+      "instance_pixel_counts": {
+        "1": 10330,
+        "2": 48015,
+        "3": 1711
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 114,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00114.png",
+      "instance_pixel_counts": {
+        "1": 10339,
+        "2": 49029,
+        "3": 1745
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 115,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00115.png",
+      "instance_pixel_counts": {
+        "1": 10254,
+        "2": 49919,
+        "3": 1729
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 116,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00116.png",
+      "instance_pixel_counts": {
+        "1": 10248,
+        "2": 50637,
+        "3": 1708
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 117,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00117.png",
+      "instance_pixel_counts": {
+        "1": 10321,
+        "2": 50538,
+        "3": 1752
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 118,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00118.png",
+      "instance_pixel_counts": {
+        "1": 10262,
+        "2": 50146,
+        "3": 1791
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 119,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00119.png",
+      "instance_pixel_counts": {
+        "1": 10218,
+        "2": 50279,
+        "3": 1779
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 120,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00120.png",
+      "instance_pixel_counts": {
+        "1": 10041,
+        "2": 50283,
+        "3": 1794
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 121,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00121.png",
+      "instance_pixel_counts": {
+        "1": 10463,
+        "2": 49548,
+        "3": 1815
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 122,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00122.png",
+      "instance_pixel_counts": {
+        "1": 10548,
+        "2": 49570,
+        "3": 1805
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 123,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00123.png",
+      "instance_pixel_counts": {
+        "1": 10830,
+        "2": 49925,
+        "3": 1848
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 124,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00124.png",
+      "instance_pixel_counts": {
+        "1": 10827,
+        "2": 50366,
+        "3": 1836
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 125,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00125.png",
+      "instance_pixel_counts": {
+        "1": 11036,
+        "2": 50410,
+        "3": 1898
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 126,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00126.png",
+      "instance_pixel_counts": {
+        "1": 11347,
+        "2": 50609,
+        "3": 1877
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 127,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00127.png",
+      "instance_pixel_counts": {
+        "1": 11517,
+        "2": 50468,
+        "3": 1853
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 128,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00128.png",
+      "instance_pixel_counts": {
+        "1": 11629,
+        "2": 50106,
+        "3": 1853
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 129,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00129.png",
+      "instance_pixel_counts": {
+        "1": 11709,
+        "2": 49578,
+        "3": 1883
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 130,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00130.png",
+      "instance_pixel_counts": {
+        "1": 11425,
+        "2": 50126,
+        "3": 1884
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 131,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00131.png",
+      "instance_pixel_counts": {
+        "1": 11970,
+        "2": 49300,
+        "3": 1891
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 132,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00132.png",
+      "instance_pixel_counts": {
+        "1": 11931,
+        "2": 49196,
+        "3": 1911
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 133,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00133.png",
+      "instance_pixel_counts": {
+        "1": 11770,
+        "2": 49095,
+        "3": 1873
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 134,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00134.png",
+      "instance_pixel_counts": {
+        "1": 11696,
+        "2": 49052,
+        "3": 1878
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 135,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00135.png",
+      "instance_pixel_counts": {
+        "1": 11415,
+        "2": 49126,
+        "3": 1865
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 136,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00136.png",
+      "instance_pixel_counts": {
+        "1": 11507,
+        "2": 48964,
+        "3": 1842
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 137,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00137.png",
+      "instance_pixel_counts": {
+        "1": 11523,
+        "2": 48969,
+        "3": 1832
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 138,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00138.png",
+      "instance_pixel_counts": {
+        "1": 11719,
+        "2": 49460,
+        "3": 1812
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 139,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00139.png",
+      "instance_pixel_counts": {
+        "1": 11847,
+        "2": 50030,
+        "3": 1806
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 140,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00140.png",
+      "instance_pixel_counts": {
+        "1": 11992,
+        "2": 51113,
+        "3": 1768
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 141,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00141.png",
+      "instance_pixel_counts": {
+        "1": 12360,
+        "2": 51931,
+        "3": 1808
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 142,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00142.png",
+      "instance_pixel_counts": {
+        "1": 12437,
+        "2": 53646,
+        "3": 1765
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 143,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00143.png",
+      "instance_pixel_counts": {
+        "1": 12403,
+        "2": 54406,
+        "3": 1736
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 144,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00144.png",
+      "instance_pixel_counts": {
+        "1": 12336,
+        "2": 54204,
+        "3": 1746
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 145,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00145.png",
+      "instance_pixel_counts": {
+        "1": 12174,
+        "2": 53785,
+        "3": 1717
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 146,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00146.png",
+      "instance_pixel_counts": {
+        "1": 12070,
+        "2": 52276,
+        "3": 1664
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 147,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00147.png",
+      "instance_pixel_counts": {
+        "1": 11896,
+        "2": 49662,
+        "3": 1693
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 148,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00148.png",
+      "instance_pixel_counts": {
+        "1": 11737,
+        "2": 45799,
+        "3": 1658
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 149,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00149.png",
+      "instance_pixel_counts": {
+        "1": 11709,
+        "2": 42154,
+        "3": 1663
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 150,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00150.png",
+      "instance_pixel_counts": {
+        "1": 11751,
+        "2": 38303,
+        "3": 1648
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 151,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00151.png",
+      "instance_pixel_counts": {
+        "1": 11661,
+        "2": 33663,
+        "3": 1670
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 152,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00152.png",
+      "instance_pixel_counts": {
+        "1": 11584,
+        "2": 29839,
+        "3": 1645
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 153,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00153.png",
+      "instance_pixel_counts": {
+        "1": 11523,
+        "2": 26152,
+        "3": 1671
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 154,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00154.png",
+      "instance_pixel_counts": {
+        "1": 11419,
+        "2": 22509,
+        "3": 1655
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 155,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00155.png",
+      "instance_pixel_counts": {
+        "1": 11453,
+        "2": 16862,
+        "3": 1644
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 156,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00156.png",
+      "instance_pixel_counts": {
+        "1": 11305,
+        "2": 8509,
+        "3": 1635
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 157,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00157.png",
+      "instance_pixel_counts": {
+        "1": 11252,
+        "2": 1244,
+        "3": 1606
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 158,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00158.png",
+      "instance_pixel_counts": {
+        "1": 11222,
+        "2": 0,
+        "3": 1625
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 159,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00159.png",
+      "instance_pixel_counts": {
+        "1": 11178,
+        "2": 0,
+        "3": 1613
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 160,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00160.png",
+      "instance_pixel_counts": {
+        "1": 11452,
+        "2": 0,
+        "3": 1607
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 161,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00161.png",
+      "instance_pixel_counts": {
+        "1": 11328,
+        "2": 0,
+        "3": 1662
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 162,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00162.png",
+      "instance_pixel_counts": {
+        "1": 11187,
+        "2": 0,
+        "3": 1634
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 163,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00163.png",
+      "instance_pixel_counts": {
+        "1": 11204,
+        "2": 0,
+        "3": 1637
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 164,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00164.png",
+      "instance_pixel_counts": {
+        "1": 11209,
+        "2": 0,
+        "3": 1652
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 165,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00165.png",
+      "instance_pixel_counts": {
+        "1": 11186,
+        "2": 0,
+        "3": 1640
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 166,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00166.png",
+      "instance_pixel_counts": {
+        "1": 11252,
+        "2": 0,
+        "3": 1638
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 167,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00167.png",
+      "instance_pixel_counts": {
+        "1": 11155,
+        "2": 0,
+        "3": 1638
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 168,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00168.png",
+      "instance_pixel_counts": {
+        "1": 11150,
+        "2": 0,
+        "3": 1660
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 169,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00169.png",
+      "instance_pixel_counts": {
+        "1": 11125,
+        "2": 0,
+        "3": 1633
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 170,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00170.png",
+      "instance_pixel_counts": {
+        "1": 11366,
+        "2": 0,
+        "3": 1626
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 171,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00171.png",
+      "instance_pixel_counts": {
+        "1": 11328,
+        "2": 0,
+        "3": 1644
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 172,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00172.png",
+      "instance_pixel_counts": {
+        "1": 11257,
+        "2": 0,
+        "3": 1682
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 173,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00173.png",
+      "instance_pixel_counts": {
+        "1": 11364,
+        "2": 0,
+        "3": 1670
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 174,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00174.png",
+      "instance_pixel_counts": {
+        "1": 11382,
+        "2": 0,
+        "3": 1614
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 175,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00175.png",
+      "instance_pixel_counts": {
+        "1": 11386,
+        "2": 0,
+        "3": 1629
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 176,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00176.png",
+      "instance_pixel_counts": {
+        "1": 11424,
+        "2": 0,
+        "3": 1638
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 177,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00177.png",
+      "instance_pixel_counts": {
+        "1": 11447,
+        "2": 572,
+        "3": 1654
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 178,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00178.png",
+      "instance_pixel_counts": {
+        "1": 11366,
+        "2": 5386,
+        "3": 1690
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 179,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00179.png",
+      "instance_pixel_counts": {
+        "1": 11356,
+        "2": 11886,
+        "3": 1640
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 180,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00180.png",
+      "instance_pixel_counts": {
+        "1": 11600,
+        "2": 17084,
+        "3": 1645
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 181,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00181.png",
+      "instance_pixel_counts": {
+        "1": 11571,
+        "2": 20763,
+        "3": 1701
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 182,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00182.png",
+      "instance_pixel_counts": {
+        "1": 11524,
+        "2": 23246,
+        "3": 1664
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 183,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00183.png",
+      "instance_pixel_counts": {
+        "1": 11524,
+        "2": 25798,
+        "3": 1672
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 184,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00184.png",
+      "instance_pixel_counts": {
+        "1": 11577,
+        "2": 28162,
+        "3": 1651
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 185,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00185.png",
+      "instance_pixel_counts": {
+        "1": 11714,
+        "2": 30712,
+        "3": 1703
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 186,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00186.png",
+      "instance_pixel_counts": {
+        "1": 11781,
+        "2": 33803,
+        "3": 1702
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 187,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00187.png",
+      "instance_pixel_counts": {
+        "1": 11818,
+        "2": 37554,
+        "3": 1658
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 188,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00188.png",
+      "instance_pixel_counts": {
+        "1": 11909,
+        "2": 40796,
+        "3": 1644
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 189,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00189.png",
+      "instance_pixel_counts": {
+        "1": 11824,
+        "2": 43281,
+        "3": 1664
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 190,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00190.png",
+      "instance_pixel_counts": {
+        "1": 12129,
+        "2": 45082,
+        "3": 1691
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 191,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00191.png",
+      "instance_pixel_counts": {
+        "1": 12118,
+        "2": 45994,
+        "3": 1697
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 192,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00192.png",
+      "instance_pixel_counts": {
+        "1": 12097,
+        "2": 46826,
+        "3": 1669
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 193,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00193.png",
+      "instance_pixel_counts": {
+        "1": 12059,
+        "2": 47067,
+        "3": 1667
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 194,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00194.png",
+      "instance_pixel_counts": {
+        "1": 12092,
+        "2": 47010,
+        "3": 1675
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 195,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00195.png",
+      "instance_pixel_counts": {
+        "1": 12086,
+        "2": 47192,
+        "3": 1686
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 196,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00196.png",
+      "instance_pixel_counts": {
+        "1": 12067,
+        "2": 46754,
+        "3": 1712
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 197,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00197.png",
+      "instance_pixel_counts": {
+        "1": 11922,
+        "2": 45105,
+        "3": 1727
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 198,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00198.png",
+      "instance_pixel_counts": {
+        "1": 11761,
+        "2": 42904,
+        "3": 1742
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 199,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00199.png",
+      "instance_pixel_counts": {
+        "1": 11563,
+        "2": 41859,
+        "3": 1718
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 200,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00200.png",
+      "instance_pixel_counts": {
+        "1": 11588,
+        "2": 41290,
+        "3": 1720
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 201,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00201.png",
+      "instance_pixel_counts": {
+        "1": 11260,
+        "2": 40363,
+        "3": 1753
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 202,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00202.png",
+      "instance_pixel_counts": {
+        "1": 11249,
+        "2": 39130,
+        "3": 1773
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 203,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00203.png",
+      "instance_pixel_counts": {
+        "1": 11272,
+        "2": 38018,
+        "3": 1798
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 204,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00204.png",
+      "instance_pixel_counts": {
+        "1": 11402,
+        "2": 37381,
+        "3": 1807
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 205,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00205.png",
+      "instance_pixel_counts": {
+        "1": 11420,
+        "2": 37205,
+        "3": 1774
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 206,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00206.png",
+      "instance_pixel_counts": {
+        "1": 11165,
+        "2": 37079,
+        "3": 1785
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 207,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00207.png",
+      "instance_pixel_counts": {
+        "1": 11026,
+        "2": 37791,
+        "3": 1797
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 208,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00208.png",
+      "instance_pixel_counts": {
+        "1": 10804,
+        "2": 38594,
+        "3": 1799
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 209,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00209.png",
+      "instance_pixel_counts": {
+        "1": 10690,
+        "2": 38752,
+        "3": 1784
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 210,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00210.png",
+      "instance_pixel_counts": {
+        "1": 10966,
+        "2": 39710,
+        "3": 1808
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 211,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00211.png",
+      "instance_pixel_counts": {
+        "1": 10181,
+        "2": 40414,
+        "3": 1841
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 212,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00212.png",
+      "instance_pixel_counts": {
+        "1": 9744,
+        "2": 41009,
+        "3": 1819
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 213,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00213.png",
+      "instance_pixel_counts": {
+        "1": 9036,
+        "2": 41206,
+        "3": 1818
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 214,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00214.png",
+      "instance_pixel_counts": {
+        "1": 8547,
+        "2": 40824,
+        "3": 1766
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 215,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00215.png",
+      "instance_pixel_counts": {
+        "1": 6950,
+        "2": 40610,
+        "3": 1784
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 216,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00216.png",
+      "instance_pixel_counts": {
+        "1": 6136,
+        "2": 40508,
+        "3": 1751
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 217,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00217.png",
+      "instance_pixel_counts": {
+        "1": 4189,
+        "2": 39887,
+        "3": 1780
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 218,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00218.png",
+      "instance_pixel_counts": {
+        "1": 2507,
+        "2": 39298,
+        "3": 1772
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 219,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00219.png",
+      "instance_pixel_counts": {
+        "1": 1946,
+        "2": 38362,
+        "3": 1763
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 220,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00220.png",
+      "instance_pixel_counts": {
+        "1": 2015,
+        "2": 37721,
+        "3": 1732
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 221,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00221.png",
+      "instance_pixel_counts": {
+        "1": 2761,
+        "2": 37540,
+        "3": 1738
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 222,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00222.png",
+      "instance_pixel_counts": {
+        "1": 3380,
+        "2": 37174,
+        "3": 1754
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 223,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00223.png",
+      "instance_pixel_counts": {
+        "1": 3506,
+        "2": 37258,
+        "3": 1697
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 224,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00224.png",
+      "instance_pixel_counts": {
+        "1": 3570,
+        "2": 37598,
+        "3": 1692
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 225,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00225.png",
+      "instance_pixel_counts": {
+        "1": 3416,
+        "2": 37523,
+        "3": 1562
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 226,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00226.png",
+      "instance_pixel_counts": {
+        "1": 3381,
+        "2": 37399,
+        "3": 1466
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 227,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00227.png",
+      "instance_pixel_counts": {
+        "1": 3257,
+        "2": 37151,
+        "3": 1455
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 228,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00228.png",
+      "instance_pixel_counts": {
+        "1": 3110,
+        "2": 36945,
+        "3": 1416
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 229,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00229.png",
+      "instance_pixel_counts": {
+        "1": 3059,
+        "2": 36678,
+        "3": 1405
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 230,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00230.png",
+      "instance_pixel_counts": {
+        "1": 2959,
+        "2": 36748,
+        "3": 1404
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 231,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00231.png",
+      "instance_pixel_counts": {
+        "1": 2853,
+        "2": 35971,
+        "3": 1442
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 232,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00232.png",
+      "instance_pixel_counts": {
+        "1": 2655,
+        "2": 35856,
+        "3": 1465
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 233,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00233.png",
+      "instance_pixel_counts": {
+        "1": 2671,
+        "2": 36343,
+        "3": 1385
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 234,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00234.png",
+      "instance_pixel_counts": {
+        "1": 2546,
+        "2": 36505,
+        "3": 1431
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 235,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00235.png",
+      "instance_pixel_counts": {
+        "1": 2559,
+        "2": 36460,
+        "3": 1457
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 236,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00236.png",
+      "instance_pixel_counts": {
+        "1": 2500,
+        "2": 36530,
+        "3": 1433
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 237,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00237.png",
+      "instance_pixel_counts": {
+        "1": 2537,
+        "2": 36542,
+        "3": 1358
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 238,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00238.png",
+      "instance_pixel_counts": {
+        "1": 2442,
+        "2": 36129,
+        "3": 1374
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 239,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00239.png",
+      "instance_pixel_counts": {
+        "1": 2373,
+        "2": 35999,
+        "3": 1353
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 240,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00240.png",
+      "instance_pixel_counts": {
+        "1": 2028,
+        "2": 34935,
+        "3": 1586
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 241,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00241.png",
+      "instance_pixel_counts": {
+        "1": 2514,
+        "2": 32568,
+        "3": 1527
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 242,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00242.png",
+      "instance_pixel_counts": {
+        "1": 2606,
+        "2": 31730,
+        "3": 1493
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 243,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00243.png",
+      "instance_pixel_counts": {
+        "1": 2670,
+        "2": 30801,
+        "3": 1482
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 244,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00244.png",
+      "instance_pixel_counts": {
+        "1": 2360,
+        "2": 30193,
+        "3": 1539
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 245,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00245.png",
+      "instance_pixel_counts": {
+        "1": 2213,
+        "2": 30452,
+        "3": 1577
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 246,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00246.png",
+      "instance_pixel_counts": {
+        "1": 2249,
+        "2": 30622,
+        "3": 1663
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 247,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00247.png",
+      "instance_pixel_counts": {
+        "1": 2210,
+        "2": 30676,
+        "3": 1670
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 248,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00248.png",
+      "instance_pixel_counts": {
+        "1": 2510,
+        "2": 30512,
+        "3": 1641
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 249,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00249.png",
+      "instance_pixel_counts": {
+        "1": 3119,
+        "2": 30701,
+        "3": 1614
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 250,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00250.png",
+      "instance_pixel_counts": {
+        "1": 3041,
+        "2": 31614,
+        "3": 1662
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 251,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00251.png",
+      "instance_pixel_counts": {
+        "1": 3373,
+        "2": 31544,
+        "3": 1615
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 252,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00252.png",
+      "instance_pixel_counts": {
+        "1": 3141,
+        "2": 31757,
+        "3": 1687
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 253,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00253.png",
+      "instance_pixel_counts": {
+        "1": 3011,
+        "2": 32326,
+        "3": 1696
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 254,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00254.png",
+      "instance_pixel_counts": {
+        "1": 3021,
+        "2": 32823,
+        "3": 1514
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 255,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00255.png",
+      "instance_pixel_counts": {
+        "1": 3052,
+        "2": 33552,
+        "3": 1588
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 256,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00256.png",
+      "instance_pixel_counts": {
+        "1": 2980,
+        "2": 34073,
+        "3": 1628
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 257,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00257.png",
+      "instance_pixel_counts": {
+        "1": 2899,
+        "2": 34824,
+        "3": 1737
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 258,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00258.png",
+      "instance_pixel_counts": {
+        "1": 2479,
+        "2": 35693,
+        "3": 1936
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 259,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00259.png",
+      "instance_pixel_counts": {
+        "1": 2653,
+        "2": 36397,
+        "3": 1980
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 260,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00260.png",
+      "instance_pixel_counts": {
+        "1": 5136,
+        "2": 37393,
+        "3": 2009
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 261,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00261.png",
+      "instance_pixel_counts": {
+        "1": 8578,
+        "2": 37425,
+        "3": 2005
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 262,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00262.png",
+      "instance_pixel_counts": {
+        "1": 9367,
+        "2": 37992,
+        "3": 2029
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 263,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00263.png",
+      "instance_pixel_counts": {
+        "1": 9394,
+        "2": 38292,
+        "3": 2054
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 264,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00264.png",
+      "instance_pixel_counts": {
+        "1": 9395,
+        "2": 38380,
+        "3": 2031
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 265,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00265.png",
+      "instance_pixel_counts": {
+        "1": 9405,
+        "2": 38358,
+        "3": 2017
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 266,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00266.png",
+      "instance_pixel_counts": {
+        "1": 9576,
+        "2": 37919,
+        "3": 2004
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 267,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00267.png",
+      "instance_pixel_counts": {
+        "1": 9959,
+        "2": 38029,
+        "3": 1977
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 268,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00268.png",
+      "instance_pixel_counts": {
+        "1": 10197,
+        "2": 38161,
+        "3": 2003
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 269,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00269.png",
+      "instance_pixel_counts": {
+        "1": 10307,
+        "2": 37535,
+        "3": 2003
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 270,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00270.png",
+      "instance_pixel_counts": {
+        "1": 10599,
+        "2": 37509,
+        "3": 2049
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 271,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00271.png",
+      "instance_pixel_counts": {
+        "1": 10694,
+        "2": 37417,
+        "3": 2020
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 272,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00272.png",
+      "instance_pixel_counts": {
+        "1": 10610,
+        "2": 37634,
+        "3": 2051
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 273,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00273.png",
+      "instance_pixel_counts": {
+        "1": 10455,
+        "2": 38795,
+        "3": 2021
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 274,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00274.png",
+      "instance_pixel_counts": {
+        "1": 10422,
+        "2": 39217,
+        "3": 2030
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 275,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00275.png",
+      "instance_pixel_counts": {
+        "1": 10332,
+        "2": 39209,
+        "3": 2030
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 276,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00276.png",
+      "instance_pixel_counts": {
+        "1": 10343,
+        "2": 38888,
+        "3": 2037
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 277,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00277.png",
+      "instance_pixel_counts": {
+        "1": 10320,
+        "2": 38635,
+        "3": 2038
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 278,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00278.png",
+      "instance_pixel_counts": {
+        "1": 10337,
+        "2": 38362,
+        "3": 2019
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 279,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00279.png",
+      "instance_pixel_counts": {
+        "1": 10288,
+        "2": 38539,
+        "3": 2020
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 280,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00280.png",
+      "instance_pixel_counts": {
+        "1": 10534,
+        "2": 38780,
+        "3": 2085
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 281,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00281.png",
+      "instance_pixel_counts": {
+        "1": 10426,
+        "2": 39055,
+        "3": 2086
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 282,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00282.png",
+      "instance_pixel_counts": {
+        "1": 10523,
+        "2": 39349,
+        "3": 2052
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 283,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00283.png",
+      "instance_pixel_counts": {
+        "1": 10705,
+        "2": 39768,
+        "3": 2057
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 284,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00284.png",
+      "instance_pixel_counts": {
+        "1": 10666,
+        "2": 40529,
+        "3": 2020
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 285,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00285.png",
+      "instance_pixel_counts": {
+        "1": 10940,
+        "2": 41497,
+        "3": 2012
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 286,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00286.png",
+      "instance_pixel_counts": {
+        "1": 11322,
+        "2": 42740,
+        "3": 2008
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 287,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00287.png",
+      "instance_pixel_counts": {
+        "1": 11760,
+        "2": 43047,
+        "3": 2020
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 288,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00288.png",
+      "instance_pixel_counts": {
+        "1": 11953,
+        "2": 43540,
+        "3": 1964
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 289,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00289.png",
+      "instance_pixel_counts": {
+        "1": 12054,
+        "2": 43355,
+        "3": 1993
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 290,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00290.png",
+      "instance_pixel_counts": {
+        "1": 12373,
+        "2": 42746,
+        "3": 1996
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 291,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00291.png",
+      "instance_pixel_counts": {
+        "1": 12427,
+        "2": 40591,
+        "3": 1945
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 292,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00292.png",
+      "instance_pixel_counts": {
+        "1": 12528,
+        "2": 37210,
+        "3": 1924
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 293,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00293.png",
+      "instance_pixel_counts": {
+        "1": 12378,
+        "2": 33947,
+        "3": 1934
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 294,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00294.png",
+      "instance_pixel_counts": {
+        "1": 12252,
+        "2": 30219,
+        "3": 1923
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 295,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00295.png",
+      "instance_pixel_counts": {
+        "1": 12221,
+        "2": 26880,
+        "3": 1891
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 296,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00296.png",
+      "instance_pixel_counts": {
+        "1": 12232,
+        "2": 22625,
+        "3": 1900
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 297,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00297.png",
+      "instance_pixel_counts": {
+        "1": 12195,
+        "2": 17449,
+        "3": 1912
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 298,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00298.png",
+      "instance_pixel_counts": {
+        "1": 12168,
+        "2": 10958,
+        "3": 1892
+      },
+      "unknown_pixels": 0
+    },
+    {
+      "file_index": 299,
+      "mask_path": "extracted/annotations/HOI4D_annotations/ZY20210800001/H1/C13/N12/S179/s03/T4/2Dseg/mask/00299.png",
+      "instance_pixel_counts": {
+        "1": 12158,
+        "2": 4408,
+        "3": 1902
+      },
+      "unknown_pixels": 0
+    }
+  ],
+  "apple_3d_pose": "NOT_FOUND in selected objpose objects",
+  "role_conclusion": "Task definition plus cut-phase imagery supports Knife as tool and Apple as patient at cut; earlier Grasp/Pickup may concern knife. This is semantic interpretation, not source-backed event target GT.",
+  "persistent_identity": "PARTIAL: distinct palette region consistently numbered3; no independently generated 4D track verification; fragments/occlusion semantics UNKNOWN",
+  "target_supervision": {
+    "target_entity_track_id": -1,
+    "target_entity_valid": false
+  },
+  "release_target_policy": "Do not treat N* as target. Need audited event-specific relation and observed-prefix matcher assignment before enabling target loss.",
+  "publication": "Images withheld locally; only statistics and small event metadata published",
+  "videos": {
+    "rgb": {
+      "fps": 15.0,
+      "width": 1920.0,
+      "height": 1080.0,
+      "fourcc": 875967080,
+      "first_frame_dtype": "uint8",
+      "first_frame_shape": [
+        1080,
+        1920,
+        3
+      ],
+      "decoded_frames": 300,
+      "pts_seconds": [
+        0.0,
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.26666666666666666,
+        0.3333333333333333,
+        0.4,
+        0.4666666666666667,
+        0.5333333333333333,
+        0.6,
+        0.6666666666666666,
+        0.7333333333333333,
+        0.8,
+        0.8666666666666667,
+        0.9333333333333333,
+        1.0,
+        1.0666666666666667,
+        1.1333333333333333,
+        1.2,
+        1.2666666666666666,
+        1.3333333333333333,
+        1.4,
+        1.4666666666666666,
+        1.5333333333333332,
+        1.6,
+        1.6666666666666667,
+        1.7333333333333334,
+        1.8,
+        1.8666666666666667,
+        1.9333333333333333,
+        2.0,
+        2.0666666666666664,
+        2.1333333333333333,
+        2.2,
+        2.2666666666666666,
+        2.3333333333333335,
+        2.4,
+        2.466666666666667,
+        2.533333333333333,
+        2.6,
+        2.6666666666666665,
+        2.7333333333333334,
+        2.8,
+        2.8666666666666667,
+        2.933333333333333,
+        3.0,
+        3.0666666666666664,
+        3.1333333333333333,
+        3.2,
+        3.2666666666666666,
+        3.3333333333333335,
+        3.4,
+        3.466666666666667,
+        3.533333333333333,
+        3.6,
+        3.6666666666666665,
+        3.7333333333333334,
+        3.8,
+        3.8666666666666667,
+        3.933333333333333,
+        4.0,
+        4.066666666666666,
+        4.133333333333333,
+        4.2,
+        4.266666666666667,
+        4.333333333333333,
+        4.4,
+        4.466666666666667,
+        4.533333333333333,
+        4.6,
+        4.666666666666667,
+        4.733333333333333,
+        4.8,
+        4.866666666666666,
+        4.933333333333334,
+        5.0,
+        5.066666666666666,
+        5.133333333333333,
+        5.2,
+        5.266666666666667,
+        5.333333333333333,
+        5.4,
+        5.466666666666667,
+        5.533333333333333,
+        5.6,
+        5.666666666666667,
+        5.733333333333333,
+        5.8,
+        5.866666666666666,
+        5.933333333333334,
+        6.0,
+        6.066666666666666,
+        6.133333333333333,
+        6.2,
+        6.266666666666667,
+        6.333333333333333,
+        6.4,
+        6.466666666666667,
+        6.533333333333333,
+        6.6,
+        6.666666666666667,
+        6.733333333333333,
+        6.8,
+        6.866666666666666,
+        6.933333333333334,
+        7.0,
+        7.066666666666666,
+        7.133333333333333,
+        7.2,
+        7.266666666666667,
+        7.333333333333333,
+        7.3999999999999995,
+        7.466666666666667,
+        7.533333333333333,
+        7.6,
+        7.666666666666667,
+        7.733333333333333,
+        7.8,
+        7.866666666666666,
+        7.933333333333334,
+        8.0,
+        8.066666666666666,
+        8.133333333333333,
+        8.2,
+        8.266666666666666,
+        8.333333333333334,
+        8.4,
+        8.466666666666667,
+        8.533333333333333,
+        8.6,
+        8.666666666666666,
+        8.733333333333333,
+        8.8,
+        8.866666666666667,
+        8.933333333333334,
+        9.0,
+        9.066666666666666,
+        9.133333333333333,
+        9.2,
+        9.266666666666666,
+        9.333333333333334,
+        9.4,
+        9.466666666666667,
+        9.533333333333333,
+        9.6,
+        9.666666666666666,
+        9.733333333333333,
+        9.8,
+        9.866666666666667,
+        9.933333333333334,
+        10.0,
+        10.066666666666666,
+        10.133333333333333,
+        10.2,
+        10.266666666666666,
+        10.333333333333334,
+        10.4,
+        10.466666666666667,
+        10.533333333333333,
+        10.6,
+        10.666666666666666,
+        10.733333333333333,
+        10.8,
+        10.866666666666667,
+        10.933333333333334,
+        11.0,
+        11.066666666666666,
+        11.133333333333333,
+        11.2,
+        11.266666666666666,
+        11.333333333333334,
+        11.4,
+        11.466666666666667,
+        11.533333333333333,
+        11.6,
+        11.666666666666666,
+        11.733333333333333,
+        11.8,
+        11.866666666666667,
+        11.933333333333334,
+        12.0,
+        12.066666666666666,
+        12.133333333333333,
+        12.2,
+        12.266666666666666,
+        12.333333333333334,
+        12.4,
+        12.466666666666667,
+        12.533333333333333,
+        12.6,
+        12.666666666666666,
+        12.733333333333333,
+        12.8,
+        12.866666666666667,
+        12.933333333333334,
+        13.0,
+        13.066666666666666,
+        13.133333333333333,
+        13.2,
+        13.266666666666666,
+        13.333333333333334,
+        13.4,
+        13.466666666666667,
+        13.533333333333333,
+        13.6,
+        13.666666666666666,
+        13.733333333333333,
+        13.799999999999999,
+        13.866666666666667,
+        13.933333333333334,
+        14.0,
+        14.066666666666666,
+        14.133333333333333,
+        14.2,
+        14.266666666666666,
+        14.333333333333334,
+        14.4,
+        14.466666666666667,
+        14.533333333333333,
+        14.6,
+        14.666666666666666,
+        14.733333333333333,
+        14.799999999999999,
+        14.866666666666667,
+        14.933333333333334,
+        15.0,
+        15.066666666666666,
+        15.133333333333333,
+        15.2,
+        15.266666666666666,
+        15.333333333333334,
+        15.4,
+        15.466666666666667,
+        15.533333333333333,
+        15.6,
+        15.666666666666666,
+        15.733333333333333,
+        15.799999999999999,
+        15.866666666666667,
+        15.933333333333334,
+        16.0,
+        16.066666666666666,
+        16.133333333333333,
+        16.2,
+        16.266666666666666,
+        16.333333333333332,
+        16.4,
+        16.466666666666665,
+        16.53333333333333,
+        16.6,
+        16.666666666666668,
+        16.733333333333334,
+        16.8,
+        16.866666666666667,
+        16.933333333333334,
+        17.0,
+        17.066666666666666,
+        17.133333333333333,
+        17.2,
+        17.266666666666666,
+        17.333333333333332,
+        17.4,
+        17.466666666666665,
+        17.53333333333333,
+        17.6,
+        17.666666666666668,
+        17.733333333333334,
+        17.8,
+        17.866666666666667,
+        17.933333333333334,
+        18.0,
+        18.066666666666666,
+        18.133333333333333,
+        18.2,
+        18.266666666666666,
+        18.333333333333332,
+        18.4,
+        18.466666666666665,
+        18.53333333333333,
+        18.6,
+        18.666666666666668,
+        18.733333333333334,
+        18.8,
+        18.866666666666667,
+        18.933333333333334,
+        19.0,
+        19.066666666666666,
+        19.133333333333333,
+        19.2,
+        19.266666666666666,
+        19.333333333333332,
+        19.4,
+        19.466666666666665,
+        19.53333333333333,
+        19.6,
+        19.666666666666668,
+        19.733333333333334,
+        19.8,
+        19.866666666666667,
+        19.933333333333334
+      ]
+    },
+    "depth": {
+      "fps": 15.0,
+      "width": 1920.0,
+      "height": 1080.0,
+      "fourcc": 829843046,
+      "first_frame_dtype": "uint16",
+      "first_frame_shape": [
+        1080,
+        1920
+      ],
+      "decoded_frames": 300,
+      "pts_seconds": [
+        0.0,
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.26666666666666666,
+        0.3333333333333333,
+        0.4,
+        0.4666666666666667,
+        0.5333333333333333,
+        0.6,
+        0.6666666666666666,
+        0.7333333333333333,
+        0.8,
+        0.8666666666666667,
+        0.9333333333333333,
+        1.0,
+        1.0666666666666667,
+        1.1333333333333333,
+        1.2,
+        1.2666666666666666,
+        1.3333333333333333,
+        1.4,
+        1.4666666666666666,
+        1.5333333333333332,
+        1.6,
+        1.6666666666666667,
+        1.7333333333333334,
+        1.8,
+        1.8666666666666667,
+        1.9333333333333333,
+        2.0,
+        2.0666666666666664,
+        2.1333333333333333,
+        2.2,
+        2.2666666666666666,
+        2.3333333333333335,
+        2.4,
+        2.466666666666667,
+        2.533333333333333,
+        2.6,
+        2.6666666666666665,
+        2.7333333333333334,
+        2.8,
+        2.8666666666666667,
+        2.933333333333333,
+        3.0,
+        3.0666666666666664,
+        3.1333333333333333,
+        3.2,
+        3.2666666666666666,
+        3.3333333333333335,
+        3.4,
+        3.466666666666667,
+        3.533333333333333,
+        3.6,
+        3.6666666666666665,
+        3.7333333333333334,
+        3.8,
+        3.8666666666666667,
+        3.933333333333333,
+        4.0,
+        4.066666666666666,
+        4.133333333333333,
+        4.2,
+        4.266666666666667,
+        4.333333333333333,
+        4.4,
+        4.466666666666667,
+        4.533333333333333,
+        4.6,
+        4.666666666666667,
+        4.733333333333333,
+        4.8,
+        4.866666666666666,
+        4.933333333333334,
+        5.0,
+        5.066666666666666,
+        5.133333333333333,
+        5.2,
+        5.266666666666667,
+        5.333333333333333,
+        5.4,
+        5.466666666666667,
+        5.533333333333333,
+        5.6,
+        5.666666666666667,
+        5.733333333333333,
+        5.8,
+        5.866666666666666,
+        5.933333333333334,
+        6.0,
+        6.066666666666666,
+        6.133333333333333,
+        6.2,
+        6.266666666666667,
+        6.333333333333333,
+        6.4,
+        6.466666666666667,
+        6.533333333333333,
+        6.6,
+        6.666666666666667,
+        6.733333333333333,
+        6.8,
+        6.866666666666666,
+        6.933333333333334,
+        7.0,
+        7.066666666666666,
+        7.133333333333333,
+        7.2,
+        7.266666666666667,
+        7.333333333333333,
+        7.3999999999999995,
+        7.466666666666667,
+        7.533333333333333,
+        7.6,
+        7.666666666666667,
+        7.733333333333333,
+        7.8,
+        7.866666666666666,
+        7.933333333333334,
+        8.0,
+        8.066666666666666,
+        8.133333333333333,
+        8.2,
+        8.266666666666666,
+        8.333333333333334,
+        8.4,
+        8.466666666666667,
+        8.533333333333333,
+        8.6,
+        8.666666666666666,
+        8.733333333333333,
+        8.8,
+        8.866666666666667,
+        8.933333333333334,
+        9.0,
+        9.066666666666666,
+        9.133333333333333,
+        9.2,
+        9.266666666666666,
+        9.333333333333334,
+        9.4,
+        9.466666666666667,
+        9.533333333333333,
+        9.6,
+        9.666666666666666,
+        9.733333333333333,
+        9.8,
+        9.866666666666667,
+        9.933333333333334,
+        10.0,
+        10.066666666666666,
+        10.133333333333333,
+        10.2,
+        10.266666666666666,
+        10.333333333333334,
+        10.4,
+        10.466666666666667,
+        10.533333333333333,
+        10.6,
+        10.666666666666666,
+        10.733333333333333,
+        10.8,
+        10.866666666666667,
+        10.933333333333334,
+        11.0,
+        11.066666666666666,
+        11.133333333333333,
+        11.2,
+        11.266666666666666,
+        11.333333333333334,
+        11.4,
+        11.466666666666667,
+        11.533333333333333,
+        11.6,
+        11.666666666666666,
+        11.733333333333333,
+        11.8,
+        11.866666666666667,
+        11.933333333333334,
+        12.0,
+        12.066666666666666,
+        12.133333333333333,
+        12.2,
+        12.266666666666666,
+        12.333333333333334,
+        12.4,
+        12.466666666666667,
+        12.533333333333333,
+        12.6,
+        12.666666666666666,
+        12.733333333333333,
+        12.8,
+        12.866666666666667,
+        12.933333333333334,
+        13.0,
+        13.066666666666666,
+        13.133333333333333,
+        13.2,
+        13.266666666666666,
+        13.333333333333334,
+        13.4,
+        13.466666666666667,
+        13.533333333333333,
+        13.6,
+        13.666666666666666,
+        13.733333333333333,
+        13.799999999999999,
+        13.866666666666667,
+        13.933333333333334,
+        14.0,
+        14.066666666666666,
+        14.133333333333333,
+        14.2,
+        14.266666666666666,
+        14.333333333333334,
+        14.4,
+        14.466666666666667,
+        14.533333333333333,
+        14.6,
+        14.666666666666666,
+        14.733333333333333,
+        14.799999999999999,
+        14.866666666666667,
+        14.933333333333334,
+        15.0,
+        15.066666666666666,
+        15.133333333333333,
+        15.2,
+        15.266666666666666,
+        15.333333333333334,
+        15.4,
+        15.466666666666667,
+        15.533333333333333,
+        15.6,
+        15.666666666666666,
+        15.733333333333333,
+        15.799999999999999,
+        15.866666666666667,
+        15.933333333333334,
+        16.0,
+        16.066666666666666,
+        16.133333333333333,
+        16.2,
+        16.266666666666666,
+        16.333333333333332,
+        16.4,
+        16.466666666666665,
+        16.53333333333333,
+        16.6,
+        16.666666666666668,
+        16.733333333333334,
+        16.8,
+        16.866666666666667,
+        16.933333333333334,
+        17.0,
+        17.066666666666666,
+        17.133333333333333,
+        17.2,
+        17.266666666666666,
+        17.333333333333332,
+        17.4,
+        17.466666666666665,
+        17.53333333333333,
+        17.6,
+        17.666666666666668,
+        17.733333333333334,
+        17.8,
+        17.866666666666667,
+        17.933333333333334,
+        18.0,
+        18.066666666666666,
+        18.133333333333333,
+        18.2,
+        18.266666666666666,
+        18.333333333333332,
+        18.4,
+        18.466666666666665,
+        18.53333333333333,
+        18.6,
+        18.666666666666668,
+        18.733333333333334,
+        18.8,
+        18.866666666666667,
+        18.933333333333334,
+        19.0,
+        19.066666666666666,
+        19.133333333333333,
+        19.2,
+        19.266666666666666,
+        19.333333333333332,
+        19.4,
+        19.466666666666665,
+        19.53333333333333,
+        19.6,
+        19.666666666666668,
+        19.733333333333334,
+        19.8,
+        19.866666666666667,
+        19.933333333333334
+      ]
+    }
+  }
+}

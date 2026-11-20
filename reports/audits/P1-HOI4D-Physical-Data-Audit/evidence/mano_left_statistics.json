@@ -1,0 +1,8157 @@
+[
+  {
+    "frame": 27,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/27.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 28,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/28.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 29,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/29.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 30,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/30.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 31,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/31.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 32,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/32.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 33,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/33.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 34,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/34.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 35,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/35.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 36,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/36.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 37,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/37.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 38,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/38.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 39,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/39.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 40,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/40.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 41,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/41.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 42,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/42.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 43,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/43.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 44,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/44.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 45,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/45.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 46,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/46.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 47,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/47.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 48,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/48.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 49,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/49.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 50,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/50.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 51,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/51.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 52,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/52.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 53,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/53.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 54,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/54.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 55,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/55.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 56,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/56.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 57,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/57.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 58,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/58.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 59,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/59.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 60,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/60.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 61,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/61.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 62,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/62.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 63,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/63.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 64,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/64.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 65,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/65.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 66,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/66.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 67,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/67.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 68,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/68.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 69,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/69.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 70,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/70.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 71,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/71.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 72,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/72.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 73,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/73.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 74,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/74.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 75,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/75.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 76,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/76.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 77,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/77.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 78,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/78.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 79,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/79.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 80,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/80.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 81,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/81.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 82,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/82.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 83,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/83.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 84,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/84.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 85,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/85.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 86,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/86.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 87,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/87.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 88,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/88.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 89,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/89.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 90,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/90.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 91,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/91.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 92,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/92.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 93,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/93.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 94,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/94.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 95,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/95.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 96,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/96.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 97,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/97.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 98,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/98.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 99,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/99.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 100,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/100.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 101,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/101.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 102,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/102.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 103,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/103.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 104,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/104.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 105,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/105.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 106,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/106.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 107,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/107.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 108,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/108.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 109,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/109.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 110,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/110.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 111,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/111.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 112,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/112.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 113,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/113.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 114,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/114.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 115,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/115.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 116,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/116.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 117,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/117.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 118,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/118.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 119,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/119.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 120,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/120.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 121,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/121.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 122,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/122.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 123,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/123.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 124,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/124.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 125,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/125.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 126,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/126.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 127,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/127.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 128,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/128.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 129,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/129.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 130,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/130.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 131,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/131.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 132,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/132.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 133,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/133.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 134,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/134.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 135,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/135.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 136,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/136.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 137,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/137.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 138,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/138.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 139,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/139.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 140,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/140.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 141,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/141.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 142,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/142.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 143,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/143.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 144,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/144.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 145,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/145.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 146,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/146.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 147,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/147.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 148,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/148.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 149,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/149.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 150,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/150.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 151,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/151.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 165,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/165.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 166,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/166.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 167,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/167.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 168,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/168.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 169,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/169.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 170,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/170.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 171,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/171.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 172,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/172.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 173,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/173.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 174,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/174.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 175,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/175.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 176,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/176.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 177,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/177.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 178,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/178.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 179,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/179.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 180,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/180.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 181,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/181.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 182,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/182.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 183,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/183.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 184,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/184.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 185,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/185.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 186,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/186.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 187,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/187.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 188,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/188.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 189,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/189.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 190,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/190.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 191,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/191.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 192,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/192.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 193,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/193.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 194,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/194.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 195,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/195.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 196,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/196.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 197,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/197.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 198,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/198.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 199,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/199.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 200,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/200.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 201,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/201.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 202,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/202.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 203,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/203.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 204,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/204.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 205,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/205.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 206,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/206.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 207,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/207.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 208,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/208.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 209,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/209.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 210,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/210.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 211,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/211.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 212,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/212.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 213,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/213.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 214,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/214.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 215,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/215.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 216,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/216.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 217,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/217.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 218,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/218.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 219,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/219.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 220,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/220.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 221,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/221.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 222,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/222.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 223,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/223.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 224,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/224.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 225,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/225.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 226,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/226.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 227,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/227.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 228,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/228.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 229,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/229.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 230,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/230.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 231,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/231.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 232,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/232.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 233,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/233.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 234,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/234.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 235,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/235.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 236,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/236.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 237,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/237.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 238,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/238.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 239,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/239.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 240,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/240.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 241,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/241.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 242,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/242.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 243,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/243.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 244,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/244.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 245,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/245.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 246,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/246.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 247,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/247.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 248,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/248.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 249,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/249.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 250,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/250.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 251,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/251.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 252,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/252.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 253,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/253.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 254,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/254.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 255,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/255.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 256,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/256.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 257,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/257.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 258,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/258.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 259,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/259.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 260,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/260.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 261,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/261.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 262,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/262.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 263,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/263.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 264,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/264.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 265,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/265.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 266,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/266.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 267,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/267.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 268,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/268.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 269,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/269.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 270,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/270.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 271,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/271.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  },
+  {
+    "frame": 272,
+    "path": "extracted/hand_pose/Hand_pose/handpose_left_hand/ZY20210800001/H1/C20/N30/S295/s04/T4/272.pickle",
+    "fields": {
+      "poseCoeff": {
+        "shape": [
+          48
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "beta": {
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "trans": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "finite": true
+      },
+      "kps2D": {
+        "shape": [
+          21,
+          2
+        ],
+        "dtype": "int64",
+        "finite": true
+      }
+    }
+  }
+]

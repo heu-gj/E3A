@@ -1,0 +1,301 @@
+{
+  "task_id": "P1-HOI4D-Physical-Data-Audit",
+  "task_status": "PARTIAL",
+  "base_commit": "9f96d5813655e0fb9ceebad107b2ff2d1d2d5d07",
+  "audit_commit": "a1457730abc8dd36e91b1b5a01cc56dc8799b648",
+  "branch": "audit/p1-hoi4d-physical-data",
+  "commit_semantics": "audit_commit pins the payload commit after sealing; final pushed HEAD is reported in the PR.",
+  "dataset": {
+    "name": "HOI4D",
+    "root": ".",
+    "version": "UNKNOWN (local release directories; no version manifest)",
+    "source_path_namespace": "dataset-root-relative"
+  },
+  "sequence_id": "ZY20210800001/H1/C20/N30/S295/s04/T4",
+  "audit_results": {
+    "video_decode": {
+      "status": "PASS",
+      "evidence": "videos: both decoded 300, 15 FPS, 1920x1080",
+      "evidence_level": "REAL_DATA_MEASUREMENT",
+      "evidence_files": [
+        "evidence/observations.json"
+      ],
+      "evidence_field": "videos"
+    },
+    "palette": {
+      "status": "PARTIAL",
+      "evidence": "mask_statistics.json: real masks contain colors outside C20 built-in mapping; raw decoder fails closed; diagnostics retain unknown pixels as -1, never GT",
+      "evidence_level": "REAL_DATA_MEASUREMENT",
+      "evidence_files": [
+        "evidence/observations.json",
+        "evidence/mask_statistics.json"
+      ]
+    },
+    "alignment": {
+      "status": "PARTIAL",
+      "evidence": "5 audit panels + physical_diagnostics; content corresponds, pixel-exact calibration and annotation timestamps UNKNOWN",
+      "evidence_level": "LOCAL_VISUAL_INSPECTION_WITHHELD_AND_EDGE_DIAGNOSTIC",
+      "evidence_files": [
+        "evidence/observations.json"
+      ]
+    },
+    "part_to_dynamic_instance": {
+      "status": "NEEDS_REVIEW",
+      "evidence": "Official offset rule verified on real static IDs, but generation NOT_RUN; source-pose-mask identity only PARTIAL.",
+      "evidence_level": "INCOMPLETE_IDENTITY_EVIDENCE",
+      "evidence_files": [
+        "evidence/observations.json"
+      ]
+    },
+    "object_pose": {
+      "status": "NEEDS_REVIEW",
+      "evidence": "objpose_statistics.json: Euler SO(3) numerical checks pass; physical coordinate/unit/direction/mask ID correspondence UNKNOWN",
+      "evidence_level": "NUMERICAL_ONLY_PHYSICS_UNVERIFIED",
+      "evidence_files": [
+        "evidence/observations.json",
+        "evidence/objpose_statistics.json"
+      ]
+    },
+    "mano_parameters": {
+      "status": "PASS",
+      "evidence": "mano_right_statistics.json and mano_left_statistics.json: actual fields and finite values",
+      "evidence_level": "REAL_DATA_SCHEMA_AND_FINITE_VALUES",
+      "evidence_files": [
+        "evidence/observations.json",
+        "evidence/mano_right_statistics.json",
+        "evidence/mano_left_statistics.json"
+      ]
+    },
+    "mano_21_joint_reconstruction": {
+      "status": "BLOCKED",
+      "evidence": "manopth and smplx absent in selected environment; no supplied licensed model path; forward/reprojection not run",
+      "evidence_level": "DEPENDENCY_BLOCKED_NOT_RUN",
+      "evidence_files": [
+        "evidence/observations.json"
+      ],
+      "execution_status": "NOT_RUN"
+    },
+    "action_time": {
+      "status": "PASS",
+      "evidence": "observations.action: duration_seconds=20, event_count=14; videos=300/15 seconds; 46 strictly-future checks passed. Not manual frame-accurate boundary validation.",
+      "evidence_level": "REAL_ANNOTATION_TIMELINE_AND_PARSER_CHECKS",
+      "evidence_files": [
+        "evidence/observations.json"
+      ],
+      "evidence_field": "action.boundary_checks"
+    },
+    "hand_entity_action_chain": {
+      "status": "BLOCKED",
+      "evidence": "No source-backed event-to-object target ID or contact label; 3D hand reconstruction/coordinate validation incomplete",
+      "evidence_level": "MISSING_SOURCE_SUPERVISION",
+      "evidence_files": [
+        "evidence/observations.json"
+      ]
+    },
+    "objpose_frameid": {
+      "status": "PASS",
+      "evidence": "300 raw files reread; mixed frameId values observed, constant offset disproved. Semantic meaning UNKNOWN.",
+      "evidence_level": "REAL_DATA_AND_PINNED_CODE; SEE_SCOPED_DETAILS",
+      "evidence_files": [
+        "evidence/objpose_frameid_audit.json"
+      ]
+    },
+    "identity_bridge": {
+      "status": "PARTIAL",
+      "evidence": "31 source boxes compared; all-frame projected center test remains coordinate hypothesis.",
+      "evidence_level": "REAL_DATA_AND_PINNED_CODE; SEE_SCOPED_DETAILS",
+      "evidence_files": [
+        "evidence/identity_mapping.json"
+      ]
+    },
+    "official_dynamic_pipeline": {
+      "status": "BLOCKED",
+      "evidence": "Pinned code inspected, log parsed; missing refined masks/label.txt/plyfile and wrapper inconsistencies prevent official generation.",
+      "evidence_level": "REAL_DATA_AND_PINNED_CODE; SEE_SCOPED_DETAILS",
+      "evidence_files": [
+        "evidence/dynamic_4d_pipeline_audit.json"
+      ]
+    },
+    "frame220_official_behavior": {
+      "status": "PASS",
+      "evidence": "Pinned official selector executed on real frame220;37 extra pixels skipped. Production decoder unchanged.",
+      "evidence_level": "REAL_DATA_AND_PINNED_CODE; SEE_SCOPED_DETAILS",
+      "evidence_files": [
+        "evidence/frame220_palette_audit.json"
+      ]
+    },
+    "multi_object_target": {
+      "status": "PARTIAL",
+      "evidence": "Independent Apple mask observed; no event-specific instance target relation.",
+      "evidence_level": "REAL_DATA_AND_PINNED_CODE; SEE_SCOPED_DETAILS",
+      "evidence_files": [
+        "evidence/multi_object_target_audit.json"
+      ]
+    },
+    "camera_log_convention": {
+      "status": "PASS",
+      "evidence": "Open3D0.19 reader on300 log entries equals inverse(raw) to3.33e-16; software direction convention only.",
+      "evidence_level": "REAL_DATA_NUMERICAL_CHECK_SCOPED_TO_STATED_FIELD",
+      "evidence_files": [
+        "evidence/dynamic_4d_pipeline_audit.json"
+      ],
+      "evidence_field": "camera"
+    },
+    "dynamic_offset_rule": {
+      "status": "PASS",
+      "evidence": "Pinned foreground rule evaluated on actual static IDs0,1,2 gives Chair3,Right4,Left5; no generated labels.",
+      "evidence_level": "REAL_DATA_NUMERICAL_CHECK_SCOPED_TO_STATED_FIELD",
+      "evidence_files": [
+        "evidence/dynamic_4d_pipeline_audit.json"
+      ],
+      "evidence_field": "C20_dynamic_IDs_if_inputs_verified"
+    },
+    "apple_independent_mask": {
+      "status": "PASS",
+      "evidence": "Pinned C13 map plus actual300 masks show independent palette3 Apple region in300/300 frames; not event target GT.",
+      "evidence_level": "REAL_DATA_NUMERICAL_CHECK_SCOPED_TO_STATED_FIELD",
+      "evidence_files": [
+        "evidence/multi_object_target_audit.json"
+      ],
+      "evidence_field": "instance_3_visible_frames"
+    }
+  },
+  "evidence_files": [
+    "evidence/observations.json",
+    "evidence/inventory.json",
+    "evidence/candidates.json",
+    "evidence/mask_statistics.json",
+    "evidence/objpose_statistics.json",
+    "evidence/mano_right_statistics.json",
+    "evidence/mano_left_statistics.json",
+    "evidence/cross_modal_frames.csv",
+    "evidence/objpose_frameid_audit.json",
+    "evidence/objpose_frameid_audit.csv",
+    "evidence/identity_mapping.json",
+    "evidence/dynamic_4d_pipeline_audit.json",
+    "evidence/frame220_palette_audit.json",
+    "evidence/multi_object_target_audit.json"
+  ],
+  "tests": {
+    "historical_execution": {
+      "status": "PASS",
+      "passed": 26,
+      "duration_seconds": 1.72,
+      "level": "SYNTHETIC_PARSER_AND_COLLATION_ONLY",
+      "raw_log_retained": false,
+      "provenance": "Prior audit tool output; no historical stdout file was captured. Archival rerun is logged separately."
+    },
+    "archival_rerun": {
+      "execution_timestamp_utc": "2026-11-20T17:42:39.579926+00:00",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_hoi4d_data.py",
+        "tests/test_action_vocabulary.py",
+        "tests/test_entity_target_collate.py",
+        "tests/test_e3a_collate.py",
+        "tests/test_hoi4d_archive.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "level": "SYNTHETIC_PARSER_COLLATION_AND_ARCHIVE_INTEGRITY; NOT REAL_DATA_PHYSICAL_VALIDATION",
+      "passed": 28,
+      "real_data_reaudit": "NOT_RUN",
+      "log": "logs/pytest.txt"
+    },
+    "identity_geometry_followup": {
+      "execution_timestamp_utc": "2026-11-20T18:30:58.820465+00:00",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_hoi4d_data.py",
+        "tests/test_action_vocabulary.py",
+        "tests/test_entity_target_collate.py",
+        "tests/test_e3a_collate.py",
+        "tests/test_hoi4d_archive.py",
+        "tests/test_hoi4d_identity_bridge.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "level": "SYNTHETIC_PARSER_COLLATION_AND_ARCHIVE_INTEGRITY; NOT REAL_DATA_PHYSICAL_VALIDATION",
+      "passed": 37,
+      "real_data_reaudit": "SEPARATE_EVIDENCE_NOT_MEASURED_BY_THESE_TESTS",
+      "log": "logs/followup_pytest.txt"
+    }
+  },
+  "unresolved_issues": [
+    "UNKNOWN release revision and manifest",
+    "frame220: 37 undefined C20 color pixels",
+    "unverified dynamic instance namespace/part grouping",
+    "UNKNOWN depth units and exact spatial registration",
+    "UNKNOWN objpose coordinate frame/units/transform direction",
+    "licensed MANO assets and local forward/reprojection unavailable",
+    "no source-backed action-target instance or contact annotation",
+    "train-only vocabulary/splits/leak-free raw Dataset pending",
+    "raw objpose.frameId meaning UNKNOWN; no constant offset",
+    "official generator input packaging and wrapper inconsistencies",
+    "Apple per-event target relation and 3D pose missing"
+  ],
+  "loss_readiness": {
+    "entity": {
+      "status": "PARTIAL",
+      "gate": "Known mask regions can be retained with proposed pixel validity; dynamic persistent mapping and unknown/empty policy still unverified"
+    },
+    "hand": {
+      "status": "BLOCKED",
+      "gate": "licensed MANO assets + pinned forward + source reprojection"
+    },
+    "geometry": {
+      "status": "NEEDS_REVIEW",
+      "gate": "depth physical units and registration; coordinate direction"
+    },
+    "interaction": {
+      "status": "BLOCKED",
+      "gate": "no source-backed contact annotations"
+    },
+    "target_entity": {
+      "status": "BLOCKED",
+      "gate": "no action target object ID"
+    },
+    "action_time": {
+      "status": "PARTIAL",
+      "gate": "timeline parser validated; train-only vocabulary, splits and leak-free sampling pending"
+    }
+  },
+  "recommended_files": {
+    "src/e3a/data/hoi4d.py": "versioned palette schema/unknown policy; verified instance and frame-index joins",
+    "src/e3a/data/hoi4d_dataset.py (new)": "separate source roots, video reader, coverage and event windows",
+    "src/e3a/data/hoi4d_geometry.py (new)": "licensed MANO and objpose coordinate adapters after validation",
+    "src/e3a/data/collate.py": "clip-level entity_supervision_valid with criterion integration",
+    "tests/test_hoi4d_data.py": "real-release opt-in fixtures including frame220 unknown color, mixed raw frameId numbering, depth uint16",
+    "docs/implementation/roadmap.md": "update only verified acceptance gates",
+    "docs/implementation/training.md": "record source-backed supervision availability",
+    "src/e3a/data/actions.py": "no parser defect observed; build actual vocabulary from audited training split"
+  },
+  "next_dataset_recommendations": [
+    "freeze release manifest and source fingerprints",
+    "quarantine frame220 until unknown semantics reviewed",
+    "retain source filename index, frameId and timestamps separately",
+    "cache only verified sample metadata; no future frames in model input",
+    "false validity for unavailable hand/target/contact labels",
+    "audit subject/source-video splits before generating training vocabulary"
+  ],
+  "official_hoi4d_commit": "788b43552176c77c01c3e98dd5f101fd6a94ee7a",
+  "followup_base_commit": "dccda559c1cdbaac9f88e1a7717fd5710a0d0fa3",
+  "followup": {
+    "status": "PARTIAL",
+    "objpose_frameId": "UNKNOWN mixed numbering; fixed-offset claim retracted",
+    "identity_status": "PARTIAL",
+    "pipeline_status": "BLOCKED",
+    "multi_object_status": "PARTIAL",
+    "multi_object_sequence_id": "ZY20210800001/H1/C13/N12/S179/s03/T4",
+    "source_commit": "788b43552176c77c01c3e98dd5f101fd6a94ee7a",
+    "generation_status": "NOT_RUN",
+    "target_entity_valid": false
+  },
+  "audit_commit_scope": "Original P1 payload commit. Subsequent follow-up belongs to the current branch HEAD; its final hash is external to its own payload."
+}
