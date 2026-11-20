@@ -378,6 +378,153 @@ def build_egoexo_relation_clip_targets(
     }
 
 
+def parse_egoexo_keystep_segments(
+    annotations: Mapping[str, Any],
+    take_uid: str,
+) -> list[dict[str, Any]]:
+    """Read the documented Ego-Exo4D keystep segments for one take.
+
+    The returned source labels are step_unique_id values, not scenario-local
+    step_id values and not the fine-grained benchmark's label_id values.
+    """
+    root = annotations.get("annotations", annotations)
+    if not isinstance(root, Mapping) or take_uid not in root:
+        raise KeyError(f"Take {take_uid!r} is missing from Ego-Exo4D keystep annotations.")
+    take_record = root[take_uid]
+    if not isinstance(take_record, Mapping):
+        raise TypeError(f"Keystep annotation for take {take_uid!r} must be an object.")
+    raw_segments = take_record.get("segments")
+    if not isinstance(raw_segments, Sequence) or isinstance(raw_segments, (str, bytes)):
+        raise ValueError(f"Keystep annotation for take {take_uid!r} has no segments list.")
+
+    segments: list[dict[str, Any]] = []
+    for index, segment in enumerate(raw_segments):
+        if not isinstance(segment, Mapping):
+            raise TypeError(f"Keystep segment {index} for take {take_uid!r} must be an object.")
+        try:
+            start_time = float(segment["start_time"])
+            end_time = float(segment["end_time"])
+            step_unique_id = int(segment["step_unique_id"])
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ValueError(
+                f"Keystep segment {index} for take {take_uid!r} has invalid time/step fields."
+            ) from exc
+        if (
+            not np.isfinite(start_time)
+            or not np.isfinite(end_time)
+            or start_time < 0
+            or end_time <= start_time
+            or step_unique_id < 0
+        ):
+            raise ValueError(
+                f"Keystep segment {index} for take {take_uid!r} has invalid interval or ID."
+            )
+        segments.append(
+            {
+                "start_time": start_time,
+                "end_time": end_time,
+                "step_unique_id": step_unique_id,
+                "step_name": str(segment.get("step_name", "")),
+            }
+        )
+    segments.sort(key=lambda item: (item["start_time"], item["end_time"]))
+    return segments
+
+
+def load_egoexo_keystep_segments(
+    annotation_path: str | Path,
+    take_uid: str,
+) -> list[dict[str, Any]]:
+    """Load a raw Ego-Exo4D keystep annotation JSON for one take."""
+    annotations = _load_json_mapping(annotation_path, description="Ego-Exo4D keystep annotations")
+    return parse_egoexo_keystep_segments(annotations, take_uid)
+
+
+def build_egoexo_keystep_vocabulary(
+    training_annotations: Mapping[str, Any],
+) -> dict[int, int]:
+    """Build a deterministic action-index map from training split step_unique_id labels."""
+    root = training_annotations.get("annotations", training_annotations)
+    if not isinstance(root, Mapping):
+        raise TypeError("Keystep training annotations must contain an annotations mapping.")
+    step_ids: set[int] = set()
+    for take_uid in sorted(root):
+        take_record = root[take_uid]
+        if not isinstance(take_record, Mapping):
+            raise TypeError(f"Keystep annotation for take {take_uid!r} must be an object.")
+        segments = take_record.get("segments")
+        if not isinstance(segments, Sequence) or isinstance(segments, (str, bytes)):
+            raise ValueError(f"Keystep annotation for take {take_uid!r} has no segments list.")
+        for segment in segments:
+            if not isinstance(segment, Mapping) or "step_unique_id" not in segment:
+                raise ValueError(f"Keystep annotation for take {take_uid!r} has an invalid segment.")
+            step_id = int(segment["step_unique_id"])
+            if step_id < 0:
+                raise ValueError("step_unique_id values must be non-negative.")
+            step_ids.add(step_id)
+    return {step_id: index for index, step_id in enumerate(sorted(step_ids))}
+
+
+def build_egoexo_anticipation_target(
+    segments: Sequence[Mapping[str, Any]],
+    observation_end_time: float,
+    action_vocabulary: Mapping[int, int],
+) -> dict[str, Any]:
+    """Create future action/time labels without exposing future frames as inputs.
+
+    The first keystep whose start_time is strictly after the observation cutoff
+    defines the event. A currently active/overlapping segment is not treated as
+    a future event. Unknown validation/test step IDs keep time supervision but
+    disable action classification. Keystep annotations do not identify the
+    target object, so target-entity supervision remains invalid.
+    """
+    cutoff = float(observation_end_time)
+    if not np.isfinite(cutoff) or cutoff < 0:
+        raise ValueError("observation_end_time must be finite and non-negative.")
+
+    future_segments: list[tuple[float, int]] = []
+    for index, segment in enumerate(segments):
+        if not isinstance(segment, Mapping):
+            raise TypeError(f"segments[{index}] must be an object.")
+        try:
+            start_time = float(segment["start_time"])
+            step_id = int(segment["step_unique_id"])
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ValueError(f"segments[{index}] has invalid start_time/step_unique_id.") from exc
+        if not np.isfinite(start_time) or start_time < 0 or step_id < 0:
+            raise ValueError(f"segments[{index}] has invalid start time or step ID.")
+        if start_time > cutoff:
+            future_segments.append((start_time, step_id))
+
+    if not future_segments:
+        return {
+            "target_entity_track_id": -1,
+            "target_entity_valid": False,
+            "action_label": -1,
+            "action_valid": False,
+            "time_to_event": 0.0,
+            "time_valid": False,
+        }
+
+    event_start, step_id = min(future_segments, key=lambda item: item[0])
+    if step_id in action_vocabulary:
+        action_label = int(action_vocabulary[step_id])
+        if action_label < 0:
+            raise ValueError("Action vocabulary indices must be non-negative.")
+        action_valid = True
+    else:
+        action_label = -1
+        action_valid = False
+    return {
+        "target_entity_track_id": -1,
+        "target_entity_valid": False,
+        "action_label": action_label,
+        "action_valid": action_valid,
+        "time_to_event": float(event_start - cutoff),
+        "time_valid": True,
+    }
+
+
 def resolve_egoexo_video_path(
     release_root: str | Path,
     takes: Sequence[Mapping[str, Any]] | Mapping[str, Mapping[str, Any]],
