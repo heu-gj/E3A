@@ -28,6 +28,8 @@
 
 本地不存在EgoPose手部/相机JSON、Raw Keystep、keystep_benchmark或MPS/calibration/timesync实际文件。takes中的可下载trajectory/VRS字段不能代替实际文件。缺失模态的根结构、record数量、关节有效率和误差均记NULL/NOT_RUN，不填零。
 
+用户已确认目前没有其他本地标注目录可提供。因此本次保留这些缺失门槛，不自动下载、不补造GT，也不以另一条Take或合成测试代替缺失模态。
+
 已进一步核对选中Take的capture元数据：camera记录只有device/path等描述，没有K/E矩阵。takes虽声明has_trimmed_trajectory=true、has_trimmed_vrs=true，对应VRS、eye_gaze、trajectory实际路径均不存在；详见 [mps_availability.json](evidence/mps_availability.json)。不是把“发布了资产”误认为“本地已下载”。
 
 ## 3. 选择Take与完整性排序

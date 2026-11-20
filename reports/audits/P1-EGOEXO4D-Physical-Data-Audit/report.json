@@ -15,7 +15,8 @@
     "metadata_version": "v2",
     "metadata_date": "240325",
     "annotation_version": "Relations ds20240311_20:16:25; independent release revision UNKNOWN",
-    "download_receipt": "NOT_FOUND"
+    "download_receipt": "NOT_FOUND",
+    "additional_annotation_roots_user_confirmation": "No additional local annotation directories currently available, as confirmed by the user. Missing modalities remain BLOCKED/NOT_RUN."
   },
   "take_uid": "51fc36b3-e769-4617-b087-3826b280cad3",
   "take_name": "georgiatech_cooking_01_01_2",
