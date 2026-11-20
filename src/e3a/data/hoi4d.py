@@ -151,9 +151,10 @@ def build_hoi4d_entity_clip_targets(
     into one entity mask. The official hand semantic class (47) is excluded
     because E3A has a separate two-hand pose head.
 
-    A present mask file marks every track/frame as annotated. If a track is
-    absent in that annotated frame, its ID is -1 with a zero mask. A missing
-    mask file produces mask_valid=False for every track in that frame.
+    A track/frame is valid only when that instance has visible pixels in the
+    supplied motion mask. A missing frame or an instance with no pixels is
+    unannotated (mask_valid=False), not an explicit negative: HOI4D's motion
+    mask does not distinguish full occlusion/out-of-view from true absence.
     """
     if not isinstance(rgb_mask_frames, Sequence) or len(rgb_mask_frames) == 0:
         raise ValueError("rgb_mask_frames must be a non-empty sequence.")
@@ -202,12 +203,12 @@ def build_hoi4d_entity_clip_targets(
         object_pixels = (semantic != HOI4D_HAND_SEMANTIC_ID) & (semantic != 0)
         for entity_index, instance_id in enumerate(ordered_ids):
             binary_mask = object_pixels & (instance == instance_id)
-            mask_valid[entity_index, frame_index] = True
             if binary_mask.any():
                 track_ids[entity_index, frame_index] = instance_id
                 masks[entity_index, frame_index] = torch.from_numpy(
                     binary_mask.astype(np.float32)
                 )
+                mask_valid[entity_index, frame_index] = True
 
     return {
         "labels": labels,

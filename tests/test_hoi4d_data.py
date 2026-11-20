@@ -45,13 +45,30 @@ def test_hoi4d_clip_targets_merge_object_parts_exclude_hands_and_preserve_covera
     assert targets["labels"].tolist() == [0, 0]
     assert targets["ids"].tolist() == [[1, -1, -1], [3, -1, 3]]
     assert targets["mask_valid"].tolist() == [
-        [True, False, True],
+        [True, False, False],
         [True, False, True],
     ]
     assert targets["masks"].shape == (2, 3, 2, 3)
     assert targets["masks"][0, 0].sum().item() == 2
     assert targets["masks"][1, 0].sum().item() == 2
     assert targets["masks"][1, 2].sum().item() == 1
+
+
+def test_hoi4d_unseen_instance_is_unannotated_not_a_negative_mask():
+    palette = hoi4d_color_palette()
+    first = np.zeros((2, 2, 3), dtype=np.uint8)
+    first[0, 0] = palette[1]  # instance 1 is visible
+    second = np.zeros((2, 2, 3), dtype=np.uint8)
+    second[1, 1] = palette[4]  # only instance 3 is visible
+
+    targets = build_hoi4d_entity_clip_targets([first, second], "C8")
+
+    assert targets["ids"].tolist() == [[1, -1], [ -1, 3]]
+    assert targets["mask_valid"].tolist() == [
+        [True, False],
+        [False, True],
+    ]
+    assert targets["masks"][0, 1].sum().item() == 0
 
 
 def test_hoi4d_decoder_rejects_unknown_non_background_palette_colors():
