@@ -3,6 +3,7 @@ import torch
 from torch import nn
 
 from e3a.adapters.videomt import VidEoMTMaskCriterion
+from e3a.data.collate import collate_entity_targets
 
 
 class RecordingMatcher(nn.Module):
@@ -242,26 +243,22 @@ def test_padded_targets_stay_batch_aligned_under_upstream_gradient_accumulation(
     sys.path.insert(0, str(training_root))
     from trainer_utils import get_chunk_from_data
 
-    batch_size, max_tracks, frames = 4, 2, 2
-    labels = torch.zeros(batch_size, max_tracks, dtype=torch.int64)
-    ids = torch.full((batch_size, max_tracks, frames), -1, dtype=torch.int64)
-    masks = torch.zeros(batch_size, max_tracks, frames, 8, 8)
-    counts = torch.tensor([1, 0, 2, 1], dtype=torch.int64)
-    for batch_index, count in enumerate(counts.tolist()):
+    batch_size, frames = 4, 2
+    clip_targets = []
+    for batch_index, count in enumerate([1, 0, 2, 1]):
+        labels = torch.zeros(count, dtype=torch.int64)
+        ids = torch.full((count, frames), -1, dtype=torch.int64)
+        masks = torch.zeros(count, frames, 8, 8)
         for track_index in range(count):
-            ids[batch_index, track_index] = 100 + batch_index * 10 + track_index
-            masks[batch_index, track_index, 0, 1:4, 1:4] = 1
-            masks[batch_index, track_index, 1, 2:6, 2:6] = 1
+            ids[track_index] = 100 + batch_index * 10 + track_index
+            masks[track_index, 0, 1:4, 1:4] = 1
+            masks[track_index, 1, 2:6, 2:6] = 1
+        clip_targets.append({"labels": labels, "ids": ids, "masks": masks})
 
     batch = {
         "images": torch.rand(batch_size, frames, 3, 8, 8),
         "timestamps": torch.arange(frames).float().expand(batch_size, -1),
-        "entity_targets": {
-            "labels": labels,
-            "ids": ids,
-            "masks": masks,
-            "track_counts": counts,
-        },
+        "entity_targets": collate_entity_targets(clip_targets),
     }
     chunk = get_chunk_from_data(batch, chunk_id=0, num_chunks=2)
 

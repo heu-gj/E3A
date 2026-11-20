@@ -23,7 +23,7 @@ The entity_targets mapping uses:
 
 Each unpadded clip target uses labels [N], ids [N,T], and masks [N,T,H,W]. The adapter unwraps the padded mapping, validates stable/unique track IDs and visibility/mask semantics, then converts the clip-level target schema to VidEoMT's B*T frame-wise contract. It wraps the pinned upstream VideoHungarianMatcher_Consistent and VideoSetCriterion and returns loss_objective for the upstream optimizer loop. It requires the number of visible tracks in each clip not to exceed the configured E3A entity slots. This is an adapter contract, not a claim that any particular dataset already conforms to it.
 
-The E3A dataset must return at least images [B,T,3,H,W], timestamps [B,T], entity_targets, and any additional fields required by the selected criterion. The padded entity_targets tensors must all have B as their first dimension so the upstream gradient-accumulation chunker keeps them aligned. The criterion must return loss_objective, as expected by the upstream optimizer loop.
+Use e3a.data.collate.collate_entity_targets(per_clip_targets) to create the padded entity_targets mapping from variable-length per-clip annotations. The E3A dataset must return at least images [B,T,3,H,W], timestamps [B,T], entity_targets, and any additional fields required by the selected criterion. The padded entity_targets tensors must all have B as their first dimension so the upstream gradient-accumulation chunker keeps them aligned. The criterion must return loss_objective, as expected by the upstream optimizer loop.
 
 Install the upstream training extra:
 
