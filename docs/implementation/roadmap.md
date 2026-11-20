@@ -21,6 +21,7 @@ Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model h
 - [x] Implement Ego-Exo4D EgoPose world-to-camera hand-joint parsing with both published camera-pose JSON layouts.
 - [x] Implement Ego-Exo4D relation mask parsing with annotated_frames-aware validity.
 - [ ] Audit the locally downloaded release versions, video FPS/frame indexing, image/depth alignment, and annotation coverage.
+- [ ] Validate the provisional HOI4D 2D-part-to-4D-instance grouping against real 2D motion masks; do not treat it as persistent GT before this audit.
 - [ ] Implement end-to-end source-video Dataset/DataLoader classes for both datasets.
 - [ ] Audit source-to-canonical coordinate transforms and physical units on real sequences.
 - [x] Add Ego-Exo4D keystep segment parsing and train-only step_unique_id vocabulary generation.
