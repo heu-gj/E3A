@@ -72,7 +72,7 @@ def test_hoi4d_unseen_instance_is_unannotated_not_a_negative_mask():
 
 
 def test_hoi4d_2d_decoder_rejects_placeholder_categories_not_in_label_csv():
-    with pytest.raises(ValueError, match="16 released HOI4D 2D categories"):
+    with pytest.raises(ValueError, match="Unsupported HOI4D 2D motion-segmentation category"):
         decode_hoi4d_motion_mask(np.zeros((1, 1, 3), dtype=np.uint8), "C10")
 
 
