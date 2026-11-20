@@ -26,6 +26,9 @@ class EntityMaskHead(nn.Module):
         if entity_dim <= 0 or pixel_dim <= 0 or mask_dim <= 0:
             raise ValueError("entity_dim, pixel_dim, and mask_dim must be positive.")
 
+        self.entity_dim = entity_dim
+        self.pixel_dim = pixel_dim
+        self.mask_dim = mask_dim
         self.entity_projection = nn.Linear(entity_dim, mask_dim)
         self.pixel_projection = (
             nn.Identity()
@@ -64,14 +67,31 @@ class EntityMaskHead(nn.Module):
             )
         if tuple(entity_tokens.shape[:2]) != tuple(fused_features.shape[:2]):
             raise ValueError("Entity token and fused feature batch/frame dimensions must match.")
+        if entity_tokens.shape[-1] != self.entity_dim:
+            raise ValueError(
+                f"Expected entity feature dimension {self.entity_dim}, "
+                f"got {entity_tokens.shape[-1]}"
+            )
+        if fused_features.shape[2] != self.pixel_dim:
+            raise ValueError(
+                f"Expected fused feature dimension {self.pixel_dim}, "
+                f"got {fused_features.shape[2]}"
+            )
+        if entity_tokens.device != fused_features.device:
+            raise ValueError("Entity tokens and fused features must be on the same device.")
 
         batch_size, num_frames, num_entities, _ = entity_tokens.shape
         _, _, pixel_channels, height, width = fused_features.shape
 
-        queries = self.entity_projection(entity_tokens)
+        # VGGT-Ω may emit bfloat16 cached tokens under its internal autocast,
+        # while the E3A/SAM 3 heads are normally float32. Normalize inputs to
+        # the projection parameter dtype; outer AMP can still autocast ops.
+        feature_dtype = self.entity_projection.weight.dtype
+        entity_features = entity_tokens.to(dtype=feature_dtype)
+        queries = self.entity_projection(entity_features)
         queries = queries.reshape(batch_size * num_frames, num_entities, -1)
 
-        pixels = fused_features.reshape(
+        pixels = fused_features.to(dtype=feature_dtype).reshape(
             batch_size * num_frames,
             pixel_channels,
             height,
@@ -87,7 +107,7 @@ class EntityMaskHead(nn.Module):
             mask_logits.shape[-2],
             mask_logits.shape[-1],
         )
-        objectness_logits = self.objectness_head(entity_tokens).squeeze(-1)
+        objectness_logits = self.objectness_head(entity_features).squeeze(-1)
 
         return {
             "mask_logits": mask_logits,
