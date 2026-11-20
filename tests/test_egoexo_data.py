@@ -3,8 +3,11 @@ import pytest
 
 from e3a.data.egoexo import (
     EGOEXO_HAND_JOINTS,
+    build_egoexo_anticipation_target,
+    build_egoexo_keystep_vocabulary,
     build_egoexo_relation_clip_targets,
     parse_egoexo_hand_pose_annotations,
+    parse_egoexo_keystep_segments,
     resolve_egoexo_video_path,
 )
 
@@ -193,3 +196,81 @@ def test_egoexo_video_path_uses_official_aria_stream_alias(tmp_path):
     )
 
     assert resolved == path
+
+
+
+def test_egoexo_keystep_parser_and_train_only_vocabulary_use_step_unique_ids():
+    raw = {
+        "annotations": {
+            "take-1": {
+                "segments": [
+                    {
+                        "start_time": 3.0,
+                        "end_time": 4.0,
+                        "step_unique_id": 42,
+                        "step_name": "Second action",
+                    },
+                    {
+                        "start_time": 0.0,
+                        "end_time": 2.0,
+                        "step_unique_id": 7,
+                        "step_name": "First action",
+                    },
+                ]
+            }
+        }
+    }
+
+    segments = parse_egoexo_keystep_segments(raw, "take-1")
+    vocabulary = build_egoexo_keystep_vocabulary(raw)
+
+    assert [segment["step_unique_id"] for segment in segments] == [7, 42]
+    assert vocabulary == {7: 0, 42: 1}
+
+
+def test_egoexo_anticipation_uses_first_strictly_future_keystep():
+    segments = [
+        {"start_time": 0.0, "end_time": 1.5, "step_unique_id": 7},
+        {"start_time": 2.0, "end_time": 3.0, "step_unique_id": 42},
+        {"start_time": 4.0, "end_time": 5.0, "step_unique_id": 99},
+    ]
+    target = build_egoexo_anticipation_target(
+        segments,
+        observation_end_time=1.5,
+        action_vocabulary={7: 0, 42: 1},
+    )
+
+    assert target == {
+        "target_entity_track_id": -1,
+        "target_entity_valid": False,
+        "action_label": 1,
+        "action_valid": True,
+        "time_to_event": 0.5,
+        "time_valid": True,
+    }
+
+
+def test_egoexo_anticipation_keeps_time_but_masks_unseen_action_vocabulary_ids():
+    target = build_egoexo_anticipation_target(
+        [{"start_time": 2.0, "end_time": 3.0, "step_unique_id": 99}],
+        observation_end_time=1.0,
+        action_vocabulary={7: 0},
+    )
+
+    assert target["action_label"] == -1
+    assert target["action_valid"] is False
+    assert target["time_to_event"] == 1.0
+    assert target["time_valid"] is True
+    assert target["target_entity_valid"] is False
+
+
+def test_egoexo_anticipation_without_future_event_is_fully_invalid():
+    target = build_egoexo_anticipation_target(
+        [{"start_time": 0.0, "end_time": 3.0, "step_unique_id": 7}],
+        observation_end_time=3.0,
+        action_vocabulary={7: 0},
+    )
+
+    assert target["action_valid"] is False
+    assert target["time_valid"] is False
+    assert target["target_entity_valid"] is False

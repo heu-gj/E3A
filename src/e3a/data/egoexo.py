@@ -240,7 +240,7 @@ def build_egoexo_relation_clip_targets(
     Object IDs are deterministic clip-local integers; track_names preserves the
     source object-name mapping for downstream audit.
     """
-    if not frame_numbers:
+    if len(frame_numbers) == 0:
         raise ValueError("frame_numbers must be a non-empty sequence.")
     frames = [int(value) for value in frame_numbers]
     if any(right <= left for left, right in zip(frames, frames[1:])):

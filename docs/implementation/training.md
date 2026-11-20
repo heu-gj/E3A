@@ -54,6 +54,8 @@ Missing task annotations are represented by zero placeholders and false validity
 - build_egoexo_relation_clip_targets uses annotated_frames as the coverage mask. A frame listed in annotated_frames without an encoded mask is explicit absence; a frame outside that list is unannotated. It excludes hand-named relation tracks by default to avoid duplicating the dedicated hand head.
 - Relation encodedMask decoding uses the official Ego4D SDK decoder and pycocotools. Install the optional dependencies with pip install -e ".[egoexo]".
 - resolve_egoexo_video_path follows the official Ego4D notebook's frame_aligned_videos/root_dir/relative_path convention, including the aria01_214-1 to rgb stream alias.
+- parse_egoexo_keystep_segments reads the raw take-level start_time/end_time/step_unique_id schema. build_egoexo_keystep_vocabulary builds a deterministic vocabulary from the training split only; keep its source IDs dataset-prefixed when combining with HOI4D.
+- build_egoexo_anticipation_target selects the first segment with start_time strictly after the observation cutoff. It creates action/time labels from future annotations while leaving target-entity supervision invalid because the keystep source does not identify the interacted object. Unknown action IDs disable only action loss, not time-to-event loss.
 
 These are annotation-level adapters, not yet complete end-to-end Dataset/DataLoader implementations. Video frame decoding, release-version indexing, cross-source coordinate/unit auditing, action-vocabulary construction, event-window sampling, and source-video-level split generation remain gated.
 

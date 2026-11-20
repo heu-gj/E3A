@@ -23,8 +23,10 @@ Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model h
 - [ ] Audit the locally downloaded release versions, video FPS/frame indexing, image/depth alignment, and annotation coverage.
 - [ ] Implement end-to-end source-video Dataset/DataLoader classes for both datasets.
 - [ ] Audit source-to-canonical coordinate transforms and physical units on real sequences.
-- [ ] Build a dataset-prefixed union action vocabulary; do not merge classes based on name similarity alone.
-- [ ] Define observation cutoffs, future event windows, target-entity mapping, and time-to-event semantics without future-frame leakage.
+- [x] Add Ego-Exo4D keystep segment parsing and train-only step_unique_id vocabulary generation.
+- [x] Add a strictly-future Ego-Exo4D event-onset/time-to-event target builder; target entity remains invalid because the source keystep schema does not identify it.
+- [ ] Build the cross-dataset action vocabulary with explicit dataset prefixes; do not merge classes based on name similarity alone.
+- [ ] Define HOI4D observation cutoffs, future event windows, target-entity mapping, and time-to-event semantics without future-frame leakage.
 - [ ] Define missing/occluded/disappeared-object semantics across all source annotations.
 - [ ] Create source-video/subject-level train/validation/test splits to prevent leakage.
 
