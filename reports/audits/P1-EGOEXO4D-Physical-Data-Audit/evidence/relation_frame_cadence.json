@@ -1,0 +1,309 @@
+{
+  "status": "PASS",
+  "scope": "Actual annotated frame-number differences, not independent sensor synchronization",
+  "records": [
+    {
+      "object": "salt container_0",
+      "camera": "cam01",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "sugar container_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "small brown measuring spoon_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "tomato omelette_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "tomato omelette_0",
+      "camera": "cam01",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "big white measuring cup_0",
+      "camera": "cam01",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "big white measuring cup_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "cooking recipe_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "cooking recipe_0",
+      "camera": "cam02",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "camera": "cam01",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "black bowl_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "camera": "cam01",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "big black measuring cup_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "big black measuring cup_0",
+      "camera": "cam01",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "egg package_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "camera": "cam01",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "black measuring spoon_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "camera": "cam01",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "brown measuring spoon_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    },
+    {
+      "object": "sliced scallions_0",
+      "camera": "aria04_214-1",
+      "source_frame_deltas": [
+        30
+      ],
+      "annotation_fps": 1,
+      "source_frame_range": [
+        0,
+        31020
+      ]
+    }
+  ],
+  "candidate_source_fps": 30,
+  "observed_annotation_fps": 1,
+  "warning": "Frame numbers progress by30 at1Hz annotations; dividing source indices by annotation_fps would be incorrect."
+}

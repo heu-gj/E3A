@@ -1,0 +1,14 @@
+{
+  "status": "BLOCKED",
+  "execution_status": "NOT_RUN",
+  "evidence_level": "DATASET_FILE_INVENTORY",
+  "evidence_file": "evidence/dataset_inventory.json",
+  "reason": "Required real annotation files absent from checked local dataset root",
+  "intrinsics": null,
+  "extrinsics": null,
+  "SO3": null,
+  "coordinate_direction": "UNKNOWN on local release",
+  "physical_units": "UNKNOWN",
+  "source_to_model_units_1": "Preserves source values; not unit certification",
+  "MPS": "NOT_FOUND"
+}

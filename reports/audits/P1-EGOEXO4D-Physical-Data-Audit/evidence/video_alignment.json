@@ -1,0 +1,2695 @@
+{
+  "status": "PARTIAL",
+  "take_uid": "51fc36b3-e769-4617-b087-3826b280cad3",
+  "takes_source": "raw/takes.json",
+  "metadata_duration_sec": 1034.9333333333334,
+  "task_start_sec": 0.3505,
+  "task_end_sec": 1034.16666,
+  "task_timing_is_not_keystep": "Do not invent missing segment labels from take timing",
+  "camera_aria": "aria04_214-1",
+  "videos": [
+    {
+      "camera": "aria04",
+      "stream": "rgb",
+      "metadata_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/aria04_214-1.mp4",
+      "actual_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_214-1.mp4",
+      "metadata_path_exists": false,
+      "bytes": 63348950,
+      "mapping": "explicit local downscaled/448 fallback (audit only)",
+      "camera_annotation_name": "aria04_214-1",
+      "fps": 30.0,
+      "reported_frame_count": 31048,
+      "duration_container_seconds": 1034.9333333333334,
+      "width": 448,
+      "height": 448,
+      "resolver": {
+        "status": "BLOCKED",
+        "reason": "Metadata full-resolution path absent; downloaded downscaled path is not resolved by current adapter"
+      },
+      "sampled_frames": [
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 0,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 1.0,
+          "pts_seconds": 0.0,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "sugar container_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "cooking recipe_0",
+              "frame": 0,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 526884,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                664,
+                343,
+                1345,
+                1272
+              ]
+            },
+            {
+              "object": "scallions_0",
+              "frame": 0,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 664,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                1355,
+                806,
+                1406,
+                844
+              ]
+            },
+            {
+              "object": "black bowl_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "egg package_0",
+              "frame": 0,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 4396,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                1332,
+                747,
+                1407,
+                839
+              ]
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "black measuring spoon_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "white plate_0",
+              "frame": 0,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 2344,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                1365,
+                921,
+                1407,
+                1002
+              ]
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "frame": 0,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 361,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                1304,
+                924,
+                1321,
+                956
+              ]
+            },
+            {
+              "object": "sliced scallions_0",
+              "state": "EXPLICIT_ABSENCE"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_000000.jpg"
+        },
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 7762,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 7763.0,
+          "pts_seconds": 258.73333333333335,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sugar container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "cooking recipe_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "scallions_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "black bowl_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "egg package_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "black measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "white plate_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced scallions_0",
+              "state": "UNANNOTATED"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_007762.jpg"
+        },
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 7770,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 7771.0,
+          "pts_seconds": 259.0,
+          "role": "nearest annotated mask frame (decoded at its own index)",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 4044,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                244,
+                604,
+                334,
+                699
+              ]
+            },
+            {
+              "object": "sugar container_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 6001,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                180,
+                592,
+                286,
+                710
+              ]
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 3904,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                551,
+                879,
+                612,
+                1028
+              ]
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "cooking recipe_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "scallions_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 8659,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                349,
+                635,
+                593,
+                732
+              ]
+            },
+            {
+              "object": "black bowl_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 18962,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                528,
+                701,
+                697,
+                854
+              ]
+            },
+            {
+              "object": "sliced tomato_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 11204,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                162,
+                735,
+                383,
+                976
+              ]
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "egg package_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 14599,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                378,
+                604,
+                597,
+                695
+              ]
+            },
+            {
+              "object": "silicone spatula_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 7470,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                983,
+                903,
+                1257,
+                1066
+              ]
+            },
+            {
+              "object": "black measuring spoon_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 2533,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                528,
+                874,
+                558,
+                1011
+              ]
+            },
+            {
+              "object": "white plate_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 12907,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                676,
+                710,
+                801,
+                848
+              ]
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "frame": 7770,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 3805,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                552,
+                879,
+                612,
+                1028
+              ]
+            },
+            {
+              "object": "sliced scallions_0",
+              "state": "EXPLICIT_ABSENCE"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_007770.jpg"
+        },
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 15510,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 15511.0,
+          "pts_seconds": 517.0,
+          "role": "nearest annotated mask frame (decoded at its own index)",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 11589,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                419,
+                196,
+                526,
+                354
+              ]
+            },
+            {
+              "object": "sugar container_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 7546,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                331,
+                174,
+                446,
+                347
+              ]
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 4091,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                913,
+                542,
+                956,
+                703
+              ]
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "cooking recipe_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "scallions_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 17383,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                577,
+                264,
+                880,
+                417
+              ]
+            },
+            {
+              "object": "black bowl_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 18089,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                870,
+                380,
+                1031,
+                522
+              ]
+            },
+            {
+              "object": "sliced tomato_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 7284,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                457,
+                390,
+                603,
+                615
+              ]
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "egg package_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 11750,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                617,
+                258,
+                877,
+                356
+              ]
+            },
+            {
+              "object": "silicone spatula_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 6700,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                1030,
+                503,
+                1121,
+                741
+              ]
+            },
+            {
+              "object": "black measuring spoon_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 3006,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                860,
+                534,
+                927,
+                679
+              ]
+            },
+            {
+              "object": "white plate_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 14711,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                670,
+                225,
+                847,
+                330
+              ]
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "frame": 15510,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 4210,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                913,
+                541,
+                956,
+                703
+              ]
+            },
+            {
+              "object": "sliced scallions_0",
+              "state": "EXPLICIT_ABSENCE"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_015510.jpg"
+        },
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 15524,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 15525.0,
+          "pts_seconds": 517.4666666666667,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sugar container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "cooking recipe_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "scallions_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "black bowl_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "egg package_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "black measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "white plate_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced scallions_0",
+              "state": "UNANNOTATED"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_015524.jpg"
+        },
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 23280,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 23281.0,
+          "pts_seconds": 776.0,
+          "role": "nearest annotated mask frame (decoded at its own index)",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 6751,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                137,
+                508,
+                243,
+                610
+              ]
+            },
+            {
+              "object": "sugar container_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 6043,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                78,
+                495,
+                178,
+                622
+              ]
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 4320,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                416,
+                790,
+                463,
+                944
+              ]
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 6916,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                292,
+                819,
+                400,
+                981
+              ]
+            },
+            {
+              "object": "cooking recipe_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "scallions_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 11063,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                237,
+                609,
+                459,
+                673
+              ]
+            },
+            {
+              "object": "black bowl_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 14940,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                412,
+                643,
+                557,
+                773
+              ]
+            },
+            {
+              "object": "sliced tomato_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 2436,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                65,
+                669,
+                240,
+                786
+              ]
+            },
+            {
+              "object": "big black measuring cup_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 6191,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                339,
+                667,
+                416,
+                813
+              ]
+            },
+            {
+              "object": "egg package_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 7376,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                275,
+                540,
+                487,
+                621
+              ]
+            },
+            {
+              "object": "silicone spatula_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 8500,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                551,
+                752,
+                612,
+                1010
+              ]
+            },
+            {
+              "object": "black measuring spoon_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 3489,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                395,
+                778,
+                424,
+                922
+              ]
+            },
+            {
+              "object": "white plate_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 10104,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                302,
+                517,
+                443,
+                613
+              ]
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 4193,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                415,
+                791,
+                463,
+                942
+              ]
+            },
+            {
+              "object": "sliced scallions_0",
+              "frame": 23280,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 8132,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                27,
+                682,
+                302,
+                853
+              ]
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_023280.jpg"
+        },
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 23285,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 23286.0,
+          "pts_seconds": 776.1666666666666,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sugar container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "cooking recipe_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "scallions_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "black bowl_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "egg package_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "black measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "white plate_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced scallions_0",
+              "state": "UNANNOTATED"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_023285.jpg"
+        },
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 31020,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 31021.0,
+          "pts_seconds": 1034.0,
+          "role": "nearest annotated mask frame (decoded at its own index)",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "sugar container_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "cooking recipe_0",
+              "frame": 31020,
+              "camera": "aria04_214-1",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                1408,
+                1408
+              ],
+              "decoded_shape": [
+                1408,
+                1408
+              ],
+              "nonzero_pixels": 26081,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.3181818181818182,
+              "scale_y": 0.3181818181818182,
+              "bbox_xyxy_source": [
+                468,
+                885,
+                702,
+                1127
+              ]
+            },
+            {
+              "object": "scallions_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "black bowl_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "egg package_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "black measuring spoon_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "white plate_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "sliced scallions_0",
+              "state": "EXPLICIT_ABSENCE"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_031020.jpg"
+        },
+        {
+          "camera": "aria04_214-1",
+          "decoded_index_requested": 31047,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 31048.0,
+          "pts_seconds": 1034.9,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sugar container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "small brown measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "cooking recipe_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "scallions_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "black bowl_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "egg package_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "black measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "white plate_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "brown measuring spoon_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced scallions_0",
+              "state": "UNANNOTATED"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/aria04_214-1_031047.jpg"
+        }
+      ],
+      "whole_video_decode": "NOT_RUN; bounded seek samples only"
+    },
+    {
+      "camera": "cam01",
+      "stream": "0",
+      "metadata_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/cam01.mp4",
+      "actual_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam01.mp4",
+      "metadata_path_exists": false,
+      "bytes": 57088814,
+      "mapping": "explicit local downscaled/448 fallback (audit only)",
+      "camera_annotation_name": "cam01",
+      "fps": 30.0,
+      "reported_frame_count": 31048,
+      "duration_container_seconds": 1034.9333333333334,
+      "width": 796,
+      "height": 448,
+      "resolver": {
+        "status": "BLOCKED",
+        "reason": "Metadata full-resolution path absent; downloaded downscaled path is not resolved by current adapter"
+      },
+      "sampled_frames": [
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 0,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 1.0,
+          "pts_seconds": 0.0,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "frame": 0,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 1886,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2482,
+                1063,
+                2522,
+                1138
+              ]
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "scallions_0",
+              "frame": 0,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 6829,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2450,
+                1070,
+                2548,
+                1246
+              ]
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "silicone spatula_0",
+              "frame": 0,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 288,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                1723,
+                1419,
+                1751,
+                1432
+              ]
+            },
+            {
+              "object": "white plate_0",
+              "frame": 0,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 22040,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2283,
+                1348,
+                2536,
+                1474
+              ]
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_000000.jpg"
+        },
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 7762,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 7763.0,
+          "pts_seconds": 258.73333333333335,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "scallions_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "white plate_0",
+              "state": "UNANNOTATED"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_007762.jpg"
+        },
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 7770,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 7771.0,
+          "pts_seconds": 259.0,
+          "role": "nearest annotated mask frame (decoded at its own index)",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "frame": 7770,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 2076,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2477,
+                1068,
+                2583,
+                1150
+              ]
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "scallions_0",
+              "frame": 7770,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 7848,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2442,
+                1106,
+                2537,
+                1297
+              ]
+            },
+            {
+              "object": "sliced tomato_0",
+              "frame": 7770,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 5846,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2030,
+                1157,
+                2446,
+                1255
+              ]
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "silicone spatula_0",
+              "frame": 7770,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 14368,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                1476,
+                1107,
+                1926,
+                1355
+              ]
+            },
+            {
+              "object": "white plate_0",
+              "frame": 7770,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 28459,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2249,
+                1349,
+                2536,
+                1475
+              ]
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_007770.jpg"
+        },
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 15510,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 15511.0,
+          "pts_seconds": 517.0,
+          "role": "nearest annotated mask frame (decoded at its own index)",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "frame": 15510,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 8732,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2482,
+                1060,
+                2587,
+                1158
+              ]
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "scallions_0",
+              "frame": 15510,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 5188,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2426,
+                1130,
+                2535,
+                1294
+              ]
+            },
+            {
+              "object": "sliced tomato_0",
+              "frame": 15510,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 3283,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2097,
+                1195,
+                2380,
+                1244
+              ]
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "white plate_0",
+              "frame": 15510,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 11947,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2459,
+                1147,
+                2719,
+                1215
+              ]
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_015510.jpg"
+        },
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 15524,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 15525.0,
+          "pts_seconds": 517.4666666666667,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "scallions_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "white plate_0",
+              "state": "UNANNOTATED"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_015524.jpg"
+        },
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 23280,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 23281.0,
+          "pts_seconds": 776.0,
+          "role": "nearest annotated mask frame (decoded at its own index)",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "frame": 23280,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 8645,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2482,
+                1058,
+                2583,
+                1148
+              ]
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "EXPLICIT_ABSENCE"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "frame": 23280,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 7532,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                1893,
+                1274,
+                2132,
+                1337
+              ]
+            },
+            {
+              "object": "scallions_0",
+              "frame": 23280,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 5455,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2383,
+                1183,
+                2503,
+                1278
+              ]
+            },
+            {
+              "object": "sliced tomato_0",
+              "frame": 23280,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 2622,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2153,
+                1174,
+                2377,
+                1238
+              ]
+            },
+            {
+              "object": "big black measuring cup_0",
+              "frame": 23280,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 1160,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2127,
+                1242,
+                2389,
+                1293
+              ]
+            },
+            {
+              "object": "silicone spatula_0",
+              "frame": 23280,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 621,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2253,
+                1395,
+                2283,
+                1426
+              ]
+            },
+            {
+              "object": "white plate_0",
+              "frame": 23280,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 12503,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2455,
+                1150,
+                2713,
+                1220
+              ]
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_023280.jpg"
+        },
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 23285,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 23286.0,
+          "pts_seconds": 776.1666666666666,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "scallions_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "white plate_0",
+              "state": "UNANNOTATED"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_023285.jpg"
+        },
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 31020,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 31021.0,
+          "pts_seconds": 1034.0,
+          "role": "nearest annotated mask frame (decoded at its own index)",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "frame": 31020,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 8802,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2486,
+                1070,
+                2591,
+                1175
+              ]
+            },
+            {
+              "object": "tomato omelette_0",
+              "frame": 31020,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 1930,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                1929,
+                1316,
+                2048,
+                1354
+              ]
+            },
+            {
+              "object": "big white measuring cup_0",
+              "frame": 31020,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 7553,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                1895,
+                1272,
+                2147,
+                1342
+              ]
+            },
+            {
+              "object": "scallions_0",
+              "frame": 31020,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 5261,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2384,
+                1180,
+                2504,
+                1293
+              ]
+            },
+            {
+              "object": "sliced tomato_0",
+              "frame": 31020,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 2972,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2154,
+                1175,
+                2380,
+                1241
+              ]
+            },
+            {
+              "object": "big black measuring cup_0",
+              "frame": 31020,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 1253,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                2116,
+                1240,
+                2385,
+                1289
+              ]
+            },
+            {
+              "object": "silicone spatula_0",
+              "frame": 31020,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 4014,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                1922,
+                1214,
+                2227,
+                1244
+              ]
+            },
+            {
+              "object": "white plate_0",
+              "frame": 31020,
+              "camera": "cam01",
+              "state": "POSITIVE_RECORD",
+              "source_shape": [
+                2160,
+                3840
+              ],
+              "decoded_shape": [
+                2160,
+                3840
+              ],
+              "nonzero_pixels": 3255,
+              "empty": false,
+              "adapter_sdk_equal": true,
+              "scale_x": 0.20729166666666668,
+              "scale_y": 0.2074074074074074,
+              "bbox_xyxy_source": [
+                1851,
+                1317,
+                2065,
+                1382
+              ]
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_031020.jpg"
+        },
+        {
+          "camera": "cam01",
+          "decoded_index_requested": 31047,
+          "read_ok": true,
+          "actual_pos_frames_after_read": 31048.0,
+          "pts_seconds": 1034.9,
+          "role": "whole-video temporal sample",
+          "ego_pose": "MISSING",
+          "camera_pose": "MISSING",
+          "keystep": "MISSING",
+          "target_entity_valid": false,
+          "interaction_valid": false,
+          "mask_records": [
+            {
+              "object": "salt container_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "tomato omelette_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big white measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "scallions_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "sliced tomato_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "big black measuring cup_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "silicone spatula_0",
+              "state": "UNANNOTATED"
+            },
+            {
+              "object": "white plate_0",
+              "state": "UNANNOTATED"
+            }
+          ],
+          "local_only_visualization": "visualizations/local_only/cam01_031047.jpg"
+        }
+      ],
+      "whole_video_decode": "NOT_RUN; bounded seek samples only"
+    }
+  ],
+  "alignment_caveat": "annotation_fps is sampling cadence, not a frame-index divisor. Source frame keys tested as candidate indices; scaling/temporal verification remains partial without full-resolution/timesync/camera poses.",
+  "multiview_policy": "Aria is primary temporal stream; exo is a separate camera, never concatenated into T",
+  "local_visual_review": {
+    "status": "PARTIAL",
+    "reviewed_aria_frames": [
+      0,
+      7770,
+      15510,
+      23280,
+      31020
+    ],
+    "reviewed_exo_frames": [
+      15510
+    ],
+    "observations": "Recipe mask at start/end, sliced tomato/bowl/utensils mid-take align coarsely after source-to-video scaling. Dense labels obscure boundaries; no pixel-exact registration or independent clock certification.",
+    "source_images_published": false
+  }
+}

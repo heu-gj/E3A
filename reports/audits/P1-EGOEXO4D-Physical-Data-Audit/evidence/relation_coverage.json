@@ -1,0 +1,409 @@
+{
+  "status": "PASS",
+  "scope": "Track metadata/coverage sets, not all masks decoded",
+  "take_uid": "51fc36b3-e769-4617-b087-3826b280cad3",
+  "source_path": "raw/annotations/relations_train.json",
+  "take_keys": [
+    "scenario",
+    "take_name",
+    "object_names",
+    "object_masks"
+  ],
+  "object_tracks": [
+    "salt container_0",
+    "sugar container_0",
+    "small brown measuring spoon_0",
+    "tomato omelette_0",
+    "big white measuring cup_0",
+    "cooking recipe_0",
+    "scallions_0",
+    "black bowl_0",
+    "sliced tomato_0",
+    "big black measuring cup_0",
+    "egg package_0",
+    "silicone spatula_0",
+    "black measuring spoon_0",
+    "white plate_0",
+    "brown measuring spoon_0",
+    "sliced scallions_0"
+  ],
+  "track_camera_records": [
+    {
+      "object_name": "salt container_0",
+      "is_hand": false,
+      "camera": "cam01",
+      "annotated_count": 1035,
+      "encoded_count": 1033,
+      "explicit_absence_count": 2,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 1033
+      }
+    },
+    {
+      "object_name": "salt container_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 899,
+      "explicit_absence_count": 136,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 899
+      }
+    },
+    {
+      "object_name": "sugar container_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 876,
+      "explicit_absence_count": 159,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 876
+      }
+    },
+    {
+      "object_name": "small brown measuring spoon_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 810,
+      "explicit_absence_count": 225,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 810
+      }
+    },
+    {
+      "object_name": "tomato omelette_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 111,
+      "explicit_absence_count": 924,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 111
+      }
+    },
+    {
+      "object_name": "tomato omelette_0",
+      "is_hand": false,
+      "camera": "cam01",
+      "annotated_count": 1035,
+      "encoded_count": 130,
+      "explicit_absence_count": 905,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 130
+      }
+    },
+    {
+      "object_name": "big white measuring cup_0",
+      "is_hand": false,
+      "camera": "cam01",
+      "annotated_count": 1035,
+      "encoded_count": 514,
+      "explicit_absence_count": 521,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 514
+      }
+    },
+    {
+      "object_name": "big white measuring cup_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 458,
+      "explicit_absence_count": 577,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 458
+      }
+    },
+    {
+      "object_name": "cooking recipe_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 163,
+      "explicit_absence_count": 872,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 163
+      }
+    },
+    {
+      "object_name": "cooking recipe_0",
+      "is_hand": false,
+      "camera": "cam02",
+      "annotated_count": 1035,
+      "encoded_count": 1034,
+      "explicit_absence_count": 1,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 1034
+      }
+    },
+    {
+      "object_name": "scallions_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 916,
+      "explicit_absence_count": 119,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 916
+      }
+    },
+    {
+      "object_name": "scallions_0",
+      "is_hand": false,
+      "camera": "cam01",
+      "annotated_count": 1035,
+      "encoded_count": 1034,
+      "explicit_absence_count": 1,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 1034
+      }
+    },
+    {
+      "object_name": "black bowl_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 868,
+      "explicit_absence_count": 167,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 868
+      }
+    },
+    {
+      "object_name": "sliced tomato_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 902,
+      "explicit_absence_count": 133,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 902
+      }
+    },
+    {
+      "object_name": "sliced tomato_0",
+      "is_hand": false,
+      "camera": "cam01",
+      "annotated_count": 1035,
+      "encoded_count": 1009,
+      "explicit_absence_count": 26,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 1009
+      }
+    },
+    {
+      "object_name": "big black measuring cup_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 475,
+      "explicit_absence_count": 560,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 475
+      }
+    },
+    {
+      "object_name": "big black measuring cup_0",
+      "is_hand": false,
+      "camera": "cam01",
+      "annotated_count": 1035,
+      "encoded_count": 516,
+      "explicit_absence_count": 519,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 516
+      }
+    },
+    {
+      "object_name": "egg package_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 917,
+      "explicit_absence_count": 118,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 917
+      }
+    },
+    {
+      "object_name": "silicone spatula_0",
+      "is_hand": false,
+      "camera": "cam01",
+      "annotated_count": 1035,
+      "encoded_count": 815,
+      "explicit_absence_count": 220,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 815
+      }
+    },
+    {
+      "object_name": "silicone spatula_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 849,
+      "explicit_absence_count": 186,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 849
+      }
+    },
+    {
+      "object_name": "black measuring spoon_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 809,
+      "explicit_absence_count": 226,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 809
+      }
+    },
+    {
+      "object_name": "white plate_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 890,
+      "explicit_absence_count": 145,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 890
+      }
+    },
+    {
+      "object_name": "white plate_0",
+      "is_hand": false,
+      "camera": "cam01",
+      "annotated_count": 1035,
+      "encoded_count": 1034,
+      "explicit_absence_count": 1,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "3840x2160": 1034
+      }
+    },
+    {
+      "object_name": "brown measuring spoon_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 818,
+      "explicit_absence_count": 217,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 818
+      }
+    },
+    {
+      "object_name": "sliced scallions_0",
+      "is_hand": false,
+      "camera": "aria04_214-1",
+      "annotated_count": 1035,
+      "encoded_count": 418,
+      "explicit_absence_count": 617,
+      "mask_outside_coverage": [],
+      "first_frame": 0,
+      "last_frame": 31020,
+      "annotation_fps": 1,
+      "dimension_counts": {
+        "1408x1408": 418
+      }
+    }
+  ],
+  "outside_annotated_frames_total": 0,
+  "cross_camera_identity": "Source track names group cameras, but independent physical ID validation NOT_RUN"
+}

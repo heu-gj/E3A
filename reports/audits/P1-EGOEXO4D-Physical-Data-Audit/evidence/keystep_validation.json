@@ -1,0 +1,14 @@
+{
+  "status": "BLOCKED",
+  "execution_status": "NOT_RUN",
+  "evidence_level": "DATASET_FILE_INVENTORY",
+  "evidence_file": "evidence/dataset_inventory.json",
+  "reason": "Required real annotation files absent from checked local dataset root",
+  "raw_keystep": "NOT_FOUND",
+  "keystep_benchmark": "NOT_FOUND",
+  "parser_compatibility": "NOT_RUN",
+  "vocabulary_membership": "NOT_RUN",
+  "taxonomy_parent_links": "NOT_RUN",
+  "overlaps_gaps_duration": "NOT_RUN",
+  "event_boundary_checks": "NOT_RUN"
+}

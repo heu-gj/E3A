@@ -1,0 +1,20 @@
+{
+  "execution_timestamp_utc": "2026-11-20T19:46:36.116161+00:00",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_egoexo_data.py",
+    "-v",
+    "tests/test_action_vocabulary.py",
+    "tests/test_entity_target_collate.py",
+    "tests/test_e3a_collate.py",
+    "tests/test_egoexo_physical_audit.py"
+  ],
+  "exit_code": 0,
+  "status": "PASS",
+  "passed": 31,
+  "evidence_level": "SYNTHETIC_UNIT_CASES_AND_ARCHIVED_REAL_OBSERVATION_REGRESSIONS; NOT MISSING_MODALITY_PHYSICAL_VALIDATION",
+  "log": "logs/pytest.txt",
+  "real_source_measurements": "Separate audit script and evidence files"
+}

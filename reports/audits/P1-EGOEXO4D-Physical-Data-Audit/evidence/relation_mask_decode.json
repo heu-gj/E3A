@@ -1,0 +1,1811 @@
+{
+  "status": "PASS",
+  "scope": "Bounded sampled encoded records, not full take-mask validation; overlay alignment reviewed separately",
+  "sdk_version": "1.7.3",
+  "sdk_source_checksums": {
+    "ego4d/research/util/masks.py": "5ba3ec1690514474e91c5256a01eb9ddc74f1c617ea9e5c848f0f213de9e2c12",
+    "ego4d/research/util/lzstring.py": "a606d5f463c08773bdc3d8171c95fbd9fa0872fa60e940019482e22372d11fdf"
+  },
+  "dependency_strategy": "Existing pure-Python SDK files with existing audit NumPy/pycocotools; no installation or custom decoder",
+  "decoded_records": 70,
+  "empty_sampled_records": 0,
+  "records": [
+    {
+      "object": "cooking recipe_0",
+      "frame": 0,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 526884,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        664,
+        343,
+        1345,
+        1272
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 0,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 664,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        1355,
+        806,
+        1406,
+        844
+      ]
+    },
+    {
+      "object": "egg package_0",
+      "frame": 0,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 4396,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        1332,
+        747,
+        1407,
+        839
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 0,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 2344,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        1365,
+        921,
+        1407,
+        1002
+      ]
+    },
+    {
+      "object": "brown measuring spoon_0",
+      "frame": 0,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 361,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        1304,
+        924,
+        1321,
+        956
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 4044,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        244,
+        604,
+        334,
+        699
+      ]
+    },
+    {
+      "object": "sugar container_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 6001,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        180,
+        592,
+        286,
+        710
+      ]
+    },
+    {
+      "object": "small brown measuring spoon_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 3904,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        551,
+        879,
+        612,
+        1028
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 8659,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        349,
+        635,
+        593,
+        732
+      ]
+    },
+    {
+      "object": "black bowl_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 18962,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        528,
+        701,
+        697,
+        854
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 11204,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        162,
+        735,
+        383,
+        976
+      ]
+    },
+    {
+      "object": "egg package_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 14599,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        378,
+        604,
+        597,
+        695
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 7470,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        983,
+        903,
+        1257,
+        1066
+      ]
+    },
+    {
+      "object": "black measuring spoon_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 2533,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        528,
+        874,
+        558,
+        1011
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 12907,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        676,
+        710,
+        801,
+        848
+      ]
+    },
+    {
+      "object": "brown measuring spoon_0",
+      "frame": 7770,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 3805,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        552,
+        879,
+        612,
+        1028
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 11589,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        419,
+        196,
+        526,
+        354
+      ]
+    },
+    {
+      "object": "sugar container_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 7546,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        331,
+        174,
+        446,
+        347
+      ]
+    },
+    {
+      "object": "small brown measuring spoon_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 4091,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        913,
+        542,
+        956,
+        703
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 17383,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        577,
+        264,
+        880,
+        417
+      ]
+    },
+    {
+      "object": "black bowl_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 18089,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        870,
+        380,
+        1031,
+        522
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 7284,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        457,
+        390,
+        603,
+        615
+      ]
+    },
+    {
+      "object": "egg package_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 11750,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        617,
+        258,
+        877,
+        356
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 6700,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        1030,
+        503,
+        1121,
+        741
+      ]
+    },
+    {
+      "object": "black measuring spoon_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 3006,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        860,
+        534,
+        927,
+        679
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 14711,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        670,
+        225,
+        847,
+        330
+      ]
+    },
+    {
+      "object": "brown measuring spoon_0",
+      "frame": 15510,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 4210,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        913,
+        541,
+        956,
+        703
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 6751,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        137,
+        508,
+        243,
+        610
+      ]
+    },
+    {
+      "object": "sugar container_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 6043,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        78,
+        495,
+        178,
+        622
+      ]
+    },
+    {
+      "object": "small brown measuring spoon_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 4320,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        416,
+        790,
+        463,
+        944
+      ]
+    },
+    {
+      "object": "big white measuring cup_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 6916,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        292,
+        819,
+        400,
+        981
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 11063,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        237,
+        609,
+        459,
+        673
+      ]
+    },
+    {
+      "object": "black bowl_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 14940,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        412,
+        643,
+        557,
+        773
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 2436,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        65,
+        669,
+        240,
+        786
+      ]
+    },
+    {
+      "object": "big black measuring cup_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 6191,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        339,
+        667,
+        416,
+        813
+      ]
+    },
+    {
+      "object": "egg package_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 7376,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        275,
+        540,
+        487,
+        621
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 8500,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        551,
+        752,
+        612,
+        1010
+      ]
+    },
+    {
+      "object": "black measuring spoon_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 3489,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        395,
+        778,
+        424,
+        922
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 10104,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        302,
+        517,
+        443,
+        613
+      ]
+    },
+    {
+      "object": "brown measuring spoon_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 4193,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        415,
+        791,
+        463,
+        942
+      ]
+    },
+    {
+      "object": "sliced scallions_0",
+      "frame": 23280,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 8132,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        27,
+        682,
+        302,
+        853
+      ]
+    },
+    {
+      "object": "cooking recipe_0",
+      "frame": 31020,
+      "camera": "aria04_214-1",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        1408,
+        1408
+      ],
+      "decoded_shape": [
+        1408,
+        1408
+      ],
+      "nonzero_pixels": 26081,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.3181818181818182,
+      "scale_y": 0.3181818181818182,
+      "bbox_xyxy_source": [
+        468,
+        885,
+        702,
+        1127
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "frame": 0,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 1886,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2482,
+        1063,
+        2522,
+        1138
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 0,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 6829,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2450,
+        1070,
+        2548,
+        1246
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "frame": 0,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 288,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        1723,
+        1419,
+        1751,
+        1432
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 0,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 22040,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2283,
+        1348,
+        2536,
+        1474
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "frame": 7770,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 2076,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2477,
+        1068,
+        2583,
+        1150
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 7770,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 7848,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2442,
+        1106,
+        2537,
+        1297
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "frame": 7770,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 5846,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2030,
+        1157,
+        2446,
+        1255
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "frame": 7770,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 14368,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        1476,
+        1107,
+        1926,
+        1355
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 7770,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 28459,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2249,
+        1349,
+        2536,
+        1475
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "frame": 15510,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 8732,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2482,
+        1060,
+        2587,
+        1158
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 15510,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 5188,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2426,
+        1130,
+        2535,
+        1294
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "frame": 15510,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 3283,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2097,
+        1195,
+        2380,
+        1244
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 15510,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 11947,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2459,
+        1147,
+        2719,
+        1215
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "frame": 23280,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 8645,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2482,
+        1058,
+        2583,
+        1148
+      ]
+    },
+    {
+      "object": "big white measuring cup_0",
+      "frame": 23280,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 7532,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        1893,
+        1274,
+        2132,
+        1337
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 23280,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 5455,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2383,
+        1183,
+        2503,
+        1278
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "frame": 23280,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 2622,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2153,
+        1174,
+        2377,
+        1238
+      ]
+    },
+    {
+      "object": "big black measuring cup_0",
+      "frame": 23280,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 1160,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2127,
+        1242,
+        2389,
+        1293
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "frame": 23280,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 621,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2253,
+        1395,
+        2283,
+        1426
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 23280,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 12503,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2455,
+        1150,
+        2713,
+        1220
+      ]
+    },
+    {
+      "object": "salt container_0",
+      "frame": 31020,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 8802,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2486,
+        1070,
+        2591,
+        1175
+      ]
+    },
+    {
+      "object": "tomato omelette_0",
+      "frame": 31020,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 1930,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        1929,
+        1316,
+        2048,
+        1354
+      ]
+    },
+    {
+      "object": "big white measuring cup_0",
+      "frame": 31020,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 7553,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        1895,
+        1272,
+        2147,
+        1342
+      ]
+    },
+    {
+      "object": "scallions_0",
+      "frame": 31020,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 5261,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2384,
+        1180,
+        2504,
+        1293
+      ]
+    },
+    {
+      "object": "sliced tomato_0",
+      "frame": 31020,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 2972,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2154,
+        1175,
+        2380,
+        1241
+      ]
+    },
+    {
+      "object": "big black measuring cup_0",
+      "frame": 31020,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 1253,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        2116,
+        1240,
+        2385,
+        1289
+      ]
+    },
+    {
+      "object": "silicone spatula_0",
+      "frame": 31020,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 4014,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        1922,
+        1214,
+        2227,
+        1244
+      ]
+    },
+    {
+      "object": "white plate_0",
+      "frame": 31020,
+      "camera": "cam01",
+      "state": "POSITIVE_RECORD",
+      "source_shape": [
+        2160,
+        3840
+      ],
+      "decoded_shape": [
+        2160,
+        3840
+      ],
+      "nonzero_pixels": 3255,
+      "empty": false,
+      "adapter_sdk_equal": true,
+      "scale_x": 0.20729166666666668,
+      "scale_y": 0.2074074074074074,
+      "bbox_xyxy_source": [
+        1851,
+        1317,
+        2065,
+        1382
+      ]
+    }
+  ],
+  "clip_adapter": {
+    "status": "PASS",
+    "source_tracks": [
+      "salt container_0",
+      "sugar container_0"
+    ],
+    "frames": [
+      300,
+      16740,
+      30990
+    ],
+    "track_names": [
+      "salt container_0",
+      "sugar container_0"
+    ],
+    "ids": [
+      [
+        0,
+        0,
+        -1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "mask_valid": [
+      [
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true
+      ]
+    ],
+    "mask_shape": [
+      2,
+      3,
+      1408,
+      1408
+    ]
+  },
+  "all_encoded_masks_checked": false
+}
