@@ -5,6 +5,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 git submodule update --init --recursive
+bash scripts/apply_patches.sh
 
 python -m pip install -e ".[dev]"
 python -m pip install -e third_party/vggt-omega
