@@ -8,7 +8,7 @@ git submodule update --init --recursive
 bash scripts/apply_patches.sh
 
 python -m pip install -e ".[dev]"
-python -m pip install -e third_party/vggt-omega
+python -m pip install -e 'third_party/vggt-omega[train]'
 
 if [[ "${E3A_INSTALL_SAM3:-0}" == "1" ]]; then
   echo "Installing optional SAM 3.1 package. Verify the official Python/PyTorch/CUDA requirements first."

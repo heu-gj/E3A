@@ -35,7 +35,7 @@ If already cloned without submodules:
 Use a PyTorch/CUDA build compatible with the target machine first. The base E3A package follows VGGT-Ω's PyTorch 2.6+ requirements.
 
     python -m pip install -e ".[dev]"
-    python -m pip install -e third_party/vggt-omega
+    python -m pip install -e 'third_party/vggt-omega[train]'
 
 SAM 3.1 is optional and has stricter upstream environment guidance (Python 3.12+, PyTorch 2.10+, CUDA 12.8+ in its current README). Install it only in a compatible environment:
 
