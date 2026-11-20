@@ -1,4 +1,4 @@
-import sys
+from importlib.util import find_spec
 from pathlib import Path
 
 import pytest
@@ -8,16 +8,16 @@ from e3a.models.heads.entity_mask_head import EntityMaskHead
 
 
 def test_real_sam3_mask_predictor_contract_when_sam3_is_installed():
-    sam3_root = Path(__file__).resolve().parents[1] / "third_party" / "sam3"
-    if sam3_root.is_dir() and str(sam3_root) not in sys.path:
-        sys.path.insert(0, str(sam3_root))
-    pytest.importorskip("sam3.model.maskformer_segmentation")
+    sam3_root = Path(__file__).resolve().parents[1] / "third_party" / "sam3" / "sam3"
+    if not sam3_root.is_dir() and find_spec("sam3") is None:
+        pytest.skip("pinned SAM 3 submodule is not checked out and SAM 3 is not installed")
 
     head = EntityMaskHead(
         entity_dim=8,
         pixel_dim=8,
         mask_dim=8,
     )
+    assert head.mask_predictor.__class__.__module__ == "sam3.model.maskformer_segmentation"
     entity_tokens = torch.randn(1, 2, 3, 8, requires_grad=True)
     fused_features = torch.randn(1, 2, 8, 4, 4, requires_grad=True)
 

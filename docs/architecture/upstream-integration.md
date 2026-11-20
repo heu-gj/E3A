@@ -80,7 +80,7 @@ The adapter does not reinterpret masks or track IDs. Output tensor layout, objec
 
 The pinned upstream sam3/model/maskformer_segmentation.py::MaskPredictor accepts object queries [B,Q,C] and pixel embeddings [B,C,H,W]. It applies the upstream query MLP and computes query-pixel mask logits with an einsum, returning [B,Q,H,W].
 
-EntityMaskHead reuses this exact class and adds only the feature-dimension projections needed to connect VGGT-Ω's 2048-D cached entity tokens and 256-D fused features to the SAM 3 mask dimension. The predictor instance is newly initialized for E3A; SAM 3 checkpoint weights are not assumed to transfer to VGGT-Ω features. This does not instantiate SAM 3's separate 848M-parameter vision-language detector/tracker in the online E3A path.
+EntityMaskHead reuses this exact class and adds only the feature-dimension projections needed to connect VGGT-Ω's 2048-D cached entity tokens and 256-D fused features to the SAM 3 mask dimension. Its loader exposes only the pinned sam3/model package path so importing MaskPredictor does not execute SAM 3's root __init__ and eagerly load the full model-builder stack. The predictor instance is newly initialized for E3A; SAM 3 checkpoint weights are not assumed to transfer to VGGT-Ω features. This does not instantiate SAM 3's separate 848M-parameter vision-language detector/tracker in the online E3A path.
 
 SAM 3.1's multiplex video predictor remains an optional offline teacher/baseline. It is a separate large model with its own visual encoder, tracker memory, preprocessing, session state, checkpoint, and latency/memory costs. Do not load it alongside VGGT-Ω in the default E3A forward pass.
 

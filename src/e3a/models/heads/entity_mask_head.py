@@ -2,8 +2,65 @@
 
 from __future__ import annotations
 
+import sys
+from importlib.util import find_spec
+from pathlib import Path
+from types import ModuleType
+
 import torch
 from torch import nn
+
+
+def _register_sam3_package(name: str, package_path: Path) -> None:
+    """Expose a narrow SAM 3 package path without running its model-builder __init__."""
+    package_path = package_path.resolve()
+    package = sys.modules.get(name)
+    if package is None:
+        package = ModuleType(name)
+        package.__path__ = [str(package_path)]
+        package.__package__ = name
+        sys.modules[name] = package
+        return
+
+    existing_paths = {
+        Path(path).resolve()
+        for path in getattr(package, "__path__", [])
+    }
+    if package_path not in existing_paths:
+        raise ImportError(
+            f"{name} is already imported from a different location; "
+            "E3A requires the pinned SAM 3 source."
+        )
+
+
+def _load_sam3_mask_predictor():
+    repo_root = Path(__file__).resolve().parents[4]
+    sam3_package_root = repo_root / "third_party" / "sam3" / "sam3"
+    if not sam3_package_root.is_dir():
+        try:
+            spec = find_spec("sam3")
+        except (ImportError, ValueError):
+            spec = None
+        locations = (
+            list(spec.submodule_search_locations)
+            if spec is not None and spec.submodule_search_locations is not None
+            else []
+        )
+        if not locations:
+            raise ImportError(
+                "SAM 3 source is missing. Initialize third_party/sam3 or install "
+                "the official SAM 3 package."
+            )
+        sam3_package_root = Path(locations[0]).resolve()
+
+    # The root sam3/__init__.py imports the full model builder. E3A only needs
+    # maskformer_segmentation.MaskPredictor and its local model_misc dependency.
+    _register_sam3_package("sam3", sam3_package_root)
+    _register_sam3_package("sam3.model", sam3_package_root / "model")
+
+    from sam3.model.maskformer_segmentation import MaskPredictor
+
+    return MaskPredictor
 
 
 class EntityMaskHead(nn.Module):
@@ -39,14 +96,16 @@ class EntityMaskHead(nn.Module):
 
         if mask_predictor is None:
             try:
-                from sam3.model.maskformer_segmentation import MaskPredictor
+                mask_predictor_cls = _load_sam3_mask_predictor()
             except ImportError as exc:
                 raise ImportError(
                     "SAM 3 is required for EntityMaskHead. Initialize "
-                    "third_party/sam3 and install it using the official SAM 3 "
-                    "environment instructions."
+                    "third_party/sam3 or install the official SAM 3 package."
                 ) from exc
-            mask_predictor = MaskPredictor(hidden_dim=mask_dim, mask_dim=mask_dim)
+            mask_predictor = mask_predictor_cls(
+                hidden_dim=mask_dim,
+                mask_dim=mask_dim,
+            )
 
         self.mask_predictor = mask_predictor
 
