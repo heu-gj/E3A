@@ -164,7 +164,11 @@ def parse_egoexo_hand_pose_annotations(
                         [joint["x"], joint["y"], joint["z"]],
                         dtype=np.float64,
                     )
-                    view_count = int(joint["num_views_for_3d"])
+                    view_count = (
+                        int(joint["num_views_for_3d"])
+                        if min_views_for_3d is not None
+                        else None
+                    )
                 except (KeyError, TypeError, ValueError):
                     continue
                 if (

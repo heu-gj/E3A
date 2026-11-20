@@ -63,6 +63,7 @@ def test_egoexo_hand_pose_reorders_joints_and_transforms_world_to_camera():
 
 def test_egoexo_hand_pose_auto_annotation_can_disable_manual_view_threshold():
     annotations = make_hand_annotation(low_view_joint=("right", "wrist"))
+    annotations["12"][0]["annotation3D"]["right_wrist"].pop("num_views_for_3d")
     camera_pose = {
         "12": {
             "aria": {
