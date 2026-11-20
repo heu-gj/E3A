@@ -73,6 +73,7 @@ Acceptance: held-out entity masks/IDs and 3D states can be evaluated on both dat
 - [x] Add a lightweight pairwise InteractionHead using relative position, velocity, distance, and shared entity/hand features.
 - [x] Add masked hand-pose and matched-slot contact losses.
 - [ ] Convert HOI4D MANO and Ego-Exo4D EgoPose annotations into the canonical joint order and camera coordinate frame.
+- [ ] Produce audited source-backed hand-object contact targets (or validated pseudo-labels); current adapters do not emit interaction_targets.
 - [ ] Verify physical units and coordinate transforms on sampled real sequences.
 - [ ] Evaluate hand pose and contact on held-out data.
 
@@ -85,6 +86,7 @@ Acceptance: hand/object relation features are finite, physically interpretable, 
 - [x] Add masked target-entity, action, and time-to-event losses.
 - [ ] Generate the dataset-prefixed union action vocabulary from audited source labels.
 - [ ] Define future event onset and target-entity mapping for HOI4D and Ego-Exo4D separately.
+- [ ] Produce source-backed target-entity track labels; current anticipation builders intentionally leave target_entity_valid false, so the target-selection branch is not trained.
 - [ ] Ensure all target labels are derived only from future annotations and all model inputs stop at the observation cutoff.
 - [ ] Add no-future-leakage tests and anticipation baselines.
 

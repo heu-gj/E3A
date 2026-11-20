@@ -66,6 +66,17 @@ These are annotation-level adapters, not yet complete end-to-end Dataset/DataLoa
 
 **Empty-clip safety:** the current VidEoMT adapter treats a clip with zero GT tracks as an all-no-object example. Do not pass a zero-track window merely because masks are missing, objects are out of view, or no relation track is visible in the sampled window. Until a clip-level entity_supervision_valid field is implemented, drop such windows unless the source explicitly establishes a fully annotated empty scene. HOI4D has no explicit per-track absence/occlusion flag in its motion masks; its adapter therefore marks an instance/frame valid only when pixels are visible. Ego-Exo4D relation annotated_frames can establish explicit absence for a listed object/frame.
 
+## Current supervision status and training gate
+
+The current source adapters can supervise HOI4D/Ego-Exo4D entity masks, EgoPose hand joints, and future action/time labels. They deliberately set target_entity_valid=False because neither source adapter yet establishes which observed entity is the target of the next action. Neither adapter currently emits interaction_targets with source-backed hand-object contact labels.
+
+Consequently, on the current dataset adapters:
+- loss_target_entity is zero. PersistentEntityPool, AnticipationHead's target-entity projection/no-target branch, and its future query projection receive no direct gradient.
+- loss_interaction is zero. InteractionHead's contact_head receives no direct gradient. The pair encoder can still receive indirect gradients through action/time prediction.
+- action/time prediction, entity-mask supervision, and available EgoPose hand-pose supervision can train independently.
+
+Do not describe the current training setup as fully entity-grounded anticipation. To unlock that claim, add audited target-track mappings and contact labels (or explicitly validated pseudo-labels), then verify non-zero gradients and held-out metrics for the corresponding heads. Do not manufacture target labels by assuming the sequence's primary object is always the future action target: HOI4D tasks can involve secondary objects, and Ego-Exo4D Keystep labels do not identify an object track.
+
 ## Entity matching contract
 
 The entity target contract remains:
