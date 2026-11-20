@@ -1,8 +1,4 @@
-"""Thin adapter around the official VGGT-Ω implementation.
-
-This module intentionally does not reimplement VGGT-Ω. The upstream package is
-installed from the pinned third_party/vggt-omega submodule.
-"""
+"""Thin adapter around the official VGGT-Ω implementation."""
 
 from __future__ import annotations
 
@@ -126,7 +122,7 @@ class VGGTOmegaAdapter(nn.Module):
         *,
         extra_tokens: torch.Tensor | None = None,
     ) -> dict[str, torch.Tensor]:
-        """Run official submodules and additionally expose E3A features.
+        """Expose E3A tokens and the official DenseHead fused feature.
 
         Requires the pinned patch applied by scripts/apply_patches.sh.
         CameraHead sees only the original camera/register prefix; DenseHead sees
