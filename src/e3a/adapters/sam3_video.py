@@ -67,9 +67,9 @@ class SAM31VideoTeacher:
     ) -> dict[str, Any]:
         """Start an upstream SAM 3.1 video session."""
         request = {
+            **request_options,
             "type": "start_session",
             "resource_path": str(Path(resource_path).expanduser()),
-            **request_options,
         }
         return self.predictor.handle_request(request)
 
@@ -85,11 +85,11 @@ class SAM31VideoTeacher:
             raise ValueError("SAM 3.1 text prompt must be non-empty.")
 
         request = {
+            **request_options,
             "type": "add_prompt",
             "session_id": session_id,
             "frame_index": frame_index,
             "text": text,
-            **request_options,
         }
         return self.predictor.handle_request(request)
 
@@ -107,10 +107,10 @@ class SAM31VideoTeacher:
             )
 
         request = {
+            **request_options,
             "type": "propagate_in_video",
             "session_id": session_id,
             "propagation_direction": direction,
-            **request_options,
         }
         yield from self.predictor.handle_stream_request(request)
 

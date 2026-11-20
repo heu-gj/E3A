@@ -1,0 +1,42 @@
+name: E3A CI
+
+on:
+  push:
+    branches: ["main", "feat/**"]
+  pull_request:
+
+jobs:
+  upstream-patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Checkout pinned VGGT-Ω
+        run: git submodule update --init third_party/vggt-omega
+      - name: Check and apply E3A patch
+        run: |
+          git -C third_party/vggt-omega apply --check patches/vggt-omega/0001-extra-tokens-and-dense-features.patch
+          git -C third_party/vggt-omega apply patches/vggt-omega/0001-extra-tokens-and-dense-features.patch
+      - name: Compile E3A source
+        run: python -m compileall -q src tests scripts
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU PyTorch and E3A
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[dev]"
+      - name: Run tests
+        run: pytest -q
