@@ -18,6 +18,8 @@ from typing import Any
 import numpy as np
 import torch
 
+from e3a.data.actions import action_label_key
+
 
 EGOEXO_HAND_ORDER = ("right", "left")
 EGOEXO_HAND_JOINTS = (
@@ -470,7 +472,7 @@ def build_egoexo_keystep_vocabulary(
 def build_egoexo_anticipation_target(
     segments: Sequence[Mapping[str, Any]],
     observation_end_time: float,
-    action_vocabulary: Mapping[int, int],
+    action_vocabulary: Mapping[Any, int],
 ) -> dict[str, Any]:
     """Create future action/time labels without exposing future frames as inputs.
 

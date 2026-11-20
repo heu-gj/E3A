@@ -16,6 +16,8 @@ from typing import Any
 import numpy as np
 import torch
 
+from e3a.data.actions import action_label_key
+
 
 # Official HOI4D 4D-segmentation mappings. Entry i corresponds to palette color i+1.
 _CATEGORY_TO_SEMANTIC: dict[str, tuple[int, ...]] = {
@@ -376,14 +378,19 @@ def build_hoi4d_anticipation_target(
         }
 
     event_start, event_name = min(future_events, key=lambda item: item[0])
-    if event_name in action_vocabulary:
+    prefixed_key = action_label_key("hoi4d", event_name)
+    if prefixed_key in action_vocabulary:
+        action_label = int(action_vocabulary[prefixed_key])
+        action_valid = True
+    elif event_name in action_vocabulary:
+        # Compatibility for an HOI4D-only vocabulary.
         action_label = int(action_vocabulary[event_name])
-        if action_label < 0:
-            raise ValueError("HOI4D action vocabulary indices must be non-negative.")
         action_valid = True
     else:
         action_label = -1
         action_valid = False
+    if action_valid and action_label < 0:
+        raise ValueError("HOI4D action vocabulary indices must be non-negative.")
     return {
         "target_entity_track_id": -1,
         "target_entity_valid": False,

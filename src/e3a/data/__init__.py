@@ -1,5 +1,6 @@
 """E3A data batching and source-annotation utilities."""
 
+from e3a.data.actions import action_label_key, build_dataset_prefixed_action_vocabulary
 from e3a.data.collate import collate_e3a_batch, collate_entity_targets
 from e3a.data.egoexo import (
     build_egoexo_anticipation_target,
@@ -22,6 +23,8 @@ from e3a.data.hoi4d import (
 )
 
 __all__ = [
+    "action_label_key",
+    "build_dataset_prefixed_action_vocabulary",
     "collate_entity_targets",
     "collate_e3a_batch",
     "hoi4d_color_palette",

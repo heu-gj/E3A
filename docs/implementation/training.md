@@ -59,7 +59,9 @@ Missing task annotations are represented by zero placeholders and false validity
 - parse_egoexo_keystep_segments reads the raw take-level start_time/end_time/step_unique_id schema. build_egoexo_keystep_vocabulary builds a deterministic vocabulary from the training split only; keep its source IDs dataset-prefixed when combining with HOI4D.
 - build_egoexo_anticipation_target selects the first segment with start_time strictly after the observation cutoff. It creates action/time labels from future annotations while leaving target-entity supervision invalid because the keystep source does not identify the interacted object. Unknown action IDs disable only action loss, not time-to-event loss.
 
-These are annotation-level adapters, not yet complete end-to-end Dataset/DataLoader implementations. Video frame decoding, release-version indexing, cross-source coordinate/unit auditing, action-vocabulary construction, event-window sampling, and source-video-level split generation remain gated.
+build_dataset_prefixed_action_vocabulary combines source labels without merging same-named classes across datasets. Use keys such as egoexo4d::step_unique_id=843 and hoi4d::pour. The Ego-Exo4D and HOI4D anticipation builders accept these prefixed keys; their dataset-only vocabulary helpers remain available for isolated experiments.
+
+These are annotation-level adapters, not yet complete end-to-end Dataset/DataLoader implementations. Video frame decoding, release-version indexing, cross-source coordinate/unit auditing, building the actual vocabulary from audited training annotations, event-window sampling, and source-video-level split generation remain gated.
 
 ## Entity matching contract
 

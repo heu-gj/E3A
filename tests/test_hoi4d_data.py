@@ -162,3 +162,15 @@ def test_hoi4d_anticipation_unknown_action_keeps_time_target_only():
     assert target["time_valid"] is True
     assert target["time_to_event"] == 1.0
     assert target["target_entity_valid"] is False
+
+
+
+def test_hoi4d_anticipation_uses_dataset_prefixed_action_vocabulary():
+    target = build_hoi4d_anticipation_target(
+        [{"event": "pour", "start_time": 2.0, "end_time": 3.0}],
+        observation_end_time=1.0,
+        action_vocabulary={"hoi4d::pour": 5},
+    )
+
+    assert target["action_label"] == 5
+    assert target["action_valid"] is True
