@@ -31,6 +31,10 @@ class VidEoMTMaskCriterion(nn.Module):
     Per-frame objectness is mean-pooled over observed frames to form a stable
     clip-level entity logit, matching the clip-consistent class assignment.
 
+    Training batches store entity_targets as padded tensors: labels [B,Nmax],
+    ids [B,Nmax,T], masks [B,Nmax,T,H,W], and track_counts [B]. This keeps
+    targets aligned with the upstream trainer's recursive batch chunker.
+
     This adapter does not infer dataset IDs, action labels, or visibility rules.
     The dataset adapter must establish those semantics before supplying targets.
     """
@@ -149,6 +153,89 @@ class VidEoMTMaskCriterion(nn.Module):
     def matcher(self) -> nn.Module:
         upstream_matcher = getattr(self.criterion, "matcher", None)
         return upstream_matcher if upstream_matcher is not None else self._matcher_fallback
+
+    def _unpack_batched_targets(
+        self,
+        targets: Mapping[str, Any],
+        *,
+        batch_size: int,
+        num_frames: int,
+        device: torch.device,
+    ) -> list[dict[str, torch.Tensor]]:
+        """Unpack padded tensor targets that remain batch-aligned under upstream chunking."""
+        required = {"labels", "ids", "masks", "track_counts"}
+        missing = required.difference(targets)
+        if missing:
+            raise ValueError(
+                f"batched entity_targets is missing keys: {sorted(missing)}"
+            )
+
+        labels = targets["labels"]
+        track_ids = targets["ids"]
+        masks = targets["masks"]
+        track_counts = targets["track_counts"]
+        if not all(
+            torch.is_tensor(value)
+            for value in (labels, track_ids, masks, track_counts)
+        ):
+            raise TypeError("batched entity_targets values must all be torch tensors.")
+        if labels.ndim != 2:
+            raise ValueError("batched labels must have shape [B,Nmax].")
+        if track_ids.ndim != 3 or track_ids.shape[2] != num_frames:
+            raise ValueError("batched ids must have shape [B,Nmax,T].")
+        if masks.ndim != 5 or masks.shape[2] != num_frames:
+            raise ValueError("batched masks must have shape [B,Nmax,T,H,W].")
+        if track_counts.ndim != 1:
+            raise ValueError("track_counts must have shape [B].")
+        if (
+            labels.shape[0] != batch_size
+            or track_ids.shape[:2] != labels.shape
+            or masks.shape[:2] != labels.shape
+            or track_counts.shape[0] != batch_size
+        ):
+            raise ValueError("batched entity_targets must align with the image batch.")
+        if min(masks.shape[-2:]) <= 0:
+            raise ValueError("batched target masks must have non-empty spatial dimensions.")
+        integer_dtypes = (torch.int8, torch.int16, torch.int32, torch.int64)
+        if labels.dtype not in integer_dtypes:
+            raise TypeError("batched labels must use an integer dtype.")
+        if track_ids.dtype not in integer_dtypes:
+            raise TypeError("batched ids must use an integer dtype.")
+        if track_counts.dtype not in integer_dtypes:
+            raise TypeError("track_counts must use an integer dtype.")
+        if any(
+            value.device != device
+            for value in (labels, track_ids, masks, track_counts)
+        ):
+            raise ValueError("predictions and all batched target tensors must share one device.")
+
+        max_tracks = labels.shape[1]
+        clips: list[dict[str, torch.Tensor]] = []
+        for batch_index in range(batch_size):
+            count = int(track_counts[batch_index].item())
+            if count < 0 or count > max_tracks:
+                raise ValueError(
+                    f"track_counts[{batch_index}]={count} is outside [0,{max_tracks}]."
+                )
+            if count < max_tracks:
+                padded_ids = track_ids[batch_index, count:]
+                padded_masks = masks[batch_index, count:].to(torch.float32)
+                padded_labels = labels[batch_index, count:]
+                if padded_ids.numel() and not torch.all(padded_ids == -1):
+                    raise ValueError("padded entity ID rows must be filled with -1.")
+                if padded_masks.numel() and torch.any(padded_masks != 0):
+                    raise ValueError("padded entity mask rows must be all zero.")
+                if padded_labels.numel() and not torch.all(padded_labels == 0):
+                    raise ValueError("padded entity label rows must be filled with 0.")
+
+            clips.append(
+                {
+                    "labels": labels[batch_index, :count],
+                    "ids": track_ids[batch_index, :count],
+                    "masks": masks[batch_index, :count],
+                }
+            )
+        return clips
 
     def _validate_targets(
         self,
@@ -294,16 +381,18 @@ class VidEoMTMaskCriterion(nn.Module):
 
         VGGT Trainer calls every criterion as loss(predictions, batch,
         schedule_progress). In that form, the clip target list must be stored
-        under batch["entity_targets"].
+        under batch["entity_targets"]. In training, that value is a padded tensor
+        mapping with labels, ids, masks, and track_counts; a per-clip target list
+        is also accepted for direct use and unit tests.
         """
         if isinstance(batch_or_targets, Mapping):
             if "entity_targets" not in batch_or_targets:
                 raise ValueError(
-                    "VGGT Trainer batches must contain an 'entity_targets' clip list."
+                    "VGGT Trainer batches must contain an 'entity_targets' target mapping."
                 )
-            targets = batch_or_targets["entity_targets"]
+            raw_targets = batch_or_targets["entity_targets"]
         else:
-            targets = batch_or_targets
+            raw_targets = batch_or_targets
 
         if schedule_progress is not None and not math.isfinite(float(schedule_progress)):
             raise ValueError("schedule_progress must be finite when supplied.")
@@ -330,6 +419,16 @@ class VidEoMTMaskCriterion(nn.Module):
             raise ValueError("mask_logits and objectness_logits must share one device.")
         if not torch.isfinite(mask_logits).all() or not torch.isfinite(objectness_logits).all():
             raise ValueError("mask and objectness logits must be finite.")
+
+        if isinstance(raw_targets, Mapping):
+            targets = self._unpack_batched_targets(
+                raw_targets,
+                batch_size=batch_size,
+                num_frames=num_frames,
+                device=mask_logits.device,
+            )
+        else:
+            targets = raw_targets
 
         flattened_targets, any_visible = self._validate_targets(
             targets,
