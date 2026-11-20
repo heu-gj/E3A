@@ -18,9 +18,7 @@ jobs:
       - name: Checkout pinned VGGT-Ω
         run: git submodule update --init third_party/vggt-omega
       - name: Check and apply E3A patch
-        run: |
-          git -C third_party/vggt-omega apply --check patches/vggt-omega/0001-extra-tokens-and-dense-features.patch
-          git -C third_party/vggt-omega apply patches/vggt-omega/0001-extra-tokens-and-dense-features.patch
+        run: bash scripts/apply_patches.sh
       - name: Compile E3A source
         run: python -m compileall -q src tests scripts
 
