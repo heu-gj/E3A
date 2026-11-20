@@ -65,7 +65,7 @@ The adapter does not reinterpret masks or track IDs. Output tensor layout, objec
 
 SAM 3.1 checkpoint downloads may require Hugging Face access approval/authentication. Do not commit checkpoints.
 
-## VidEoMT and EntitySAM
+## SAM 3 MaskPredictor reuse\n\nThe E3A EntityMaskHead imports MaskPredictor from sam3/model/maskformer_segmentation.py. It projects VGGT-Ω's 2048-D cached entity token to the SAM 3 mask embedding dimension and passes the projected query plus VGGT-Ω's fused dense feature to the upstream predictor. The MaskPredictor architecture is reused directly; SAM 3 checkpoint weights are not assumed to transfer to VGGT-Ω feature distributions.\n\n## VidEoMT and EntitySAM
 
 VidEoMT is an MIT-licensed reference implementation for video query propagation and mask training. Its current README also points to newer PMT/LVMT work; benchmark current alternatives before adopting its architecture.
 

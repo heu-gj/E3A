@@ -62,4 +62,4 @@ No project-wide E3A license is declared yet. Each upstream's terms continue to a
 
 ## Current implementation status
 
-The initial foundation now includes pinned upstream revisions, thin official-API adapters, an optional VGGT-Ω token/fused-feature patch, an E3A token bank, and CPU unit/CI tests. The full E3A action-anticipation model is not yet claimed to be trainable. The next gates are upstream patch validation, no-extra-token parity on an approved checkpoint, and dataset/label auditing. See docs/implementation/roadmap.md.
+The initial foundation now includes pinned upstream revisions, thin official-API adapters, an optional VGGT-Ω token/fused-feature patch, an E3A token bank, a SAM 3 MaskPredictor adapter, official VGGT-Ω camera/depth unprojection, and CPU unit/CI tests. The full E3A action-anticipation model is not yet claimed to be trainable. The next gates are upstream patch validation, no-extra-token parity on an approved checkpoint, and dataset/label auditing. See docs/implementation/roadmap.md.

@@ -13,7 +13,7 @@ The architecture is organized around one geometry-aware video representation, no
 | Multi-frame geometry features, camera pose, dense depth | Official VGGT-Ω |
 | Optional video mask generation and tracking baseline/teacher | Official SAM 3.1 |
 | Query-propagation research baseline | Official VidEoMT |
-| Entity-to-future-target association | E3A-owned task head and matching/loss code |
+| Entity mask prediction | E3A dimension adapter plus the official SAM 3 MaskPredictor implementation |\n| Entity-to-future-target association | E3A-owned task head and matching/loss code |
 | 3D human-object relative state | E3A-owned geometry adapter using VGGT-Ω outputs |
 | Future action and event-time prediction | E3A-owned anticipation head |
 | Dataset semantics, event windows, split policy | E3A-owned audited data pipeline |
@@ -22,7 +22,7 @@ The architecture is organized around one geometry-aware video representation, no
 
 SAM 3.1 and VGGT-Ω each contain a large vision encoder. The initial E3A online path must not load both by default. Use SAM 3.1 offline to create a baseline, inspect annotations, or generate teacher outputs where allowed. The E3A model's primary visual path remains VGGT-Ω.
 
-SAM 3.1 is not a drop-in patch to VGGT-Ω. Its predictor has its own detector, tracker, memory, video-session lifecycle, image preprocessing, and checkpoint. If later experiments justify joint use, it must be introduced as an explicit two-model variant with separate latency and memory accounting.
+The E3A EntityMaskHead reuses SAM 3's official MaskPredictor class, with a small projection from VGGT-Ω entity features to the mask embedding dimension. This reuses the upstream query-to-mask implementation; it does not claim that SAM 3 checkpoint weights transfer to VGGT-Ω features.\n\nSAM 3.1 is not a drop-in patch to VGGT-Ω. Its predictor has its own detector, tracker, memory, video-session lifecycle, image preprocessing, and checkpoint. If later experiments justify joint use, it must be introduced as an explicit two-model variant with separate latency and memory accounting.
 
 ## VGGT-Ω integration boundary
 

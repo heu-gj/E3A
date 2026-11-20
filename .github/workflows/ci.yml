@@ -31,10 +31,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install CPU PyTorch and E3A
+      - name: Checkout pinned VGGT-Ω utilities
+        run: git submodule update --init third_party/vggt-omega
+      - name: Install CPU PyTorch, E3A, and VGGT-Ω package
         run: |
           python -m pip install --upgrade pip
           python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
           python -m pip install -e ".[dev]"
+          python -m pip install -e third_party/vggt-omega
       - name: Run tests
         run: pytest -q
