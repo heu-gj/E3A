@@ -71,6 +71,24 @@ def test_hoi4d_unseen_instance_is_unannotated_not_a_negative_mask():
     assert targets["masks"][0, 1].sum().item() == 0
 
 
+def test_hoi4d_2d_decoder_rejects_placeholder_categories_not_in_label_csv():
+    with pytest.raises(ValueError, match="16 released HOI4D 2D categories"):
+        decode_hoi4d_motion_mask(np.zeros((1, 1, 3), dtype=np.uint8), "C10")
+
+
+def test_hoi4d_action_parser_rejects_placeholder_category_without_2d_labels():
+    with pytest.raises(ValueError, match="16 released HOI4D 2D categories"):
+        parse_hoi4d_action_segments(
+            {
+                "duration": 2.0,
+                "event": "pour",
+                "startTime": 0.5,
+                "endTime": 1.0,
+            },
+            category="C10",
+        )
+
+
 def test_hoi4d_decoder_rejects_unknown_non_background_palette_colors():
     rgb = np.zeros((1, 1, 3), dtype=np.uint8)
     rgb[0, 0] = (123, 45, 67)

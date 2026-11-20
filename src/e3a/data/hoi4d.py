@@ -68,6 +68,9 @@ _CATEGORY_TO_INSTANCE: dict[str, tuple[int, ...]] = {
     "C20": (1, 2, 3),
 }
 HOI4D_HAND_SEMANTIC_ID = 47
+HOI4D_2D_CATEGORIES = frozenset(
+    {"C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C11", "C12", "C13", "C14", "C17", "C18", "C20"}
+)
 
 
 def hoi4d_color_palette(size: int = 256) -> np.ndarray:
@@ -103,8 +106,10 @@ def decode_hoi4d_motion_mask(
 
     Palette index zero is background. Unknown non-background colors fail closed.
     """
-    if category not in _CATEGORY_TO_SEMANTIC:
-        raise ValueError(f"Unsupported HOI4D category code: {category!r}")
+    if category not in HOI4D_2D_CATEGORIES or category not in _CATEGORY_TO_SEMANTIC:
+        raise ValueError(
+            f"Unsupported HOI4D 2D motion-segmentation category: {category!r}"
+        )
     if _CATEGORY_TO_SEMANTIC[category] == () or (
         len(_CATEGORY_TO_SEMANTIC[category]) != len(_CATEGORY_TO_INSTANCE[category])
     ):
@@ -245,11 +250,9 @@ def parse_hoi4d_action_segments(
         raise TypeError("HOI4D action annotation root must be an object.")
     if category is not None and (
         not isinstance(category, str)
-        or not category.startswith("C")
-        or not category[1:].isdigit()
-        or not 1 <= int(category[1:]) <= 20
+        or category not in HOI4D_2D_CATEGORIES
     ):
-        raise ValueError("category must be a HOI4D code from 'C1' through 'C20'.")
+        raise ValueError("category must be one of the 16 released HOI4D 2D categories.")
 
     info = annotation.get("info", {})
     if info is not None and not isinstance(info, Mapping):
@@ -355,10 +358,9 @@ def build_hoi4d_action_vocabulary(
                 if (
                     not isinstance(category, str)
                     or not category.startswith("C")
-                    or not category[1:].isdigit()
-                    or not 1 <= int(category[1:]) <= 20
+                    or category not in HOI4D_2D_CATEGORIES
                 ):
-                    raise ValueError("HOI4D segment category must be a code from C1 through C20.")
+                    raise ValueError("HOI4D segment category must be one of the 16 released 2D categories.")
                 label = f"{category}::{label.strip()}"
             else:
                 label = label.strip()
@@ -408,8 +410,7 @@ def build_hoi4d_anticipation_target(
         if category is not None and (
             not isinstance(category, str)
             or not category.startswith("C")
-            or not category[1:].isdigit()
-            or not 1 <= int(category[1:]) <= 20
+            or category not in HOI4D_2D_CATEGORIES
         ):
             raise ValueError(f"segments[{index}] has an invalid HOI4D category.")
         if start_time > cutoff:
