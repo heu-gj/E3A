@@ -2,10 +2,10 @@
   "repository": "https://github.com/heu-gj/E3A",
   "branch": "audit/p1-hoi4d-physical-data",
   "base_commit": "9f96d5813655e0fb9ceebad107b2ff2d1d2d5d07",
-  "current_commit": "dccda559c1cdbaac9f88e1a7717fd5710a0d0fa3",
+  "current_commit": "3f666d566c1a4e21d2d499350a93f2bcf16e623d",
   "audit_commit": "a1457730abc8dd36e91b1b5a01cc56dc8799b648",
   "commit_semantics": "current_commit is the archival parent HEAD at sealing; final pushed HEAD is external to this self-contained manifest.",
-  "execution_timestamp_utc": "2026-11-20T18:34:38.400887+00:00",
+  "execution_timestamp_utc": "2026-11-20T18:52:24.630303+00:00",
   "original_audit_timestamp_utc": "UNKNOWN (local date 2026-11-21 recorded)",
   "dataset_version": "UNKNOWN (local release directories; no version manifest)",
   "audited_sequence": "ZY20210800001/H1/C20/N30/S295/s04/T4",
@@ -7647,8 +7647,8 @@
     },
     {
       "archive_path": "logs/followup_execution.json",
-      "bytes": 1246,
-      "sha256": "1545ac12636180a0685c2124d0205876e200111f20e96ba4a3210a17d3e61683"
+      "bytes": 1625,
+      "sha256": "b348eef3f4bdfd1516781f78f96932cf4f7ead88df17267c9a447f81bb8c34aa"
     },
     {
       "archive_path": "logs/followup_pytest.txt",
@@ -7967,7 +7967,7 @@
     "evidence/objpose_statistics.json": "ddabc51eb1423cfd72e17200b1741efd79265d2e0ca50ccb14dff89952ad0839",
     "evidence/observations.json": "c95e0c01668838802a389739db08cd76f3c0c988419e4652b1ac83d4a846aa8b",
     "logs/archival_provenance.json": "5be4bed097ebd18522d154de6adc14bcd5621985a41089f1cd0300502468fb96",
-    "logs/followup_execution.json": "1545ac12636180a0685c2124d0205876e200111f20e96ba4a3210a17d3e61683",
+    "logs/followup_execution.json": "b348eef3f4bdfd1516781f78f96932cf4f7ead88df17267c9a447f81bb8c34aa",
     "logs/followup_pytest.txt": "012eb292c0586e32eb9ebbf8ff0d980d131b4725d9abb450e648f84d90ea3f9f",
     "logs/followup_tests.json": "210d16679d06c7082ebb6fa7d76beb3055c96148b68a169994fa5c9bebc63f14",
     "logs/pr_description.md": "cb8f1e74560686e2e7ca6640ebe84a0eae355ccb826bd17c5464942a370e02f3",

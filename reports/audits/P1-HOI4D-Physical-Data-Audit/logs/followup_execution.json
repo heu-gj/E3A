@@ -26,6 +26,10 @@
     "state_at_read": "open",
     "merged_at_read": false,
     "description_payload": "logs/pr_description.md",
-    "description_update_status": "BLOCKED: API authentication unavailable; prepared payload preserved"
+    "description_update_status": "PASS: updated existing PR1 and verified exact match to archived payload",
+    "description_verified_at_github_updated_at": "2026-11-20T18:51:17Z",
+    "description_matches_archived_payload": true,
+    "verified_audit_content_commit": "3f666d566c1a4e21d2d499350a93f2bcf16e623d",
+    "authentication_check": "PASS: official gh2.105.0 authenticated as heu-gj; successful existing-PR body update confirms write access; no credential material archived"
   }
 }
