@@ -45,7 +45,7 @@ Acceptance: pretrained geometry outputs remain unchanged when E3A tokens are abs
 - [x] Add differentiable soft-mask pooling for world-space entity centers and covariance.
 - [ ] Validate the real SAM 3 MaskPredictor import and forward pass in the target GPU environment.
 - [ ] Decide whether initial supervision comes from dataset GT masks, SAM 3.1 teacher outputs, or both.
-- [ ] Implement clip-level identity matching only after track-ID semantics are validated.
+- [ ] Integrate VidEoMT's VideoHungarianMatcher_Consistent and VideoSetCriterion after validating the dataset/output contract and optional Detectron2 dependencies.
 - [ ] Add dataset-backed tests for empty masks, partial visibility, occlusion, invalid depth, and coordinate transforms.
 
 Acceptance: per-clip entity masks/IDs and 3D states can be evaluated against held-out annotations.

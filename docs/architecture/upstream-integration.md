@@ -59,7 +59,7 @@ The E3A adapter delegates to this patched official top-level forward. It does no
 
 Use encoding_to_camera from upstream for pose decoding. It returns camera-from-world extrinsics in the OpenCV convention. Use the official unprojection helper, which inverts those extrinsics and returns world-space points. The official helper uses pixel centers (u+0.5, v+0.5). Do not hand-roll a different camera parameter decoder or pixel-center convention.
 
-depth_conf is not a calibrated probability in [0,1]; the official DenseHead emits 1 + exp(confidence_logits), and the official depth loss uses it as a learned positive weighting term. Do not multiply 3D pooling weights by depth_conf as though larger values were probabilities. Any use of this field must follow an explicitly validated calibration/uncertainty interpretation.
+depth_conf is not a calibrated probability in [0,1]; the official DenseHead emits 1 + exp(confidence_logits), and the official depth loss uses it as a learned positive weighting term. E3A's current soft-mask 3D pooling therefore uses valid depth and finite world points, not depth_conf as a probability weight.
 
 ## SAM 3.1
 
@@ -86,8 +86,29 @@ SAM 3.1's multiplex video predictor remains an optional offline teacher/baseline
 
 SAM 3.1 checkpoints may require Hugging Face access approval/authentication. Do not commit checkpoints or access tokens.
 
-## VidEoMT and EntitySAM
+## VidEoMT: reuse its consistent video matcher and criterion
 
-VidEoMT is MIT-licensed and is retained as an optional reference for video query propagation and mask training. Its matcher is a frame-batched video-segmentation matcher, not a drop-in replacement for E3A's clip-level identity matching; adapt only after validating E3A track-ID semantics.
+Pinned upstream: tue-mps/videomt at 40a4fa4a048b00f97f36b3eee66ab62a4e1bea23.
+
+Relevant upstream implementations:
+
+- videomt/modeling/matcher.py::VideoHungarianMatcher_Consistent
+- videomt/criterion_videomt.py::VideoSetCriterion
+
+VideoHungarianMatcher_Consistent is not merely a frame-independent matcher. It:
+
+1. Groups flattened frame entries into clips using the configured frame count.
+2. Finds the first frame in which each ground-truth track ID appears.
+3. Computes Hungarian matching for the newly appearing tracks using class cost and mask/dice costs over the full predicted and ground-truth tubes.
+4. Prevents already assigned query indices from being reused for later tracks in the same clip.
+5. Returns the same clip-level query/target assignment for every frame entry in that clip.
+
+This is directly relevant to E3A's clip-local Entity Slots and should be the first implementation candidate. Prefer adapting this official matcher and VideoSetCriterion over writing a new Hungarian mask matcher.
+
+It is not a zero-change drop-in. The upstream contract expects flattened B*T entries, per-frame target IDs indicating presence/absence, full-tube target masks [N,T,H,W], and repeated tube predictions [Q,T,H,W] in each frame entry. It also imports Detectron2 point sampling/distributed utilities and SciPy's linear_sum_assignment. Before integration, E3A's dataset adapter must prove that GT track IDs, missing-frame sentinels, class labels, and tube masks map exactly to this contract. The optional Detectron2 dependency and its PyTorch/CUDA compatibility must also be validated.
+
+VidEoMT is MIT-licensed. Keep it as a pinned submodule and import the upstream matcher/criterion where practical; keep only the E3A-specific target/output adapter in this repository.
+
+## EntitySAM
 
 EntitySAM is a useful method reference for automatic entity discovery, but its public repository has no repository-level LICENSE file. Do not copy or vendor its implementation until reuse permission is confirmed.
