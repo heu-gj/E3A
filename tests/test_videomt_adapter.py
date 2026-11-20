@@ -295,3 +295,144 @@ def test_adapter_rejects_trainer_batch_without_entity_targets():
             {"images": torch.rand(1, 2, 3, 8, 8)},
             schedule_progress=0.0,
         )
+
+
+
+def _install_detectron2_point_sampling_stubs(monkeypatch):
+    """Replace only Detectron2's point-sampling helpers for CPU upstream tests."""
+    import sys
+    from types import ModuleType
+
+    import torch.nn.functional as F
+
+    detectron2 = ModuleType("detectron2")
+    detectron2.__path__ = []
+    utils = ModuleType("detectron2.utils")
+    utils.__path__ = []
+    comm = ModuleType("detectron2.utils.comm")
+    comm.get_world_size = lambda: 1
+
+    projects = ModuleType("detectron2.projects")
+    projects.__path__ = []
+    point_rend = ModuleType("detectron2.projects.point_rend")
+    point_rend.__path__ = []
+    point_features = ModuleType("detectron2.projects.point_rend.point_features")
+
+    def point_sample(input_tensor, point_coords, align_corners=False):
+        grid = point_coords.mul(2.0).sub(1.0).unsqueeze(1)
+        return F.grid_sample(
+            input_tensor,
+            grid,
+            align_corners=align_corners,
+        ).squeeze(2)
+
+    def get_uncertain_point_coords_with_randomness(
+        logits,
+        uncertainty_func,
+        num_points,
+        oversample_ratio,
+        importance_sample_ratio,
+    ):
+        batch_size = logits.shape[0]
+        sampled_count = max(int(num_points * oversample_ratio), num_points)
+        uncertain_count = min(
+            int(num_points * importance_sample_ratio),
+            num_points,
+        )
+        random_count = num_points - uncertain_count
+        sampled_coords = torch.rand(
+            batch_size,
+            sampled_count,
+            2,
+            device=logits.device,
+            dtype=logits.dtype,
+        )
+        sampled_logits = point_sample(
+            logits,
+            sampled_coords,
+            align_corners=False,
+        )
+        uncertainty = uncertainty_func(sampled_logits).squeeze(1)
+        if uncertain_count:
+            indices = uncertainty.topk(uncertain_count, dim=1).indices
+            uncertain_coords = sampled_coords.gather(
+                1,
+                indices.unsqueeze(-1).expand(-1, -1, 2),
+            )
+        else:
+            uncertain_coords = sampled_coords[:, :0]
+        random_coords = torch.rand(
+            batch_size,
+            random_count,
+            2,
+            device=logits.device,
+            dtype=logits.dtype,
+        )
+        return torch.cat((uncertain_coords, random_coords), dim=1)
+
+    point_features.point_sample = point_sample
+    point_features.get_uncertain_point_coords_with_randomness = (
+        get_uncertain_point_coords_with_randomness
+    )
+
+    for name, module in {
+        "detectron2": detectron2,
+        "detectron2.utils": utils,
+        "detectron2.utils.comm": comm,
+        "detectron2.projects": projects,
+        "detectron2.projects.point_rend": point_rend,
+        "detectron2.projects.point_rend.point_features": point_features,
+    }.items():
+        monkeypatch.setitem(sys.modules, name, module)
+
+
+def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_stubs(
+    monkeypatch,
+):
+    from pathlib import Path
+    import sys
+
+    pytest.importorskip("scipy")
+    repo_root = Path(__file__).resolve().parents[1]
+    videomt_root = repo_root / "third_party" / "videomt"
+    if not videomt_root.is_dir():
+        pytest.skip("pinned VidEoMT submodule is not checked out")
+
+    try:
+        import detectron2  # noqa: F401
+    except ImportError:
+        _install_detectron2_point_sampling_stubs(monkeypatch)
+
+    if str(videomt_root) not in sys.path:
+        sys.path.insert(0, str(videomt_root))
+
+    adapter = VidEoMTMaskCriterion(
+        frames=3,
+        num_points=32,
+        loss_weights={"loss_ce": 1.0, "loss_mask": 1.0, "loss_dice": 1.0},
+    )
+    assert adapter.matcher.__class__.__name__ == "VideoHungarianMatcher_Consistent"
+    assert adapter.criterion.__class__.__name__ == "VideoSetCriterion"
+
+    target = {
+        "labels": torch.tensor([0], dtype=torch.int64),
+        "ids": torch.tensor([[71, -1, 71]], dtype=torch.int64),
+        "masks": torch.zeros(1, 3, 8, 8),
+    }
+    target["masks"][0, 0, 1:4, 1:4] = 1
+    target["masks"][0, 2, 2:6, 2:6] = 1
+
+    mask_logits = torch.randn(1, 3, 2, 8, 8, requires_grad=True)
+    objectness_logits = torch.randn(1, 3, 2, requires_grad=True)
+    losses = adapter(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [target],
+    )
+
+    assert {"loss_ce", "loss_mask", "loss_dice", "loss_objective"} <= set(losses)
+    assert all(torch.isfinite(value) for value in losses.values())
+    losses["loss_objective"].backward()
+    assert mask_logits.grad is not None
+    assert objectness_logits.grad is not None
+    assert torch.isfinite(mask_logits.grad).all()
+    assert torch.isfinite(objectness_logits.grad).all()

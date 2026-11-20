@@ -381,9 +381,8 @@ class VidEoMTMaskCriterion(nn.Module):
 
         VGGT Trainer calls every criterion as loss(predictions, batch,
         schedule_progress). In that form, a batch-first padded target mapping
-        must be stored under batch["entity_targets"]. A per-clip target list
-        mapping with labels, ids, masks, and track_counts; a per-clip target list
-        is also accepted for direct use and unit tests.
+        must be stored under batch["entity_targets"]. A per-clip target list is
+        also accepted for direct use and unit tests.
         """
         if isinstance(batch_or_targets, Mapping):
             if "entity_targets" not in batch_or_targets:

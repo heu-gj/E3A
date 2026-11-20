@@ -115,7 +115,7 @@ The adapter fails closed on changing/duplicate track IDs, invalid class labels, 
 
 For training with VGGT-Ω gradient accumulation, the batch stores these clip targets as a tensor mapping: labels [B,Nmax], ids [B,Nmax,T], masks [B,Nmax,T,H,W], and track_counts [B]. Every tensor is batch-first so the upstream recursive chunker splits clips, not per-clip track rows. VidEoMTMaskCriterion unpacks this padded mapping before validation and matching.
 
-VidEoMT imports Detectron2 point-sampling/distributed utilities and SciPy's linear_sum_assignment. Those dependencies and their PyTorch/CUDA compatibility must be validated in the target environment. The optional real-upstream integration test is skipped when Detectron2 is unavailable; injected-contract tests run in the CPU CI.
+VidEoMT imports Detectron2 point-sampling/distributed utilities and SciPy's linear_sum_assignment. CPU CI checks out the pinned VidEoMT source and runs its actual matcher and criterion with test-only PyTorch implementations at the Detectron2 point-sampling boundary. This validates the upstream matching/criterion logic without claiming Detectron2 compatibility. A separate integration test using the real Detectron2 package remains skipped when Detectron2 is unavailable; full dependency and PyTorch/CUDA compatibility must still be validated in the target environment.
 
 VidEoMT is MIT-licensed. Keep it as a pinned submodule and import the upstream matcher/criterion; keep only the E3A-specific shape/semantic adapter in this repository.
 
