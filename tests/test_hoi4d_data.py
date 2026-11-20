@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
 
+from e3a.data.actions import build_dataset_prefixed_action_vocabulary
 from e3a.data.hoi4d import (
     build_hoi4d_action_vocabulary,
     build_hoi4d_anticipation_target,
@@ -173,4 +174,34 @@ def test_hoi4d_anticipation_uses_dataset_prefixed_action_vocabulary():
     )
 
     assert target["action_label"] == 5
+    assert target["action_valid"] is True
+
+
+
+def test_hoi4d_action_vocabulary_keeps_category_specific_same_named_actions_separate():
+    annotation = {
+        "duration": 4.0,
+        "event": "Pick and place",
+        "startTime": 1.0,
+        "endTime": 2.0,
+    }
+    c1_segments = parse_hoi4d_action_segments(annotation, category="C1")
+    c2_segments = parse_hoi4d_action_segments(annotation, category="C2")
+    hoi4d_vocabulary = build_hoi4d_action_vocabulary(
+        [c1_segments, c2_segments]
+    )
+    combined_vocabulary = build_dataset_prefixed_action_vocabulary(
+        {"hoi4d": list(hoi4d_vocabulary)}
+    )
+
+    assert set(hoi4d_vocabulary) == {
+        "C1::Pick and place",
+        "C2::Pick and place",
+    }
+    target = build_hoi4d_anticipation_target(
+        c1_segments,
+        observation_end_time=0.5,
+        action_vocabulary=combined_vocabulary,
+    )
+    assert target["action_label"] == combined_vocabulary["hoi4d::C1::Pick and place"]
     assert target["action_valid"] is True

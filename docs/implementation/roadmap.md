@@ -26,6 +26,7 @@ Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model h
 - [x] Add Ego-Exo4D keystep segment parsing and train-only step_unique_id vocabulary generation.
 - [x] Add a strictly-future Ego-Exo4D event-onset/time-to-event target builder; target entity remains invalid because the source keystep schema does not identify it.
 - [x] Add a deterministic dataset-prefixed action-vocabulary builder; source adapters accept prefixed labels so same-named classes cannot collide.
+- [x] Preserve HOI4D category context in action labels so repeated event names across object categories remain distinct when category is supplied.
 - [ ] Generate the actual cross-dataset vocabulary from audited training annotations; do not merge classes based on name similarity alone.
 - [x] Parse HOI4D action/color.json supported event layouts and create strictly-future action/time targets from training-only action vocabulary.
 - [ ] Confirm the locally downloaded HOI4D action JSON variant, frame/time alignment, observation cutoffs, and future event-window policy.

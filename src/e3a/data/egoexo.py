@@ -511,14 +511,19 @@ def build_egoexo_anticipation_target(
         }
 
     event_start, step_id = min(future_segments, key=lambda item: item[0])
-    if step_id in action_vocabulary:
+    prefixed_key = action_label_key("egoexo4d", f"step_unique_id={step_id}")
+    if prefixed_key in action_vocabulary:
+        action_label = int(action_vocabulary[prefixed_key])
+        action_valid = True
+    elif step_id in action_vocabulary:
+        # Compatibility for an Ego-Exo4D-only vocabulary.
         action_label = int(action_vocabulary[step_id])
-        if action_label < 0:
-            raise ValueError("Action vocabulary indices must be non-negative.")
         action_valid = True
     else:
         action_label = -1
         action_valid = False
+    if action_valid and action_label < 0:
+        raise ValueError("Ego-Exo4D action vocabulary indices must be non-negative.")
     return {
         "target_entity_track_id": -1,
         "target_entity_valid": False,
