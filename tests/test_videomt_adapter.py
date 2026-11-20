@@ -200,3 +200,40 @@ def test_real_videomt_criterion_contract_when_optional_dependencies_are_installe
     losses["loss_objective"].backward()
     assert mask_logits.grad is not None
     assert objectness_logits.grad is not None
+
+
+def test_adapter_accepts_the_official_vggt_trainer_batch_signature():
+    matcher = RecordingMatcher()
+    criterion = RecordingCriterion(matcher)
+    adapter = make_criterion(matcher=matcher, criterion=criterion)
+    mask_logits = torch.randn(1, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.randn(1, 2, 3, requires_grad=True)
+    batch = {
+        "images": torch.rand(1, 2, 3, 8, 8),
+        "timestamps": torch.tensor([[0.0, 0.1]]),
+        "entity_targets": [make_clip_target()],
+    }
+
+    losses = adapter(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        batch,
+        schedule_progress=0.25,
+    )
+
+    assert torch.isfinite(losses["loss_objective"])
+    losses["loss_objective"].backward()
+    assert mask_logits.grad is not None
+    assert objectness_logits.grad is not None
+
+
+def test_adapter_rejects_trainer_batch_without_entity_targets():
+    adapter = make_criterion()
+    with pytest.raises(ValueError, match="entity_targets"):
+        adapter(
+            {
+                "mask_logits": torch.randn(1, 2, 3, 8, 8),
+                "objectness_logits": torch.randn(1, 2, 3),
+            },
+            {"images": torch.rand(1, 2, 3, 8, 8)},
+            schedule_progress=0.0,
+        )

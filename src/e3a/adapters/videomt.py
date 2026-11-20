@@ -287,8 +287,27 @@ class VidEoMTMaskCriterion(nn.Module):
     def forward(
         self,
         predictions: Mapping[str, torch.Tensor],
-        targets: Sequence[Mapping[str, torch.Tensor]],
+        batch_or_targets: Mapping[str, Any] | Sequence[Mapping[str, torch.Tensor]],
+        schedule_progress: float | None = None,
     ) -> dict[str, torch.Tensor]:
+        """Accept either a clip-target list or the official VGGT Trainer call.
+
+        VGGT Trainer calls every criterion as loss(predictions, batch,
+        schedule_progress). In that form, the clip target list must be stored
+        under batch["entity_targets"].
+        """
+        if isinstance(batch_or_targets, Mapping):
+            if "entity_targets" not in batch_or_targets:
+                raise ValueError(
+                    "VGGT Trainer batches must contain an 'entity_targets' clip list."
+                )
+            targets = batch_or_targets["entity_targets"]
+        else:
+            targets = batch_or_targets
+
+        if schedule_progress is not None and not math.isfinite(float(schedule_progress)):
+            raise ValueError("schedule_progress must be finite when supplied.")
+
         if "mask_logits" not in predictions or "objectness_logits" not in predictions:
             raise ValueError("predictions must contain mask_logits and objectness_logits.")
 
