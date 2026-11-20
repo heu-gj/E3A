@@ -47,12 +47,21 @@ class E3AEncoder(nn.Module):
 
         if not isinstance(backbone, nn.Module) or not isinstance(token_bank, nn.Module):
             raise TypeError("backbone and token_bank must resolve to torch modules.")
-        if backbone.model.aggregator.patch_token_start <= 0:
+
+        upstream_model = getattr(backbone, "model", None)
+        aggregator = getattr(upstream_model, "aggregator", None)
+        if aggregator is None or not hasattr(aggregator, "camera_token"):
+            raise TypeError(
+                "E3AEncoder requires a VGGTOmegaAdapter wrapping the official "
+                "VGGT-Ω model."
+            )
+        if aggregator.patch_token_start <= 0:
             raise ValueError("Unexpected VGGT-Ω camera/register prefix length.")
-        if token_bank.embed_dim != backbone.model.aggregator.camera_token.shape[-1]:
+        if token_bank.embed_dim != aggregator.camera_token.shape[-1]:
             raise ValueError(
                 "TokenBank embed_dim must equal the VGGT-Ω Aggregator embedding dimension."
             )
+
         self.backbone = backbone
         self.token_bank = token_bank
 
@@ -63,8 +72,10 @@ class E3AEncoder(nn.Module):
     ) -> dict[str, torch.Tensor]:
         if images.ndim == 4:
             images = images.unsqueeze(0)
-        if images.ndim != 5:
-            raise ValueError("images must have shape [B,T,3,H,W] or [T,3,H,W].")
+        if images.ndim != 5 or images.shape[2] != 3:
+            raise ValueError(
+                "images must have shape [B,T,3,H,W] or [T,3,H,W]."
+            )
         if timestamps.ndim == 1:
             timestamps = timestamps.unsqueeze(0)
         if timestamps.shape != images.shape[:2]:
@@ -72,6 +83,12 @@ class E3AEncoder(nn.Module):
                 "timestamps must match the image batch/frame dimensions: "
                 f"images={tuple(images.shape[:2])}, timestamps={tuple(timestamps.shape)}"
             )
+        if not torch.isfinite(timestamps).all():
+            raise ValueError("timestamps must contain only finite values.")
+        if timestamps.shape[1] > 1 and (
+            timestamps[:, 1:] < timestamps[:, :-1]
+        ).any():
+            raise ValueError("timestamps must be monotonically non-decreasing within each clip.")
 
         extra_tokens = self.token_bank(timestamps)
         output = self.backbone.forward_with_features(

@@ -62,6 +62,8 @@ class E3ATokenBank(nn.Module):
             )
         if timestamps.shape[1] == 0:
             raise ValueError("timestamps must contain at least one frame.")
+        if not torch.isfinite(timestamps).all():
+            raise ValueError("timestamps must contain only finite values.")
 
         timestamps = timestamps.to(
             device=self.entity_tokens.device,

@@ -35,3 +35,13 @@ def test_token_bank_rejects_wrong_timestamp_shape():
         assert "shape [B,T]" in str(exc)
     else:
         raise AssertionError("Expected invalid timestamp shape to fail.")
+
+
+def test_token_bank_rejects_non_finite_timestamps():
+    bank = E3ATokenBank(embed_dim=16, num_entities=3)
+    try:
+        bank(torch.tensor([[0.0, float("nan")]]))
+    except ValueError as exc:
+        assert "finite" in str(exc)
+    else:
+        raise AssertionError("Expected non-finite timestamps to fail.")

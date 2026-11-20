@@ -20,7 +20,7 @@ Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model h
 - [ ] Define observation cutoff and future prediction windows without future-frame leakage.
 - [ ] Define missing/occluded/disappeared-object semantics.
 - [ ] Define train/validation/test splits at the source-video/subject level to prevent leakage.
-- [ ] Add visual inspection and round-trip tests for samples.
+- [ ] Add visual inspection and round-trip tests.
 
 Acceptance: a deterministic dataset sample can be traced back to original annotations, with all units and coordinate conventions documented.
 
@@ -31,19 +31,22 @@ Acceptance: a deterministic dataset sample can be traced back to original annota
 - [x] Add opt-in DenseHead fused-feature return while preserving default outputs.
 - [x] Delegate the optional E3A feature path through the official top-level VGGTOmega.forward.
 - [x] Add E3A token bank and unit shape/gradient tests.
-- [ ] Apply the patches to a clean pinned submodule and pass CI patch tests.
-- [ ] Run no-extra-token parity and strict checkpoint compatibility tests.
+- [x] Apply the patches to a clean pinned submodule in CI and pass patch-application tests.
+- [x] Pass CPU unit tests for Aggregator prefix behavior, token gradients, top-level output contract, and DenseHead feature chunking.
+- [ ] Run no-extra-token parity and strict checkpoint compatibility with an approved full VGGT-Ω checkpoint.
+- [ ] Record GPU runtime and peak memory.
 
 Acceptance: pretrained geometry outputs remain unchanged when E3A tokens are absent; E3A tokens receive gradients when enabled.
 
 ## P3 — Entity masks and 3D entity state
 
+- [x] Add the E3A dimension adapter around SAM 3's official MaskPredictor.
+- [x] Decode camera parameters with official VGGT-Ω utilities and unproject depth with the official helper.
+- [x] Add differentiable soft-mask pooling for world-space entity centers and covariance.
+- [ ] Validate the real SAM 3 MaskPredictor import and forward pass in the target GPU environment.
 - [ ] Decide whether initial supervision comes from dataset GT masks, SAM 3.1 teacher outputs, or both.
-- [ ] Validate the SAM 3 MaskPredictor import and tensor contract in the target environment.
-- [ ] Implement only the task-specific mask/query adapter that upstream code does not already provide.
 - [ ] Implement clip-level identity matching only after track-ID semantics are validated.
-- [ ] Decode camera parameters with upstream utilities and unproject depth using the verified convention.
-- [ ] Add tests for empty masks, partial visibility, occlusion, invalid depth, and coordinate transforms.
+- [ ] Add dataset-backed tests for empty masks, partial visibility, occlusion, invalid depth, and coordinate transforms.
 
 Acceptance: per-clip entity masks/IDs and 3D states can be evaluated against held-out annotations.
 

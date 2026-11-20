@@ -31,8 +31,16 @@ The architecture is organized around one geometry-aware video representation, no
 
 The official Aggregator produces cached intermediate token tensors. The E3A compatibility patch inserts per-frame entity/hand/future tokens as extra prefix tokens and exposes the DenseHead's fused 1/4-resolution feature. The patched top-level VGGTOmega.forward owns the forward path so E3A does not duplicate upstream camera/depth orchestration.
 
+E3ARepresentationModel currently composes:
+1. E3AEncoder: per-frame entity/hand/future token injection into VGGT-Ω.
+2. EntityMaskHead: SAM 3's official MaskPredictor with E3A-owned dimension projections.
+3. Official VGGT-Ω camera decoding and depth unprojection.
+4. Differentiable soft-mask pooling of world-space points into entity centers and covariance.
+
+Depth confidence is deliberately not treated as a probability; the official VGGT-Ω loss uses it as a learned positive weighting term.
+
 See docs/architecture/upstream-integration.md for pinned API details, patch contracts, coordinate conventions, and required tests.
 
 ## Current scope
 
-The current implementation is a representation foundation, not a complete/trainable action-anticipation model. Dataset and event-label semantics are intentionally audited before finalizing action vocabulary, hand supervision, losses, or a training config.
+The repository now has a testable entity/3D representation path. It is not yet a complete/trainable action-anticipation model: dataset/event-label semantics, tube-level identity matching, hand supervision, and future target/action/time losses remain to be implemented after data auditing.

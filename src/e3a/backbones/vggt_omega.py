@@ -131,16 +131,40 @@ class VGGTOmegaAdapter(nn.Module):
         forward remains unchanged when these optional arguments are omitted.
         """
         images = self._ensure_batched(images)
-        forward_parameters = signature(self.model.forward).parameters
-        required_parameters = {"extra_tokens", "return_features"}
-        if not required_parameters.issubset(forward_parameters):
+
+        aggregator = getattr(self.model, "aggregator", None)
+        dense_head = getattr(self.model, "dense_head", None)
+        if aggregator is None or dense_head is None:
             raise RuntimeError(
-                "The pinned VGGT-Ω feature API patch is not applied. "
+                "The injected model must expose the official VGGT-Ω Aggregator "
+                "and enabled DenseHead."
+            )
+
+        aggregator_parameters = signature(aggregator.forward).parameters
+        dense_parameters = signature(dense_head.forward).parameters
+        model_parameters = signature(self.model.forward).parameters
+        if (
+            "extra_tokens" not in aggregator_parameters
+            or "return_features" not in dense_parameters
+            or not {"extra_tokens", "return_features"}.issubset(model_parameters)
+        ):
+            raise RuntimeError(
+                "The pinned VGGT-Ω compatibility patches are not fully applied. "
                 "Run bash scripts/apply_patches.sh."
             )
 
-        return self.model(
+        output = self.model(
             images,
             extra_tokens=extra_tokens,
             return_features=True,
         )
+        if "fused_features" not in output:
+            raise RuntimeError(
+                "Patched VGGT-Ω forward did not return fused_features. "
+                "Check that DenseHead is enabled."
+            )
+        if extra_tokens is not None and "extra_tokens" not in output:
+            raise RuntimeError(
+                "Patched VGGT-Ω forward did not return the encoded E3A tokens."
+            )
+        return output

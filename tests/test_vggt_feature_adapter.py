@@ -4,7 +4,29 @@ from torch import nn
 from e3a.backbones.vggt_omega import VGGTOmegaAdapter
 
 
+class FakeAggregator(nn.Module):
+    def forward(self, images, extra_tokens=None):
+        return [], 2
+
+
+class FakeDenseHead(nn.Module):
+    def forward(
+        self,
+        aggregated_tokens_list,
+        images,
+        patch_token_start,
+        frames_chunk_size=8,
+        return_features=False,
+    ):
+        return (None, None, None) if return_features else (None, None)
+
+
 class FakePatchedVGGT(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.aggregator = FakeAggregator()
+        self.dense_head = FakeDenseHead()
+
     def forward(self, images, *, extra_tokens=None, return_features=False):
         if images.ndim == 4:
             images = images.unsqueeze(0)
@@ -41,7 +63,20 @@ def test_feature_adapter_delegates_to_patched_official_forward():
 
 
 def test_feature_adapter_rejects_unpatched_upstream_model():
+    class UnpatchedAggregator(nn.Module):
+        def forward(self, images):
+            return [], 2
+
+    class UnpatchedDenseHead(nn.Module):
+        def forward(self, aggregated_tokens_list, images, patch_token_start):
+            return None, None
+
     class UnpatchedVGGT(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.aggregator = UnpatchedAggregator()
+            self.dense_head = UnpatchedDenseHead()
+
         def forward(self, images):
             return {"depth": images.new_ones(1)}
 
@@ -52,6 +87,6 @@ def test_feature_adapter_rejects_unpatched_upstream_model():
             extra_tokens=torch.rand(1, 2, 3, 4),
         )
     except RuntimeError as exc:
-        assert "feature API patch is not applied" in str(exc)
+        assert "compatibility patches are not fully applied" in str(exc)
     else:
         raise AssertionError("Expected an unpatched upstream model to fail closed.")

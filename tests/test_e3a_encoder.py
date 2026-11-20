@@ -51,3 +51,17 @@ def test_e3a_encoder_splits_entity_hand_future_tokens():
     assert output["hand_tokens"].shape == (2, 3, 2, 32)
     assert output["future_tokens"].shape == (2, 3, 1, 32)
     assert output["depth"].shape == (2, 3, 64, 64)
+
+
+def test_e3a_encoder_rejects_non_monotonic_timestamps():
+    bank = E3ATokenBank(embed_dim=32, num_entities=4, num_hands=2)
+    encoder = E3AEncoder(FakeAdapter(), bank)
+    images = torch.rand(1, 3, 3, 64, 64)
+    timestamps = torch.tensor([[0.0, 0.2, 0.1]])
+
+    try:
+        encoder(images, timestamps)
+    except ValueError as exc:
+        assert "monotonically non-decreasing" in str(exc)
+    else:
+        raise AssertionError("Expected out-of-order timestamps to fail.")
