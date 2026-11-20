@@ -91,22 +91,29 @@ class E3AMultiTaskLoss(nn.Module):
             targets,
             "keypoints_camera",
             shape=tuple(predicted.shape),
-        ).to(device=predicted.device, dtype=predicted.dtype)
+        ).to(device=predicted.device, dtype=torch.float32)
         valid = self._require_tensor(
             targets,
             "valid",
             shape=tuple(predicted.shape[:-1]),
-        ).to(device=predicted.device, dtype=torch.bool)
+        )
+        if valid.dtype != torch.bool:
+            raise TypeError("hand_targets.valid must use torch.bool.")
+        valid = valid.to(device=predicted.device)
+
         if valid.any():
-            elementwise = F.smooth_l1_loss(
-                predicted.float(),
-                target.float(),
+            selected_target = target[valid]
+            selected_prediction = predicted.float()[valid]
+            if not torch.isfinite(selected_target).all():
+                raise ValueError("Valid 3D hand keypoints must be finite.")
+            if not torch.isfinite(selected_prediction).all():
+                raise FloatingPointError("Predicted 3D hand keypoints must be finite.")
+            hand_loss = F.smooth_l1_loss(
+                selected_prediction,
+                selected_target,
                 beta=self.hand_beta,
-                reduction="none",
-            )
-            hand_loss = (
-                elementwise * valid.unsqueeze(-1).float()
-            ).sum() / (valid.sum().float() * 3.0).clamp_min(1.0)
+                reduction="sum",
+            ) / (valid.sum().float() * 3.0).clamp_min(1.0)
         else:
             hand_loss = zero
 
@@ -121,16 +128,26 @@ class E3AMultiTaskLoss(nn.Module):
                 targets,
                 "visibility_valid",
                 shape=tuple(visibility.shape),
-            ).to(device=predicted.device, dtype=torch.bool)
+            )
+            if visibility_valid.dtype != torch.bool:
+                raise TypeError("hand_targets.visibility_valid must use torch.bool.")
+            visibility_valid = visibility_valid.to(device=predicted.device)
             if visibility_valid.any():
-                raw = F.binary_cross_entropy_with_logits(
-                    predictions["hand_joint_visibility_logits"].float(),
-                    visibility,
-                    reduction="none",
+                selected_visibility = visibility[visibility_valid]
+                selected_visibility_logits = predictions[
+                    "hand_joint_visibility_logits"
+                ].float()[visibility_valid]
+                if not torch.isfinite(selected_visibility).all() or (
+                    (selected_visibility < 0).any() or (selected_visibility > 1).any()
+                ):
+                    raise ValueError("Valid hand visibility targets must be finite in [0,1].")
+                if not torch.isfinite(selected_visibility_logits).all():
+                    raise FloatingPointError("Predicted hand visibility logits must be finite.")
+                visibility_loss = F.binary_cross_entropy_with_logits(
+                    selected_visibility_logits,
+                    selected_visibility,
+                    reduction="mean",
                 )
-                visibility_loss = (
-                    raw * visibility_valid.float()
-                ).sum() / visibility_valid.sum().float().clamp_min(1.0)
         return hand_loss, visibility_loss
 
     def _interaction_loss(
@@ -152,6 +169,8 @@ class E3AMultiTaskLoss(nn.Module):
             raise TypeError("interaction_targets and entity_targets must be mappings.")
         contact = self._require_tensor(interaction_targets, "contact")
         valid = self._require_tensor(interaction_targets, "valid")
+        if valid.dtype != torch.bool:
+            raise TypeError("interaction_targets.valid must use torch.bool.")
         ids = self._require_tensor(entity_targets, "ids")
         counts = self._require_tensor(entity_targets, "track_counts")
 
@@ -228,11 +247,22 @@ class E3AMultiTaskLoss(nn.Module):
 
         target_valid = self._require_tensor(
             targets, "target_entity_valid", shape=(batch_size,)
-        ).to(device=target_logits.device, dtype=torch.bool)
+        )
+        if target_valid.dtype != torch.bool:
+            raise TypeError("anticipation_targets.target_entity_valid must use torch.bool.")
+        target_valid = target_valid.to(device=target_logits.device)
         target_ids = self._require_tensor(
             targets, "target_entity_track_ids", shape=(batch_size,)
-        ).to(device=target_logits.device, dtype=torch.int64)
+        )
+        if target_ids.dtype not in (torch.int8, torch.int16, torch.int32, torch.int64):
+            raise TypeError("anticipation_targets.target_entity_track_ids must be integer.")
+        target_ids = target_ids.to(device=target_logits.device, dtype=torch.int64)
         if target_valid.any():
+            selected_target_ids = target_ids[target_valid]
+            if (selected_target_ids < -1).any():
+                raise ValueError("Valid target entity IDs must be -1 (no target) or non-negative.")
+            if not torch.isfinite(target_logits[target_valid]).all():
+                raise FloatingPointError("Valid target-entity logits must be finite.")
             labels = torch.zeros(batch_size, dtype=torch.int64, device=target_logits.device)
             for batch_index in target_valid.nonzero(as_tuple=False).flatten().tolist():
                 track_id = int(target_ids[batch_index].item())
@@ -256,12 +286,20 @@ class E3AMultiTaskLoss(nn.Module):
 
         action_valid = self._require_tensor(
             targets, "action_valid", shape=(batch_size,)
-        ).to(device=action_logits.device, dtype=torch.bool)
+        )
+        if action_valid.dtype != torch.bool:
+            raise TypeError("anticipation_targets.action_valid must use torch.bool.")
+        action_valid = action_valid.to(device=action_logits.device)
         action_labels = self._require_tensor(
             targets, "action_labels", shape=(batch_size,)
-        ).to(device=action_logits.device, dtype=torch.int64)
+        )
+        if action_labels.dtype not in (torch.int8, torch.int16, torch.int32, torch.int64):
+            raise TypeError("anticipation_targets.action_labels must be integer.")
+        action_labels = action_labels.to(device=action_logits.device, dtype=torch.int64)
         if action_valid.any():
             selected = action_labels[action_valid]
+            if not torch.isfinite(action_logits[action_valid]).all():
+                raise FloatingPointError("Valid action logits must be finite.")
             if (selected < 0).any() or (selected >= action_logits.shape[-1]).any():
                 raise ValueError("Valid action labels must index the configured action vocabulary.")
             action_loss = F.cross_entropy(action_logits[action_valid], selected)
@@ -270,11 +308,18 @@ class E3AMultiTaskLoss(nn.Module):
 
         time_valid = self._require_tensor(
             targets, "time_valid", shape=(batch_size,)
-        ).to(device=time_mu.device, dtype=torch.bool)
+        )
+        if time_valid.dtype != torch.bool:
+            raise TypeError("anticipation_targets.time_valid must use torch.bool.")
+        time_valid = time_valid.to(device=time_mu.device)
         time_values = self._require_tensor(
             targets, "time_to_event", shape=(batch_size,)
         ).to(device=time_mu.device, dtype=torch.float32)
         if time_valid.any():
+            if not torch.isfinite(time_mu[time_valid]).all() or not torch.isfinite(
+                time_log_scale[time_valid]
+            ).all():
+                raise FloatingPointError("Valid time-to-event distribution parameters must be finite.")
             selected_time = time_values[time_valid]
             if not torch.isfinite(selected_time).all() or (selected_time <= 0).any():
                 raise ValueError("Valid time_to_event labels must be finite positive seconds.")

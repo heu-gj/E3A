@@ -1,3 +1,4 @@
+import pytest
 import torch
 from torch import nn
 
@@ -107,3 +108,78 @@ def test_joint_e3a_loss_ignores_unannotated_tasks_instead_of_making_negatives():
     assert losses["loss_target_entity"].item() == 0
     assert losses["loss_action"].item() == 0
     assert losses["loss_time"].item() == 0
+
+
+
+def test_hand_loss_ignores_nonfinite_values_only_where_validity_is_false():
+    criterion = E3AMultiTaskLoss(FakeMaskCriterion())
+    predictions = {
+        "hand_keypoints_camera": torch.zeros(1, 1, 2, 21, 3, requires_grad=True),
+        "hand_joint_visibility_logits": torch.zeros(1, 1, 2, 21, requires_grad=True),
+    }
+    keypoints = torch.full((1, 1, 2, 21, 3), float("nan"))
+    valid = torch.zeros(1, 1, 2, 21, dtype=torch.bool)
+    visibility = torch.full((1, 1, 2, 21), float("nan"))
+    visibility_valid = torch.zeros(1, 1, 2, 21, dtype=torch.bool)
+
+    keypoints[0, 0, 0, 0] = torch.tensor([1.0, 2.0, 3.0])
+    valid[0, 0, 0, 0] = True
+    visibility[0, 0, 0, 0] = 1.0
+    visibility_valid[0, 0, 0, 0] = True
+
+    hand_loss, visibility_loss = criterion._hand_losses(
+        predictions,
+        {
+            "hand_targets": {
+                "keypoints_camera": keypoints,
+                "valid": valid,
+                "visibility": visibility,
+                "visibility_valid": visibility_valid,
+            }
+        },
+    )
+
+    assert torch.isfinite(hand_loss)
+    assert torch.isfinite(visibility_loss)
+    (hand_loss + visibility_loss).backward()
+    assert predictions["hand_keypoints_camera"].grad is not None
+    assert predictions["hand_joint_visibility_logits"].grad is not None
+
+
+def test_hand_loss_rejects_nonfinite_values_at_valid_joint_locations():
+    criterion = E3AMultiTaskLoss(FakeMaskCriterion())
+    predictions = {
+        "hand_keypoints_camera": torch.zeros(1, 1, 2, 21, 3),
+        "hand_joint_visibility_logits": torch.zeros(1, 1, 2, 21),
+    }
+    keypoints = torch.zeros(1, 1, 2, 21, 3)
+    keypoints[0, 0, 0, 0, 0] = float("nan")
+    valid = torch.zeros(1, 1, 2, 21, dtype=torch.bool)
+    valid[0, 0, 0, 0] = True
+
+    with pytest.raises(ValueError, match="Valid 3D hand keypoints must be finite"):
+        criterion._hand_losses(
+            predictions,
+            {"hand_targets": {"keypoints_camera": keypoints, "valid": valid}},
+        )
+
+
+def test_anticipation_rejects_invalid_negative_target_entity_ids():
+    criterion = E3AMultiTaskLoss(FakeMaskCriterion())
+    predictions = {
+        "target_entity_logits": torch.zeros(1, 4),
+        "action_logits": torch.zeros(1, 3),
+        "time_log_mean": torch.zeros(1),
+        "time_log_scale": torch.zeros(1),
+    }
+    targets = {
+        "target_entity_track_ids": torch.tensor([-2]),
+        "target_entity_valid": torch.tensor([True]),
+        "action_labels": torch.tensor([-1]),
+        "action_valid": torch.tensor([False]),
+        "time_to_event": torch.tensor([0.0]),
+        "time_valid": torch.tensor([False]),
+    }
+
+    with pytest.raises(ValueError, match="must be -1"):
+        criterion._anticipation_losses(predictions, {"anticipation_targets": targets}, [{}])
