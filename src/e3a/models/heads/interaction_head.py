@@ -74,7 +74,9 @@ class InteractionHead(nn.Module):
         relative = wrist.unsqueeze(3) - entity_centers_world.unsqueeze(2)
         velocity = self._relative_velocity(relative, timestamps)
         distance = relative.norm(dim=-1, keepdim=True)
-        valid = entity_geometry_valid[:, :, None, :, None].to(relative.dtype)
+        valid = entity_geometry_valid[:, :, None, :, None].to(relative.dtype).expand(
+            -1, -1, hands, -1, -1
+        )
 
         hand_tokens = hand_tokens.to(dtype=self.hand_projection.weight.dtype)
         entity_tokens = entity_tokens.to(dtype=self.entity_projection.weight.dtype)
