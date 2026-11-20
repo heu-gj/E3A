@@ -52,6 +52,11 @@ class E3ATrainer(VGGTTrainer):
                 timestamps=batch["timestamps"],
             )
 
+        # Preserve the official VGGT-Ω MultitaskLoss interface when E3A
+        # experiments choose to retain camera supervision as an auxiliary loss.
+        if "pose_enc" in predictions:
+            predictions["pose_enc_list"] = [predictions["pose_enc"]]
+
         with torch.autocast(device_type="cuda", enabled=False):
             loss_dict = self.loss(predictions, batch, self.schedule_progress)
 

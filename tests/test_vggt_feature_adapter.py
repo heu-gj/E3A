@@ -4,67 +4,54 @@ from torch import nn
 from e3a.backbones.vggt_omega import VGGTOmegaAdapter
 
 
-class FakeAggregator(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.patch_token_start = 2
-        self.camera_token = nn.Parameter(torch.zeros(1, 2, 1, 4))
-
-    def forward(self, images, extra_tokens=None):
-        batch, frames = images.shape[:2]
-        count = 0 if extra_tokens is None else extra_tokens.shape[2]
-        prefix = self.patch_token_start + count
-        final = images.new_zeros(batch, frames, prefix + 4, 8)
-        if extra_tokens is not None:
-            final[:, :, self.patch_token_start:prefix, :4] = extra_tokens
-        return [final], prefix
-
-
-class FakeCameraHead(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.seen_prefix = None
-
-    def forward(self, tokens, patch_token_start):
-        self.seen_prefix = patch_token_start
-        return tokens[-1].new_zeros(tokens[-1].shape[:2] + (9,))
-
-
-class FakeDenseHead(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.seen_prefix = None
-
-    def forward(self, tokens, images, patch_token_start, return_features=False):
-        self.seen_prefix = patch_token_start
+class FakePatchedVGGT(nn.Module):
+    def forward(self, images, *, extra_tokens=None, return_features=False):
+        if images.ndim == 4:
+            images = images.unsqueeze(0)
         batch, frames, _, height, width = images.shape
-        depth = images.new_ones(batch, frames, height, width)
-        confidence = images.new_ones(batch, frames, height, width)
-        fused = images.new_zeros(batch, frames, 8, height // 4, width // 4)
+        output = {
+            "camera_and_register_tokens": images.new_zeros(batch, frames, 2, 8),
+            "pose_enc": images.new_zeros(batch, frames, 9),
+            "depth": images.new_ones(batch, frames, height, width, 1),
+            "depth_conf": images.new_ones(batch, frames, height, width),
+        }
+        if extra_tokens is not None:
+            output["extra_tokens"] = torch.cat([extra_tokens, extra_tokens * 2], dim=-1)
         if return_features:
-            return depth, confidence, fused
-        return depth, confidence
+            output["fused_features"] = images.new_zeros(
+                batch, frames, 256, height // 4, width // 4
+            )
+        if not self.training:
+            output["images"] = images
+        return output
 
 
-class FakeVGGT(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.aggregator = FakeAggregator()
-        self.camera_head = FakeCameraHead()
-        self.dense_head = FakeDenseHead()
-        self.text_alignment_head = None
-        self.autocast = False
-
-
-def test_feature_path_keeps_camera_prefix_separate_from_e3a_prefix():
-    model = FakeVGGT()
+def test_feature_adapter_delegates_to_patched_official_forward():
+    model = FakePatchedVGGT()
     adapter = VGGTOmegaAdapter(model=model, freeze=False)
     images = torch.rand(1, 2, 3, 16, 16)
     extra_tokens = torch.rand(1, 2, 3, 4)
 
     output = adapter.forward_with_features(images, extra_tokens=extra_tokens)
 
-    assert model.camera_head.seen_prefix == 2
-    assert model.dense_head.seen_prefix == 5
+    assert output["camera_and_register_tokens"].shape == (1, 2, 2, 8)
     assert output["extra_tokens"].shape == (1, 2, 3, 8)
-    assert output["fused_features"].shape == (1, 2, 8, 4, 4)
+    assert output["fused_features"].shape == (1, 2, 256, 4, 4)
+    assert output["depth"].shape == (1, 2, 16, 16, 1)
+
+
+def test_feature_adapter_rejects_unpatched_upstream_model():
+    class UnpatchedVGGT(nn.Module):
+        def forward(self, images):
+            return {"depth": images.new_ones(1)}
+
+    adapter = VGGTOmegaAdapter(model=UnpatchedVGGT(), freeze=False)
+    try:
+        adapter.forward_with_features(
+            torch.rand(1, 2, 3, 16, 16),
+            extra_tokens=torch.rand(1, 2, 3, 4),
+        )
+    except RuntimeError as exc:
+        assert "feature API patch is not applied" in str(exc)
+    else:
+        raise AssertionError("Expected an unpatched upstream model to fail closed.")

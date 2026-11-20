@@ -26,17 +26,20 @@ Acceptance: a deterministic dataset sample can be traced back to original annota
 
 ## P2 — VGGT-Ω feature integration
 
-- [x] Add the minimal optional extra-token path to the pinned Aggregator (patch committed; CI validation pending).
+- [x] Add the minimal optional extra-token path to the pinned Aggregator.
 - [x] Preserve the original camera/register prefix for CameraHead in the E3A feature adapter.
-- [x] Add opt-in DenseHead fused-feature return while preserving default outputs (patch committed; CI validation pending).
+- [x] Add opt-in DenseHead fused-feature return while preserving default outputs.
+- [x] Delegate the optional E3A feature path through the official top-level VGGTOmega.forward.
 - [x] Add E3A token bank and unit shape/gradient tests.
-- [ ] Run no-extra-token parity and checkpoint compatibility tests.
+- [ ] Apply the patches to a clean pinned submodule and pass CI patch tests.
+- [ ] Run no-extra-token parity and strict checkpoint compatibility tests.
 
 Acceptance: pretrained geometry outputs remain unchanged when E3A tokens are absent; E3A tokens receive gradients when enabled.
 
 ## P3 — Entity masks and 3D entity state
 
 - [ ] Decide whether initial supervision comes from dataset GT masks, SAM 3.1 teacher outputs, or both.
+- [ ] Validate the SAM 3 MaskPredictor import and tensor contract in the target environment.
 - [ ] Implement only the task-specific mask/query adapter that upstream code does not already provide.
 - [ ] Implement clip-level identity matching only after track-ID semantics are validated.
 - [ ] Decode camera parameters with upstream utilities and unproject depth using the verified convention.

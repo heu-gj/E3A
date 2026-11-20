@@ -1,4 +1,4 @@
-"""Check E3A's no-extra-token path against the pinned official VGGT-Ω forward."""
+"""Verify that the patched optional feature path preserves official VGGT-Ω outputs."""
 
 from __future__ import annotations
 
@@ -42,28 +42,39 @@ def main() -> None:
         reference = model(images)
         adapted = adapter.forward_with_features(images, extra_tokens=None)
 
-    keys = ("camera_and_register_tokens", "pose_enc", "depth", "depth_conf")
-    for key in keys:
-        if key not in reference or key not in adapted:
-            raise KeyError(f"Missing required parity output: {key}")
+    expected_keys = set(reference)
+    actual_keys = set(adapted)
+    if actual_keys != expected_keys | {"fused_features"}:
+        raise AssertionError(
+            "Unexpected optional-feature output contract: "
+            f"reference={sorted(expected_keys)}, adapted={sorted(actual_keys)}"
+        )
+    if "extra_tokens" in adapted:
+        raise AssertionError("No extra-token output should be returned when extra_tokens=None.")
+
+    for key, expected in reference.items():
         torch.testing.assert_close(
             adapted[key],
-            reference[key],
+            expected,
             rtol=1e-5,
             atol=1e-5,
-            msg=lambda message: f"VGGT-Ω parity failed for {key}: {message}",
+            msg=lambda message, key=key: f"VGGT-Ω parity failed for {key}: {message}",
         )
 
+    fused = adapted["fused_features"]
     expected_feature_size = (args.resolution // 4, args.resolution // 4)
-    if tuple(adapted["fused_features"].shape[-2:]) != expected_feature_size:
+    if tuple(fused.shape[-2:]) != expected_feature_size:
         raise AssertionError(
-            "Unexpected fused feature size: "
-            f"{tuple(adapted['fused_features'].shape[-2:])}, "
+            f"Unexpected fused feature size: {tuple(fused.shape[-2:])}, "
             f"expected {expected_feature_size}"
         )
+    if not torch.isfinite(fused).all():
+        raise AssertionError("VGGT-Ω fused features contain non-finite values.")
 
-    print("VGGT-Ω no-extra-token parity: PASS")
-    print("Fused feature shape:", tuple(adapted["fused_features"].shape))
+    print("VGGT-Ω no-extra-token output parity: PASS")
+    print("Fused feature shape:", tuple(fused.shape))
+    print("Device:", args.device)
+    print("PyTorch:", torch.__version__)
 
 
 if __name__ == "__main__":

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from contextlib import nullcontext
 from inspect import signature
 from os import PathLike
 from pathlib import Path
@@ -14,7 +13,11 @@ from torch import nn
 
 
 class VGGTOmegaAdapter(nn.Module):
-    """Expose official VGGT-Ω inference and an opt-in E3A feature path."""
+    """Expose official VGGT-Ω inference and its opt-in E3A feature API.
+
+    The patched top-level VGGTOmega.forward owns all backbone/head orchestration.
+    This adapter deliberately does not duplicate that forward implementation.
+    """
 
     def __init__(
         self,
@@ -62,7 +65,7 @@ class VGGTOmegaAdapter(nn.Module):
         *,
         strict: bool = True,
     ) -> dict[str, list[str]]:
-        """Load an upstream state dict without silently rewriting its keys."""
+        """Load the raw upstream VGGT-Ω state dict without rewriting its keys."""
         path = Path(checkpoint_path).expanduser()
         if not path.is_file():
             raise FileNotFoundError(f"VGGT-Ω checkpoint does not exist: {path}")
@@ -112,8 +115,8 @@ class VGGTOmegaAdapter(nn.Module):
         )
 
     def forward(self, images: torch.Tensor) -> dict[str, torch.Tensor]:
-        """Run the unmodified official top-level forward and pass outputs through."""
-        self._ensure_batched(images)
+        """Run the unmodified official inference contract."""
+        images = self._ensure_batched(images)
         return self.model(images)
 
     def forward_with_features(
@@ -122,92 +125,22 @@ class VGGTOmegaAdapter(nn.Module):
         *,
         extra_tokens: torch.Tensor | None = None,
     ) -> dict[str, torch.Tensor]:
-        """Expose E3A tokens and the official DenseHead fused feature.
+        """Call the patched official forward with E3A tokens and fused features.
 
-        Requires the pinned patch applied by scripts/apply_patches.sh.
-        CameraHead sees only the original camera/register prefix; DenseHead sees
-        the expanded prefix so E3A tokens are not mistaken for image patches.
+        Requires both pinned VGGT-Ω compatibility patches. The default upstream
+        forward remains unchanged when these optional arguments are omitted.
         """
         images = self._ensure_batched(images)
-
-        if not hasattr(self.model, "aggregator") or not hasattr(
-            self.model, "dense_head"
-        ):
-            raise RuntimeError("The injected model is not a compatible VGGTOmega model.")
-        if self.model.dense_head is None:
-            raise RuntimeError("DenseHead is disabled; fused features are unavailable.")
-
-        aggregator = self.model.aggregator
-        if "extra_tokens" not in signature(aggregator.forward).parameters:
+        forward_parameters = signature(self.model.forward).parameters
+        required_parameters = {"extra_tokens", "return_features"}
+        if not required_parameters.issubset(forward_parameters):
             raise RuntimeError(
-                "The VGGT-Ω Aggregator patch is not applied. Run bash scripts/apply_patches.sh."
-            )
-        if "return_features" not in signature(self.model.dense_head.forward).parameters:
-            raise RuntimeError(
-                "The VGGT-Ω DenseHead patch is not applied. Run bash scripts/apply_patches.sh."
+                "The pinned VGGT-Ω feature API patch is not applied. "
+                "Run bash scripts/apply_patches.sh."
             )
 
-        original_prefix = aggregator.patch_token_start
-
-        if self.model.autocast and images.device.type == "cuda":
-            amp_dtype = (
-                torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
-            )
-            aggregator_context = torch.autocast(
-                device_type="cuda", dtype=amp_dtype
-            )
-        else:
-            aggregator_context = nullcontext()
-
-        with aggregator_context:
-            aggregated_tokens_list, expanded_prefix = aggregator(
-                images, extra_tokens=extra_tokens
-            )
-
-        final_tokens = aggregated_tokens_list[-1]
-        if final_tokens is None:
-            raise ValueError("Aggregator did not cache the final layer.")
-
-        predictions: dict[str, torch.Tensor] = {
-            "camera_and_register_tokens": final_tokens[
-                :, :, :original_prefix
-            ].contiguous()
-        }
-        if expanded_prefix > original_prefix:
-            predictions["extra_tokens"] = final_tokens[
-                :, :, original_prefix:expanded_prefix
-            ].contiguous()
-
-        with torch.autocast(device_type=images.device.type, enabled=False):
-            if self.model.camera_head is not None:
-                predictions["pose_enc"] = self.model.camera_head(
-                    aggregated_tokens_list,
-                    patch_token_start=original_prefix,
-                )
-
-            dense_output = self.model.dense_head(
-                aggregated_tokens_list,
-                images=images,
-                patch_token_start=expanded_prefix,
-                return_features=True,
-            )
-            if len(dense_output) != 3:
-                raise RuntimeError(
-                    "Patched DenseHead must return depth, depth_conf, and fused_features."
-                )
-            depth, depth_conf, fused_features = dense_output
-            predictions["depth"] = depth
-            predictions["depth_conf"] = depth_conf
-            predictions["fused_features"] = fused_features
-
-            if self.model.text_alignment_head is not None:
-                predictions.update(
-                    self.model.text_alignment_head(
-                        aggregated_tokens_list,
-                        patch_token_start=original_prefix,
-                    )
-                )
-
-        if not self.model.training:
-            predictions["images"] = images
-        return predictions
+        return self.model(
+            images,
+            extra_tokens=extra_tokens,
+            return_features=True,
+        )

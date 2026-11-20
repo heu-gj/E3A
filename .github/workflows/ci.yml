@@ -17,7 +17,7 @@ jobs:
           python-version: "3.12"
       - name: Checkout pinned VGGT-Ω
         run: git submodule update --init third_party/vggt-omega
-      - name: Check and apply E3A patch
+      - name: Check and apply E3A patches
         run: bash scripts/apply_patches.sh
       - name: Compile E3A source
         run: python -m compileall -q src tests scripts
@@ -31,8 +31,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Checkout pinned VGGT-Ω utilities
+      - name: Checkout pinned VGGT-Ω
         run: git submodule update --init third_party/vggt-omega
+      - name: Apply E3A compatibility patches
+        run: bash scripts/apply_patches.sh
       - name: Install CPU PyTorch, E3A, and VGGT-Ω package
         run: |
           python -m pip install --upgrade pip
