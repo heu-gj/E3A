@@ -1,0 +1,123 @@
+{
+  "metadata_version": "v2",
+  "metadata_date": "240325",
+  "metadata_take_count": 5035,
+  "local_file_count": 11785,
+  "suffix_counts": {
+    ".json": 10,
+    ".mp4": 11775
+  },
+  "json_files": [
+    {
+      "dataset_path": "raw/physical_setting.json",
+      "bytes": 24694,
+      "sha256": "f185b8b614d5fef42662f93b5b91e10061f6e43810fe25a101261d02cfd5476a"
+    },
+    {
+      "dataset_path": "raw/metadata.json",
+      "bytes": 4685,
+      "sha256": "bf6c91018f69496e2543c34f136186951107a5b29adffb97884d28f9060075c5"
+    },
+    {
+      "dataset_path": "raw/participants.json",
+      "bytes": 293601,
+      "sha256": "0e6d39f4d886867335ee802363dcdc8ac76780a7fe1ae6705b8bb119971116c4"
+    },
+    {
+      "dataset_path": "raw/captures.json",
+      "bytes": 2020825,
+      "sha256": "940de768894fe3ffec6d37bab62798c7553844d7fbda1032ced14067d9868ad4"
+    },
+    {
+      "dataset_path": "raw/visual_objects.json",
+      "bytes": 203114,
+      "sha256": "daf4d3c2c089f06e85063a697ed774cacc6be173c6151c144d25782295c6ead4"
+    },
+    {
+      "dataset_path": "raw/takes.json",
+      "bytes": 43160564,
+      "sha256": "08a57d4d191ff3e22eadab369d95fd9c371b3b7737076ba87cfd379b421edf2a"
+    },
+    {
+      "dataset_path": "raw/annotations/splits.json",
+      "bytes": 2001999,
+      "sha256": "d5ab2aed05cf142206ae2472c64d8f7a09ac6f77059bab1dda1af906df858661"
+    }
+  ],
+  "large_annotation_files": [
+    {
+      "dataset_path": "raw/annotations/relations_val.json",
+      "bytes": 381112365,
+      "sha256_status": "PASS: source byte fingerprint only",
+      "sha256": "8aa32821e183863f89c72e47426173ea4355a0b1cbbc186e81b9b5d0d6030960"
+    },
+    {
+      "dataset_path": "raw/annotations/relations_test.json",
+      "bytes": 483973346,
+      "sha256_status": "PASS: source byte fingerprint only",
+      "sha256": "ec24aa30d842d9a2ce5643366d3c1c356a49b2fbb5f30894c870eccefdd09ce5"
+    },
+    {
+      "dataset_path": "raw/annotations/relations_train.json",
+      "bytes": 1226475944,
+      "sha256_status": "PASS: source byte fingerprint only",
+      "sha256": "72592b58caf9fe6923dc7f3e01076ffd427e14233c8c23205b0436eb0a6b9328"
+    }
+  ],
+  "missing_modalities": [
+    "EgoPose manual/automatic 2D and3D JSON",
+    "EgoPose camera poses",
+    "Raw Keystep annotations/taxonomy/vocabulary",
+    "keystep_benchmark",
+    "MPS/timesync/calibration"
+  ],
+  "search_scope": "Only selected dataset root recursively and immediate dataset-parent candidate names; no disk-wide search",
+  "annotation_revision": "Relations ds inspected from source header; metadata v2 does not independently version every annotation",
+  "selected_take_files": [
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_1201-1.mp4",
+      "bytes": 87148716,
+      "sha256": "0674fc9a26abbeb73fbe355d2c1862a418c4e6cf9d6556968582aad841ef761e"
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_1201-2.mp4",
+      "bytes": 94423594,
+      "sha256": "d7ee461ff5e59a6434da13dbccd7edc6df00fc946b3124e82ca219772dfa75ae"
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_211-1.mp4",
+      "bytes": 24040719,
+      "sha256": "f17c110edd089a3e1a1c45868246aa2c118b8768b7c0287bef4172ff24f107e3"
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_214-1.mp4",
+      "bytes": 63348950,
+      "sha256": "f29a782b62c2b06f0ff4182bc36b2241c14276860588e39c4af5f69ae03a5c7c"
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam01.mp4",
+      "bytes": 57088814,
+      "sha256": "b4e04d3d76e22621a01b6294f454a67b2d03e1946376d8c8976366a5e411d059"
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam02.mp4",
+      "bytes": 41080542,
+      "sha256": "b07099f72f378a0ff8c8d9802c41b0ef937f3aa506d0f1a9a9ec02c7a76da94a"
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam03.mp4",
+      "bytes": 33727268,
+      "sha256": "cf1182abd1a027e6339d677f82cdec3462208896c6636e8c141f9c5bef40a25b"
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam04.mp4",
+      "bytes": 42172380,
+      "sha256": "9e90fafa36d2c6677f0317c2e6005ee006e8d07e110ba56a3bcef629adce532d"
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/ego_preview.mp4",
+      "bytes": 93444351,
+      "sha256": "08cb937cbf782e991efcb1fdbc84b4b005c0de2babb1045cc5c8d8547eb94455"
+    }
+  ]
+}

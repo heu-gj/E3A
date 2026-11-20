@@ -1,0 +1,229 @@
+{
+  "task_id": "P1-EGOEXO4D-Physical-Data-Audit",
+  "task_status": "PARTIAL",
+  "base_commit": "bade1b8d68205335ce039490ded919965216fe70",
+  "branch": "audit/p1-egoexo-physical-data",
+  "commit_semantics": "Commit embedded in manifest is the parent observed at sealing. Final delivered HEAD is given by PR/history, avoiding self-reference.",
+  "prerequisite": {
+    "PR1": "MERGED",
+    "squash_commit": "bade1b8d68205335ce039490ded919965216fe70",
+    "initial_worktree": "CLEAN",
+    "remote_task_branch_initial_commit": "bade1b8d68205335ce039490ded919965216fe70"
+  },
+  "dataset": {
+    "root": ".",
+    "metadata_version": "v2",
+    "metadata_date": "240325",
+    "annotation_version": "Relations ds20240311_20:16:25; independent release revision UNKNOWN",
+    "download_receipt": "NOT_FOUND"
+  },
+  "take_uid": "51fc36b3-e769-4617-b087-3826b280cad3",
+  "take_name": "georgiatech_cooking_01_01_2",
+  "sources": {
+    "ego_pose": "https://docs.ego-exo4d-data.org/annotations/ego_pose/",
+    "relations": "https://docs.ego-exo4d-data.org/annotations/relations/",
+    "keystep": "https://docs.ego-exo4d-data.org/annotations/keystep/"
+  },
+  "audit_results": {
+    "metadata_version": {
+      "status": "PASS",
+      "evidence_level": "ACTUAL_LOCAL_METADATA_FIELD",
+      "evidence": "raw/metadata.json explicitly version=v2/date240325; not inferred from folder name",
+      "evidence_files": [
+        "evidence/dataset_inventory.json"
+      ]
+    },
+    "relation_decode": {
+      "status": "PASS",
+      "evidence_level": "REAL_SAMPLE_OFFICIAL_SDK",
+      "evidence": "70 actual decoded records; no sampled empty mask; not exhaustive",
+      "evidence_files": [
+        "evidence/relation_mask_decode.json"
+      ]
+    },
+    "relation_coverage": {
+      "status": "PASS",
+      "evidence_level": "SELECTED_REAL_METADATA_SET_CHECK",
+      "evidence": "25 track/camera records checked; no encoded frame outside annotated_frames; missing entries and unannotated frames kept distinct",
+      "evidence_files": [
+        "evidence/relation_coverage.json"
+      ]
+    },
+    "frame_alignment": {
+      "status": "PARTIAL",
+      "evidence_level": "VIDEO_SEEK_PTS_AND_WITHHELD_VISUAL_INSPECTION",
+      "evidence": "Five temporal positions plus exact mask-frame samples per camera; scaling visually supports association, not independent time/calibration certification",
+      "evidence_files": [
+        "evidence/video_alignment.json",
+        "evidence/cross_modal_frames.csv",
+        "evidence/resolver_alias_audit.json"
+      ]
+    },
+    "hand": {
+      "status": "BLOCKED",
+      "execution_status": "NOT_RUN",
+      "evidence_files": [
+        "evidence/ego_pose_coverage.json"
+      ]
+    },
+    "camera_geometry": {
+      "status": "BLOCKED",
+      "execution_status": "NOT_RUN",
+      "evidence_files": [
+        "evidence/camera_pose_validation.json",
+        "evidence/hand_reprojection.json",
+        "evidence/mps_availability.json"
+      ]
+    },
+    "keystep": {
+      "status": "BLOCKED",
+      "execution_status": "NOT_RUN",
+      "evidence_files": [
+        "evidence/keystep_validation.json"
+      ]
+    },
+    "Hand_to_Entity": {
+      "status": "BLOCKED",
+      "evidence": "No real EgoPose and no hand tracks in selected relation take; visual hand presence is not3D/contact GT"
+    },
+    "Entity_to_Future_Action": {
+      "status": "BLOCKED",
+      "evidence": "Raw event annotation absent; no verified Keystep event-to-object relation"
+    }
+  },
+  "supervision_readiness": {
+    "status": "PARTIAL",
+    "tasks": {
+      "Entity": {
+        "status": "PARTIAL",
+        "reason": "Real sampled mask decode/coverage validated; full-resolution path mismatch and downscaled alignment require explicit adapter policy"
+      },
+      "Hand": {
+        "status": "BLOCKED",
+        "reason": "No real EgoPose files"
+      },
+      "Geometry": {
+        "status": "BLOCKED",
+        "reason": "No camera poses/intrinsics/MPS or hand reprojection"
+      },
+      "Interaction": {
+        "status": "BLOCKED",
+        "reason": "No validated contact labels; overlap is not contact"
+      },
+      "Target": {
+        "status": "BLOCKED",
+        "reason": "No local raw keystep and no verified event-to-track mapping"
+      },
+      "Action": {
+        "status": "BLOCKED",
+        "reason": "Raw Keystep absent; synthetic parser tests are not real compatibility checks"
+      },
+      "Time": {
+        "status": "BLOCKED",
+        "reason": "No source future-event onsets; take timing is not event GT"
+      }
+    },
+    "target_entity_valid": false,
+    "interaction_valid": false,
+    "Hand_to_Entity": "BLOCKED: no 3D hand source",
+    "Entity_to_Future_Action": "BLOCKED: no raw event-to-object evidence",
+    "role_assignment": "Object names alone do not prove tool/patient/container/background roles; all event-specific roles UNKNOWN"
+  },
+  "adapter_findings": [
+    {
+      "component": "parse_egoexo_hand_pose_annotations",
+      "status": "NEEDS_REVIEW",
+      "kind": "potential multi-record information loss",
+      "evidence": "src/e3a/data/egoexo.py selects frame_records[0]. Synthetic adversarial test with valid later record confirms code discards it; local occurrence UNKNOWN because EgoPose files missing.",
+      "scope": "CODE_AND_SYNTHETIC_RISK_ONLY; not a real release bug confirmation"
+    },
+    {
+      "component": "_resolve_camera_extrinsics",
+      "status": "NEEDS_REVIEW",
+      "kind": "geometry unverified",
+      "evidence": "Supports frame-first and camera-first finite3x4 matrices; no local source matrix, units or forward/inverse reprojection evidence."
+    },
+    {
+      "component": "decode_egoexo_relation_mask",
+      "status": "PASS",
+      "kind": "real sampled decoder compatibility",
+      "evidence": "70 actual records decoded by official ego4d SDK1.7.3 and compared with E3A; shapes and binary values agree.",
+      "evidence_file": "evidence/relation_mask_decode.json"
+    },
+    {
+      "component": "build_egoexo_relation_clip_targets",
+      "status": "PASS",
+      "kind": "bounded real clip contract",
+      "evidence": "Two actual tracks, three source frames; explicit absence retained as valid with ID-1. This is source-resolution contract verification, not downscaled-image training approval.",
+      "evidence_file": "evidence/relation_mask_decode.json"
+    },
+    {
+      "component": "resolve_egoexo_video_path",
+      "status": "BLOCKED",
+      "kind": "confirmed local path incompatibility",
+      "evidence": "aria04_214-1 correctly selects aria04/rgb metadata, but require_exists fails: only downscaled/448 file exists. Same issue for cam01.",
+      "evidence_file": "evidence/video_alignment.json"
+    },
+    {
+      "component": "parse_egoexo_keystep_segments",
+      "status": "BLOCKED",
+      "kind": "real compatibility NOT_RUN",
+      "evidence": "Code uses step_unique_id and seconds; raw Keystep files absent. Duration bounds/taxonomy/task timing require dataset-reader checks."
+    },
+    {
+      "component": "build_egoexo_keystep_vocabulary",
+      "status": "BLOCKED",
+      "kind": "real training vocabulary NOT_RUN",
+      "evidence": "Code builds sorted unique training IDs; no raw training annotations or vocabulary membership validation locally."
+    },
+    {
+      "component": "build_egoexo_anticipation_target",
+      "status": "PARTIAL",
+      "kind": "code/synthetic verification only",
+      "evidence": "Strictly future onset and invalid target behavior have unit tests; no real raw segments to run required boundary sweep."
+    }
+  ],
+  "missing_data_to_provide": [
+    "EgoPose manual and automatic hand annotation roots",
+    "EgoPose camera-pose JSON root",
+    "Raw Keystep JSON with annotations/taxonomy/vocabulary (not keystep_benchmark)",
+    "MPS calibration/timesync if available",
+    "Release/download manifests explaining137 train relation takes absent from takes metadata"
+  ],
+  "unresolved_issues": [
+    "No all-modality take: hand/camera/raw keystep files missing across checked local root",
+    "Downscaled video resolver and source-mask scaling need explicit Dataset policy",
+    "Source clocks, distortion/crop, coordinates and physical units not verified",
+    "EgoPose multiple-record semantics UNKNOWN locally",
+    "137 relation_train UID records absent from takes metadata",
+    "No validated event-specific tool/patient/container roles, target mapping or physical contact"
+  ],
+  "safety": {
+    "training": "NOT_RUN",
+    "production_code_changes": false,
+    "target_entity_valid": false,
+    "interaction_valid": false,
+    "raw_data_published": false,
+    "unapproved_images_published": false
+  },
+  "tests": {
+    "execution_timestamp_utc": "2026-11-20T19:46:36.116161+00:00",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "tests/test_egoexo_data.py",
+      "-v",
+      "tests/test_action_vocabulary.py",
+      "tests/test_entity_target_collate.py",
+      "tests/test_e3a_collate.py",
+      "tests/test_egoexo_physical_audit.py"
+    ],
+    "exit_code": 0,
+    "status": "PASS",
+    "passed": 31,
+    "evidence_level": "SYNTHETIC_UNIT_CASES_AND_ARCHIVED_REAL_OBSERVATION_REGRESSIONS; NOT MISSING_MODALITY_PHYSICAL_VALIDATION",
+    "log": "logs/pytest.txt",
+    "real_source_measurements": "Separate audit script and evidence files"
+  }
+}

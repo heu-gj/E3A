@@ -1,0 +1,19 @@
+camera,decoded_index_requested,read_ok,actual_pos_frames_after_read,pts_seconds,role,ego_pose,camera_pose,keystep,target_entity_valid,interaction_valid
+aria04_214-1,0,True,1.0,0.0,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+aria04_214-1,7762,True,7763.0,258.73333333333335,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+aria04_214-1,7770,True,7771.0,259.0,nearest annotated mask frame (decoded at its own index),MISSING,MISSING,MISSING,False,False
+aria04_214-1,15510,True,15511.0,517.0,nearest annotated mask frame (decoded at its own index),MISSING,MISSING,MISSING,False,False
+aria04_214-1,15524,True,15525.0,517.4666666666667,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+aria04_214-1,23280,True,23281.0,776.0,nearest annotated mask frame (decoded at its own index),MISSING,MISSING,MISSING,False,False
+aria04_214-1,23285,True,23286.0,776.1666666666666,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+aria04_214-1,31020,True,31021.0,1034.0,nearest annotated mask frame (decoded at its own index),MISSING,MISSING,MISSING,False,False
+aria04_214-1,31047,True,31048.0,1034.9,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+cam01,0,True,1.0,0.0,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+cam01,7762,True,7763.0,258.73333333333335,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+cam01,7770,True,7771.0,259.0,nearest annotated mask frame (decoded at its own index),MISSING,MISSING,MISSING,False,False
+cam01,15510,True,15511.0,517.0,nearest annotated mask frame (decoded at its own index),MISSING,MISSING,MISSING,False,False
+cam01,15524,True,15525.0,517.4666666666667,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+cam01,23280,True,23281.0,776.0,nearest annotated mask frame (decoded at its own index),MISSING,MISSING,MISSING,False,False
+cam01,23285,True,23286.0,776.1666666666666,whole-video temporal sample,MISSING,MISSING,MISSING,False,False
+cam01,31020,True,31021.0,1034.0,nearest annotated mask frame (decoded at its own index),MISSING,MISSING,MISSING,False,False
+cam01,31047,True,31048.0,1034.9,whole-video temporal sample,MISSING,MISSING,MISSING,False,False

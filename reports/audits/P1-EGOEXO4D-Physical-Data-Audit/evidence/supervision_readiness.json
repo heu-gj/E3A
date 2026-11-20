@@ -1,0 +1,38 @@
+{
+  "status": "PARTIAL",
+  "tasks": {
+    "Entity": {
+      "status": "PARTIAL",
+      "reason": "Real sampled mask decode/coverage validated; full-resolution path mismatch and downscaled alignment require explicit adapter policy"
+    },
+    "Hand": {
+      "status": "BLOCKED",
+      "reason": "No real EgoPose files"
+    },
+    "Geometry": {
+      "status": "BLOCKED",
+      "reason": "No camera poses/intrinsics/MPS or hand reprojection"
+    },
+    "Interaction": {
+      "status": "BLOCKED",
+      "reason": "No validated contact labels; overlap is not contact"
+    },
+    "Target": {
+      "status": "BLOCKED",
+      "reason": "No local raw keystep and no verified event-to-track mapping"
+    },
+    "Action": {
+      "status": "BLOCKED",
+      "reason": "Raw Keystep absent; synthetic parser tests are not real compatibility checks"
+    },
+    "Time": {
+      "status": "BLOCKED",
+      "reason": "No source future-event onsets; take timing is not event GT"
+    }
+  },
+  "target_entity_valid": false,
+  "interaction_valid": false,
+  "Hand_to_Entity": "BLOCKED: no 3D hand source",
+  "Entity_to_Future_Action": "BLOCKED: no raw event-to-object evidence",
+  "role_assignment": "Object names alone do not prove tool/patient/container/background roles; all event-specific roles UNKNOWN"
+}

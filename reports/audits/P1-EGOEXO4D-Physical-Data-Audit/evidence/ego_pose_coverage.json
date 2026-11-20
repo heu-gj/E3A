@@ -1,0 +1,43 @@
+{
+  "status": "BLOCKED",
+  "execution_status": "NOT_RUN",
+  "evidence_level": "DATASET_FILE_INVENTORY",
+  "evidence_file": "evidence/dataset_inventory.json",
+  "reason": "Required real annotation files absent from checked local dataset root",
+  "canonical_order": {
+    "hands": [
+      "right",
+      "left"
+    ],
+    "joints": [
+      "wrist",
+      "thumb_1",
+      "thumb_2",
+      "thumb_3",
+      "thumb_4",
+      "index_1",
+      "index_2",
+      "index_3",
+      "index_4",
+      "middle_1",
+      "middle_2",
+      "middle_3",
+      "middle_4",
+      "ring_1",
+      "ring_2",
+      "ring_3",
+      "ring_4",
+      "pinky_1",
+      "pinky_2",
+      "pinky_3",
+      "pinky_4"
+    ]
+  },
+  "manual_2d": null,
+  "automatic_2d": null,
+  "manual_3d": null,
+  "automatic_3d": null,
+  "per_joint_validity": null,
+  "per_frame_view_counts": null,
+  "record_multiplicity": "UNKNOWN; frame_records[0] can only be flagged as potential loss, not a confirmed local multi-record bug"
+}

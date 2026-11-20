@@ -1,0 +1,19 @@
+{
+  "status": "BLOCKED",
+  "execution_status": "NOT_RUN",
+  "evidence_level": "DATASET_FILE_INVENTORY",
+  "evidence_file": "evidence/dataset_inventory.json",
+  "reason": "Required real annotation files absent from checked local dataset root",
+  "current_direction": {
+    "median_error": null,
+    "p90_error": null
+  },
+  "inverse_direction": {
+    "median_error": null,
+    "p90_error": null
+  },
+  "per_camera": null,
+  "manual_vs_automatic": null,
+  "distortion_resize_crop": "Downscaled videos found; no hand/camera records to verify these transforms",
+  "forbidden_substitute": "No synthetic points or zero errors used for missing observations"
+}

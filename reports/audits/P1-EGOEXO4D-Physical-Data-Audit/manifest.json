@@ -1,0 +1,407 @@
+{
+  "repository": "https://github.com/heu-gj/E3A",
+  "branch": "audit/p1-egoexo-physical-data",
+  "base_commit": "bade1b8d68205335ce039490ded919965216fe70",
+  "current_commit": "bade1b8d68205335ce039490ded919965216fe70",
+  "commit_semantics": "Parent HEAD observed at sealing; final archive commit is identified externally by PR/history",
+  "execution_timestamp_utc": "2026-11-20T19:52:47.653185+00:00",
+  "dataset_version": {
+    "root": ".",
+    "metadata_version": "v2",
+    "metadata_date": "240325",
+    "annotation_version": "Relations ds20240311_20:16:25; independent release revision UNKNOWN",
+    "download_receipt": "NOT_FOUND"
+  },
+  "audited_take": {
+    "uid": "51fc36b3-e769-4617-b087-3826b280cad3",
+    "name": "georgiatech_cooking_01_01_2"
+  },
+  "path_namespaces": {
+    "dataset": ". (all source dataset paths relative to configured root)",
+    "archive": "this directory",
+    "repository": "repository root",
+    "external_sdk": "module names plus version/SHA256; no host paths"
+  },
+  "source_inventory": {
+    "metadata_version": "v2",
+    "metadata_date": "240325",
+    "metadata_take_count": 5035,
+    "local_file_count": 11785,
+    "suffix_counts": {
+      ".json": 10,
+      ".mp4": 11775
+    },
+    "json_files": [
+      {
+        "dataset_path": "raw/physical_setting.json",
+        "bytes": 24694,
+        "sha256": "f185b8b614d5fef42662f93b5b91e10061f6e43810fe25a101261d02cfd5476a"
+      },
+      {
+        "dataset_path": "raw/metadata.json",
+        "bytes": 4685,
+        "sha256": "bf6c91018f69496e2543c34f136186951107a5b29adffb97884d28f9060075c5"
+      },
+      {
+        "dataset_path": "raw/participants.json",
+        "bytes": 293601,
+        "sha256": "0e6d39f4d886867335ee802363dcdc8ac76780a7fe1ae6705b8bb119971116c4"
+      },
+      {
+        "dataset_path": "raw/captures.json",
+        "bytes": 2020825,
+        "sha256": "940de768894fe3ffec6d37bab62798c7553844d7fbda1032ced14067d9868ad4"
+      },
+      {
+        "dataset_path": "raw/visual_objects.json",
+        "bytes": 203114,
+        "sha256": "daf4d3c2c089f06e85063a697ed774cacc6be173c6151c144d25782295c6ead4"
+      },
+      {
+        "dataset_path": "raw/takes.json",
+        "bytes": 43160564,
+        "sha256": "08a57d4d191ff3e22eadab369d95fd9c371b3b7737076ba87cfd379b421edf2a"
+      },
+      {
+        "dataset_path": "raw/annotations/splits.json",
+        "bytes": 2001999,
+        "sha256": "d5ab2aed05cf142206ae2472c64d8f7a09ac6f77059bab1dda1af906df858661"
+      }
+    ],
+    "large_annotation_files": [
+      {
+        "dataset_path": "raw/annotations/relations_val.json",
+        "bytes": 381112365,
+        "sha256_status": "PASS: source byte fingerprint only",
+        "sha256": "8aa32821e183863f89c72e47426173ea4355a0b1cbbc186e81b9b5d0d6030960"
+      },
+      {
+        "dataset_path": "raw/annotations/relations_test.json",
+        "bytes": 483973346,
+        "sha256_status": "PASS: source byte fingerprint only",
+        "sha256": "ec24aa30d842d9a2ce5643366d3c1c356a49b2fbb5f30894c870eccefdd09ce5"
+      },
+      {
+        "dataset_path": "raw/annotations/relations_train.json",
+        "bytes": 1226475944,
+        "sha256_status": "PASS: source byte fingerprint only",
+        "sha256": "72592b58caf9fe6923dc7f3e01076ffd427e14233c8c23205b0436eb0a6b9328"
+      }
+    ],
+    "missing_modalities": [
+      "EgoPose manual/automatic 2D and3D JSON",
+      "EgoPose camera poses",
+      "Raw Keystep annotations/taxonomy/vocabulary",
+      "keystep_benchmark",
+      "MPS/timesync/calibration"
+    ],
+    "search_scope": "Only selected dataset root recursively and immediate dataset-parent candidate names; no disk-wide search",
+    "annotation_revision": "Relations ds inspected from source header; metadata v2 does not independently version every annotation",
+    "selected_take_files": [
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_1201-1.mp4",
+        "bytes": 87148716,
+        "sha256": "0674fc9a26abbeb73fbe355d2c1862a418c4e6cf9d6556968582aad841ef761e"
+      },
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_1201-2.mp4",
+        "bytes": 94423594,
+        "sha256": "d7ee461ff5e59a6434da13dbccd7edc6df00fc946b3124e82ca219772dfa75ae"
+      },
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_211-1.mp4",
+        "bytes": 24040719,
+        "sha256": "f17c110edd089a3e1a1c45868246aa2c118b8768b7c0287bef4172ff24f107e3"
+      },
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/aria04_214-1.mp4",
+        "bytes": 63348950,
+        "sha256": "f29a782b62c2b06f0ff4182bc36b2241c14276860588e39c4af5f69ae03a5c7c"
+      },
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam01.mp4",
+        "bytes": 57088814,
+        "sha256": "b4e04d3d76e22621a01b6294f454a67b2d03e1946376d8c8976366a5e411d059"
+      },
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam02.mp4",
+        "bytes": 41080542,
+        "sha256": "b07099f72f378a0ff8c8d9802c41b0ef937f3aa506d0f1a9a9ec02c7a76da94a"
+      },
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam03.mp4",
+        "bytes": 33727268,
+        "sha256": "cf1182abd1a027e6339d677f82cdec3462208896c6636e8c141f9c5bef40a25b"
+      },
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/cam04.mp4",
+        "bytes": 42172380,
+        "sha256": "9e90fafa36d2c6677f0317c2e6005ee006e8d07e110ba56a3bcef629adce532d"
+      },
+      {
+        "dataset_path": "takes/georgiatech_cooking_01_01_2/frame_aligned_videos/downscaled/448/ego_preview.mp4",
+        "bytes": 93444351,
+        "sha256": "08cb937cbf782e991efcb1fdbc84b4b005c0de2babb1045cc5c8d8547eb94455"
+      }
+    ]
+  },
+  "file_inventory": "evidence/take_inventory.csv",
+  "artifact_inventory": [
+    {
+      "archive_path": ".gitignore",
+      "bytes": 91,
+      "sha256": "0db5889df408a9835630622c587a665ce48e1802269829cba04654417c1724d9"
+    },
+    {
+      "archive_path": "README.md",
+      "bytes": 1653,
+      "sha256": "6d9ec0d9c4e6a1c1f43f31a07833f29b573a3d7d0fe829fa66106a8c6acd3b0b"
+    },
+    {
+      "archive_path": "evidence/adapter_review.json",
+      "bytes": 3114,
+      "sha256": "ba6295cda2fd77bb45f9e246d46169fb5f77bd747b09b002809b0add2761f8ab"
+    },
+    {
+      "archive_path": "evidence/camera_pose_validation.json",
+      "bytes": 490,
+      "sha256": "9c381286e27ffc76c3772ebee25d5f7d467f817a2bcc0c9d08da396bbeb38af6"
+    },
+    {
+      "archive_path": "evidence/candidate_selection_summary.json",
+      "bytes": 12883,
+      "sha256": "1b934682a87bd21631d53422fc76b4364fb2f775c3becde3bebcb9db00e8f7a2"
+    },
+    {
+      "archive_path": "evidence/cross_modal_frames.csv",
+      "bytes": 2199,
+      "sha256": "e8e94f6a5d8d9a32e026c88488b4fd4c899114f9056870e747bd81d22db12f0b"
+    },
+    {
+      "archive_path": "evidence/dataset_inventory.json",
+      "bytes": 4700,
+      "sha256": "d2c4e7cb4fd177b3ec315b57fd6dfbf450df85d5ddf23bc21aca30fa09e39dd8"
+    },
+    {
+      "archive_path": "evidence/ego_pose_coverage.json",
+      "bytes": 983,
+      "sha256": "65f189de40783d378b366392358548dc7020fe5f61d8018c26b1acfd7bdf5bab"
+    },
+    {
+      "archive_path": "evidence/hand_reprojection.json",
+      "bytes": 653,
+      "sha256": "8de90c595f925acbd8f6d8bacb93020ba9f36771db69a391f6abecffaac1d52d"
+    },
+    {
+      "archive_path": "evidence/keystep_timeline.csv",
+      "bytes": 156,
+      "sha256": "8edf603dfc4998221a04e4ed8f1a109eb35ed502b2ae1818bb68685c373b9c07"
+    },
+    {
+      "archive_path": "evidence/keystep_validation.json",
+      "bytes": 500,
+      "sha256": "b404f6b31ec6bc037820d7c214e0a685ec08aac99af28c90431f72a1fa7ac22c"
+    },
+    {
+      "archive_path": "evidence/mps_availability.json",
+      "bytes": 939,
+      "sha256": "cd3d808f4ff5f235ff9e51dc8725a986e7cad66b7709cfa5f6b4bec934065e0a"
+    },
+    {
+      "archive_path": "evidence/relation_coverage.json",
+      "bytes": 10405,
+      "sha256": "d16ec49962b7339c96bf1e2ed07da3031513644f12cc09d5a670933d837ef7ef"
+    },
+    {
+      "archive_path": "evidence/relation_frame_cadence.json",
+      "bytes": 5859,
+      "sha256": "4647a5061e2b4f627d878b1bc62645e9b6dde8525965093b87719551ec72b923"
+    },
+    {
+      "archive_path": "evidence/relation_mask_decode.json",
+      "bytes": 36512,
+      "sha256": "b24ecf0a1ac752c6219766c01f74a347e3fe5721b4f0446611cdb771abd7c4a0"
+    },
+    {
+      "archive_path": "evidence/resolver_alias_audit.json",
+      "bytes": 888,
+      "sha256": "b9c3d3198fdd6671eae6ba23ac3b8f1a20a1e646c41f1fe583a6a150c2f40bde"
+    },
+    {
+      "archive_path": "evidence/supervision_readiness.json",
+      "bytes": 1291,
+      "sha256": "74d7bc658eff2cb7e43023fd0215a0ccd4919108bfeefee8ba52438b2caad653"
+    },
+    {
+      "archive_path": "evidence/take_inventory.csv",
+      "bytes": 580023,
+      "sha256": "56aa32c948346a74143c06b60d1f33782e09b2e4c19c121042bb0410b5765329"
+    },
+    {
+      "archive_path": "evidence/video_alignment.json",
+      "bytes": 79237,
+      "sha256": "49cce0722b8ffabef994d5985899a200e1c5b1dd63f717f6da58c104b5663fd4"
+    },
+    {
+      "archive_path": "logs/commands.txt",
+      "bytes": 2158,
+      "sha256": "bb371ee43f2c5a67b0cd8883f74845809ec2ca3b48810df5390567824aa8fe9d"
+    },
+    {
+      "archive_path": "logs/pr_description.md",
+      "bytes": 2474,
+      "sha256": "ad8b1c698a98d9bd7be12e87fcb2e6178f3b869b9e4f7ac370636e9f9fe9e835"
+    },
+    {
+      "archive_path": "logs/pytest.txt",
+      "bytes": 3746,
+      "sha256": "481a0d7ecd39294fc9aecb1ddef4473a02a3ac27267daf14e72d232424e648a0"
+    },
+    {
+      "archive_path": "logs/tests.json",
+      "bytes": 610,
+      "sha256": "a6fd004ff490706766c7a28a757ddea0c6e4bdaf5943e29d1fba54fa63ef603f"
+    },
+    {
+      "archive_path": "report.json",
+      "bytes": 9295,
+      "sha256": "e9115efea567610adcd2d4823dcad6ad33a4160c78aaac2edf50962991afb4c5"
+    },
+    {
+      "archive_path": "report.md",
+      "bytes": 17479,
+      "sha256": "0a82868ec3b15f78823c512cb511563ff16c1a08dc3193cab70ba5d85efb933e"
+    },
+    {
+      "archive_path": "visualizations/README.md",
+      "bytes": 665,
+      "sha256": "d7075c7c0c25eb8e65e4dc2fa83136e8c2bbc391089d7b0ec1d4c245b933d5b8"
+    }
+  ],
+  "withheld_local_inventory": [
+    {
+      "archive_path": "evidence/local_only/selected_relation.json",
+      "bytes": 19278679,
+      "sha256": "8163305fe70af557dd85697be11a6bfe12a1e567460b9bc91516670fd2e366d0"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_000000.jpg",
+      "bytes": 42732,
+      "sha256": "500c379e0eeef1c1b859b57e0368044d96f09640b50734fa05a2391a05ae0a44"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_007762.jpg",
+      "bytes": 42403,
+      "sha256": "8bf900cbc11ac793f4a118ba29eecfc927be333481e2c233185fce4ea5c1d974"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_007770.jpg",
+      "bytes": 46515,
+      "sha256": "04466c292c0bcd6f2d08ed34539e0a7bebd51d6fc286e42f1d55ef7cb2a11703"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_015510.jpg",
+      "bytes": 51201,
+      "sha256": "834923d8515132de772b2d4d31c57379c357313e615f81a63a788d61f60f608e"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_015524.jpg",
+      "bytes": 48788,
+      "sha256": "941c047ca4c1a6179d82cb434e6b05a24d0b6c45c08d2f9904ff0572a18c6782"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_023280.jpg",
+      "bytes": 49538,
+      "sha256": "e5127a184d6d0bd90543a9e368261c065da9f394db91db5d024a715e6562ddc8"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_023285.jpg",
+      "bytes": 43598,
+      "sha256": "71c39e2c10d76d1e3bed9836f9ae3034ddc02d4858b40855d4ab1f55fc6940d7"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_031020.jpg",
+      "bytes": 48585,
+      "sha256": "0f5220cadf8daa37e4bdd495e837df9b93bddb8aeff0c4c46ac7a7f349545c30"
+    },
+    {
+      "archive_path": "visualizations/local_only/aria04_214-1_031047.jpg",
+      "bytes": 39207,
+      "sha256": "8aedde7183c496e81341d8356c5e0d0c8050b42e80394130b250398e324e6fce"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_000000.jpg",
+      "bytes": 102043,
+      "sha256": "855b4a2314b15a4d9d0f14a78462db5be1a5d0a92bfbbfbaf522cce2b6cb2a45"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_007762.jpg",
+      "bytes": 98228,
+      "sha256": "57d98ae0685f0897375fbfae15e295b46e894b81ec1594cc3978db61b2b4481a"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_007770.jpg",
+      "bytes": 98963,
+      "sha256": "8fb455da5d935950336eca9912aca187cee469f376a6280513c356f871aafc30"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_015510.jpg",
+      "bytes": 100419,
+      "sha256": "0d319b8874f1765e5a236b917274ae286afd908de3034d97ae201bdca0045bf2"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_015524.jpg",
+      "bytes": 100185,
+      "sha256": "a1dcfc81bace72a167182541e4b21cc1e7c36f499fa4a8b2e17caa3ab9d13023"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_023280.jpg",
+      "bytes": 102690,
+      "sha256": "6c810b49c4ead65858479899532e44ba216ebdafcc45594b56ecf372c413d078"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_023285.jpg",
+      "bytes": 99875,
+      "sha256": "f48a3cda077a64084e4a8187ef48dc372a8e6b1c000fad498bacfacb644f4e7f"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_031020.jpg",
+      "bytes": 100881,
+      "sha256": "febb2b61603352b9384e12cc2239ec8f18a10f1f3ec3496cb85d8af59e79630b"
+    },
+    {
+      "archive_path": "visualizations/local_only/cam01_031047.jpg",
+      "bytes": 100036,
+      "sha256": "4b739bb2ebce0d3acc3b3eafe54c6ab36f9b3f8de6c3f131c5267594a489164a"
+    }
+  ],
+  "sha256_checksums": {
+    ".gitignore": "0db5889df408a9835630622c587a665ce48e1802269829cba04654417c1724d9",
+    "README.md": "6d9ec0d9c4e6a1c1f43f31a07833f29b573a3d7d0fe829fa66106a8c6acd3b0b",
+    "evidence/adapter_review.json": "ba6295cda2fd77bb45f9e246d46169fb5f77bd747b09b002809b0add2761f8ab",
+    "evidence/camera_pose_validation.json": "9c381286e27ffc76c3772ebee25d5f7d467f817a2bcc0c9d08da396bbeb38af6",
+    "evidence/candidate_selection_summary.json": "1b934682a87bd21631d53422fc76b4364fb2f775c3becde3bebcb9db00e8f7a2",
+    "evidence/cross_modal_frames.csv": "e8e94f6a5d8d9a32e026c88488b4fd4c899114f9056870e747bd81d22db12f0b",
+    "evidence/dataset_inventory.json": "d2c4e7cb4fd177b3ec315b57fd6dfbf450df85d5ddf23bc21aca30fa09e39dd8",
+    "evidence/ego_pose_coverage.json": "65f189de40783d378b366392358548dc7020fe5f61d8018c26b1acfd7bdf5bab",
+    "evidence/hand_reprojection.json": "8de90c595f925acbd8f6d8bacb93020ba9f36771db69a391f6abecffaac1d52d",
+    "evidence/keystep_timeline.csv": "8edf603dfc4998221a04e4ed8f1a109eb35ed502b2ae1818bb68685c373b9c07",
+    "evidence/keystep_validation.json": "b404f6b31ec6bc037820d7c214e0a685ec08aac99af28c90431f72a1fa7ac22c",
+    "evidence/mps_availability.json": "cd3d808f4ff5f235ff9e51dc8725a986e7cad66b7709cfa5f6b4bec934065e0a",
+    "evidence/relation_coverage.json": "d16ec49962b7339c96bf1e2ed07da3031513644f12cc09d5a670933d837ef7ef",
+    "evidence/relation_frame_cadence.json": "4647a5061e2b4f627d878b1bc62645e9b6dde8525965093b87719551ec72b923",
+    "evidence/relation_mask_decode.json": "b24ecf0a1ac752c6219766c01f74a347e3fe5721b4f0446611cdb771abd7c4a0",
+    "evidence/resolver_alias_audit.json": "b9c3d3198fdd6671eae6ba23ac3b8f1a20a1e646c41f1fe583a6a150c2f40bde",
+    "evidence/supervision_readiness.json": "74d7bc658eff2cb7e43023fd0215a0ccd4919108bfeefee8ba52438b2caad653",
+    "evidence/take_inventory.csv": "56aa32c948346a74143c06b60d1f33782e09b2e4c19c121042bb0410b5765329",
+    "evidence/video_alignment.json": "49cce0722b8ffabef994d5985899a200e1c5b1dd63f717f6da58c104b5663fd4",
+    "logs/commands.txt": "bb371ee43f2c5a67b0cd8883f74845809ec2ca3b48810df5390567824aa8fe9d",
+    "logs/pr_description.md": "ad8b1c698a98d9bd7be12e87fcb2e6178f3b869b9e4f7ac370636e9f9fe9e835",
+    "logs/pytest.txt": "481a0d7ecd39294fc9aecb1ddef4473a02a3ac27267daf14e72d232424e648a0",
+    "logs/tests.json": "a6fd004ff490706766c7a28a757ddea0c6e4bdaf5943e29d1fba54fa63ef603f",
+    "report.json": "e9115efea567610adcd2d4823dcad6ad33a4160c78aaac2edf50962991afb4c5",
+    "report.md": "0a82868ec3b15f78823c512cb511563ff16c1a08dc3193cab70ba5d85efb933e",
+    "visualizations/README.md": "d7075c7c0c25eb8e65e4dc2fa83136e8c2bbc391089d7b0ec1d4c245b933d5b8"
+  },
+  "checksum_policy": "Manifest excludes itself and SHA256SUMS to avoid recursion. SHA256SUMS includes manifest, excludes itself."
+}
