@@ -35,6 +35,8 @@ jobs:
         run: git submodule update --init third_party/vggt-omega
       - name: Checkout pinned VidEoMT
         run: git submodule update --init third_party/videomt
+      - name: Checkout pinned SAM 3
+        run: git submodule update --init third_party/sam3
       - name: Apply E3A compatibility patches
         run: bash scripts/apply_patches.sh
       - name: Install CPU PyTorch, E3A, and VGGT-Ω package

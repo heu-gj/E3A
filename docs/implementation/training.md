@@ -29,6 +29,6 @@ Install the upstream training extra:
 
     python -m pip install -e "third_party/vggt-omega[train]"
 
-VidEoMT additionally requires compatible Detectron2 and SciPy dependencies. Install/validate those in the target PyTorch/CUDA environment before enabling the real matcher/criterion.
+VidEoMT additionally requires compatible Detectron2 and SciPy dependencies. E3A pins NumPy below 2, so use a compatible SciPy release (for example, SciPy 1.13.x). Install/validate Detectron2 against the target PyTorch/CUDA environment before enabling the full real-dependency path.
 
 The actual training config is intentionally deferred until the dataset sample schema, event labels, and loss contract are audited. Do not create a runnable-looking config with guessed label names or dimensions.

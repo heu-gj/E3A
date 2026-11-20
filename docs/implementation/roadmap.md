@@ -47,6 +47,7 @@ Acceptance: pretrained geometry outputs remain unchanged when E3A tokens are abs
 - [x] Add CPU tests for VidEoMT frame-wise input conversion, loss aggregation, empty clips, track-ID validation, and batch-first target collation.
 - [x] Verify padded entity targets remain aligned when the pinned VGGT-Ω gradient-accumulation chunker splits a batch.
 - [x] Run the pinned VidEoMT matcher and criterion in CPU CI with only Detectron2 point-sampling utilities replaced by test stubs.
+- [x] Run the real pinned SAM 3 MaskPredictor forward and gradient test in CPU CI.
 - [ ] Validate the real SAM 3 MaskPredictor import and forward pass in the target GPU environment.
 - [ ] Validate the real VidEoMT matcher/criterion with compatible Detectron2/SciPy dependencies.
 - [ ] Confirm the dataset's track IDs, visibility, and masks satisfy the adapter contract.

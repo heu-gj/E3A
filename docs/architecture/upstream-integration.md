@@ -84,6 +84,8 @@ EntityMaskHead reuses this exact class and adds only the feature-dimension proje
 
 SAM 3.1's multiplex video predictor remains an optional offline teacher/baseline. It is a separate large model with its own visual encoder, tracker memory, preprocessing, session state, checkpoint, and latency/memory costs. Do not load it alongside VGGT-Ω in the default E3A forward pass.
 
+CPU CI checks out the pinned SAM 3 source and exercises the real MaskPredictor forward and gradient path using small synthetic features. This does not validate the full SAM 3.1 video predictor, its preprocessing/session behavior, checkpoint loading, or GPU memory/runtime.
+
 SAM 3.1 checkpoints may require Hugging Face access approval/authentication. Do not commit checkpoints or access tokens.
 
 ## VidEoMT: reuse its consistent video matcher and criterion
