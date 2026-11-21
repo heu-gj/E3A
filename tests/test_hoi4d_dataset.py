@@ -129,8 +129,8 @@ def _make_synthetic_root(tmp_path: Path, monkeypatch, *, omit_masks=False):
     action = {
         "info": {"duration": frame_count / 15.0},
         "events": [
-            {"event": "grasp", "startTime": 1.0, "endTime": 1.2},
-            {"event": "release", "startTime": 2.0, "endTime": 2.2},
+            {"event": "grasp", "startTime": 0.1, "endTime": 0.12},
+            {"event": "release", "startTime": 0.2, "endTime": 0.22},
         ],
     }
     paths.action_file.parent.mkdir(parents=True, exist_ok=True)
