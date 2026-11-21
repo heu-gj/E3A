@@ -94,6 +94,23 @@ MANO raw parameters, pixel validity, and clip-level entity validity.
 
 ## H1 validation
 
+After installing the E3A package in the project environment, run the real-root
+smoke test. It scans every source frame by default using non-overlapping clips
+plus a final end-aligned clip:
+
+    HOI4D_ROOT=/path/to/HOI4D python scripts/smoke_test_hoi4d_dataset.py
+
+For a lower-memory smoke test, request a consistent image-space resize:
+
+    HOI4D_ROOT=/path/to/HOI4D python scripts/smoke_test_hoi4d_dataset.py --height 540 --width 960
+
+Use --max-batches 1 to test only the first batch. The full scan reports source
+frame coverage, tensor shapes, mask validity, MANO/objpose coverage, depth
+validity, and action/time target availability. It does not run the model or
+claim physical GT validation.
+
+Unit tests:
+
 Run:
 
     python -m pytest -q tests/test_hoi4d_dataset.py tests/test_hoi4d_data.py tests/test_e3a_collate.py
