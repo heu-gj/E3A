@@ -1,0 +1,38 @@
+Execution order; placeholders replace local paths for publication.
+
+git status --short --branch
+git rev-parse HEAD
+gh pr view 1 --repo heu-gj/E3A --json state,mergedAt,mergeCommit,baseRefName
+git ls-remote origin refs/heads/feat/e3a-foundation refs/heads/audit/p1-egoexo-physical-data
+git fetch origin feat/e3a-foundation:refs/remotes/origin/feat/e3a-foundation audit/p1-egoexo-physical-data:refs/remotes/origin/audit/p1-egoexo-physical-data
+git switch --no-track -c audit/p1-egoexo-physical-data bade1b8d68205335ce039490ded919965216fe70
+
+The repository remote fetch configuration did not accept --track for the newly
+fetched ref; no forced reset or user changes were overwritten. The exact verified
+base commit was used explicitly for the local branch.
+
+python scripts/audit_egoexo_physical.py inventory --root <dataset-root>
+python scripts/audit_egoexo_physical.py audit --root <dataset-root> --sdk-site <existing-official-sdk-site>
+python scripts/audit_egoexo_physical.py fingerprints --root <dataset-root>
+python scripts/seal_egoexo_audit.py report
+python scripts/seal_egoexo_audit.py seal
+python scripts/seal_egoexo_audit.py tests
+
+The tests command invokes python -m pytest tests/test_egoexo_data.py -v plus the
+action vocabulary, entity targets, E3A collator and new audit-helper test files.
+Raw stdout is sanitized and stored in pytest.txt; exit status is in tests.json.
+Following the logged tests, report/seal are repeated to include test metadata,
+then archive integrity is checked again without rewriting the logged payload.
+
+sha256sum -c SHA256SUMS.txt
+git diff --check
+git diff --cached --check
+
+No package installation, source-data changes, training, or model/production
+adapter modifications were performed. Real data operations are recorded in the
+evidence files; synthetic tests do not stand in for absent modalities.
+
+Additional bounded metadata checks opened one real aria01 RGB frame and checked
+the selected take's advertised VRS/trajectory paths and capture camera descriptors.
+These operations are reproducible via auxiliary_metadata in the inventory phase;
+their independent evidence files contain only relative paths and statistics.

@@ -1,0 +1,41 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.19, pytest-9.0.3, pluggy-1.6.0 -- python
+cachedir: .pytest_cache
+rootdir: <repository-root>
+configfile: pyproject.toml
+plugins: hydra-core-1.3.2, anyio-4.12.1, cov-7.1.0, dash-4.4.1
+collecting ... collected 31 items
+
+tests/test_egoexo_data.py::test_egoexo_hand_pose_reorders_joints_and_transforms_world_to_camera PASSED [  3%]
+tests/test_egoexo_data.py::test_egoexo_hand_pose_auto_annotation_can_disable_manual_view_threshold PASSED [  6%]
+tests/test_egoexo_data.py::test_egoexo_hand_pose_supports_official_camera_first_pose_layout PASSED [  9%]
+tests/test_egoexo_data.py::test_egoexo_hand_pose_fails_closed_when_camera_pose_is_missing PASSED [ 12%]
+tests/test_egoexo_data.py::test_egoexo_relation_targets_distinguish_absence_from_unannotated_frames PASSED [ 16%]
+tests/test_egoexo_data.py::test_egoexo_hand_filter_keeps_non_hand_objects_containing_the_word_hand PASSED [ 19%]
+tests/test_egoexo_data.py::test_egoexo_anticipation_rejects_invalid_segment_end_time PASSED [ 22%]
+tests/test_egoexo_data.py::test_egoexo_relation_rejects_mask_frames_outside_annotated_coverage PASSED [ 25%]
+tests/test_egoexo_data.py::test_egoexo_video_path_uses_official_aria_stream_alias PASSED [ 29%]
+tests/test_egoexo_data.py::test_egoexo_keystep_parser_and_train_only_vocabulary_use_step_unique_ids PASSED [ 32%]
+tests/test_egoexo_data.py::test_egoexo_anticipation_uses_first_strictly_future_keystep PASSED [ 35%]
+tests/test_egoexo_data.py::test_egoexo_anticipation_keeps_time_but_masks_unseen_action_vocabulary_ids PASSED [ 38%]
+tests/test_egoexo_data.py::test_egoexo_anticipation_without_future_event_is_fully_invalid PASSED [ 41%]
+tests/test_egoexo_data.py::test_egoexo_anticipation_uses_dataset_prefixed_action_vocabulary PASSED [ 45%]
+tests/test_action_vocabulary.py::test_dataset_prefixed_action_vocabulary_does_not_merge_identical_labels PASSED [ 48%]
+tests/test_action_vocabulary.py::test_dataset_prefixed_vocabulary_rejects_empty_labels PASSED [ 51%]
+tests/test_entity_target_collate.py::test_collator_pads_variable_track_counts_for_batch_first_chunking PASSED [ 54%]
+tests/test_entity_target_collate.py::test_collator_rejects_mismatched_frame_counts PASSED [ 58%]
+tests/test_entity_target_collate.py::test_collator_rejects_mismatched_padded_mask_sizes PASSED [ 61%]
+tests/test_entity_target_collate.py::test_collator_rejects_empty_input PASSED [ 64%]
+tests/test_entity_target_collate.py::test_collator_preserves_per_track_annotation_coverage PASSED [ 67%]
+tests/test_e3a_collate.py::test_collate_e3a_batch_pads_tracks_and_keeps_missing_labels_invalid PASSED [ 70%]
+tests/test_e3a_collate.py::test_collate_e3a_batch_preserves_explicit_anticipation_targets PASSED [ 74%]
+tests/test_egoexo_physical_audit.py::test_stream_real_schema_with_chunk_boundaries_and_escaped_braces PASSED [ 77%]
+tests/test_egoexo_physical_audit.py::test_relation_three_states_are_not_collapsed PASSED [ 80%]
+tests/test_egoexo_physical_audit.py::test_coverage_detects_masks_outside_annotated_frames PASSED [ 83%]
+tests/test_egoexo_physical_audit.py::test_hand_filter_does_not_remove_tools_named_hand_blender PASSED [ 87%]
+tests/test_egoexo_physical_audit.py::test_multiple_records_first_empty_current_parser_discards_later_record_risk PASSED [ 90%]
+tests/test_egoexo_physical_audit.py::test_missing_data_cannot_be_reported_as_zero_reprojection_error PASSED [ 93%]
+tests/test_egoexo_physical_audit.py::test_public_archive_checksums_and_no_raw_or_sensitive_payloads PASSED [ 96%]
+tests/test_egoexo_physical_audit.py::test_real_mask_observations_and_video_sources_remain_scoped PASSED [100%]
+
+============================== 31 passed in 1.78s ==============================

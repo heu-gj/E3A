@@ -1,0 +1,24 @@
+{
+  "status": "PARTIAL",
+  "evidence_level": "REAL_TAKES_METADATA_AND_ACTUAL_LOW_RES_VIDEO_OPEN",
+  "aria01_records": [
+    {
+      "take_uid": "ed3ec638-8363-4e1d-9851-c7936cbfad8c",
+      "take_name": "cmu_bike01_2",
+      "camera_argument": "aria01_214-1",
+      "metadata_lookup": "aria01/rgb",
+      "resolved_metadata_path": "takes/cmu_bike01_2/frame_aligned_videos/aria01_214-1.mp4",
+      "actual_path": "takes/cmu_bike01_2/frame_aligned_videos/downscaled/448/aria01_214-1.mp4",
+      "metadata_file_exists": false,
+      "actual_frame0_read_ok": true,
+      "actual_frame0_shape": [
+        448,
+        448,
+        3
+      ],
+      "fps": 30.0
+    }
+  ],
+  "selected_take_aria": "aria04_214-1 -> aria04/rgb tested in video_alignment.json",
+  "conclusion": "Stream alias selects correct metadata. Actual downscaled path remains unsupported by production require_exists=True."
+}

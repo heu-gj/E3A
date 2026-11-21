@@ -1,0 +1,32 @@
+{
+  "status": "BLOCKED",
+  "evidence_level": "REAL_METADATA_AND_SOURCE_PATH_EXISTENCE",
+  "take_uid": "51fc36b3-e769-4617-b087-3826b280cad3",
+  "has_trimmed_trajectory_metadata": true,
+  "has_trimmed_vrs_metadata": true,
+  "actual_paths": [
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/aria04_noimagestreams.vrs",
+      "exists": false
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/eye_gaze",
+      "exists": false
+    },
+    {
+      "dataset_path": "takes/georgiatech_cooking_01_01_2/trajectory",
+      "exists": false
+    }
+  ],
+  "camera_record_fields": [
+    "cam_id",
+    "device_type",
+    "has_walkaround",
+    "includes_audio",
+    "is_ego",
+    "relative_path",
+    "video_artifact_uid"
+  ],
+  "camera_records_contain_intrinsics_extrinsics": false,
+  "reason": "Metadata advertises assets; actual files absent. Camera records contain device/path descriptors, not calibration matrices."
+}
