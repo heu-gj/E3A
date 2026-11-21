@@ -203,6 +203,28 @@ def _resize_array(
     return cv2.resize(array, (width, height), interpolation=interpolation)
 
 
+def _resize_pixel_validity(
+    pixel_valid: np.ndarray, image_size: tuple[int, int]
+) -> np.ndarray:
+    """Conservatively resize pixel validity when downsampling image-space labels."""
+    source_height, source_width = pixel_valid.shape
+    target_height, target_width = image_size
+    if (source_height, source_width) == image_size:
+        return pixel_valid.copy()
+    if target_height <= source_height and target_width <= source_width:
+        invalid_fraction = cv2.resize(
+            (~pixel_valid).astype(np.float32),
+            (target_width, target_height),
+            interpolation=cv2.INTER_AREA,
+        )
+        return invalid_fraction == 0.0
+    return cv2.resize(
+        pixel_valid.astype(np.uint8),
+        (target_width, target_height),
+        interpolation=cv2.INTER_NEAREST,
+    ).astype(np.bool_)
+
+
 def _decode_mask_with_validity(
     rgb_mask: np.ndarray, category: str
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -532,13 +554,16 @@ class HOI4DDataset(Dataset[dict[str, Any]]):
                     f"Mask {mask_path} has size {mask_rgb.shape[:2]}, expected "
                     f"{(source_height, source_width)}."
                 )
+            _, _, source_pixel_valid = _decode_mask_with_validity(
+                mask_rgb, sequence["category"]
+            )
             if target_size != (source_height, source_width):
                 mask_rgb = _resize_array(
                     mask_rgb, target_size, interpolation=cv2.INTER_NEAREST
                 )
-            _, _, pixel_valid = _decode_mask_with_validity(
-                mask_rgb, sequence["category"]
-            )
+                pixel_valid = _resize_pixel_validity(source_pixel_valid, target_size)
+            else:
+                pixel_valid = source_pixel_valid
             safe_mask = mask_rgb.copy()
             safe_mask[~pixel_valid] = palette_background
             mask_rgb_frames.append(safe_mask)
