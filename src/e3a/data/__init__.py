@@ -21,6 +21,13 @@ from e3a.data.hoi4d import (
     load_hoi4d_action_segments,
     parse_hoi4d_action_segments,
 )
+from e3a.data.hoi4d_dataset import (
+    HOI4DDataset,
+    HOI4DSequencePaths,
+    collate_hoi4d_batch,
+    make_hoi4d_dataloader,
+    resolve_hoi4d_sequence_paths,
+)
 
 __all__ = [
     "action_label_key",
@@ -34,6 +41,11 @@ __all__ = [
     "load_hoi4d_action_segments",
     "build_hoi4d_action_vocabulary",
     "build_hoi4d_anticipation_target",
+    "HOI4DDataset",
+    "HOI4DSequencePaths",
+    "resolve_hoi4d_sequence_paths",
+    "collate_hoi4d_batch",
+    "make_hoi4d_dataloader",
     "parse_egoexo_hand_pose_annotations",
     "load_egoexo_hand_pose_annotations",
     "parse_egoexo_keystep_segments",
