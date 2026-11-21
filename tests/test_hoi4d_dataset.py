@@ -295,6 +295,22 @@ def test_make_dataloader_uses_hoi4d_collator(tmp_path, monkeypatch):
     assert batch["dataset"] == ["hoi4d", "hoi4d"]
 
 
+def test_dataset_includes_final_window_when_clip_stride_does_not_divide_length(
+    tmp_path, monkeypatch
+):
+    _make_synthetic_root(tmp_path, monkeypatch)
+    dataset = HOI4DDataset(
+        tmp_path,
+        SEQUENCE,
+        clip_length=3,
+        clip_stride=2,
+        load_mano=False,
+    )
+    assert len(dataset) == 2
+    assert dataset[0]["frame_indices"].tolist() == [0, 1, 2]
+    assert dataset[1]["frame_indices"].tolist() == [1, 2, 3]
+
+
 def test_restricted_mano_unpickler_rejects_non_numpy_globals():
     payload = pickle.dumps(Path)
     with pytest.raises(pickle.UnpicklingError, match="Disallowed global"):
