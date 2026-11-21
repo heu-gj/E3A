@@ -73,9 +73,10 @@ MANO raw parameters, pixel validity, and clip-level entity validity.
 2. RGB/depth metadata (frame count, FPS, and dimensions) must agree by default.
    This is not a claim of pixel-perfect calibration or sensor timestamp sync.
 3. Mask PNGs are converted from palette mode to RGB before decoding. Unknown
-   colors are assigned semantic/instance -1 and pixel_valid=False. The
-   temporary background value used to call the existing strict target builder
-   is excluded by pixel_valid; it is not negative supervision.
+   colors are assigned semantic/instance -1 and pixel_valid=False. During
+   downsampling, a target pixel is invalid if any source pixel in its area is
+   unknown. The temporary background value used to call the existing strict
+   target builder is excluded by pixel_valid; it is not negative supervision.
 4. mask_valid remains track/frame-level and is true only when the track has
    visible labeled pixels. pixel_valid separately excludes unknown pixels.
    entity_supervision_valid=False for a clip with no visible entity track.
