@@ -240,6 +240,7 @@ def test_dataset_marks_unknown_pixels_and_missing_entity_supervision(tmp_path, m
         SEQUENCE,
         clip_length=2,
         clip_stride=2,
+        image_size=(12, 16),
         load_mano=False,
     )
     sample = dataset[1]
@@ -272,15 +273,16 @@ def test_collator_preserves_pixel_depth_intrinsics_and_clip_validity(tmp_path, m
         SEQUENCE,
         clip_length=2,
         clip_stride=2,
+        image_size=(12, 16),
         load_mano=True,
     )
     first, second = dataset[0], dataset[1]
     batch = collate_hoi4d_batch([first, second])
-    assert batch["images"].shape == (2, 2, 3, 24, 32)
-    assert batch["depth"].shape == (2, 2, 1, 24, 32)
+    assert batch["images"].shape == (2, 2, 3, 12, 16)
+    assert batch["depth"].shape == (2, 2, 1, 12, 16)
     assert batch["intrinsics"].shape == (2, 3, 3)
     assert batch["frame_indices"].tolist() == [[0, 1], [2, 3]]
-    assert batch["entity_targets"]["pixel_valid"].shape == (2, 2, 24, 32)
+    assert batch["entity_targets"]["pixel_valid"].shape == (2, 2, 12, 16)
     assert not batch["entity_targets"]["pixel_valid"][1, 0, 0, 0].item()
     assert batch["entity_supervision_valid"].tolist() == [True, True]
     assert batch["mano_parameters"]["valid"].shape == (2, 2, 2)
