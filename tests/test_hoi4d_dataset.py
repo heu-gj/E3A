@@ -105,7 +105,7 @@ def _make_synthetic_root(tmp_path: Path, monkeypatch, *, omit_masks=False):
             mask[4:12, 5:15] = palette[1]
             mask[12:16, 5:10] = palette[2]
             if index == 2:
-                mask[0, 0] = palette[4]
+                mask[1, 1] = palette[4]
             Image.fromarray(mask).save(paths.mask_dir / f"{index:05d}.png")
 
     for index in range(frame_count):
