@@ -453,7 +453,10 @@ class HOI4DDataset(Dataset[dict[str, Any]]):
                 }
             )
             last_start = frame_count - clip_span
-            for start in range(0, last_start + 1, self.clip_stride):
+            starts = list(range(0, last_start + 1, self.clip_stride))
+            if starts[-1] != last_start:
+                starts.append(last_start)
+            for start in starts:
                 self._samples.append((sequence_index, start))
 
         if not self._samples:
