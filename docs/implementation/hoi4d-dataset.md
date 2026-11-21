@@ -109,9 +109,7 @@ frame coverage, tensor shapes, mask validity, MANO/objpose coverage, depth
 validity, and action/time target availability. It does not run the model or
 claim physical GT validation.
 
-Unit tests:
-
-Run:
+Run the unit tests:
 
     python -m pytest -q tests/test_hoi4d_dataset.py tests/test_hoi4d_data.py tests/test_e3a_collate.py
 
