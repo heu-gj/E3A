@@ -853,3 +853,6 @@ def test_pixel_invalid_frames_are_excluded_from_no_object_classification(monkeyp
     assert mask_logits.grad is not None
     assert torch.count_nonzero(mask_logits.grad[:, 0]) == 0
     assert torch.count_nonzero(mask_logits.grad[:, 1]) > 0
+    # The unknown frame must not leak into the clip-level class-logit pooling.
+    assert torch.count_nonzero(objectness_logits.grad[:, 0]) == 0
+    assert torch.count_nonzero(objectness_logits.grad[:, 1]) > 0

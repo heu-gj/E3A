@@ -970,7 +970,26 @@ class VidEoMTMaskCriterion(nn.Module):
             height,
             width,
         )
-        clip_objectness = objectness_logits.float().mean(dim=1, keepdim=True)
+        # Class logits are clip-consistent, but unknown frames must not enter
+        # the temporal pooling that produces those logits.
+        class_frame_valid = torch.tensor(
+            [
+                bool(target["pixel_valid"].all().item())
+                for target in flattened_targets
+            ],
+            dtype=torch.bool,
+            device=objectness_logits.device,
+        ).reshape(batch_size, num_frames)
+        class_frame_valid = class_frame_valid & entity_supervision_valid[:, None]
+        class_frame_weights = class_frame_valid.unsqueeze(-1).to(
+            dtype=torch.float32
+        )
+        clip_objectness = (
+            (objectness_logits.float() * class_frame_weights).sum(
+                dim=1, keepdim=True
+            )
+            / class_frame_weights.sum(dim=1, keepdim=True).clamp_min(1.0)
+        )
         flat_objectness = clip_objectness.expand(-1, num_frames, -1)
         no_object_logits = torch.zeros_like(flat_objectness)
         flat_logits = torch.stack((flat_objectness, no_object_logits), dim=-1).reshape(
