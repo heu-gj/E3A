@@ -970,7 +970,26 @@ class VidEoMTMaskCriterion(nn.Module):
             height,
             width,
         )
-        clip_objectness = objectness_logits.float().mean(dim=1, keepdim=True)
+        # Class logits are clip-consistent, but unknown frames must not enter
+        # the temporal pooling that produces those logits.
+        class_frame_valid = torch.tensor(
+            [
+                bool(target["pixel_valid"].all().item())
+                for target in flattened_targets
+            ],
+            dtype=torch.bool,
+            device=objectness_logits.device,
+        ).reshape(batch_size, num_frames)
+        class_frame_valid = class_frame_valid & entity_supervision_valid[:, None]
+        class_frame_weights = class_frame_valid.unsqueeze(-1).to(
+            dtype=torch.float32
+        )
+        clip_objectness = (
+            (objectness_logits.float() * class_frame_weights).sum(
+                dim=1, keepdim=True
+            )
+            / class_frame_weights.sum(dim=1, keepdim=True).clamp_min(1.0)
+        )
         flat_objectness = clip_objectness.expand(-1, num_frames, -1)
         no_object_logits = torch.zeros_like(flat_objectness)
         flat_logits = torch.stack((flat_objectness, no_object_logits), dim=-1).reshape(
@@ -1059,14 +1078,44 @@ class VidEoMTMaskCriterion(nn.Module):
                     ("labels", "masks"),
                 )
                 if "labels" in criterion_losses:
-                    losses.update(
-                        self.criterion.loss_labels(
-                            supervised_outputs,
-                            supervised_targets,
-                            supervised_indices,
-                            num_masks=1.0,
+                    # VidEoMT's class loss labels every unmatched query as no-object.
+                    # A frame containing any unknown pixels cannot safely provide
+                    # those negatives, even though its known pixels may be used by
+                    # the mask matcher/loss.
+                    class_valid_indices = [
+                        index
+                        for index, target in enumerate(supervised_targets)
+                        if bool(target["pixel_valid"].all().item())
+                    ]
+                    if class_valid_indices:
+                        class_index_tensor = torch.as_tensor(
+                            class_valid_indices,
+                            dtype=torch.int64,
+                            device=supervised_outputs["pred_logits"].device,
                         )
-                    )
+                        class_outputs = {
+                            "pred_logits": supervised_outputs["pred_logits"].index_select(
+                                0, class_index_tensor
+                            )
+                        }
+                        class_targets = [
+                            supervised_targets[index] for index in class_valid_indices
+                        ]
+                        class_matches = [
+                            supervised_indices[index] for index in class_valid_indices
+                        ]
+                        losses.update(
+                            self.criterion.loss_labels(
+                                class_outputs,
+                                class_targets,
+                                class_matches,
+                                num_masks=1.0,
+                            )
+                        )
+                    else:
+                        losses["loss_ce"] = (
+                            supervised_outputs["pred_logits"].sum() * 0.0
+                        )
                 if "masks" in criterion_losses:
                     zero_mask_loss = supervised_outputs["pred_masks"].sum() * 0.0
                     if any_visible:

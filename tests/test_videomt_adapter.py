@@ -817,3 +817,43 @@ def test_explicitly_valid_empty_scene_trains_no_object_classification_only():
     assert torch.count_nonzero(objectness_logits.grad) > 0
     assert mask_logits.grad is not None
     assert torch.count_nonzero(mask_logits.grad) == 0
+
+
+
+def test_pixel_invalid_frames_are_excluded_from_no_object_classification(monkeypatch):
+    adapter = _make_real_videomt_adapter(monkeypatch, frames=2)
+    target = _make_partial_pixel_valid_target(frames=2)
+    # Frame 0 has no known pixels; frame 1 is fully annotated.
+    target["pixel_valid"][0].zero_()
+    target["pixel_valid"][1].fill_(True)
+    target["masks"][0, 0].fill_(1.0)  # Poison annotation in the unknown frame.
+    target["masks"][0, 1].zero_()
+    target["masks"][0, 1, 1:3, 1:3] = 1.0
+
+    class_loss_batches = []
+    original_loss_labels = adapter.criterion.loss_labels
+
+    def record_class_loss(outputs, targets, indices, num_masks):
+        class_loss_batches.append((outputs["pred_logits"].shape[0], len(targets)))
+        return original_loss_labels(outputs, targets, indices, num_masks)
+
+    monkeypatch.setattr(adapter.criterion, "loss_labels", record_class_loss)
+
+    mask_logits = torch.randn(1, 2, 2, 8, 8, requires_grad=True)
+    objectness_logits = torch.zeros(1, 2, 2, requires_grad=True)
+    losses, matches = adapter.forward_with_matches(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [target],
+    )
+
+    assert matches[0].get(71) in {0, 1}
+    assert class_loss_batches == [(1, 1)]
+    assert torch.isfinite(losses["loss_ce"])
+    assert torch.isfinite(losses["loss_mask"])
+    losses["loss_objective"].backward()
+    assert mask_logits.grad is not None
+    assert torch.count_nonzero(mask_logits.grad[:, 0]) == 0
+    assert torch.count_nonzero(mask_logits.grad[:, 1]) > 0
+    # The unknown frame must not leak into the clip-level class-logit pooling.
+    assert torch.count_nonzero(objectness_logits.grad[:, 0]) == 0
+    assert torch.count_nonzero(objectness_logits.grad[:, 1]) > 0
