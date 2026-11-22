@@ -3,9 +3,9 @@ import pytest
 
 from e3a.data.egoexo import (
     EGOEXO_HAND_JOINTS,
+    audit_egoexo_relation_coverage,
     build_egoexo_anticipation_target,
     build_egoexo_keystep_vocabulary,
-    audit_egoexo_relation_coverage,
     build_egoexo_relation_clip_targets,
     parse_egoexo_hand_pose_annotations,
     parse_egoexo_keystep_segments,

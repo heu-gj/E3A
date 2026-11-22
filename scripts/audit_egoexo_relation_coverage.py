@@ -22,7 +22,7 @@ def _sha256(path: Path) -> str:
 
 def _write_csv(path: Path, rows: list[dict[str, Any]], fields: list[str]) -> None:
     with path.open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
+        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\\n")
         writer.writeheader()
         for row in rows:
             writer.writerow(
@@ -140,7 +140,7 @@ def main() -> None:
     output_dir = args.output_dir.expanduser()
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "summary.json").write_text(
-        json.dumps(summary, indent=2, ensure_ascii=False) + "\n",
+        json.dumps(summary, indent=2, ensure_ascii=False) + "\\n",
         encoding="utf-8",
     )
     _write_csv(

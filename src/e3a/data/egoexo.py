@@ -231,6 +231,48 @@ def decode_egoexo_relation_mask(mask_record: Mapping[str, Any]) -> np.ndarray:
     return decoded.astype(np.bool_, copy=False)
 
 
+def _is_egoexo_hand_track(track_name: str) -> bool:
+    normalized = re.sub(r"[_\\s]+", " ", track_name.lower()).strip()
+    return re.fullmatch(r"(?:(?:left|right) )?hand(?: \\d+)?", normalized) is not None
+
+
+def _egoexo_relation_track_sets(
+    take_record: Mapping[str, Any],
+    object_masks: Mapping[str, Any],
+    *,
+    exclude_hand_tracks: bool,
+) -> tuple[set[str], set[str], bool]:
+    object_names_record = take_record.get("object_names")
+    enumerated_names: set[str] = set()
+    enumeration_complete = False
+    if isinstance(object_names_record, Mapping):
+        annotations = object_names_record.get("annotation")
+        if isinstance(annotations, Sequence) and not isinstance(
+            annotations, (str, bytes)
+        ):
+            enumeration_complete = True
+            for annotation_record in annotations:
+                if not isinstance(annotation_record, Mapping):
+                    enumeration_complete = False
+                    break
+                track_name = annotation_record.get("track_id")
+                if not isinstance(track_name, str) or not track_name:
+                    enumeration_complete = False
+                    break
+                if not (exclude_hand_tracks and _is_egoexo_hand_track(track_name)):
+                    enumerated_names.add(track_name)
+
+    mask_names = {
+        str(object_name)
+        for object_name in object_masks
+        if not (
+            exclude_hand_tracks
+            and _is_egoexo_hand_track(str(object_name))
+        )
+    }
+    return enumerated_names, mask_names, enumeration_complete
+
+
 def build_egoexo_relation_clip_targets(
     relation_annotations: Mapping[str, Any],
     take_uid: str,
@@ -281,47 +323,15 @@ def build_egoexo_relation_clip_targets(
     prepared: list[dict[str, Any]] = []
     coverage_sets: list[set[int]] = []
 
-    # object_names enumerates active objects, while object_masks can be a
-    # sampled subset. Coverage is only complete when the two non-hand track
-    # sets agree; otherwise unmatched queries are not safe no-object negatives.
-    object_names_record = take_record.get("object_names")
-    enumerated_names: set[str] = set()
-    enumeration_complete = False
-    if isinstance(object_names_record, Mapping):
-        enumerated_annotations = object_names_record.get("annotation")
-        if isinstance(enumerated_annotations, Sequence) and not isinstance(
-            enumerated_annotations, (str, bytes)
-        ):
-            enumeration_complete = True
-            for annotation_record in enumerated_annotations:
-                if not isinstance(annotation_record, Mapping):
-                    enumeration_complete = False
-                    break
-                track_name = annotation_record.get("track_id")
-                if not isinstance(track_name, str) or not track_name:
-                    enumeration_complete = False
-                    break
-                normalized_track_name = re.sub(
-                    r"[_\s]+", " ", track_name.lower()
-                ).strip()
-                is_hand_track = re.fullmatch(
-                    r"(?:(?:left|right) )?hand(?: \d+)?",
-                    normalized_track_name,
-                ) is not None
-                if not (exclude_hand_tracks and is_hand_track):
-                    enumerated_names.add(track_name)
-
-    mask_names = set()
-    for object_name in object_masks:
-        normalized_name = re.sub(
-            r"[_\s]+", " ", str(object_name).lower()
-        ).strip()
-        is_hand_track = re.fullmatch(
-            r"(?:(?:left|right) )?hand(?: \d+)?",
-            normalized_name,
-        ) is not None
-        if not (exclude_hand_tracks and is_hand_track):
-            mask_names.add(str(object_name))
+    # object_masks can be a sampled subset of object_names. Never infer
+    # no-object labels unless the complete non-hand track sets agree.
+    enumerated_names, mask_names, enumeration_complete = (
+        _egoexo_relation_track_sets(
+            take_record,
+            object_masks,
+            exclude_hand_tracks=exclude_hand_tracks,
+        )
+    )
     coverage_complete = enumeration_complete and enumerated_names == mask_names
     inferred_size = image_size
 
@@ -498,36 +508,13 @@ def audit_egoexo_relation_coverage(
         object_masks_valid = isinstance(raw_object_masks, Mapping)
         object_masks = raw_object_masks if object_masks_valid else {}
 
-        object_names_record = take_record.get("object_names")
-        enumerated_names: set[str] = set()
-        enumeration_complete = False
-        if isinstance(object_names_record, Mapping):
-            annotations = object_names_record.get("annotation")
-            if isinstance(annotations, Sequence) and not isinstance(
-                annotations, (str, bytes)
-            ):
-                enumeration_complete = True
-                for annotation_record in annotations:
-                    if not isinstance(annotation_record, Mapping):
-                        enumeration_complete = False
-                        break
-                    track_name = annotation_record.get("track_id")
-                    if not isinstance(track_name, str) or not track_name:
-                        enumeration_complete = False
-                        break
-                    normalized = re.sub(r"[_\s]+", " ", track_name.lower()).strip()
-                    if re.fullmatch(r"(?:(?:left|right) )?hand(?: \d+)?", normalized):
-                        continue
-                    enumerated_names.add(track_name)
-
-        mask_names: set[str] = set()
-        for object_name in object_masks:
-            normalized = re.sub(
-                r"[_\s]+", " ", str(object_name).lower()
-            ).strip()
-            if not re.fullmatch(r"(?:(?:left|right) )?hand(?: \d+)?", normalized):
-                mask_names.add(str(object_name))
-
+        enumerated_names, mask_names, enumeration_complete = (
+            _egoexo_relation_track_sets(
+                take_record,
+                object_masks,
+                exclude_hand_tracks=True,
+            )
+        )
         enumeration_matches = bool(
             object_masks_valid
             and enumeration_complete
