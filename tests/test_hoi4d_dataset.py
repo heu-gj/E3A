@@ -343,6 +343,7 @@ def test_hoi4d_collator_accepts_source_verified_empty_scene(tmp_path, monkeypatc
     # Simulate a source-backed complete annotation window with no objects.
     sample["entity_targets"]["pixel_valid"].fill_(True)
     sample["entity_supervision_valid"] = True
+    sample["entity_frame_supervision_valid"].fill_(True)
     batch = collate_hoi4d_batch([sample])
 
     assert batch["entity_supervision_valid"].tolist() == [True]

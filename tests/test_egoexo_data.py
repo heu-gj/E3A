@@ -176,6 +176,87 @@ def test_egoexo_relation_targets_distinguish_absence_from_unannotated_frames():
     assert targets["masks"][0, 2].sum().item() == 1
 
 
+def test_egoexo_frame_classification_requires_coverage_for_every_object_track():
+    mask = np.ones((2, 2), dtype=np.bool_)
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_masks": {
+                    "object_a": {
+                        "cam04": {
+                            "annotated_frames": [0, 1],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    },
+                    "object_b": {
+                        "cam04": {
+                            "annotated_frames": [0],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    },
+                }
+            }
+        }
+    }
+
+    targets = build_egoexo_relation_clip_targets(
+        relation,
+        "take-1",
+        "cam04",
+        [0, 1],
+        mask_decoder=lambda _: mask,
+    )
+
+    assert targets["track_names"] == ["object_a", "object_b"]
+    assert targets["entity_frame_supervision_valid"].tolist() == [True, False]
+    assert targets["entity_supervision_valid"] is True
+
+
+def test_egoexo_frame_classification_fails_closed_when_an_object_has_no_camera_record():
+    mask = np.ones((2, 2), dtype=np.bool_)
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_masks": {
+                    "object_a": {
+                        "cam04": {
+                            "annotated_frames": [0, 1],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    },
+                    "object_b": {
+                        "cam05": {
+                            "annotated_frames": [0, 1],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    },
+                }
+            }
+        }
+    }
+
+    targets = build_egoexo_relation_clip_targets(
+        relation,
+        "take-1",
+        "cam04",
+        [0, 1],
+        image_size=(2, 2),
+        mask_decoder=lambda _: mask,
+    )
+
+    assert targets["track_names"] == ["object_a"]
+    assert targets["entity_frame_supervision_valid"].tolist() == [False, False]
+    assert targets["entity_supervision_valid"] is True
+
+
 def test_egoexo_hand_filter_keeps_non_hand_objects_containing_the_word_hand():
     mask = np.ones((2, 2), dtype=np.bool_)
     relation = {
