@@ -262,10 +262,6 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             )
         if not isinstance(explicit_valid, bool):
             raise TypeError("entity_supervision_valid must be a boolean.")
-        if explicit_valid and track_count == 0:
-            raise ValueError(
-                "A clip with zero entity tracks cannot have valid entity supervision."
-            )
         entity_supervision_valid_values.append(explicit_valid)
     entity_supervision_valid = torch.tensor(
         entity_supervision_valid_values,

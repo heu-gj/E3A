@@ -946,15 +946,6 @@ class VidEoMTMaskCriterion(nn.Module):
             entity_supervision_valid = raw_entity_supervision_valid.to(
                 device=mask_logits.device
             )
-            for clip_index, (target, is_valid) in enumerate(
-                zip(targets, entity_supervision_valid.tolist(), strict=True)
-            ):
-                if is_valid and target["labels"].numel() == 0:
-                    raise ValueError(
-                        f"entity_supervision_valid[{clip_index}] is true but the clip "
-                        "contains zero entity tracks."
-                    )
-
         targets = [
             target
             if is_valid

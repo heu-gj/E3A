@@ -72,10 +72,8 @@ def test_collate_e3a_batch_respects_explicit_entity_supervision_validity():
 
     empty = make_sample(0)
     empty["entity_supervision_valid"] = True
-    import pytest
-
-    with pytest.raises(ValueError, match="zero entity tracks"):
-        collate_e3a_batch([empty])
+    empty_batch = collate_e3a_batch([empty])
+    assert empty_batch["entity_supervision_valid"].tolist() == [True]
 
 
 def test_collate_e3a_batch_preserves_explicit_anticipation_targets():

@@ -775,3 +775,43 @@ def test_entity_supervision_valid_requires_boolean_batch_vector():
             },
             batch,
         )
+
+
+
+def test_explicitly_valid_empty_scene_trains_no_object_classification_only():
+    matcher = RecordingMatcher()
+    criterion = RecordingCriterion(matcher)
+    adapter = make_criterion(matcher=matcher, criterion=criterion)
+    empty_clip = {
+        "labels": torch.empty(0, dtype=torch.int64),
+        "ids": torch.empty(0, 2, dtype=torch.int64),
+        "masks": torch.empty(0, 2, 8, 8),
+    }
+    padded = collate_entity_targets([empty_clip])
+    padded["pixel_valid"] = torch.ones(1, 2, 8, 8, dtype=torch.bool)
+    batch = {
+        "entity_targets": padded,
+        # This may only be true when the source explicitly verifies an empty scene.
+        "entity_supervision_valid": torch.tensor([True]),
+    }
+    mask_logits = torch.randn(1, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.ones(1, 2, 3, requires_grad=True)
+
+    losses, track_to_slot = adapter.forward_with_matches(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        batch,
+    )
+
+    assert track_to_slot == [{}]
+    assert matcher.targets is not None
+    assert len(matcher.targets) == 2
+    assert all(target["labels"].numel() == 0 for target in matcher.targets)
+    assert losses["loss_ce"].item() > 0
+    assert losses["loss_mask"].item() == 0
+    assert losses["loss_dice"].item() == 0
+
+    losses["loss_objective"].backward()
+    assert objectness_logits.grad is not None
+    assert torch.count_nonzero(objectness_logits.grad) > 0
+    assert mask_logits.grad is not None
+    assert torch.count_nonzero(mask_logits.grad) == 0
