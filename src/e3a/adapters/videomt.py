@@ -10,6 +10,7 @@ from types import ModuleType
 from typing import Any
 
 import torch
+import torch.nn.functional as F
 from torch import nn
 
 
@@ -123,6 +124,8 @@ class VidEoMTMaskCriterion(nn.Module):
 
         self.frames = int(frames)
         self.num_points = int(num_points)
+        self.oversample_ratio = float(oversample_ratio)
+        self.importance_sample_ratio = float(importance_sample_ratio)
         self.loss_weights = normalized_weights
         self.criterion = criterion
         self._matcher_fallback = matcher if not hasattr(criterion, "matcher") else None
@@ -234,6 +237,26 @@ class VidEoMTMaskCriterion(nn.Module):
             raise ValueError("batched masks must have shape [B,Nmax,T,H,W].")
         if mask_valid.dtype != torch.bool or mask_valid.shape != track_ids.shape:
             raise ValueError("batched mask_valid must be bool with shape [B,Nmax,T].")
+        pixel_valid = targets.get("pixel_valid")
+        if pixel_valid is None:
+            pixel_valid = torch.ones(
+                (batch_size, num_frames, masks.shape[-2], masks.shape[-1]),
+                dtype=torch.bool,
+                device=track_ids.device,
+            )
+        if not torch.is_tensor(pixel_valid):
+            raise TypeError("batched pixel_valid must be a torch tensor.")
+        expected_pixel_valid_shape = (
+            batch_size,
+            num_frames,
+            masks.shape[-2],
+            masks.shape[-1],
+        )
+        if pixel_valid.dtype != torch.bool or tuple(pixel_valid.shape) != expected_pixel_valid_shape:
+            raise ValueError(
+                "batched pixel_valid must be bool with shape [B,T,H,W]."
+            )
+        values = (*values, pixel_valid)
         if track_counts.ndim != 1:
             raise ValueError("track_counts must have shape [B].")
         if (
@@ -283,6 +306,7 @@ class VidEoMTMaskCriterion(nn.Module):
                     "ids": track_ids[batch_index, :count],
                     "masks": masks[batch_index, :count],
                     "mask_valid": mask_valid[batch_index, :count],
+                    "pixel_valid": pixel_valid[batch_index],
                 }
             )
         return clips
@@ -342,6 +366,22 @@ class VidEoMTMaskCriterion(nn.Module):
                 )
             if min(masks.shape[-2:]) <= 0:
                 raise ValueError("target masks must have non-empty spatial dimensions.")
+            pixel_valid = target.get(
+                "pixel_valid",
+                torch.ones(
+                    (num_frames, masks.shape[-2], masks.shape[-1]),
+                    dtype=torch.bool,
+                    device=masks.device,
+                ),
+            )
+            if not torch.is_tensor(pixel_valid):
+                raise TypeError("pixel_valid must be a torch tensor.")
+            if pixel_valid.dtype != torch.bool or tuple(pixel_valid.shape) != (
+                num_frames,
+                masks.shape[-2],
+                masks.shape[-1],
+            ):
+                raise ValueError("pixel_valid must be bool with shape [T,H,W].")
             if track_ids.shape[0] != labels.shape[0]:
                 raise ValueError("labels and ids must contain the same number of tracks.")
 
@@ -360,7 +400,7 @@ class VidEoMTMaskCriterion(nn.Module):
                 raise TypeError("ids must use an integer dtype.")
             if any(
                 value.device != device
-                for value in (labels, track_ids, masks, mask_valid)
+                for value in (labels, track_ids, masks, mask_valid, pixel_valid)
             ):
                 raise ValueError("predictions and all target tensors must share one device.")
             if not torch.isfinite(masks).all():
@@ -376,10 +416,16 @@ class VidEoMTMaskCriterion(nn.Module):
 
             track_ids = track_ids.to(dtype=torch.int64)
             mask_valid = mask_valid.to(dtype=torch.bool)
+            pixel_valid = pixel_valid.to(dtype=torch.bool)
+            masks = masks.to(dtype=torch.float32).masked_fill(
+                ~pixel_valid.unsqueeze(0), 0.0
+            )
             visible = track_ids >= 0
             if (visible & ~mask_valid).any():
                 raise ValueError("unannotated frames must use track ID -1.")
-            track_count = int(visible.any(dim=1).sum().item())
+            known_foreground = masks.flatten(2).sum(dim=2) > 0
+            supervised_visible = visible & mask_valid & known_foreground
+            track_count = int(supervised_visible.any(dim=1).sum().item())
             if track_count > num_queries:
                 raise ValueError(
                     f"clip {clip_index} has {track_count} visible tracks but only "
@@ -388,6 +434,11 @@ class VidEoMTMaskCriterion(nn.Module):
             if track_ids.shape[0] and (~visible.any(dim=1)).any():
                 raise ValueError(
                     f"clip {clip_index} contains a track row that is never visible."
+                )
+            if track_ids.shape[0] and (~supervised_visible.any(dim=1)).any():
+                raise ValueError(
+                    f"clip {clip_index} contains a track with no pixel-valid visible mask "
+                    "frame; refusing to create an ungrounded entity assignment."
                 )
 
             seen_ids: set[int] = set()
@@ -408,9 +459,12 @@ class VidEoMTMaskCriterion(nn.Module):
                 seen_ids.add(track_id)
 
                 row_masks = masks[row]
-                if (row_masks[visible[row]].flatten(1).sum(dim=1) <= 0).any():
+                if (
+                    row_masks[supervised_visible[row]].flatten(1).sum(dim=1) <= 0
+                ).any():
                     raise ValueError(
-                        f"clip {clip_index} has a visible track frame with an empty mask."
+                        f"clip {clip_index} has a pixel-valid visible track frame "
+                        "with an empty mask."
                     )
                 absent_masks = row_masks[~visible[row]].to(torch.float32)
                 if (absent_masks.flatten(1).sum(dim=1) > 0).any():
@@ -420,7 +474,6 @@ class VidEoMTMaskCriterion(nn.Module):
 
             any_visible = any_visible or track_count > 0
             labels = labels.to(dtype=torch.int64)
-            masks = masks.to(dtype=torch.float32)
             for frame_index in range(num_frames):
                 flattened.append(
                     {
@@ -428,10 +481,319 @@ class VidEoMTMaskCriterion(nn.Module):
                         "ids": track_ids[:, frame_index : frame_index + 1],
                         "masks": masks[:, frame_index : frame_index + 1],
                         "mask_valid": mask_valid[:, frame_index : frame_index + 1],
+                        "pixel_valid": pixel_valid[frame_index : frame_index + 1],
                     }
                 )
 
         return flattened, any_visible
+
+
+    @staticmethod
+    def _point_sample(
+        masks: torch.Tensor,
+        point_coords: torch.Tensor,
+    ) -> torch.Tensor:
+        """Sample masks at normalized (x, y) coordinates using PointRend semantics."""
+        grid = point_coords.mul(2.0).sub(1.0).unsqueeze(2)
+        return F.grid_sample(
+            masks,
+            grid,
+            mode="bilinear",
+            align_corners=False,
+        ).squeeze(-1)
+
+    @staticmethod
+    def _coords_from_indices(
+        indices: torch.Tensor,
+        *,
+        height: int,
+        width: int,
+    ) -> torch.Tensor:
+        """Convert flattened target-pixel indices to exact pixel-center coordinates."""
+        x = torch.remainder(indices, width).to(torch.float32) + 0.5
+        y = torch.div(indices, width, rounding_mode="floor").to(torch.float32) + 0.5
+        return torch.stack((x / width, y / height), dim=-1)
+
+    @torch.no_grad()
+    def _match_with_pixel_valid(
+        self,
+        outputs: Mapping[str, torch.Tensor],
+        targets: Sequence[Mapping[str, torch.Tensor]],
+    ) -> list[tuple[torch.Tensor, torch.Tensor]]:
+        """Apply the pinned consistent matcher policy using known pixels only.
+
+        Fully valid masks continue through the upstream matcher unchanged. For
+        partially unknown masks, the first-visible-frame Hungarian assignment is
+        retained while its mask costs are evaluated only at valid pixel centers.
+        Returned indices are CPU tensors, as in the upstream VidEoMT matcher.
+        """
+        matcher = self.matcher
+        if all(bool(target["pixel_valid"].all().item()) for target in targets):
+            return matcher(outputs, targets)
+
+        required = ("cost_class", "cost_mask", "cost_dice", "num_points", "frames")
+        missing = [name for name in required if not hasattr(matcher, name)]
+        if missing:
+            raise TypeError(
+                "Pixel-valid matching requires the pinned VidEoMT consistent matcher; "
+                f"missing matcher attributes: {missing}."
+            )
+        if int(matcher.frames) != self.frames:
+            raise ValueError("VidEoMT matcher frame count does not match the E3A adapter.")
+
+        from scipy.optimize import linear_sum_assignment
+
+        batch_frames, num_queries = outputs["pred_logits"].shape[:2]
+        if batch_frames != len(targets) or batch_frames % self.frames:
+            raise ValueError("Flattened outputs and targets must align in B*T order.")
+        point_count = int(matcher.num_points)
+        if point_count <= 0:
+            raise ValueError("VidEoMT matcher num_points must be positive.")
+
+        assignments: list[tuple[torch.Tensor, torch.Tensor]] = []
+        batch_size = batch_frames // self.frames
+        for batch_index in range(batch_size):
+            first_valid_frame: dict[int, int] = {}
+            for frame_index in range(self.frames):
+                flat_index = batch_index * self.frames + frame_index
+                target = targets[flat_index]
+                ids = target["ids"].reshape(-1)
+                mask_valid = target["mask_valid"].reshape(-1)
+                pixel_valid = target["pixel_valid"][0]
+                masks = target["masks"][:, 0]
+                known_foreground = (
+                    (masks > 0) & pixel_valid.unsqueeze(0)
+                ).flatten(1).any(dim=1)
+                eligible = (ids >= 0) & mask_valid & known_foreground
+                for row in torch.nonzero(eligible, as_tuple=False).flatten().tolist():
+                    first_valid_frame.setdefault(int(row), frame_index)
+
+            tracks_by_first_frame: dict[int, list[int]] = {}
+            for row, frame_index in first_valid_frame.items():
+                tracks_by_first_frame.setdefault(frame_index, []).append(row)
+
+            used_query_indices: list[int] = []
+            matched_queries: list[int] = []
+            matched_targets: list[int] = []
+            for frame_index in sorted(tracks_by_first_frame):
+                flat_index = batch_index * self.frames + frame_index
+                target = targets[flat_index]
+                used_targets = tracks_by_first_frame[frame_index]
+                target_indices = torch.as_tensor(
+                    used_targets,
+                    dtype=torch.int64,
+                    device=target["labels"].device,
+                )
+                probabilities = outputs["pred_logits"][flat_index].float().softmax(-1)
+                target_classes = target["labels"][target_indices].to(torch.int64)
+                cost_class = -probabilities[:, target_classes]
+
+                valid_indices = torch.nonzero(
+                    target["pixel_valid"][0].reshape(-1),
+                    as_tuple=False,
+                ).flatten()
+                if valid_indices.numel() == 0:
+                    raise RuntimeError(
+                        "A pixel-valid entity match was selected without valid pixels."
+                    )
+                height, width = target["pixel_valid"].shape[-2:]
+                sampled_indices = valid_indices[
+                    torch.randint(
+                        valid_indices.numel(),
+                        (point_count,),
+                        device=valid_indices.device,
+                    )
+                ]
+                point_coords = self._coords_from_indices(
+                    sampled_indices,
+                    height=height,
+                    width=width,
+                )
+
+                predicted_masks = outputs["pred_masks"][flat_index].float()
+                target_masks = target["masks"][target_indices].to(
+                    device=predicted_masks.device,
+                    dtype=torch.float32,
+                )
+                predicted_points = self._point_sample(
+                    predicted_masks,
+                    point_coords.unsqueeze(0).expand(num_queries, -1, -1),
+                ).squeeze(1)
+                target_points = self._point_sample(
+                    target_masks,
+                    point_coords.unsqueeze(0).expand(len(used_targets), -1, -1),
+                ).squeeze(1)
+
+                positive_cost = F.binary_cross_entropy_with_logits(
+                    predicted_points,
+                    torch.ones_like(predicted_points),
+                    reduction="none",
+                )
+                negative_cost = F.binary_cross_entropy_with_logits(
+                    predicted_points,
+                    torch.zeros_like(predicted_points),
+                    reduction="none",
+                )
+                cost_mask = (
+                    torch.einsum("kp,np->kn", positive_cost, target_points)
+                    + torch.einsum("kp,np->kn", negative_cost, 1.0 - target_points)
+                ) / float(point_count)
+
+                predicted_probabilities = predicted_points.sigmoid()
+                numerator = 2.0 * torch.einsum(
+                    "kp,np->kn",
+                    predicted_probabilities,
+                    target_points,
+                )
+                denominator = (
+                    predicted_probabilities.sum(dim=-1)[:, None]
+                    + target_points.sum(dim=-1)[None, :]
+                )
+                cost_dice = 1.0 - (numerator + 1.0) / (denominator + 1.0)
+
+                cost = (
+                    float(matcher.cost_class) * cost_class
+                    + float(matcher.cost_mask) * cost_mask
+                    + float(matcher.cost_dice) * cost_dice
+                )
+                if not torch.isfinite(cost).all():
+                    raise FloatingPointError("Pixel-valid Hungarian matching cost is non-finite.")
+                if used_query_indices:
+                    cost[used_query_indices, :] = 1e6
+
+                query_rows, target_columns = linear_sum_assignment(
+                    cost.detach().cpu().numpy()
+                )
+                used_query_indices.extend(int(value) for value in query_rows.tolist())
+                matched_queries.extend(int(value) for value in query_rows.tolist())
+                matched_targets.extend(
+                    used_targets[int(column)] for column in target_columns.tolist()
+                )
+
+            for _ in range(self.frames):
+                assignments.append(
+                    (
+                        torch.as_tensor(matched_queries, dtype=torch.int64),
+                        torch.as_tensor(matched_targets, dtype=torch.int64),
+                    )
+                )
+        return assignments
+
+    def _loss_masks_with_pixel_valid(
+        self,
+        outputs: Mapping[str, torch.Tensor],
+        targets: Sequence[Mapping[str, torch.Tensor]],
+        indices: Sequence[tuple[torch.Tensor, torch.Tensor]],
+        *,
+        num_masks: float,
+    ) -> dict[str, torch.Tensor]:
+        """Compute VidEoMT BCE/Dice losses from valid pixels only."""
+        logits_by_frame: list[torch.Tensor] = []
+        labels_by_frame: list[torch.Tensor] = []
+        candidate_count = max(
+            int(self.num_points * self.oversample_ratio),
+            self.num_points,
+        )
+        uncertain_count = min(
+            int(self.num_points * self.importance_sample_ratio),
+            self.num_points,
+        )
+        random_count = self.num_points - uncertain_count
+
+        for frame_index, (source_indices, target_indices) in enumerate(indices):
+            if target_indices.numel() == 0:
+                continue
+            target = targets[frame_index]
+            valid_indices = torch.nonzero(
+                target["pixel_valid"][0].reshape(-1),
+                as_tuple=False,
+            ).flatten()
+            if valid_indices.numel() == 0:
+                continue
+
+            source_masks = outputs["pred_masks"][frame_index, source_indices].float()
+            target_masks = target["masks"][target_indices].to(
+                device=source_masks.device,
+                dtype=torch.float32,
+            )
+            match_count = source_masks.shape[0]
+            if match_count == 0:
+                continue
+
+            height, width = target["pixel_valid"].shape[-2:]
+            candidate_positions = valid_indices[
+                torch.randint(
+                    valid_indices.numel(),
+                    (match_count, candidate_count),
+                    device=valid_indices.device,
+                )
+            ]
+            candidate_coords = self._coords_from_indices(
+                candidate_positions,
+                height=height,
+                width=width,
+            )
+
+            with torch.no_grad():
+                candidate_logits = self._point_sample(
+                    source_masks.detach(),
+                    candidate_coords,
+                ).squeeze(1)
+                if uncertain_count:
+                    uncertain_indices = torch.topk(
+                        -candidate_logits.abs(),
+                        k=uncertain_count,
+                        dim=1,
+                    ).indices
+                    uncertain_coords = candidate_coords.gather(
+                        1,
+                        uncertain_indices.unsqueeze(-1).expand(-1, -1, 2),
+                    )
+                else:
+                    uncertain_coords = candidate_coords[:, :0]
+
+                if random_count:
+                    random_positions = valid_indices[
+                        torch.randint(
+                            valid_indices.numel(),
+                            (match_count, random_count),
+                            device=valid_indices.device,
+                        )
+                    ]
+                    random_coords = self._coords_from_indices(
+                        random_positions,
+                        height=height,
+                        width=width,
+                    )
+                else:
+                    random_coords = candidate_coords[:, :0]
+                point_coords = torch.cat((uncertain_coords, random_coords), dim=1)
+
+            logits_by_frame.append(
+                self._point_sample(source_masks, point_coords).squeeze(1)
+            )
+            labels_by_frame.append(
+                self._point_sample(target_masks, point_coords).squeeze(1)
+            )
+
+        if not logits_by_frame:
+            zero = outputs["pred_masks"].sum() * 0.0
+            return {"loss_mask": zero, "loss_dice": zero}
+
+        point_logits = torch.cat(logits_by_frame, dim=0)
+        point_labels = torch.cat(labels_by_frame, dim=0)
+        normalizer = max(float(num_masks), 1.0)
+        loss_mask = F.binary_cross_entropy_with_logits(
+            point_logits,
+            point_labels,
+            reduction="none",
+        ).mean(dim=1).sum() / normalizer
+
+        probabilities = point_logits.sigmoid()
+        numerator = 2.0 * (probabilities * point_labels).sum(dim=1)
+        denominator = probabilities.sum(dim=1) + point_labels.sum(dim=1)
+        loss_dice = (1.0 - (numerator + 1.0) / (denominator + 1.0)).sum() / normalizer
+        return {"loss_mask": loss_mask, "loss_dice": loss_dice}
 
     def _forward_impl(
         self,
@@ -513,7 +875,11 @@ class VidEoMTMaskCriterion(nn.Module):
 
         indices = None
         all_masks_annotated = all(
-            bool(target["mask_valid"].all().item()) for target in flattened_targets
+            bool(
+                target["mask_valid"].all().item()
+                and target["pixel_valid"].all().item()
+            )
+            for target in flattened_targets
         )
         if any_visible and all_masks_annotated:
             if return_matches:
@@ -541,7 +907,10 @@ class VidEoMTMaskCriterion(nn.Module):
                     "Partially annotated or all-empty batches require the official "
                     "matcher and VideoSetCriterion loss methods."
                 )
-            indices = matcher(upstream_outputs, flattened_targets)
+            indices = self._match_with_pixel_valid(
+                upstream_outputs,
+                flattened_targets,
+            )
             losses = {}
             criterion_losses = getattr(self.criterion, "losses", ("labels", "masks"))
             if "labels" in criterion_losses:
@@ -562,6 +931,17 @@ class VidEoMTMaskCriterion(nn.Module):
                         flattened_targets, indices, strict=True
                     ):
                         valid_for_matches = target["mask_valid"].reshape(-1)[target_index]
+                        pixel_has_valid = target["pixel_valid"].any()
+                        target_ids = target["ids"].reshape(-1)[target_index]
+                        target_has_foreground = (
+                            target["masks"][target_index].flatten(1).sum(dim=1) > 0
+                        )
+                        valid_for_matches = valid_for_matches & pixel_has_valid & (
+                            (target_ids < 0) | target_has_foreground
+                        )
+                        valid_for_matches = valid_for_matches.to(
+                            device=source_index.device
+                        )
                         valid_indices.append(
                             (
                                 source_index[valid_for_matches],
@@ -570,18 +950,32 @@ class VidEoMTMaskCriterion(nn.Module):
                         )
                         valid_match_count += int(valid_for_matches.sum().item())
                     if valid_match_count:
-                        if not hasattr(self.criterion, "loss_masks"):
-                            raise TypeError(
-                                "Partially annotated clips require VideoSetCriterion.loss_masks."
-                            )
-                        losses.update(
-                            self.criterion.loss_masks(
-                                upstream_outputs,
-                                flattened_targets,
-                                valid_indices,
-                                num_masks=float(valid_match_count),
-                            )
+                        has_unknown_pixels = any(
+                            not bool(target["pixel_valid"].all().item())
+                            for target in flattened_targets
                         )
+                        if has_unknown_pixels:
+                            losses.update(
+                                self._loss_masks_with_pixel_valid(
+                                    upstream_outputs,
+                                    flattened_targets,
+                                    valid_indices,
+                                    num_masks=float(valid_match_count),
+                                )
+                            )
+                        else:
+                            if not hasattr(self.criterion, "loss_masks"):
+                                raise TypeError(
+                                    "Partially annotated clips require VideoSetCriterion.loss_masks."
+                                )
+                            losses.update(
+                                self.criterion.loss_masks(
+                                    upstream_outputs,
+                                    flattened_targets,
+                                    valid_indices,
+                                    num_masks=float(valid_match_count),
+                                )
+                            )
                     else:
                         losses.update(
                             {

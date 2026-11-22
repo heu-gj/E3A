@@ -24,19 +24,19 @@ Use e3a.data.collate.collate_e3a_batch to collate per-sample dictionaries. Every
 
 - images: [T,3,H,W] RGB float tensor
 - timestamps: [T] seconds, monotonically non-decreasing
-- entity_targets: labels [N], ids [N,T], masks [N,T,H,W], optional mask_valid [N,T]
+- entity_targets: labels [N], ids [N,T], masks [N,T,H,W], optional mask_valid [N,T], optional pixel_valid [T,H,W]
 - optional hand_targets: keypoints_camera [T,2,21,3], valid [T,2,21], optional visibility and visibility_valid
 - optional interaction_targets: contact [T,2,N], valid [T,2,N]
 - optional anticipation_targets: target_entity_track_id, target_entity_valid, action_label, action_valid, time_to_event, time_valid
 
 The collator returns batch-first tensors:
 - images [B,T,3,H,W], timestamps [B,T]
-- entity_targets labels [B,Nmax], ids [B,Nmax,T], masks [B,Nmax,T,H,W], mask_valid [B,Nmax,T], track_counts [B]
+- entity_targets labels [B,Nmax], ids [B,Nmax,T], masks [B,Nmax,T,H,W], mask_valid [B,Nmax,T], pixel_valid [B,T,H,W], track_counts [B]. If pixel_valid is absent, the adapter defaults it to all true.
 - hand_targets keypoints_camera [B,T,2,21,3], valid [B,T,2,21]
 - interaction_targets contact/valid [B,T,2,Nmax]
 - anticipation_targets one scalar per clip
 
-Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The VidEoMT adapter filters only invalid matched mask pairs from the upstream point-sampled mask loss while retaining clip-consistent matching and class supervision.
+Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The VidEoMT adapter retains the pinned clip-consistent matching policy, but when pixel_valid contains unknown pixels it samples Hungarian matching costs and BCE/Dice mask-loss points only from valid pixel centers. mask_valid filters unannotated track-frame pairs; pixel_valid filters unknown spatial locations. Unknown pixels therefore cannot contribute to mask matching costs or mask-loss gradients.
 
 ## Source annotation adapters
 
