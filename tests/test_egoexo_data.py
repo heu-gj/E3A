@@ -502,6 +502,12 @@ def test_egoexo_frame_coverage_requires_all_camera_object_tracks_to_be_annotated
     relation = {
         "annotations": {
             "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "object_a"},
+                        {"track_id": "object_b"},
+                    ]
+                },
                 "object_masks": {
                     "object_a": {
                         "cam04": {
@@ -540,6 +546,9 @@ def test_egoexo_fully_annotated_empty_window_is_valid_no_object_supervision():
     relation = {
         "annotations": {
             "take-1": {
+                "object_names": {
+                    "annotation": [{"track_id": "object_a"}]
+                },
                 "object_masks": {
                     "object_a": {
                         "cam04": {
