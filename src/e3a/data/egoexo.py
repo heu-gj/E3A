@@ -206,6 +206,115 @@ def load_egoexo_hand_pose_annotations(
     return parse_egoexo_hand_pose_annotations(annotations, camera_pose, **kwargs)
 
 
+class _JSONStream:
+    """Bounded-memory reader for top-level Ego-Exo4D relation split JSON."""
+
+    def __init__(self, stream, chunk_size: int) -> None:
+        if chunk_size <= 0:
+            raise ValueError("chunk_size must be positive.")
+        self.stream = stream
+        self.chunk_size = chunk_size
+        self.buffer = ""
+        self.eof = False
+        self.decoder = json.JSONDecoder()
+
+    def _refill(self) -> None:
+        block = self.stream.read(self.chunk_size)
+        self.buffer += block
+        if not block:
+            self.eof = True
+
+    def _whitespace(self) -> None:
+        self.buffer = self.buffer.lstrip()
+        while not self.buffer and not self.eof:
+            self._refill()
+            self.buffer = self.buffer.lstrip()
+
+    def _expect(self, token: str) -> None:
+        self._whitespace()
+        if not self.buffer.startswith(token):
+            raise ValueError(f"Expected JSON delimiter {token!r}.")
+        self.buffer = self.buffer[len(token) :]
+
+    def _value(self) -> Any:
+        self._whitespace()
+        while True:
+            try:
+                value, end = self.decoder.raw_decode(self.buffer)
+                self.buffer = self.buffer[end:]
+                return value
+            except json.JSONDecodeError:
+                if self.eof:
+                    raise
+                self._refill()
+
+
+def _iter_egoexo_relation_takes(stream, *, chunk_size: int):
+    """Yield one take record at a time without loading the full split JSON."""
+    parser = _JSONStream(stream, chunk_size)
+    parser._expect("{")
+    first_root_key = True
+    while True:
+        parser._whitespace()
+        if parser.buffer.startswith("}"):
+            raise ValueError("Ego-Exo4D relation split has no annotations mapping.")
+        if not first_root_key:
+            parser._expect(",")
+        key = parser._value()
+        parser._expect(":")
+        if key != "annotations":
+            parser._value()
+            first_root_key = False
+            continue
+
+        parser._expect("{")
+        first_take = True
+        while True:
+            parser._whitespace()
+            if parser.buffer.startswith("}"):
+                return
+            if not first_take:
+                parser._expect(",")
+            take_uid = parser._value()
+            if not isinstance(take_uid, str) or not take_uid:
+                raise ValueError("Ego-Exo4D relation take keys must be non-empty strings.")
+            parser._expect(":")
+            take_record = parser._value()
+            if not isinstance(take_record, Mapping):
+                raise TypeError(
+                    f"Ego-Exo4D relation take {take_uid!r} must be an object."
+                )
+            yield take_uid, take_record
+            first_take = False
+
+
+def load_egoexo_relation_take(
+    annotation_path: str | Path,
+    take_uid: str,
+    *,
+    chunk_size: int = 1024 * 1024,
+) -> dict[str, Any]:
+    """Load one take from a large relations split without materializing the split.
+
+    The source JSON is streamed in bounded chunks. At most one take record is
+    decoded into memory at a time; records before the requested take are
+    discarded as they are parsed.
+    """
+    path = Path(annotation_path).expanduser()
+    if not path.is_file():
+        raise FileNotFoundError(f"Ego-Exo4D relation annotation file does not exist: {path}")
+    if not isinstance(take_uid, str) or not take_uid:
+        raise ValueError("take_uid must be a non-empty string.")
+    with path.open("r", encoding="utf-8") as stream:
+        for current_uid, record in _iter_egoexo_relation_takes(
+            stream,
+            chunk_size=chunk_size,
+        ):
+            if current_uid == take_uid:
+                return record
+    raise KeyError(f"Take {take_uid!r} is missing from {path}.")
+
+
 def decode_egoexo_relation_mask(mask_record: Mapping[str, Any]) -> np.ndarray:
     """Decode one official encodedMask record using the Ego4D SDK decoder."""
     if not isinstance(mask_record, Mapping):
