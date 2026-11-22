@@ -26,6 +26,50 @@ def make_hand_annotation(*, low_view_joint=None):
     return {"12": [{"annotation3D": joints}]}
 
 
+def test_egoexo_relation_take_loader_streams_large_split_and_selects_one_take(tmp_path):
+    first_record = {
+        "object_names": {"annotation": [{"track_id": "discarded_0"}]},
+        "object_masks": {"discarded_0": {}},
+        "padding": "x" * 4096,
+    }
+    selected_record = {
+        "object_names": {"annotation": [{"track_id": "selected_0"}]},
+        "object_masks": {"selected_0": {"cam04": {"annotated_frames": [0], "annotation": {}}}},
+    }
+    payload = {
+        "ds": "20240311_20:16:25",
+        "annotations": {
+            "first-take": first_record,
+            "selected-take": selected_record,
+            "last-take": {"object_masks": {}},
+        },
+    }
+    path = tmp_path / "relations_train.json"
+    path.write_text(json.dumps(payload), encoding="utf-8")
+
+    loaded = load_egoexo_relation_take(
+        path,
+        "selected-take",
+        chunk_size=31,
+    )
+    assert loaded == selected_record
+    assert "padding" not in loaded
+
+
+def test_egoexo_relation_take_loader_reports_missing_take_and_missing_annotations(tmp_path):
+    path = tmp_path / "relations.json"
+    path.write_text(
+        json.dumps({"ds": "test", "annotations": {"take-1": {"object_masks": {}}}}),
+        encoding="utf-8",
+    )
+    with pytest.raises(KeyError, match="missing-take"):
+        load_egoexo_relation_take(path, "missing-take", chunk_size=7)
+
+    path.write_text(json.dumps({"ds": "test", "other": {}}), encoding="utf-8")
+    with pytest.raises(ValueError, match="no annotations"):
+        load_egoexo_relation_take(path, "take-1", chunk_size=5)
+
+
 def test_egoexo_hand_pose_reorders_joints_and_transforms_world_to_camera():
     annotations = make_hand_annotation(low_view_joint=("right", "wrist"))
     camera_pose = {

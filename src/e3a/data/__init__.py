@@ -6,6 +6,7 @@ from e3a.data.egoexo import (
     build_egoexo_anticipation_target,
     build_egoexo_keystep_vocabulary,
     build_egoexo_relation_clip_targets,
+    load_egoexo_relation_take,
     load_egoexo_keystep_segments,
     parse_egoexo_keystep_segments,
     load_egoexo_hand_pose_annotations,
@@ -53,5 +54,6 @@ __all__ = [
     "build_egoexo_keystep_vocabulary",
     "build_egoexo_anticipation_target",
     "build_egoexo_relation_clip_targets",
+    "load_egoexo_relation_take",
     "resolve_egoexo_video_path",
 ]
