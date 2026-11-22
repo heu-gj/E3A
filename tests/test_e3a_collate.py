@@ -39,6 +39,30 @@ def test_collate_e3a_batch_pads_tracks_and_keeps_missing_labels_invalid():
     assert batch["dataset"] == ["hoi4d", "hoi4d"]
 
 
+def test_collate_e3a_batch_preserves_pixel_valid_and_defaults_missing_to_true():
+    first = make_sample(1)
+    first_pixel_valid = torch.ones(2, 8, 8, dtype=torch.bool)
+    first_pixel_valid[0, 0, 0] = False
+    first["entity_targets"]["pixel_valid"] = first_pixel_valid
+
+    second = make_sample(0)
+    batch = collate_e3a_batch([first, second])
+
+    assert batch["entity_targets"]["pixel_valid"].shape == (2, 2, 8, 8)
+    assert torch.equal(batch["entity_targets"]["pixel_valid"][0], first_pixel_valid)
+    assert batch["entity_targets"]["pixel_valid"][1].all()
+
+
+def test_collate_e3a_batch_rejects_malformed_pixel_valid():
+    sample = make_sample(1)
+    sample["entity_targets"]["pixel_valid"] = torch.ones(2, 7, 8, dtype=torch.bool)
+
+    import pytest
+
+    with pytest.raises(ValueError, match="pixel_valid must be bool"):
+        collate_e3a_batch([sample])
+
+
 def test_collate_e3a_batch_preserves_explicit_anticipation_targets():
     sample = make_sample(1)
     sample["anticipation_targets"] = {

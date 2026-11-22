@@ -266,6 +266,7 @@ def test_adapter_accepts_the_official_vggt_trainer_batch_signature():
             "labels": torch.tensor([[0]], dtype=torch.int64),
             "ids": clip_target["ids"].unsqueeze(0),
             "masks": clip_target["masks"].unsqueeze(0),
+            "pixel_valid": torch.ones(1, 2, 8, 8, dtype=torch.bool),
             "track_counts": torch.tensor([1], dtype=torch.int64),
         },
     }
@@ -540,3 +541,154 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
     assert torch.isfinite(empty_losses["loss_ce"])
     assert empty_losses["loss_mask"].item() == 0
     assert empty_losses["loss_dice"].item() == 0
+
+
+def _make_real_videomt_adapter(monkeypatch, *, frames):
+    from pathlib import Path
+
+    pytest.importorskip("scipy")
+    repo_root = Path(__file__).resolve().parents[1]
+    videomt_root = repo_root / "third_party" / "videomt"
+    if not videomt_root.is_dir():
+        pytest.skip("pinned VidEoMT submodule is not checked out")
+
+    try:
+        import detectron2  # noqa: F401
+    except ImportError:
+        _install_detectron2_point_sampling_stubs(monkeypatch)
+
+    return VidEoMTMaskCriterion(
+        frames=frames,
+        num_points=64,
+        loss_weights={"loss_ce": 1.0, "loss_mask": 1.0, "loss_dice": 1.0},
+    )
+
+
+def _make_partial_pixel_valid_target(*, frames=1):
+    labels = torch.tensor([0], dtype=torch.int64)
+    ids = torch.full((1, frames), 71, dtype=torch.int64)
+    masks = torch.zeros(1, frames, 8, 8)
+    pixel_valid = torch.zeros(frames, 8, 8, dtype=torch.bool)
+    pixel_valid[:, :4, :] = True
+    masks[0, :, 1:3, 1:3] = 1.0
+    # Deliberately place poison labels in unknown pixels; they must be ignored.
+    masks[0, :, 5:7, 5:7] = 1.0
+    return {
+        "labels": labels,
+        "ids": ids,
+        "masks": masks,
+        "pixel_valid": pixel_valid,
+    }
+
+
+def _make_pixel_valid_predictions(*, invalid_query0_value, invalid_query1_value):
+    mask_logits = torch.full((1, 1, 2, 8, 8), -4.0)
+    # Query 0 is correct on every known pixel.
+    mask_logits[0, 0, 0, :4, :] = -4.0
+    mask_logits[0, 0, 0, 1:3, 1:3] = 4.0
+    # Query 1 is the opposite on every known pixel.
+    mask_logits[0, 0, 1, :4, :] = 4.0
+    mask_logits[0, 0, 1, 1:3, 1:3] = -4.0
+    # These values are adversarial but lie entirely in unknown rows.
+    mask_logits[0, 0, 0, 4:, :] = invalid_query0_value
+    mask_logits[0, 0, 1, 4:, :] = invalid_query1_value
+    return mask_logits.requires_grad_()
+
+
+def test_pixel_valid_excludes_unknown_pixels_from_matching_loss_and_gradients(monkeypatch):
+    adapter = _make_real_videomt_adapter(monkeypatch, frames=1)
+    target = _make_partial_pixel_valid_target(frames=1)
+    objectness = torch.zeros(1, 1, 2, requires_grad=True)
+
+    first_logits = _make_pixel_valid_predictions(
+        invalid_query0_value=-80.0,
+        invalid_query1_value=80.0,
+    )
+    torch.manual_seed(19)
+    first_losses, first_matches = adapter.forward_with_matches(
+        {"mask_logits": first_logits, "objectness_logits": objectness},
+        [target],
+    )
+    assert first_matches == [{71: 0}]
+    first_losses["loss_objective"].backward()
+
+    assert first_logits.grad is not None
+    assert torch.count_nonzero(first_logits.grad[..., 4:, :]) == 0
+    assert torch.count_nonzero(first_logits.grad[..., :4, :]) > 0
+
+    second_logits = _make_pixel_valid_predictions(
+        invalid_query0_value=80.0,
+        invalid_query1_value=-80.0,
+    )
+    torch.manual_seed(19)
+    second_losses, second_matches = adapter.forward_with_matches(
+        {
+            "mask_logits": second_logits,
+            "objectness_logits": objectness.detach().clone(),
+        },
+        [target],
+    )
+    assert second_matches == first_matches
+    for key in ("loss_ce", "loss_mask", "loss_dice", "loss_objective"):
+        torch.testing.assert_close(first_losses[key], second_losses[key])
+
+
+def test_pixel_valid_matcher_uses_first_frame_with_known_foreground(monkeypatch):
+    adapter = _make_real_videomt_adapter(monkeypatch, frames=2)
+    target = _make_partial_pixel_valid_target(frames=2)
+    target["pixel_valid"][0].zero_()
+    target["masks"][0, 0].fill_(1.0)
+    target["masks"][0, 1].zero_()
+    target["masks"][0, 1, 1:3, 1:3] = 1.0
+
+    mask_logits = torch.randn(1, 2, 2, 8, 8, requires_grad=True)
+    objectness_logits = torch.zeros(1, 2, 2, requires_grad=True)
+    losses, matches = adapter.forward_with_matches(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [target],
+    )
+
+    assert matches[0].get(71) in {0, 1}
+    assert torch.isfinite(losses["loss_mask"])
+    assert torch.isfinite(losses["loss_dice"])
+    losses["loss_objective"].backward()
+    assert mask_logits.grad is not None
+    assert torch.count_nonzero(mask_logits.grad[:, 0]) == 0
+
+
+def test_pixel_valid_rejects_tracks_without_any_known_foreground_frame():
+    adapter = make_criterion(frames=2)
+    target = make_clip_target()
+    target["pixel_valid"] = torch.zeros(2, 8, 8, dtype=torch.bool)
+
+    with pytest.raises(ValueError, match="no pixel-valid visible mask frame"):
+        adapter(
+            {
+                "mask_logits": torch.randn(1, 2, 3, 8, 8),
+                "objectness_logits": torch.randn(1, 2, 3),
+            },
+            [target],
+        )
+
+
+def test_batched_pixel_valid_is_preserved_by_adapter():
+    adapter = make_criterion()
+    clip = make_clip_target()
+    pixel_valid = torch.ones(1, 2, 8, 8, dtype=torch.bool)
+    pixel_valid[:, 0, 0, 0] = False
+    batch = {
+        "labels": torch.tensor([[0]], dtype=torch.int64),
+        "ids": clip["ids"].unsqueeze(0),
+        "masks": clip["masks"].unsqueeze(0),
+        "mask_valid": torch.ones(1, 1, 2, dtype=torch.bool),
+        "pixel_valid": pixel_valid,
+        "track_counts": torch.tensor([1], dtype=torch.int64),
+    }
+
+    unpacked = adapter._unpack_batched_targets(
+        batch,
+        batch_size=1,
+        num_frames=2,
+        device=torch.device("cpu"),
+    )
+    assert torch.equal(unpacked[0]["pixel_valid"], pixel_valid[0])
