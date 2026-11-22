@@ -515,17 +515,17 @@ def audit_egoexo_relation_coverage(
                     if not isinstance(track_name, str) or not track_name:
                         enumeration_complete = False
                         break
-                    normalized = re.sub(r"[_\\s]+", " ", track_name.lower()).strip()
-                    if re.fullmatch(r"(?:(?:left|right) )?hand(?: \\d+)?", normalized):
+                    normalized = re.sub(r"[_\s]+", " ", track_name.lower()).strip()
+                    if re.fullmatch(r"(?:(?:left|right) )?hand(?: \d+)?", normalized):
                         continue
                     enumerated_names.add(track_name)
 
         mask_names: set[str] = set()
         for object_name in object_masks:
             normalized = re.sub(
-                r"[_\\s]+", " ", str(object_name).lower()
+                r"[_\s]+", " ", str(object_name).lower()
             ).strip()
-            if not re.fullmatch(r"(?:(?:left|right) )?hand(?: \\d+)?", normalized):
+            if not re.fullmatch(r"(?:(?:left|right) )?hand(?: \d+)?", normalized):
                 mask_names.add(str(object_name))
 
         enumeration_matches = bool(
