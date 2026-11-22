@@ -13,7 +13,7 @@ from __future__ import annotations
 import json
 import re
 from collections.abc import Callable, Mapping, Sequence
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 import numpy as np
@@ -635,9 +635,21 @@ def resolve_egoexo_video_path(
     take_uid: str,
     camera_name: str,
     *,
+    video_variant: str = "metadata",
     require_exists: bool = True,
 ) -> Path:
-    """Resolve a frame-aligned video using the official Ego4D notebook convention."""
+    """Resolve an explicit frame-aligned video variant.
+
+    The metadata variant follows takes.json root_dir/relative_path exactly.
+    The downscaled_448 variant inserts downscaled/448 below
+    frame_aligned_videos, matching the locally audited download layout. No
+    implicit fallback occurs: callers must select the intended variant.
+    """
+    if video_variant not in {"metadata", "downscaled_448"}:
+        raise ValueError(
+            "video_variant must be 'metadata' or 'downscaled_448', "
+            f"got {video_variant!r}."
+        )
     if isinstance(takes, Mapping):
         take_record = takes.get(take_uid)
     else:
@@ -673,7 +685,38 @@ def resolve_egoexo_video_path(
     if not isinstance(relative_path, str) or not isinstance(root_dir, str):
         raise ValueError(f"Take {take_uid!r} has invalid root_dir/relative_path metadata.")
 
-    path = Path(release_root).expanduser() / root_dir / relative_path
+    root_relative = PurePosixPath(root_dir)
+    video_relative = PurePosixPath(relative_path)
+    if (
+        root_relative.is_absolute()
+        or video_relative.is_absolute()
+        or ".." in root_relative.parts
+        or ".." in video_relative.parts
+    ):
+        raise ValueError("Ego-Exo4D root_dir and relative_path must stay release-root relative.")
+
+    relative_parts = list(video_relative.parts)
+    if video_variant == "downscaled_448":
+        frame_aligned_positions = [
+            index
+            for index, part in enumerate(relative_parts)
+            if part == "frame_aligned_videos"
+        ]
+        if len(frame_aligned_positions) != 1:
+            raise ValueError(
+                "downscaled_448 requires relative_path to contain exactly one "
+                "'frame_aligned_videos' directory."
+            )
+        insert_at = frame_aligned_positions[0] + 1
+        relative_parts[insert_at:insert_at] = ["downscaled", "448"]
+
+    path = (
+        Path(release_root).expanduser()
+        / Path(*root_relative.parts)
+        / Path(*relative_parts)
+    )
     if require_exists and not path.is_file():
-        raise FileNotFoundError(f"Ego-Exo4D video does not exist: {path}")
+        raise FileNotFoundError(
+            f"Ego-Exo4D {video_variant!r} video does not exist: {path}"
+        )
     return path
