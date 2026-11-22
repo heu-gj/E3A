@@ -5,6 +5,7 @@ from e3a.data.egoexo import (
     EGOEXO_HAND_JOINTS,
     build_egoexo_anticipation_target,
     build_egoexo_keystep_vocabulary,
+    audit_egoexo_relation_coverage,
     build_egoexo_relation_clip_targets,
     parse_egoexo_hand_pose_annotations,
     parse_egoexo_keystep_segments,
@@ -122,6 +123,100 @@ def test_egoexo_hand_pose_fails_closed_when_camera_pose_is_missing():
             min_views_for_3d=3,
         )
 
+
+
+
+
+def test_egoexo_relation_coverage_audit_reports_only_complete_camera_frames():
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "object_a"},
+                        {"track_id": "object_b"},
+                    ]
+                },
+                "object_masks": {
+                    "object_a": {
+                        "cam04": {"annotated_frames": [0, 1, 2], "annotation": {}}
+                    },
+                    "object_b": {
+                        "cam04": {"annotated_frames": [0, 2], "annotation": {}}
+                    },
+                },
+            }
+        }
+    }
+
+    audit = audit_egoexo_relation_coverage(relation)
+
+    assert audit["summary"]["take_count"] == 1
+    assert audit["summary"]["takes_with_matching_object_enumeration"] == 1
+    assert audit["summary"]["eligible_camera_count"] == 1
+    camera = audit["takes"][0]["cameras"][0]
+    assert camera["camera_name"] == "cam04"
+    assert camera["coverage_complete"] is True
+    assert camera["eligible_for_no_object"] is True
+    assert camera["common_annotated_frames"] == [0, 2]
+
+
+def test_egoexo_relation_coverage_audit_fails_closed_on_sampled_mask_subset():
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "object_a"},
+                        {"track_id": "object_b"},
+                    ]
+                },
+                "object_masks": {
+                    "object_a": {
+                        "cam04": {"annotated_frames": [0, 1], "annotation": {}}
+                    }
+                },
+            }
+        }
+    }
+
+    audit = audit_egoexo_relation_coverage(relation)
+
+    take = audit["takes"][0]
+    assert take["status"] == "OBJECT_ENUMERATION_MISMATCH"
+    assert take["enumerated_only_tracks"] == ["object_b"]
+    assert take["eligible_camera_count"] == 0
+    assert take["cameras"][0]["eligible_for_no_object"] is False
+
+
+def test_egoexo_relation_coverage_audit_fails_closed_on_missing_camera_track():
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "object_a"},
+                        {"track_id": "object_b"},
+                    ]
+                },
+                "object_masks": {
+                    "object_a": {
+                        "cam04": {"annotated_frames": [0, 1], "annotation": {}}
+                    },
+                    "object_b": {
+                        "cam05": {"annotated_frames": [0, 1], "annotation": {}}
+                    },
+                },
+            }
+        }
+    }
+
+    audit = audit_egoexo_relation_coverage(relation)
+
+    camera = audit["takes"][0]["cameras"][0]
+    assert camera["camera_name"] == "cam04"
+    assert camera["missing_camera_tracks"] == ["object_b"]
+    assert camera["eligible_for_no_object"] is False
 
 def test_egoexo_relation_targets_distinguish_absence_from_unannotated_frames():
     mask0 = np.zeros((2, 3), dtype=np.bool_)
