@@ -302,10 +302,10 @@ def build_egoexo_relation_clip_targets(
                     enumeration_complete = False
                     break
                 normalized_track_name = re.sub(
-                    r"[_\\s]+", " ", track_name.lower()
+                    r"[_\s]+", " ", track_name.lower()
                 ).strip()
                 is_hand_track = re.fullmatch(
-                    r"(?:(?:left|right) )?hand(?: \\d+)?",
+                    r"(?:(?:left|right) )?hand(?: \d+)?",
                     normalized_track_name,
                 ) is not None
                 if not (exclude_hand_tracks and is_hand_track):
@@ -314,10 +314,10 @@ def build_egoexo_relation_clip_targets(
     mask_names = set()
     for object_name in object_masks:
         normalized_name = re.sub(
-            r"[_\\s]+", " ", str(object_name).lower()
+            r"[_\s]+", " ", str(object_name).lower()
         ).strip()
         is_hand_track = re.fullmatch(
-            r"(?:(?:left|right) )?hand(?: \\d+)?",
+            r"(?:(?:left|right) )?hand(?: \d+)?",
             normalized_name,
         ) is not None
         if not (exclude_hand_tracks and is_hand_track):
