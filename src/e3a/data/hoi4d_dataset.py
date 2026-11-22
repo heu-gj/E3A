@@ -672,6 +672,12 @@ class HOI4DDataset(Dataset[dict[str, Any]]):
             "intrinsics_valid": intrinsics_valid,
             "entity_targets": entity_targets,
             "entity_supervision_valid": entity_supervision_valid,
+            # HOI4D motion masks do not establish object absence/occlusion, so
+            # no-object classification is disabled unless a separate audit proves
+            # complete per-frame entity coverage.
+            "entity_frame_supervision_valid": torch.zeros(
+                self.clip_length, dtype=torch.bool
+            ),
             "mano_parameters": mano_parameters,
             "objpose_records": objpose_records,
             "objpose_frame_ids": torch.tensor(objpose_frame_ids, dtype=torch.int64),

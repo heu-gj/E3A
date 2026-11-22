@@ -74,7 +74,13 @@ def make_clip_target():
     masks = torch.zeros(1, 2, 8, 8)
     masks[0, 0, 1:4, 1:4] = 1
     masks[0, 1, 2:6, 2:6] = 1
-    return {"labels": labels, "ids": ids, "masks": masks}
+    return {
+        "labels": labels,
+        "ids": ids,
+        "masks": masks,
+        # This synthetic fixture represents complete source annotation coverage.
+        "entity_frame_supervision_valid": torch.ones(2, dtype=torch.bool),
+    }
 
 
 def test_adapter_converts_e3a_outputs_to_official_videomt_frame_contract():
@@ -135,6 +141,7 @@ def test_adapter_skips_unannotated_mask_frames_but_keeps_explicit_absence():
     target["ids"] = torch.tensor([[41, -1]], dtype=torch.int64)
     target["masks"][0, 1].zero_()
     target["mask_valid"] = torch.tensor([[True, False]])
+    target["entity_frame_supervision_valid"] = torch.tensor([True, False])
 
     losses, track_to_slot = adapter.forward_with_matches(
         {
@@ -826,6 +833,7 @@ def test_pixel_invalid_frames_are_excluded_from_no_object_classification(monkeyp
     # Frame 0 has no known pixels; frame 1 is fully annotated.
     target["pixel_valid"][0].zero_()
     target["pixel_valid"][1].fill_(True)
+    target["entity_frame_supervision_valid"] = torch.ones(2, dtype=torch.bool)
     target["masks"][0, 0].fill_(1.0)  # Poison annotation in the unknown frame.
     target["masks"][0, 1].zero_()
     target["masks"][0, 1, 1:3, 1:3] = 1.0
@@ -888,3 +896,23 @@ def test_entity_frame_supervision_valid_overrides_pixel_default_for_class_loss(m
     assert objectness_logits.grad is not None
     assert torch.count_nonzero(objectness_logits.grad[:, 0]) == 0
     assert torch.count_nonzero(objectness_logits.grad[:, 1]) > 0
+
+
+
+def test_adapter_defaults_no_object_classification_off_without_source_coverage():
+    adapter = make_criterion()
+    target = make_clip_target()
+    target.pop("entity_frame_supervision_valid")
+    mask_logits = torch.randn(1, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.randn(1, 2, 3, requires_grad=True)
+
+    losses = adapter(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [target],
+    )
+    assert losses["loss_ce"].item() == 0
+    assert losses["loss_mask"].item() > 0
+    assert losses["loss_dice"].item() > 0
+    losses["loss_objective"].backward()
+    assert objectness_logits.grad is not None
+    assert torch.count_nonzero(objectness_logits.grad) == 0

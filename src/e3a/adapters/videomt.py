@@ -972,15 +972,23 @@ class VidEoMTMaskCriterion(nn.Module):
             for clip_index, target in enumerate(targets):
                 frame_valid = target.get("entity_frame_supervision_valid")
                 if frame_valid is None:
-                    pixel_valid = target.get("pixel_valid")
-                    if pixel_valid is None:
-                        frame_valid = torch.ones(num_frames, dtype=torch.bool)
-                    else:
-                        if not torch.is_tensor(pixel_valid) or pixel_valid.ndim != 3:
-                            raise ValueError(
-                                f"entity_targets[{clip_index}].pixel_valid must be bool [T,H,W]."
-                            )
-                        frame_valid = pixel_valid.flatten(1).all(dim=1)
+                    labels = target.get("labels")
+                    if not torch.is_tensor(labels):
+                        raise TypeError(
+                            f"entity_targets[{clip_index}] must contain tensor labels."
+                        )
+                    # Do not infer complete object coverage from image/pixel validity.
+                    # The sole implicit positive case is a source-verified empty clip.
+                    verified_empty = (
+                        labels.numel() == 0
+                        and bool(entity_supervision_valid[clip_index].item())
+                    )
+                    frame_valid = torch.full(
+                        (num_frames,),
+                        verified_empty,
+                        dtype=torch.bool,
+                        device=mask_logits.device,
+                    )
                 if (
                     not torch.is_tensor(frame_valid)
                     or frame_valid.dtype != torch.bool
