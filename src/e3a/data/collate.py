@@ -218,6 +218,38 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     entity_batch = collate_entity_targets(entity_targets)
     batch_size = len(samples)
     device = images[0].device
+
+    pixel_valid_values = []
+    for sample_index, target in enumerate(entity_targets):
+        masks = target["masks"]
+        expected_pixel_valid_shape = (
+            frame_count,
+            masks.shape[-2],
+            masks.shape[-1],
+        )
+        pixel_valid = target.get("pixel_valid")
+        if pixel_valid is None:
+            pixel_valid = torch.ones(
+                expected_pixel_valid_shape,
+                dtype=torch.bool,
+                device=device,
+            )
+        if (
+            not torch.is_tensor(pixel_valid)
+            or pixel_valid.dtype != torch.bool
+            or tuple(pixel_valid.shape) != expected_pixel_valid_shape
+        ):
+            raise ValueError(
+                f"samples[{sample_index}] entity_targets.pixel_valid must be bool "
+                f"with shape {expected_pixel_valid_shape}."
+            )
+        if pixel_valid.device != device:
+            raise ValueError(
+                f"samples[{sample_index}] entity_targets.pixel_valid must share "
+                "the batch image device."
+            )
+        pixel_valid_values.append(pixel_valid)
+    entity_batch["pixel_valid"] = torch.stack(pixel_valid_values, dim=0)
     hand_keypoints = torch.zeros(
         batch_size, frame_count, 2, 21, 3, dtype=torch.float32, device=device
     )
