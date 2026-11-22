@@ -795,6 +795,53 @@ class VidEoMTMaskCriterion(nn.Module):
         loss_dice = (1.0 - (numerator + 1.0) / (denominator + 1.0)).sum() / normalizer
         return {"loss_mask": loss_mask, "loss_dice": loss_dice}
 
+
+    @staticmethod
+    def _empty_unsupervised_target(
+        target: Mapping[str, Any],
+        *,
+        clip_index: int,
+    ) -> dict[str, torch.Tensor]:
+        """Drop entity targets from a clip whose entity annotation is not valid."""
+        labels = target.get("labels")
+        track_ids = target.get("ids")
+        masks = target.get("masks")
+        if not all(torch.is_tensor(value) for value in (labels, track_ids, masks)):
+            raise TypeError(
+                f"Unsupervised clip {clip_index} must still provide tensor labels/ids/masks."
+            )
+        if (
+            labels.ndim != 1
+            or track_ids.ndim != 2
+            or masks.ndim != 4
+            or track_ids.shape[0] != labels.shape[0]
+            or tuple(masks.shape[:2]) != tuple(track_ids.shape)
+        ):
+            raise ValueError(
+                f"Unsupervised clip {clip_index} has malformed labels/ids/masks shapes."
+            )
+        mask_valid = target.get(
+            "mask_valid",
+            torch.ones_like(track_ids, dtype=torch.bool),
+        )
+        if (
+            not torch.is_tensor(mask_valid)
+            or mask_valid.dtype != torch.bool
+            or tuple(mask_valid.shape) != tuple(track_ids.shape)
+        ):
+            raise ValueError(
+                f"Unsupervised clip {clip_index} mask_valid must be bool [N,T]."
+            )
+        empty = {
+            "labels": labels[:0],
+            "ids": track_ids[:0],
+            "masks": masks[:0],
+            "mask_valid": mask_valid[:0],
+        }
+        if "pixel_valid" in target:
+            empty["pixel_valid"] = target["pixel_valid"]
+        return empty
+
     def _forward_impl(
         self,
         predictions: Mapping[str, torch.Tensor],
@@ -812,8 +859,12 @@ class VidEoMTMaskCriterion(nn.Module):
                     "VGGT Trainer batches must contain an 'entity_targets' target mapping."
                 )
             raw_targets = batch_or_targets["entity_targets"]
+            raw_entity_supervision_valid = batch_or_targets.get(
+                "entity_supervision_valid"
+            )
         else:
             raw_targets = batch_or_targets
+            raw_entity_supervision_valid = None
 
         if schedule_progress is not None and not math.isfinite(float(schedule_progress)):
             raise ValueError("schedule_progress must be finite when supplied.")
@@ -848,7 +899,70 @@ class VidEoMTMaskCriterion(nn.Module):
                 device=mask_logits.device,
             )
         else:
-            targets = raw_targets
+            if not isinstance(raw_targets, Sequence):
+                raise TypeError("entity_targets must be a batch mapping or clip sequence.")
+            targets = list(raw_targets)
+
+        if raw_entity_supervision_valid is None:
+            supervision_values = []
+            for clip_index, target in enumerate(targets):
+                if not isinstance(target, Mapping):
+                    raise TypeError(f"entity_targets[{clip_index}] must be a mapping.")
+                labels = target.get("labels")
+                track_ids = target.get("ids")
+                if not torch.is_tensor(labels) or not torch.is_tensor(track_ids):
+                    raise TypeError(
+                        f"entity_targets[{clip_index}] must contain tensor labels and ids."
+                    )
+                mask_valid = target.get(
+                    "mask_valid",
+                    torch.ones_like(track_ids, dtype=torch.bool),
+                )
+                if (
+                    not torch.is_tensor(mask_valid)
+                    or mask_valid.dtype != torch.bool
+                    or tuple(mask_valid.shape) != tuple(track_ids.shape)
+                ):
+                    raise ValueError(
+                        f"entity_targets[{clip_index}].mask_valid must be bool [N,T]."
+                    )
+                supervision_values.append(
+                    bool(labels.numel() > 0 and mask_valid.any().item())
+                )
+            entity_supervision_valid = torch.tensor(
+                supervision_values,
+                dtype=torch.bool,
+                device=mask_logits.device,
+            )
+        else:
+            if (
+                not torch.is_tensor(raw_entity_supervision_valid)
+                or raw_entity_supervision_valid.dtype != torch.bool
+                or tuple(raw_entity_supervision_valid.shape) != (batch_size,)
+            ):
+                raise ValueError(
+                    "entity_supervision_valid must be bool with shape [B]."
+                )
+            entity_supervision_valid = raw_entity_supervision_valid.to(
+                device=mask_logits.device
+            )
+            for clip_index, (target, is_valid) in enumerate(
+                zip(targets, entity_supervision_valid.tolist(), strict=True)
+            ):
+                if is_valid and target["labels"].numel() == 0:
+                    raise ValueError(
+                        f"entity_supervision_valid[{clip_index}] is true but the clip "
+                        "contains zero entity tracks."
+                    )
+
+        targets = [
+            target
+            if is_valid
+            else self._empty_unsupervised_target(target, clip_index=clip_index)
+            for clip_index, (target, is_valid) in enumerate(
+                zip(targets, entity_supervision_valid.tolist(), strict=True)
+            )
+        ]
 
         flattened_targets, any_visible = self._validate_targets(
             targets,
@@ -873,108 +987,160 @@ class VidEoMTMaskCriterion(nn.Module):
         )
         upstream_outputs = {"pred_logits": flat_logits, "pred_masks": flat_masks}
 
-        indices = None
-        all_masks_annotated = all(
-            bool(
-                target["mask_valid"].all().item()
-                and target["pixel_valid"].all().item()
-            )
-            for target in flattened_targets
+
+        supervised_batch_indices = (
+            entity_supervision_valid.nonzero(as_tuple=False).flatten().tolist()
         )
-        if any_visible and all_masks_annotated:
-            if return_matches:
-                criterion_forward = self.criterion.forward
-                supports_match_return = (
-                    "ret_match_result" in inspect.signature(criterion_forward).parameters
-                )
-                if supports_match_return:
-                    losses, indices = self.criterion(
-                        upstream_outputs,
-                        flattened_targets,
-                        ret_match_result=True,
-                    )
-                else:
-                    # Test doubles and older compatible criteria may not expose
-                    # the upstream optional return. Keep the fallback explicit.
-                    indices = self.matcher(upstream_outputs, flattened_targets)
-                    losses = self.criterion(upstream_outputs, flattened_targets)
-            else:
-                losses = self.criterion(upstream_outputs, flattened_targets)
+        supervised_flat_indices = [
+            batch_index * num_frames + frame_index
+            for batch_index in supervised_batch_indices
+            for frame_index in range(num_frames)
+        ]
+
+        if not supervised_flat_indices:
+            zero_ce = flat_logits.sum() * 0.0
+            zero_mask = flat_masks.sum() * 0.0
+            losses = {
+                "loss_ce": zero_ce,
+                "loss_mask": zero_mask,
+                "loss_dice": zero_mask,
+            }
+            supervised_indices = None
         else:
-            matcher = self.matcher
-            if matcher is None or not hasattr(self.criterion, "loss_labels"):
-                raise TypeError(
-                    "Partially annotated or all-empty batches require the official "
-                    "matcher and VideoSetCriterion loss methods."
-                )
-            indices = self._match_with_pixel_valid(
-                upstream_outputs,
-                flattened_targets,
+            flat_index_tensor = torch.as_tensor(
+                supervised_flat_indices,
+                dtype=torch.int64,
+                device=flat_masks.device,
             )
-            losses = {}
-            criterion_losses = getattr(self.criterion, "losses", ("labels", "masks"))
-            if "labels" in criterion_losses:
-                losses.update(
-                    self.criterion.loss_labels(
-                        upstream_outputs,
-                        flattened_targets,
-                        indices,
-                        num_masks=1.0,
-                    )
+            supervised_outputs = {
+                "pred_logits": flat_logits.index_select(0, flat_index_tensor),
+                "pred_masks": flat_masks.index_select(0, flat_index_tensor),
+            }
+            supervised_targets = [
+                flattened_targets[index] for index in supervised_flat_indices
+            ]
+            all_masks_annotated = all(
+                bool(
+                    target["mask_valid"].all().item()
+                    and target["pixel_valid"].all().item()
                 )
-            if "masks" in criterion_losses:
-                zero_mask_loss = flat_masks.sum() * 0.0
-                if any_visible:
-                    valid_indices = []
-                    valid_match_count = 0
-                    for target, (source_index, target_index) in zip(
-                        flattened_targets, indices, strict=True
-                    ):
-                        valid_for_matches = target["mask_valid"].reshape(-1)[target_index]
-                        pixel_has_valid = target["pixel_valid"].any()
-                        target_ids = target["ids"].reshape(-1)[target_index]
-                        target_has_foreground = (
-                            target["masks"][target_index].flatten(1).sum(dim=1) > 0
+                for target in supervised_targets
+            )
+            supervised_indices = None
+            if any_visible and all_masks_annotated:
+                if return_matches:
+                    criterion_forward = self.criterion.forward
+                    supports_match_return = (
+                        "ret_match_result" in inspect.signature(criterion_forward).parameters
+                    )
+                    if supports_match_return:
+                        losses, supervised_indices = self.criterion(
+                            supervised_outputs,
+                            supervised_targets,
+                            ret_match_result=True,
                         )
-                        valid_for_matches = valid_for_matches & pixel_has_valid & (
-                            (target_ids < 0) | target_has_foreground
+                    else:
+                        supervised_indices = self.matcher(
+                            supervised_outputs,
+                            supervised_targets,
                         )
-                        valid_for_matches = valid_for_matches.to(
-                            device=source_index.device
+                        losses = self.criterion(
+                            supervised_outputs,
+                            supervised_targets,
                         )
-                        valid_indices.append(
-                            (
-                                source_index[valid_for_matches],
-                                target_index[valid_for_matches],
+                else:
+                    losses = self.criterion(supervised_outputs, supervised_targets)
+            else:
+                matcher = self.matcher
+                if matcher is None or not hasattr(self.criterion, "loss_labels"):
+                    raise TypeError(
+                        "Partially annotated or all-empty batches require the official "
+                        "matcher and VideoSetCriterion loss methods."
+                    )
+                supervised_indices = self._match_with_pixel_valid(
+                    supervised_outputs,
+                    supervised_targets,
+                )
+                losses = {}
+                criterion_losses = getattr(
+                    self.criterion,
+                    "losses",
+                    ("labels", "masks"),
+                )
+                if "labels" in criterion_losses:
+                    losses.update(
+                        self.criterion.loss_labels(
+                            supervised_outputs,
+                            supervised_targets,
+                            supervised_indices,
+                            num_masks=1.0,
+                        )
+                    )
+                if "masks" in criterion_losses:
+                    zero_mask_loss = supervised_outputs["pred_masks"].sum() * 0.0
+                    if any_visible:
+                        valid_indices = []
+                        valid_match_count = 0
+                        for target, (source_index, target_index) in zip(
+                            supervised_targets,
+                            supervised_indices,
+                            strict=True,
+                        ):
+                            valid_for_matches = target["mask_valid"].reshape(-1)[
+                                target_index
+                            ]
+                            pixel_has_valid = target["pixel_valid"].any()
+                            target_ids = target["ids"].reshape(-1)[target_index]
+                            target_has_foreground = (
+                                target["masks"][target_index].flatten(1).sum(dim=1) > 0
                             )
-                        )
-                        valid_match_count += int(valid_for_matches.sum().item())
-                    if valid_match_count:
-                        has_unknown_pixels = any(
-                            not bool(target["pixel_valid"].all().item())
-                            for target in flattened_targets
-                        )
-                        if has_unknown_pixels:
-                            losses.update(
-                                self._loss_masks_with_pixel_valid(
-                                    upstream_outputs,
-                                    flattened_targets,
-                                    valid_indices,
-                                    num_masks=float(valid_match_count),
+                            valid_for_matches = valid_for_matches & pixel_has_valid & (
+                                (target_ids < 0) | target_has_foreground
+                            )
+                            valid_for_matches = valid_for_matches.to(
+                                device=source_index.device
+                            )
+                            valid_indices.append(
+                                (
+                                    source_index[valid_for_matches],
+                                    target_index[valid_for_matches],
                                 )
                             )
+                            valid_match_count += int(valid_for_matches.sum().item())
+                        if valid_match_count:
+                            has_unknown_pixels = any(
+                                not bool(target["pixel_valid"].all().item())
+                                for target in supervised_targets
+                            )
+                            if has_unknown_pixels:
+                                losses.update(
+                                    self._loss_masks_with_pixel_valid(
+                                        supervised_outputs,
+                                        supervised_targets,
+                                        valid_indices,
+                                        num_masks=float(valid_match_count),
+                                    )
+                                )
+                            else:
+                                if not hasattr(self.criterion, "loss_masks"):
+                                    raise TypeError(
+                                        "Partially annotated clips require "
+                                        "VideoSetCriterion.loss_masks."
+                                    )
+                                losses.update(
+                                    self.criterion.loss_masks(
+                                        supervised_outputs,
+                                        supervised_targets,
+                                        valid_indices,
+                                        num_masks=float(valid_match_count),
+                                    )
+                                )
                         else:
-                            if not hasattr(self.criterion, "loss_masks"):
-                                raise TypeError(
-                                    "Partially annotated clips require VideoSetCriterion.loss_masks."
-                                )
                             losses.update(
-                                self.criterion.loss_masks(
-                                    upstream_outputs,
-                                    flattened_targets,
-                                    valid_indices,
-                                    num_masks=float(valid_match_count),
-                                )
+                                {
+                                    "loss_mask": zero_mask_loss,
+                                    "loss_dice": zero_mask_loss,
+                                }
                             )
                     else:
                         losses.update(
@@ -983,18 +1149,28 @@ class VidEoMTMaskCriterion(nn.Module):
                                 "loss_dice": zero_mask_loss,
                             }
                         )
-                else:
-                    losses.update(
-                        {
-                            "loss_mask": zero_mask_loss,
-                            "loss_dice": zero_mask_loss,
-                        }
+                unsupported = set(criterion_losses).difference({"labels", "masks"})
+                if unsupported:
+                    raise ValueError(
+                        "E3A adapter only supports VidEoMT labels/masks losses, "
+                        f"got {sorted(unsupported)}."
                     )
-            unsupported = set(criterion_losses).difference({"labels", "masks"})
-            if unsupported:
-                raise ValueError(
-                    f"E3A adapter only supports VidEoMT labels/masks losses, got {sorted(unsupported)}."
-                )
+
+        if return_matches:
+            empty_pair = (
+                torch.empty(0, dtype=torch.int64),
+                torch.empty(0, dtype=torch.int64),
+            )
+            indices = [empty_pair for _ in range(batch_size * num_frames)]
+            if supervised_flat_indices:
+                if supervised_indices is None:
+                    raise RuntimeError(
+                        "VidEoMT did not return matches for supervised entity clips."
+                    )
+                for local_index, flat_index in enumerate(supervised_flat_indices):
+                    indices[flat_index] = supervised_indices[local_index]
+        else:
+            indices = supervised_indices
 
         missing_losses = set(self._LOSS_KEYS).difference(losses)
         if missing_losses:

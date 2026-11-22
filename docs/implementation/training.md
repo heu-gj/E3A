@@ -32,11 +32,12 @@ Use e3a.data.collate.collate_e3a_batch to collate per-sample dictionaries. Every
 The collator returns batch-first tensors:
 - images [B,T,3,H,W], timestamps [B,T]
 - entity_targets labels [B,Nmax], ids [B,Nmax,T], masks [B,Nmax,T,H,W], mask_valid [B,Nmax,T], pixel_valid [B,T,H,W], track_counts [B]. If pixel_valid is absent, the adapter defaults it to all true.
+- entity_supervision_valid [B]: true only when the clip has at least one entity track with valid entity supervision. A false clip is excluded from entity classification and mask losses; it is not interpreted as an all-background/no-object clip.
 - hand_targets keypoints_camera [B,T,2,21,3], valid [B,T,2,21]
 - interaction_targets contact/valid [B,T,2,Nmax]
 - anticipation_targets one scalar per clip
 
-Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The VidEoMT adapter retains the pinned clip-consistent matching policy, but when pixel_valid contains unknown pixels it samples Hungarian matching costs and BCE/Dice mask-loss points only from valid pixel centers. mask_valid filters unannotated track-frame pairs; pixel_valid filters unknown spatial locations. Unknown pixels therefore cannot contribute to mask matching costs or mask-loss gradients.
+Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The clip-level entity_supervision_valid flag suppresses all entity losses for empty/unannotated clips, including no-object classification, while other task losses remain independently validity-masked. The VidEoMT adapter retains the pinned clip-consistent matching policy, but when pixel_valid contains unknown pixels it samples Hungarian matching costs and BCE/Dice mask-loss points only from valid pixel centers. mask_valid filters unannotated track-frame pairs; pixel_valid filters unknown spatial locations. Unknown pixels therefore cannot contribute to mask matching costs or mask-loss gradients.
 
 ## Source annotation adapters
 
