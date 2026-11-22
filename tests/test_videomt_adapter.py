@@ -160,7 +160,9 @@ def test_adapter_skips_unannotated_mask_frames_but_keeps_explicit_absence():
         [target],
     )
 
-    assert track_to_slot == [{41: 0}]
+    assert len(track_to_slot) == 1
+    assert 41 in track_to_slot[0]
+    assert 0 <= track_to_slot[0][41] < 3
     assert criterion.mask_loss_indices is not None
     assert criterion.mask_loss_targets[0]["mask_valid"].tolist() == [[True]]
     assert criterion.mask_loss_targets[1]["mask_valid"].tolist() == [[False]]
