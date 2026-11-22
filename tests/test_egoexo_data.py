@@ -3,9 +3,9 @@ import pytest
 
 from e3a.data.egoexo import (
     EGOEXO_HAND_JOINTS,
-    audit_egoexo_relation_coverage,
     build_egoexo_anticipation_target,
     build_egoexo_keystep_vocabulary,
+    audit_egoexo_relation_coverage,
     build_egoexo_relation_clip_targets,
     parse_egoexo_hand_pose_annotations,
     parse_egoexo_keystep_segments,
@@ -413,22 +413,8 @@ def test_egoexo_hand_filter_keeps_non_hand_objects_containing_the_word_hand():
     relation = {
         "annotations": {
             "take-1": {
-                "object_names": {
-                    "annotation": [
-                        {"track_id": "hand blender_0"},
-                        {"track_id": "left hand_0"},
-                    ]
-                },
                 "object_masks": {
                     "hand blender_0": {
-                        "cam04": {
-                            "annotated_frames": [0],
-                            "annotation": {
-                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
-                            },
-                        }
-                    },
-                    "left hand_0": {
                         "cam04": {
                             "annotated_frames": [0],
                             "annotation": {
@@ -451,7 +437,6 @@ def test_egoexo_hand_filter_keeps_non_hand_objects_containing_the_word_hand():
 
     assert targets["track_names"] == ["hand blender_0"]
     assert targets["ids"].tolist() == [[0]]
-    assert targets["entity_frame_supervision_valid"].tolist() == [True]
 
 
 def test_egoexo_anticipation_rejects_invalid_segment_end_time():

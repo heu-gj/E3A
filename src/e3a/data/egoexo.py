@@ -475,6 +475,8 @@ def audit_egoexo_relation_coverage(
     This is read-only and does not decode masks. A camera is eligible only
     when object_names and object_masks enumerate the same non-hand tracks and
     every enumerated object has a valid annotated_frames list for that camera.
+    This proves coverage only within the Relation task's active-object set; it
+    does not certify that every background object in the video was enumerated.
     """
     root = relation_annotations.get("annotations", relation_annotations)
     if not isinstance(root, Mapping):

@@ -135,6 +135,10 @@ def main() -> None:
         "source_masks_decoded": False,
         "source_files_modified": False,
         "training_or_model_execution": False,
+        "no_object_supervision_scope": (
+            "non-hand active objects enumerated by Ego-Exo4D Relations; "
+            "not every arbitrary background object in the video"
+        ),
     }
 
     output_dir = args.output_dir.expanduser()
