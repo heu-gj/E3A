@@ -825,6 +825,7 @@ def test_pixel_invalid_frames_are_excluded_from_no_object_classification(monkeyp
     target = _make_partial_pixel_valid_target(frames=2)
     # Frame 0 has no known pixels; frame 1 is fully annotated.
     target["pixel_valid"][0].zero_()
+    target["pixel_valid"][1].fill_(True)
     target["masks"][0, 0].fill_(1.0)  # Poison annotation in the unknown frame.
     target["masks"][0, 1].zero_()
     target["masks"][0, 1, 1:3, 1:3] = 1.0
