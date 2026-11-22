@@ -132,6 +132,12 @@ def test_egoexo_relation_targets_distinguish_absence_from_unannotated_frames():
     relation = {
         "annotations": {
             "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "stainless bowl_0"},
+                        {"track_id": "left hand_0"},
+                    ]
+                },
                 "object_masks": {
                     "stainless bowl_0": {
                         "aria01_214-1": {
@@ -181,6 +187,12 @@ def test_egoexo_frame_classification_requires_coverage_for_every_object_track():
     relation = {
         "annotations": {
             "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "object_a"},
+                        {"track_id": "object_b"},
+                    ]
+                },
                 "object_masks": {
                     "object_a": {
                         "cam04": {
@@ -216,11 +228,55 @@ def test_egoexo_frame_classification_requires_coverage_for_every_object_track():
     assert targets["entity_supervision_valid"] is True
 
 
+def test_egoexo_frame_classification_is_disabled_when_object_masks_are_sampled_subset():
+    mask = np.ones((2, 2), dtype=np.bool_)
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "object_a"},
+                        {"track_id": "object_b"},
+                    ]
+                },
+                "object_masks": {
+                    "object_a": {
+                        "cam04": {
+                            "annotated_frames": [0, 1],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    }
+                },
+            }
+        }
+    }
+
+    targets = build_egoexo_relation_clip_targets(
+        relation,
+        "take-1",
+        "cam04",
+        [0, 1],
+        mask_decoder=lambda _: mask,
+    )
+
+    assert targets["track_names"] == ["object_a"]
+    assert targets["entity_supervision_valid"] is True
+    assert targets["entity_frame_supervision_valid"].tolist() == [False, False]
+
+
 def test_egoexo_frame_classification_fails_closed_when_an_object_has_no_camera_record():
     mask = np.ones((2, 2), dtype=np.bool_)
     relation = {
         "annotations": {
             "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "object_a"},
+                        {"track_id": "object_b"},
+                    ]
+                },
                 "object_masks": {
                     "object_a": {
                         "cam04": {
