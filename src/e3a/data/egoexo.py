@@ -232,8 +232,8 @@ def decode_egoexo_relation_mask(mask_record: Mapping[str, Any]) -> np.ndarray:
 
 
 def _is_egoexo_hand_track(track_name: str) -> bool:
-    normalized = re.sub(r"[_\\s]+", " ", track_name.lower()).strip()
-    return re.fullmatch(r"(?:(?:left|right) )?hand(?: \\d+)?", normalized) is not None
+    normalized = re.sub(r"[_\s]+", " ", track_name.lower()).strip()
+    return re.fullmatch(r"(?:(?:left|right) )?hand(?: \d+)?", normalized) is not None
 
 
 def _egoexo_relation_track_sets(
@@ -336,12 +336,7 @@ def build_egoexo_relation_clip_targets(
     inferred_size = image_size
 
     for object_name in sorted(object_masks):
-        normalized_name = re.sub(r"[_\s]+", " ", str(object_name).lower()).strip()
-        is_hand_track = re.fullmatch(
-            r"(?:(?:left|right) )?hand(?: \d+)?",
-            normalized_name,
-        ) is not None
-        if exclude_hand_tracks and is_hand_track:
+        if exclude_hand_tracks and _is_egoexo_hand_track(str(object_name)):
             continue
         cameras = object_masks[object_name]
         if not isinstance(cameras, Mapping) or camera_name not in cameras:

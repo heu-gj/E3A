@@ -413,8 +413,22 @@ def test_egoexo_hand_filter_keeps_non_hand_objects_containing_the_word_hand():
     relation = {
         "annotations": {
             "take-1": {
+                "object_names": {
+                    "annotation": [
+                        {"track_id": "hand blender_0"},
+                        {"track_id": "left hand_0"},
+                    ]
+                },
                 "object_masks": {
                     "hand blender_0": {
+                        "cam04": {
+                            "annotated_frames": [0],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    },
+                    "left hand_0": {
                         "cam04": {
                             "annotated_frames": [0],
                             "annotation": {
@@ -437,6 +451,7 @@ def test_egoexo_hand_filter_keeps_non_hand_objects_containing_the_word_hand():
 
     assert targets["track_names"] == ["hand blender_0"]
     assert targets["ids"].tolist() == [[0]]
+    assert targets["entity_frame_supervision_valid"].tolist() == [True]
 
 
 def test_egoexo_anticipation_rejects_invalid_segment_end_time():
