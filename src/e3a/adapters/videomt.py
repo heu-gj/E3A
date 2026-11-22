@@ -1059,14 +1059,44 @@ class VidEoMTMaskCriterion(nn.Module):
                     ("labels", "masks"),
                 )
                 if "labels" in criterion_losses:
-                    losses.update(
-                        self.criterion.loss_labels(
-                            supervised_outputs,
-                            supervised_targets,
-                            supervised_indices,
-                            num_masks=1.0,
+                    # VidEoMT's class loss labels every unmatched query as no-object.
+                    # A frame containing any unknown pixels cannot safely provide
+                    # those negatives, even though its known pixels may be used by
+                    # the mask matcher/loss.
+                    class_valid_indices = [
+                        index
+                        for index, target in enumerate(supervised_targets)
+                        if bool(target["pixel_valid"].all().item())
+                    ]
+                    if class_valid_indices:
+                        class_index_tensor = torch.as_tensor(
+                            class_valid_indices,
+                            dtype=torch.int64,
+                            device=supervised_outputs["pred_logits"].device,
                         )
-                    )
+                        class_outputs = {
+                            "pred_logits": supervised_outputs["pred_logits"].index_select(
+                                0, class_index_tensor
+                            )
+                        }
+                        class_targets = [
+                            supervised_targets[index] for index in class_valid_indices
+                        ]
+                        class_matches = [
+                            supervised_indices[index] for index in class_valid_indices
+                        ]
+                        losses.update(
+                            self.criterion.loss_labels(
+                                class_outputs,
+                                class_targets,
+                                class_matches,
+                                num_masks=1.0,
+                            )
+                        )
+                    else:
+                        losses["loss_ce"] = (
+                            supervised_outputs["pred_logits"].sum() * 0.0
+                        )
                 if "masks" in criterion_losses:
                     zero_mask_loss = supervised_outputs["pred_masks"].sum() * 0.0
                     if any_visible:
