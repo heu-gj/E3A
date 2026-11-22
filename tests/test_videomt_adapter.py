@@ -11,6 +11,11 @@ class RecordingMatcher(nn.Module):
         super().__init__()
         self.outputs = None
         self.targets = None
+        self.cost_class = 1.0
+        self.cost_mask = 1.0
+        self.cost_dice = 1.0
+        self.num_points = 32
+        self.frames = 2
 
     def forward(self, outputs, targets):
         self.outputs = outputs
@@ -35,6 +40,7 @@ class RecordingCriterion(nn.Module):
         self.matcher = matcher
         self.losses = ["labels", "masks"]
         self.mask_loss_indices = None
+        self.mask_loss_targets = None
 
     def forward(self, outputs, targets):
         self.matcher(outputs, targets)
@@ -51,6 +57,7 @@ class RecordingCriterion(nn.Module):
 
     def loss_masks(self, outputs, targets, indices, num_masks):
         self.mask_loss_indices = indices
+        self.mask_loss_targets = targets
         valid_count = sum(int(target_index.numel()) for _, target_index in indices)
         loss = outputs["pred_masks"].sum() * 0.0 + float(valid_count)
         return {"loss_mask": loss, "loss_dice": loss}
@@ -58,6 +65,8 @@ class RecordingCriterion(nn.Module):
 
 def make_criterion(frames=2, matcher=None, criterion=None):
     matcher = matcher or RecordingMatcher()
+    if isinstance(matcher, RecordingMatcher):
+        matcher.frames = frames
     criterion = criterion or RecordingCriterion(matcher)
     return VidEoMTMaskCriterion(
         frames=frames,
@@ -153,8 +162,8 @@ def test_adapter_skips_unannotated_mask_frames_but_keeps_explicit_absence():
 
     assert track_to_slot == [{41: 0}]
     assert criterion.mask_loss_indices is not None
-    assert matcher.targets[0]["mask_valid"].tolist() == [[True]]
-    assert matcher.targets[1]["mask_valid"].tolist() == [[False]]
+    assert criterion.mask_loss_targets[0]["mask_valid"].tolist() == [[True]]
+    assert criterion.mask_loss_targets[1]["mask_valid"].tolist() == [[False]]
     assert criterion.mask_loss_indices[0][1].tolist() == [0]
     assert criterion.mask_loss_indices[1][1].numel() == 0
     assert torch.isfinite(losses["loss_objective"])
