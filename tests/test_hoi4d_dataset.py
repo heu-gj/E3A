@@ -319,3 +319,26 @@ def test_restricted_mano_unpickler_rejects_non_numpy_globals():
         _NumpyArraysOnlyUnpickler(
             __import__("io").BytesIO(payload), encoding="latin1"
         ).load()
+
+
+
+def test_hoi4d_collator_accepts_source_verified_empty_scene(tmp_path, monkeypatch):
+    _make_synthetic_root(tmp_path, monkeypatch, omit_masks=True)
+    dataset = HOI4DDataset(
+        tmp_path,
+        SEQUENCE,
+        clip_length=2,
+        load_mano=False,
+    )
+    sample = dataset[0]
+    assert sample["entity_targets"]["labels"].numel() == 0
+    assert not sample["entity_supervision_valid"]
+
+    # Simulate a source-backed complete annotation window with no objects.
+    sample["entity_targets"]["pixel_valid"].fill_(True)
+    sample["entity_supervision_valid"] = True
+    batch = collate_hoi4d_batch([sample])
+
+    assert batch["entity_supervision_valid"].tolist() == [True]
+    assert batch["entity_targets"]["track_counts"].tolist() == [0]
+    assert batch["entity_targets"]["pixel_valid"].all()
