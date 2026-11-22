@@ -93,3 +93,16 @@ def test_collate_e3a_batch_preserves_explicit_anticipation_targets():
     assert targets["action_labels"].tolist() == [3]
     assert targets["action_valid"].tolist() == [True]
     torch.testing.assert_close(targets["time_to_event"], torch.tensor([0.75]))
+
+
+
+def test_collate_e3a_batch_preserves_source_frame_entity_coverage():
+    sample = make_sample(0)
+    sample["entity_targets"]["entity_supervision_valid"] = True
+    sample["entity_targets"]["entity_frame_supervision_valid"] = torch.tensor(
+        [True, False], dtype=torch.bool
+    )
+    batch = collate_e3a_batch([sample])
+
+    assert batch["entity_supervision_valid"].tolist() == [True]
+    assert batch["entity_frame_supervision_valid"].tolist() == [[True, False]]

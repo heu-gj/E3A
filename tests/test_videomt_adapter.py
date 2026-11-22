@@ -857,3 +857,34 @@ def test_pixel_invalid_frames_are_excluded_from_no_object_classification(monkeyp
     # The unknown frame must not leak into the clip-level class-logit pooling.
     assert torch.count_nonzero(objectness_logits.grad[:, 0]) == 0
     assert torch.count_nonzero(objectness_logits.grad[:, 1]) > 0
+
+
+
+def test_entity_frame_supervision_valid_overrides_pixel_default_for_class_loss(monkeypatch):
+    adapter = _make_real_videomt_adapter(monkeypatch, frames=2)
+    target = make_clip_target()
+    target["entity_frame_supervision_valid"] = torch.tensor([False, True])
+
+    class_loss_batches = []
+    original_loss_labels = adapter.criterion.loss_labels
+
+    def record_class_loss(outputs, targets, indices, num_masks):
+        class_loss_batches.append((outputs["pred_logits"].shape[0], len(targets)))
+        return original_loss_labels(outputs, targets, indices, num_masks)
+
+    monkeypatch.setattr(adapter.criterion, "loss_labels", record_class_loss)
+
+    mask_logits = torch.randn(1, 2, 2, 8, 8, requires_grad=True)
+    objectness_logits = torch.zeros(1, 2, 2, requires_grad=True)
+    losses, matches = adapter.forward_with_matches(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [target],
+    )
+
+    assert matches[0].get(41) in {0, 1}
+    assert class_loss_batches == [(1, 1)]
+    assert torch.isfinite(losses["loss_ce"])
+    losses["loss_objective"].backward()
+    assert objectness_logits.grad is not None
+    assert torch.count_nonzero(objectness_logits.grad[:, 0]) == 0
+    assert torch.count_nonzero(objectness_logits.grad[:, 1]) > 0

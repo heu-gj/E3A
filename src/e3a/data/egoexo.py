@@ -279,6 +279,8 @@ def build_egoexo_relation_clip_targets(
 
     decoder = mask_decoder or decode_egoexo_relation_mask
     prepared: list[dict[str, Any]] = []
+    coverage_sets: list[set[int]] = []
+    coverage_complete = True
     inferred_size = image_size
 
     for object_name in sorted(object_masks):
@@ -291,6 +293,7 @@ def build_egoexo_relation_clip_targets(
             continue
         cameras = object_masks[object_name]
         if not isinstance(cameras, Mapping) or camera_name not in cameras:
+            coverage_complete = False
             continue
         camera_record = cameras[camera_name]
         if not isinstance(camera_record, Mapping):
@@ -309,6 +312,7 @@ def build_egoexo_relation_clip_targets(
         if not isinstance(annotation, Mapping):
             raise ValueError(f"Relation track {object_name!r} is missing its annotation mapping.")
         annotated_frames = {int(value) for value in annotated_frames_raw}
+        coverage_sets.append(annotated_frames)
         annotation_frames = {int(value) for value in annotation}
         if not annotation_frames.issubset(annotated_frames):
             raise ValueError(
@@ -392,11 +396,25 @@ def build_egoexo_relation_clip_targets(
                     binary.astype(np.float32)
                 )
 
+    frame_supervision_valid = torch.tensor(
+        [
+            bool(coverage_complete and coverage_sets)
+            and all(frame_number in coverage for coverage in coverage_sets)
+            for frame_number in frames
+        ],
+        dtype=torch.bool,
+    )
+    entity_supervision_valid = bool(
+        (track_count > 0 and mask_valid.any().item())
+        or (track_count == 0 and frame_supervision_valid.any().item())
+    )
     return {
         "labels": labels,
         "ids": ids,
         "masks": masks,
         "mask_valid": mask_valid,
+        "entity_supervision_valid": entity_supervision_valid,
+        "entity_frame_supervision_valid": frame_supervision_valid,
         "track_names": [track["name"] for track in prepared],
         "frame_numbers": frames,
     }

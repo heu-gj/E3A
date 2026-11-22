@@ -169,6 +169,8 @@ def test_egoexo_relation_targets_distinguish_absence_from_unannotated_frames():
     assert targets["track_names"] == ["stainless bowl_0"]
     assert targets["ids"].tolist() == [[0, -1, 0, -1]]
     assert targets["mask_valid"].tolist() == [[True, True, True, False]]
+    assert targets["entity_frame_supervision_valid"].tolist() == [True, True, True, False]
+    assert targets["entity_supervision_valid"] is True
     assert targets["masks"].shape == (1, 4, 2, 3)
     assert targets["masks"][0, 1].sum().item() == 0
     assert targets["masks"][0, 2].sum().item() == 1
@@ -355,3 +357,72 @@ def test_egoexo_anticipation_uses_dataset_prefixed_action_vocabulary():
 
     assert target["action_label"] == 4
     assert target["action_valid"] is True
+
+
+
+def test_egoexo_frame_coverage_requires_all_camera_object_tracks_to_be_annotated():
+    mask = np.ones((2, 2), dtype=np.bool_)
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_masks": {
+                    "object_a": {
+                        "cam04": {
+                            "annotated_frames": [0, 1],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    },
+                    "object_b": {
+                        "cam04": {
+                            "annotated_frames": [0],
+                            "annotation": {
+                                "0": {"width": 2, "height": 2, "encodedMask": "m"}
+                            },
+                        }
+                    },
+                }
+            }
+        }
+    }
+
+    targets = build_egoexo_relation_clip_targets(
+        relation,
+        "take-1",
+        "cam04",
+        [0, 1],
+        mask_decoder=lambda _: mask,
+    )
+
+    assert targets["entity_frame_supervision_valid"].tolist() == [True, False]
+    assert targets["entity_supervision_valid"] is True
+
+
+def test_egoexo_fully_annotated_empty_window_is_valid_no_object_supervision():
+    relation = {
+        "annotations": {
+            "take-1": {
+                "object_masks": {
+                    "object_a": {
+                        "cam04": {
+                            "annotated_frames": [0, 1],
+                            "annotation": {},
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    targets = build_egoexo_relation_clip_targets(
+        relation,
+        "take-1",
+        "cam04",
+        [0, 1],
+        image_size=(2, 2),
+    )
+
+    assert targets["labels"].numel() == 0
+    assert targets["entity_frame_supervision_valid"].tolist() == [True, True]
+    assert targets["entity_supervision_valid"] is True

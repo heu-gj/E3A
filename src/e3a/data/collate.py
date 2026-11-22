@@ -251,10 +251,29 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
         pixel_valid_values.append(pixel_valid)
     entity_batch["pixel_valid"] = torch.stack(pixel_valid_values, dim=0)
 
+    entity_frame_supervision_valid_values = []
     entity_supervision_valid_values = []
     for sample_index, sample in enumerate(samples):
+        target = entity_targets[sample_index]
+        frame_valid = sample.get("entity_frame_supervision_valid")
+        if frame_valid is None:
+            frame_valid = target.get("entity_frame_supervision_valid")
+        if frame_valid is None:
+            frame_valid = pixel_valid_values[sample_index].flatten(1).all(dim=1)
+        if (
+            not torch.is_tensor(frame_valid)
+            or frame_valid.dtype != torch.bool
+            or tuple(frame_valid.shape) != (frame_count,)
+        ):
+            raise ValueError(
+                f"samples[{sample_index}] entity_frame_supervision_valid must be bool [T]."
+            )
+        entity_frame_supervision_valid_values.append(frame_valid.to(device=device))
+
         track_count = int(entity_batch["track_counts"][sample_index].item())
         explicit_valid = sample.get("entity_supervision_valid")
+        if explicit_valid is None:
+            explicit_valid = target.get("entity_supervision_valid")
         if explicit_valid is None:
             explicit_valid = bool(
                 track_count > 0
@@ -263,6 +282,9 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
         if not isinstance(explicit_valid, bool):
             raise TypeError("entity_supervision_valid must be a boolean.")
         entity_supervision_valid_values.append(explicit_valid)
+    entity_frame_supervision_valid = torch.stack(
+        entity_frame_supervision_valid_values, dim=0
+    )
     entity_supervision_valid = torch.tensor(
         entity_supervision_valid_values,
         dtype=torch.bool,
@@ -371,6 +393,7 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
         ),
         "entity_targets": entity_batch,
         "entity_supervision_valid": entity_supervision_valid,
+        "entity_frame_supervision_valid": entity_frame_supervision_valid,
         "hand_targets": hand_targets_batch,
         "interaction_targets": {
             "contact": contact,
