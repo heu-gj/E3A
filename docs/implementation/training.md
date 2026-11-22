@@ -32,11 +32,12 @@ Use e3a.data.collate.collate_e3a_batch to collate per-sample dictionaries. Every
 The collator returns batch-first tensors:
 - images [B,T,3,H,W], timestamps [B,T]
 - entity_targets labels [B,Nmax], ids [B,Nmax,T], masks [B,Nmax,T,H,W], mask_valid [B,Nmax,T], pixel_valid [B,T,H,W], track_counts [B]. If pixel_valid is absent, the adapter defaults it to all true.
+- entity_supervision_valid [B]: whether source annotations support entity supervision for the clip. A false clip is excluded from all entity losses. The collator defaults zero-track clips to false; an explicit true with zero tracks is reserved for a source-verified, fully annotated empty scene and trains no-object classification only.
 - hand_targets keypoints_camera [B,T,2,21,3], valid [B,T,2,21]
 - interaction_targets contact/valid [B,T,2,Nmax]
 - anticipation_targets one scalar per clip
 
-Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The VidEoMT adapter retains the pinned clip-consistent matching policy, but when pixel_valid contains unknown pixels it samples Hungarian matching costs and BCE/Dice mask-loss points only from valid pixel centers. mask_valid filters unannotated track-frame pairs; pixel_valid filters unknown spatial locations. Unknown pixels therefore cannot contribute to mask matching costs or mask-loss gradients.
+Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The clip-level entity_supervision_valid flag suppresses all entity losses for invalid clips, including no-object classification, while other task losses remain independently validity-masked. Zero-track clips default to invalid; a source-verified empty scene may explicitly set the flag true, in which case only no-object classification is trained and mask losses are zero. The VidEoMT adapter retains the pinned clip-consistent matching policy, but when pixel_valid contains unknown pixels it samples Hungarian matching costs and BCE/Dice mask-loss points only from valid pixel centers. mask_valid filters unannotated track-frame pairs; pixel_valid filters unknown spatial locations. Unknown pixels therefore cannot contribute to mask matching costs or mask-loss gradients.
 
 ## Source annotation adapters
 
@@ -64,7 +65,7 @@ build_dataset_prefixed_action_vocabulary combines source labels without merging 
 
 These are annotation-level adapters, not yet complete end-to-end Dataset/DataLoader implementations. Video frame decoding, release-version indexing, cross-source coordinate/unit auditing, building the actual vocabulary from audited training annotations, event-window sampling, and source-video-level split generation remain gated.
 
-**Empty-clip safety:** the current VidEoMT adapter treats a clip with zero GT tracks as an all-no-object example. Do not pass a zero-track window merely because masks are missing, objects are out of view, or no relation track is visible in the sampled window. Until a clip-level entity_supervision_valid field is implemented, drop such windows unless the source explicitly establishes a fully annotated empty scene. HOI4D has no explicit per-track absence/occlusion flag in its motion masks; its adapter therefore marks an instance/frame valid only when pixels are visible. Ego-Exo4D relation annotated_frames can establish explicit absence for a listed object/frame.
+**Empty-clip safety:** the VidEoMT adapter consumes entity_supervision_valid. A zero-track clip defaults to invalid and contributes zero to all entity losses; it must not become an all-no-object example merely because no mask was decoded. A source may explicitly set the flag true for a fully annotated empty scene, in which case unmatched queries are correctly trained as no-object and mask losses remain zero. HOI4D's motion masks do not distinguish full occlusion/out-of-view from true absence, so the current HOI4D target builder does not establish this empty-scene condition. Ego-Exo4D relation annotated_frames can establish explicit absence for a listed object/frame, but clip-level empty-scene supervision still requires complete source coverage.
 
 ## Current supervision status and training gate
 

@@ -170,13 +170,15 @@ def test_adapter_handles_an_all_empty_batch_without_sampling_empty_masks():
         [empty_target],
     )
 
-    assert losses["loss_ce"].isfinite()
+    assert losses["loss_ce"].item() == 0
     assert losses["loss_mask"].item() == 0
     assert losses["loss_dice"].item() == 0
     losses["loss_objective"].backward()
     assert objectness_logits.grad is not None
     assert mask_logits.grad is not None
+    assert torch.count_nonzero(objectness_logits.grad) == 0
     assert torch.count_nonzero(mask_logits.grad) == 0
+    assert matcher.targets is None
 
 
 def test_adapter_rejects_track_id_changes_within_a_clip():
@@ -309,10 +311,12 @@ def test_padded_targets_stay_batch_aligned_under_upstream_gradient_accumulation(
         "images": torch.rand(batch_size, frames, 3, 8, 8),
         "timestamps": torch.arange(frames).float().expand(batch_size, -1),
         "entity_targets": collate_entity_targets(clip_targets),
+        "entity_supervision_valid": torch.tensor([True, False, True, True]),
     }
     chunk = get_chunk_from_data(batch, chunk_id=0, num_chunks=2)
 
     assert chunk["images"].shape[0] == 2
+    assert chunk["entity_supervision_valid"].tolist() == [True, False]
     assert chunk["entity_targets"]["labels"].shape[0] == 2
     assert chunk["entity_targets"]["ids"].shape[0] == 2
     assert chunk["entity_targets"]["masks"].shape[0] == 2
@@ -330,8 +334,8 @@ def test_padded_targets_stay_batch_aligned_under_upstream_gradient_accumulation(
         schedule_progress=0.5,
     )
     assert torch.isfinite(losses["loss_objective"])
-    assert len(matcher.targets) == 2 * frames
-    assert [target["labels"].numel() for target in matcher.targets] == [1, 1, 0, 0]
+    assert len(matcher.targets) == frames
+    assert [target["labels"].numel() for target in matcher.targets] == [1, 1]
 
 
 def test_legacy_padded_batch_without_mask_valid_marks_only_real_rows_annotated():
@@ -692,3 +696,124 @@ def test_batched_pixel_valid_is_preserved_by_adapter():
         device=torch.device("cpu"),
     )
     assert torch.equal(unpacked[0]["pixel_valid"], pixel_valid[0])
+
+
+def test_entity_supervision_valid_filters_unannotated_clips_from_all_entity_losses():
+    matcher = RecordingMatcher()
+    criterion = RecordingCriterion(matcher)
+    adapter = make_criterion(matcher=matcher, criterion=criterion)
+    valid_clip = make_clip_target()
+    empty_clip = {
+        "labels": torch.empty(0, dtype=torch.int64),
+        "ids": torch.empty(0, 2, dtype=torch.int64),
+        "masks": torch.empty(0, 2, 8, 8),
+    }
+    padded = collate_entity_targets([valid_clip, empty_clip])
+    padded["pixel_valid"] = torch.ones(2, 2, 8, 8, dtype=torch.bool)
+    batch = {
+        "entity_targets": padded,
+        "entity_supervision_valid": torch.tensor([True, False]),
+    }
+
+    mask_logits = torch.randn(2, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.randn(2, 2, 3, requires_grad=True)
+    with torch.no_grad():
+        mask_logits[1].fill_(75.0)
+        objectness_logits[1].fill_(75.0)
+
+    losses, track_to_slot = adapter.forward_with_matches(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        batch,
+    )
+    assert track_to_slot[0] == {41: 0}
+    assert track_to_slot[1] == {}
+    assert matcher.targets is not None
+    assert len(matcher.targets) == 2
+    assert matcher.outputs["pred_logits"].shape[0] == 2
+
+    losses["loss_objective"].backward()
+    assert mask_logits.grad is not None
+    assert objectness_logits.grad is not None
+    assert torch.count_nonzero(mask_logits.grad[1]) == 0
+    assert torch.count_nonzero(objectness_logits.grad[1]) == 0
+
+
+def test_explicitly_invalid_entity_clip_is_ignored_even_if_targets_are_present():
+    matcher = RecordingMatcher()
+    criterion = RecordingCriterion(matcher)
+    adapter = make_criterion(matcher=matcher, criterion=criterion)
+    batch = {
+        "entity_targets": collate_entity_targets([make_clip_target()]),
+        "entity_supervision_valid": torch.tensor([False]),
+    }
+    mask_logits = torch.randn(1, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.randn(1, 2, 3, requires_grad=True)
+
+    losses, track_to_slot = adapter.forward_with_matches(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        batch,
+    )
+    assert track_to_slot == [{}]
+    assert losses["loss_ce"].item() == 0
+    assert losses["loss_mask"].item() == 0
+    assert losses["loss_dice"].item() == 0
+    assert matcher.targets is None
+    losses["loss_objective"].backward()
+    assert torch.count_nonzero(mask_logits.grad) == 0
+    assert torch.count_nonzero(objectness_logits.grad) == 0
+
+
+def test_entity_supervision_valid_requires_boolean_batch_vector():
+    adapter = make_criterion()
+    batch = {
+        "entity_targets": collate_entity_targets([make_clip_target()]),
+        "entity_supervision_valid": torch.tensor([1], dtype=torch.int64),
+    }
+    with pytest.raises(ValueError, match="must be bool with shape"):
+        adapter(
+            {
+                "mask_logits": torch.randn(1, 2, 3, 8, 8),
+                "objectness_logits": torch.randn(1, 2, 3),
+            },
+            batch,
+        )
+
+
+
+def test_explicitly_valid_empty_scene_trains_no_object_classification_only():
+    matcher = RecordingMatcher()
+    criterion = RecordingCriterion(matcher)
+    adapter = make_criterion(matcher=matcher, criterion=criterion)
+    empty_clip = {
+        "labels": torch.empty(0, dtype=torch.int64),
+        "ids": torch.empty(0, 2, dtype=torch.int64),
+        "masks": torch.empty(0, 2, 8, 8),
+    }
+    padded = collate_entity_targets([empty_clip])
+    padded["pixel_valid"] = torch.ones(1, 2, 8, 8, dtype=torch.bool)
+    batch = {
+        "entity_targets": padded,
+        # This may only be true when the source explicitly verifies an empty scene.
+        "entity_supervision_valid": torch.tensor([True]),
+    }
+    mask_logits = torch.randn(1, 2, 3, 8, 8, requires_grad=True)
+    objectness_logits = torch.ones(1, 2, 3, requires_grad=True)
+
+    losses, track_to_slot = adapter.forward_with_matches(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        batch,
+    )
+
+    assert track_to_slot == [{}]
+    assert matcher.targets is not None
+    assert len(matcher.targets) == 2
+    assert all(target["labels"].numel() == 0 for target in matcher.targets)
+    assert losses["loss_ce"].item() > 0
+    assert losses["loss_mask"].item() == 0
+    assert losses["loss_dice"].item() == 0
+
+    losses["loss_objective"].backward()
+    assert objectness_logits.grad is not None
+    assert torch.count_nonzero(objectness_logits.grad) > 0
+    assert mask_logits.grad is not None
+    assert torch.count_nonzero(mask_logits.grad) == 0

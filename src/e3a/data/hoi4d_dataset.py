@@ -731,8 +731,6 @@ def collate_hoi4d_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             )
         if not isinstance(explicit_valid, (bool, np.bool_)):
             raise TypeError("entity_supervision_valid must be a boolean.")
-        if explicit_valid and targets["labels"].numel() == 0:
-            raise ValueError("A clip with zero entity tracks cannot have valid entity supervision.")
         entity_supervision_valid.append(bool(explicit_valid))
 
     batch["entity_targets"]["pixel_valid"] = torch.stack(pixel_valid, dim=0)

@@ -183,3 +183,68 @@ def test_anticipation_rejects_invalid_negative_target_entity_ids():
 
     with pytest.raises(ValueError, match="must be -1"):
         criterion._anticipation_losses(predictions, {"anticipation_targets": targets}, [{}])
+
+
+
+class InvalidEntityMaskCriterion(nn.Module):
+    def forward_with_matches(self, predictions, batch, schedule_progress=None):
+        assert batch["entity_supervision_valid"].tolist() == [False]
+        zero = predictions["mask_logits"].sum() * 0.0
+        return {"loss_objective": zero}, [{}]
+
+
+def test_invalid_entity_clip_does_not_block_independent_hand_action_and_time_losses():
+    predictions = {
+        "mask_logits": torch.randn(1, 1, 2, 4, 4, requires_grad=True),
+        "hand_keypoints_camera": torch.ones(1, 1, 2, 21, 3, requires_grad=True),
+        "interaction_logits": torch.randn(1, 1, 2, 2, requires_grad=True),
+        "target_entity_logits": torch.randn(1, 3, requires_grad=True),
+        "action_logits": torch.randn(1, 4, requires_grad=True),
+        "time_log_mean": torch.zeros(1, requires_grad=True),
+        "time_log_scale": torch.zeros(1, requires_grad=True),
+    }
+    hand_targets = {
+        "keypoints_camera": torch.zeros(1, 1, 2, 21, 3),
+        "valid": torch.zeros(1, 1, 2, 21, dtype=torch.bool),
+    }
+    hand_targets["valid"][0, 0, 0, 0] = True
+    batch = {
+        "entity_targets": {
+            "ids": torch.empty(1, 0, 1, dtype=torch.int64),
+            "track_counts": torch.tensor([0]),
+        },
+        "entity_supervision_valid": torch.tensor([False]),
+        "hand_targets": hand_targets,
+        "interaction_targets": {
+            "contact": torch.empty(1, 1, 2, 0),
+            "valid": torch.empty(1, 1, 2, 0, dtype=torch.bool),
+        },
+        "anticipation_targets": {
+            "target_entity_track_ids": torch.tensor([-1]),
+            "target_entity_valid": torch.tensor([False]),
+            "action_labels": torch.tensor([2]),
+            "action_valid": torch.tensor([True]),
+            "time_to_event": torch.tensor([0.8]),
+            "time_valid": torch.tensor([True]),
+        },
+    }
+
+    losses = E3AMultiTaskLoss(InvalidEntityMaskCriterion())(predictions, batch)
+    assert losses["loss_entity"].item() == 0
+    assert losses["loss_interaction"].item() == 0
+    assert losses["loss_target_entity"].item() == 0
+    assert losses["loss_hand"].item() > 0
+    assert losses["loss_action"].item() > 0
+    assert torch.isfinite(losses["loss_time"])
+    assert losses["loss_time"].item() != 0
+
+    losses["loss_objective"].backward()
+    assert torch.count_nonzero(predictions["mask_logits"].grad) == 0
+    assert torch.count_nonzero(predictions["hand_keypoints_camera"].grad) > 0
+    assert predictions["interaction_logits"].grad is not None
+    assert torch.count_nonzero(predictions["interaction_logits"].grad) == 0
+    assert predictions["target_entity_logits"].grad is not None
+    assert torch.count_nonzero(predictions["target_entity_logits"].grad) == 0
+    assert torch.count_nonzero(predictions["action_logits"].grad) > 0
+    assert torch.count_nonzero(predictions["time_log_mean"].grad) > 0
+    assert torch.count_nonzero(predictions["time_log_scale"].grad) > 0

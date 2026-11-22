@@ -250,6 +250,25 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             )
         pixel_valid_values.append(pixel_valid)
     entity_batch["pixel_valid"] = torch.stack(pixel_valid_values, dim=0)
+
+    entity_supervision_valid_values = []
+    for sample_index, sample in enumerate(samples):
+        track_count = int(entity_batch["track_counts"][sample_index].item())
+        explicit_valid = sample.get("entity_supervision_valid")
+        if explicit_valid is None:
+            explicit_valid = bool(
+                track_count > 0
+                and entity_batch["mask_valid"][sample_index, :track_count].any().item()
+            )
+        if not isinstance(explicit_valid, bool):
+            raise TypeError("entity_supervision_valid must be a boolean.")
+        entity_supervision_valid_values.append(explicit_valid)
+    entity_supervision_valid = torch.tensor(
+        entity_supervision_valid_values,
+        dtype=torch.bool,
+        device=device,
+    )
+
     hand_keypoints = torch.zeros(
         batch_size, frame_count, 2, 21, 3, dtype=torch.float32, device=device
     )
@@ -351,6 +370,7 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             dim=0,
         ),
         "entity_targets": entity_batch,
+        "entity_supervision_valid": entity_supervision_valid,
         "hand_targets": hand_targets_batch,
         "interaction_targets": {
             "contact": contact,
