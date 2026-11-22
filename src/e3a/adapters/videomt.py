@@ -522,13 +522,19 @@ class VidEoMTMaskCriterion(nn.Module):
     ) -> list[tuple[torch.Tensor, torch.Tensor]]:
         """Apply the pinned consistent matcher policy using known pixels only.
 
-        Fully valid masks continue through the upstream matcher unchanged. For
-        partially unknown masks, the first-visible-frame Hungarian assignment is
-        retained while its mask costs are evaluated only at valid pixel centers.
+        Fully annotated masks continue through the upstream matcher unchanged. If
+        either track-frame annotation or pixel coverage is partial, the first
+        pixel-valid visible frame establishes each track's clip-consistent slot.
         Returned indices are CPU tensors, as in the upstream VidEoMT matcher.
         """
         matcher = self.matcher
-        if all(bool(target["pixel_valid"].all().item()) for target in targets):
+        if all(
+            bool(
+                target["pixel_valid"].all().item()
+                and target["mask_valid"].all().item()
+            )
+            for target in targets
+        ):
             return matcher(outputs, targets)
 
         required = ("cost_class", "cost_mask", "cost_dice", "num_points", "frames")

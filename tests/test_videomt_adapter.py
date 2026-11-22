@@ -929,3 +929,36 @@ def test_adapter_defaults_no_object_classification_off_without_source_coverage()
     losses["loss_objective"].backward()
     assert objectness_logits.grad is not None
     assert torch.count_nonzero(objectness_logits.grad) == 0
+
+
+
+def test_mask_invalid_frame_is_excluded_from_consistent_matching_even_when_pixels_are_valid(
+    monkeypatch,
+):
+    adapter = _make_real_videomt_adapter(monkeypatch, frames=2)
+    target = _make_partial_pixel_valid_target(frames=2)
+    target["pixel_valid"].fill_(True)
+    target["ids"][0, 0] = -1
+    target["masks"][0, 0].zero_()
+    target["mask_valid"] = torch.tensor([[False, True]])
+
+    def forbidden_upstream_matcher(*args, **kwargs):
+        raise AssertionError(
+            "partially annotated tracks must use the validity-aware matcher"
+        )
+
+    monkeypatch.setattr(adapter.matcher, "forward", forbidden_upstream_matcher)
+    mask_logits = torch.randn(1, 2, 2, 8, 8, requires_grad=True)
+    objectness_logits = torch.zeros(1, 2, 2, requires_grad=True)
+    losses, matches = adapter.forward_with_matches(
+        {"mask_logits": mask_logits, "objectness_logits": objectness_logits},
+        [target],
+    )
+
+    assert matches[0].get(71) in {0, 1}
+    assert torch.isfinite(losses["loss_mask"])
+    assert torch.isfinite(losses["loss_dice"])
+    losses["loss_objective"].backward()
+    assert mask_logits.grad is not None
+    assert torch.count_nonzero(mask_logits.grad[:, 0]) == 0
+    assert torch.count_nonzero(mask_logits.grad[:, 1]) > 0
