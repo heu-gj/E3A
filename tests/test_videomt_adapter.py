@@ -311,10 +311,12 @@ def test_padded_targets_stay_batch_aligned_under_upstream_gradient_accumulation(
         "images": torch.rand(batch_size, frames, 3, 8, 8),
         "timestamps": torch.arange(frames).float().expand(batch_size, -1),
         "entity_targets": collate_entity_targets(clip_targets),
+        "entity_supervision_valid": torch.tensor([True, False, True, True]),
     }
     chunk = get_chunk_from_data(batch, chunk_id=0, num_chunks=2)
 
     assert chunk["images"].shape[0] == 2
+    assert chunk["entity_supervision_valid"].tolist() == [True, False]
     assert chunk["entity_targets"]["labels"].shape[0] == 2
     assert chunk["entity_targets"]["ids"].shape[0] == 2
     assert chunk["entity_targets"]["masks"].shape[0] == 2
