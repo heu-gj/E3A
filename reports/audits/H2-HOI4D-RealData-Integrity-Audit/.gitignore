@@ -1,0 +1,6 @@
+visualizations/local_only/
+evidence/local_only/
+!logs/
+!logs/*.json
+!logs/*.txt
+!logs/*.md

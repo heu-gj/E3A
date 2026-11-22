@@ -1,0 +1,110 @@
+{
+  "task_id": "H2-HOI4D-RealData-Integrity-Audit",
+  "task_status": "PARTIAL",
+  "digital_integrity_status": "PASS",
+  "status_rationale": "Digital reader consistency measured independently; physical units/geometry/contact/target/persistent identity remain unverified and invalid.",
+  "base_commit": "155820d65c2f8e47101d5aa204d0fcea79cb6776",
+  "branch": "audit/h2-hoi4d-realdata-integrity",
+  "sequence_id": "ZY20210800001/H1/C20/N30/S295/s04/T4",
+  "dataset": {
+    "root": ".",
+    "release_revision": "UNKNOWN; same extracted layout as P1"
+  },
+  "client_execution_date": "2026-11-22",
+  "checks": {
+    "rgb_zero_value_mismatches": true,
+    "depth_zero_value_mismatches": true,
+    "pixel_valid_and_entity_equal": true,
+    "semantic_and_instance_color_mapping": true,
+    "pose_fidelity": true,
+    "mano_fidelity": true,
+    "action_time_fidelity": true,
+    "intrinsics_fidelity": true,
+    "timestamps_float32_tolerance": true
+  },
+  "audit_results": {
+    "rgb_depth": {
+      "status": "PASS",
+      "evidence_level": "REAL_SOURCE_FULL_SEQUENCE_COMPARISON",
+      "evidence_files": [
+        "evidence/rgb_depth_integrity.json"
+      ],
+      "scope": "Digital decoding/value consistency, not physical calibration. Same OpenCV backend for reference/reader."
+    },
+    "mask": {
+      "status": "PASS",
+      "evidence_level": "REAL_SOURCE_FULL_SEQUENCE_COMPARISON",
+      "evidence_files": [
+        "evidence/mask_integrity.json"
+      ],
+      "scope": "All300 real source images vs independently hardcoded pinned C20 mapping; local instance IDs remain provisional"
+    },
+    "objpose": {
+      "status": "PASS",
+      "evidence_level": "REAL_SOURCE_FULL_SEQUENCE_COMPARISON",
+      "evidence_files": [
+        "evidence/objpose_integrity.json"
+      ],
+      "scope": "Source filename and raw field preservation, not physical GT or sensor-time association"
+    },
+    "mano": {
+      "status": "PASS",
+      "evidence_level": "REAL_SOURCE_FULL_SEQUENCE_COMPARISON",
+      "evidence_files": [
+        "evidence/mano_integrity.json"
+      ],
+      "scope": "Raw parameter fidelity and resize arithmetic only; no MANO forward or3D joints"
+    },
+    "action": {
+      "status": "PASS",
+      "evidence_level": "REAL_SOURCE_FULL_SEQUENCE_COMPARISON",
+      "evidence_files": [
+        "evidence/action_integrity.json"
+      ],
+      "scope": "Raw field/value/temporal arithmetic only, no physical GT certification"
+    },
+    "intrinsics": {
+      "status": "PASS",
+      "evidence_level": "REAL_SOURCE_FULL_SEQUENCE_COMPARISON",
+      "evidence_files": [
+        "evidence/intrinsics_integrity.json"
+      ],
+      "scope": "Raw field/value/temporal arithmetic only, no physical GT certification"
+    }
+  },
+  "unknowns": {
+    "sensor_timestamps": "UNKNOWN",
+    "rgb_depth_physical_registration": "NEEDS_REVIEW",
+    "depth_physical_units": "UNKNOWN",
+    "object_pose_coordinates_units_transform_direction": "UNKNOWN",
+    "MANO_3D_reconstruction": "NOT_RUN",
+    "MANO_2D_physical_semantics": "NEEDS_REVIEW",
+    "persistent_physical_identity_or_entity_slot_join": "NEEDS_REVIEW",
+    "camera_physical_calibration": "NOT_RUN",
+    "pixel_valid_consumption_by_losses": "NOT_RUN",
+    "target_entity_valid": false,
+    "interaction_valid": false
+  },
+  "source_publication": "Only metadata/statistics; source images/depth/reference arrays/complete annotations stay local-only.",
+  "production_changes": "NONE",
+  "training": "NOT_RUN",
+  "tests": {
+    "exit_code": 0,
+    "status": "PASS",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_hoi4d_realdata_audit.py",
+      "tests/test_hoi4d_dataset.py",
+      "tests/test_hoi4d_data.py",
+      "tests/test_e3a_collate.py"
+    ],
+    "scope": "Synthetic helper tests + published real-evidence regressions. Not new physical GT validation.",
+    "execution_timestamp_utc": "2026-11-22T08:21:26.033544+00:00",
+    "stdout": "logs/pytest.txt",
+    "pytest_version": "9.2.0",
+    "approved_dependency_installation": "User approved pytest in repository .venv only"
+  }
+}

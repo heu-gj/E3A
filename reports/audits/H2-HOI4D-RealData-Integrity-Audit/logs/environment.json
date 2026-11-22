@@ -1,0 +1,30 @@
+{
+  "python": "3.10.19",
+  "environment": ".venv",
+  "packages": {
+    "e3a": "0.1.0",
+    "numpy": "1.26.4",
+    "torch": "2.6.0+cpu",
+    "torchvision": "0.21.0+cpu",
+    "opencv-python": "4.11.0.86",
+    "Pillow": "12.3.0"
+  },
+  "base_commit": "155820d65c2f8e47101d5aa204d0fcea79cb6776",
+  "initial_head": "155820d65c2f8e47101d5aa204d0fcea79cb6776",
+  "client_date": "2026-11-22",
+  "client_timezone": "Asia/Singapore",
+  "host_execution_timestamp_utc": "2026-11-22T07:09:35.661603+00:00",
+  "timestamp_note": "Client date is task calendar date; host UTC clock is recorded separately and may differ.",
+  "pip_check_exit_code": 0,
+  "pip_check_stdout": "No broken requirements found.",
+  "pip_cache_warning": true,
+  "torch_cuda_build": null,
+  "model_forward_backward": "NOT_RUN",
+  "approved_additional_test_dependency": {
+    "package": "pytest",
+    "version": "9.2.0",
+    "authorization": "User explicitly approved installation only in repository .venv",
+    "post_install_pip_check_exit_code": 0,
+    "prior_conda_environments_modified": false
+  }
+}

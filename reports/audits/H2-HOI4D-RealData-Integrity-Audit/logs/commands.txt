@@ -1,0 +1,46 @@
+All Python execution used repository .venv. Dataset paths below are placeholders.
+Client task date:2026-11-22 Asia/Singapore; host UTC timestamps in JSON logs.
+
+git status --short --branch
+git rev-parse HEAD
+source .venv/bin/activate
+which python
+python --version
+python -m pip check
+
+Initial19 P1-EgoExo local-only files: size/SHA256 rechecked against commit79cd166
+withheld inventory; all match. Exact local-only ignore rules checked and a
+nonexistent new_report_probe.md path remains unignored (no file was created).
+Initial working tree CLEAN, HEAD155820d. No files removed/overwritten or hidden
+beyond explicitly approved local-only directories and editable egg-info.
+
+git switch -c audit/h2-hoi4d-realdata-integrity 155820d65c2f8e47101d5aa204d0fcea79cb6776
+
+Repository .venv lacked pytest. User explicitly approved pytest installation.
+python -m pip install pytest --index-url https://pypi.org/simple --cache-dir <temporary-pip-cache>
+Network access needed sandbox approval. No prior Conda environment modified.
+
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 python scripts/audit_hoi4d_realdata.py smoke --root <dataset-root>
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 python scripts/audit_hoi4d_realdata.py reference --root <dataset-root>
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 python scripts/audit_hoi4d_realdata.py audit --root <dataset-root>
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 python scripts/audit_hoi4d_realdata.py report --root <dataset-root>
+python scripts/audit_hoi4d_realdata.py tests --root <dataset-root>
+
+Visualization text layout was corrected after viewing local panels; all32 source
+positions were rendered again by sequential video read using the visualize phase.
+No integrity metric, source annotation or production code was changed.
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 python scripts/audit_hoi4d_realdata.py visualize --root <dataset-root>
+python scripts/audit_hoi4d_realdata.py report --root <dataset-root>
+python scripts/audit_hoi4d_realdata.py seal --root <dataset-root>
+
+Tests were rerun after final helper/report changes; their actual final stdout
+and exit code are stored in pytest.txt/tests.json. After incorporating test metadata,
+report/seal repeat and the checksum inventory is verified independently.
+
+sha256sum -c SHA256SUMS.txt
+git diff --check
+git diff --cached --check
+
+Public staged-file allowlist, size and sensitive-path/credential scans are run
+before commit. Raw references, source images and unapproved derived visuals are
+never staged. No physical labels are fabricated; no model or training executes.
