@@ -1,0 +1,24 @@
+{
+  "rgb_max_error": 0.0,
+  "depth_max_error": 0.0,
+  "depth_source_invalid_mean": 0.2854457609953704,
+  "depth_resized_invalid_mean": 0.2853899755658436,
+  "unique_frame_count": 300,
+  "read_observations": 304,
+  "unknown_source_pixels": 37,
+  "invalid_target_pixels": 16,
+  "MANO_valid_unique": 467,
+  "boundary_checks": 42,
+  "timestamp_float32_max_error_seconds": 8.900960288826809e-07,
+  "all_checks": {
+    "rgb_zero_value_mismatches": true,
+    "depth_zero_value_mismatches": true,
+    "pixel_valid_and_entity_equal": true,
+    "semantic_and_instance_color_mapping": true,
+    "pose_fidelity": true,
+    "mano_fidelity": true,
+    "action_time_fidelity": true,
+    "intrinsics_fidelity": true,
+    "timestamps_float32_tolerance": true
+  }
+}

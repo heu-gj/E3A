@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "Local file integrity and publication boundary checks; not physical GT validation",
+  "public_sha256_inventory_verified": true,
+  "withheld_files_verified_against_size_and_sha256": 1093,
+  "dataset_source_files_fingerprinted": 1071,
+  "public_types": ["Markdown", "JSON", "CSV", "text", ".gitignore"],
+  "raw_videos_images_masks_reference_arrays_or_checkpoints_in_public_inventory": false,
+  "host_absolute_paths_or_secret_patterns_in_public_files": false,
+  "public_file_size_limit_bytes": 10485760,
+  "local_only_files_remain_preserved": true,
+  "production_source_changes": false,
+  "final_staged_scan": "Required again immediately before commit; recorded in execution handoff"
+}
