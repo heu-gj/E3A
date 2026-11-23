@@ -502,6 +502,75 @@ def test_egoexo_video_path_uses_official_aria_stream_alias(tmp_path):
 
 
 
+def test_egoexo_video_path_downscaled_448_variant_is_explicit_and_has_no_fallback(tmp_path):
+    relative = "frame_aligned_videos/aria04_214-1.mp4"
+    take_root = tmp_path / "takes" / "take-1"
+    metadata_path = take_root / relative
+    downscaled_path = (
+        take_root / "frame_aligned_videos" / "downscaled" / "448" / "aria04_214-1.mp4"
+    )
+    downscaled_path.parent.mkdir(parents=True)
+    downscaled_path.write_bytes(b"downscaled-video")
+    takes = {
+        "take-1": {
+            "root_dir": "takes/take-1",
+            "frame_aligned_videos": {
+                "aria04": {"rgb": {"relative_path": relative}}
+            },
+        }
+    }
+
+    # The default metadata variant must not silently select a different file.
+    with pytest.raises(FileNotFoundError, match="metadata"):
+        resolve_egoexo_video_path(
+            tmp_path,
+            takes,
+            "take-1",
+            "aria04_214-1",
+        )
+
+    resolved = resolve_egoexo_video_path(
+        tmp_path,
+        takes,
+        "take-1",
+        "aria04_214-1",
+        video_variant="downscaled_448",
+    )
+    assert resolved == downscaled_path
+
+
+def test_egoexo_video_path_rejects_unknown_variants_and_unsafe_relative_paths(tmp_path):
+    takes = {
+        "take-1": {
+            "root_dir": "takes/take-1",
+            "frame_aligned_videos": {
+                "aria04": {
+                    "rgb": {"relative_path": "frame_aligned_videos/aria04_214-1.mp4"}
+                }
+            },
+        }
+    }
+    with pytest.raises(ValueError, match="video_variant"):
+        resolve_egoexo_video_path(
+            tmp_path,
+            takes,
+            "take-1",
+            "aria04_214-1",
+            video_variant="auto",
+            require_exists=False,
+        )
+
+    takes["take-1"]["root_dir"] = "../outside"
+    with pytest.raises(ValueError, match="release-root relative"):
+        resolve_egoexo_video_path(
+            tmp_path,
+            takes,
+            "take-1",
+            "aria04_214-1",
+            require_exists=False,
+        )
+
+
 def test_egoexo_keystep_parser_and_train_only_vocabulary_use_step_unique_ids():
     raw = {
         "annotations": {

@@ -20,6 +20,7 @@ Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model h
 - [x] Implement the official HOI4D RGB palette decoder and clip-level object-track conversion.
 - [x] Implement Ego-Exo4D EgoPose world-to-camera hand-joint parsing with both published camera-pose JSON layouts.
 - [x] Implement Ego-Exo4D relation mask parsing with annotated_frames-aware validity.
+- [x] Add explicit metadata and locally audited downscaled/448 Ego-Exo4D video path variants; no silent path fallback.
 - [ ] Audit the locally downloaded release versions, video FPS/frame indexing, image/depth alignment, and annotation coverage.
 - [ ] Validate the provisional HOI4D 2D-part-to-4D-instance grouping against real 2D motion masks; do not treat it as persistent GT before this audit.
 - [ ] Implement end-to-end source-video Dataset/DataLoader classes for both datasets.
