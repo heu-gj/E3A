@@ -7,6 +7,9 @@ from e3a.data.collate import collate_entity_targets
 
 
 class RecordingMatcher(nn.Module):
+    # Shape/dispatch spy only; validity mathematics is tested on the production
+    # implementations in test_entity_supervision_validity.py.
+    supports_entity_validity = True
     def __init__(self):
         super().__init__()
         self.outputs = None
@@ -30,6 +33,7 @@ class RecordingMatcher(nn.Module):
 
 
 class RecordingCriterion(nn.Module):
+    supports_entity_validity = True
     def __init__(self, matcher):
         super().__init__()
         self.matcher = matcher
@@ -91,10 +95,8 @@ def test_adapter_converts_e3a_outputs_to_official_videomt_frame_contract():
 
     assert matcher.outputs["pred_masks"].shape == (2, 3, 1, 8, 8)
     assert matcher.outputs["pred_logits"].shape == (2, 3, 2)
-    torch.testing.assert_close(
-        matcher.outputs["pred_logits"][0],
-        matcher.outputs["pred_logits"][1],
-    )
+    # Keep classification gradients local to covered frames, not clip-pooled.
+    torch.testing.assert_close(matcher.outputs["pred_logits"][:, :, 0], objectness_logits[0])
     assert len(matcher.targets) == 2
     assert matcher.targets[0]["ids"].shape == (1, 1)
     assert matcher.targets[1]["ids"].shape == (1, 1)
@@ -478,8 +480,8 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
         num_points=32,
         loss_weights={"loss_ce": 1.0, "loss_mask": 1.0, "loss_dice": 1.0},
     )
-    assert adapter.matcher.__class__.__name__ == "VideoHungarianMatcher_Consistent"
-    assert adapter.criterion.__class__.__name__ == "VideoSetCriterion"
+    assert adapter.matcher.__class__.__name__ == "ValidityAwareConsistentMatcher"
+    assert adapter.criterion.__class__.__name__ == "ValidityAwareVideoCriterion"
     assert "videomt.config" not in sys.modules
     assert "videomt.videomt" not in sys.modules
 
@@ -502,7 +504,13 @@ def test_pinned_videomt_matcher_and_criterion_run_on_cpu_with_sampling_boundary_
         "pred_logits": torch.randn(3, 2, 2),
         "pred_masks": torch.randn(3, 2, 1, 8, 8),
     }
-    matches = adapter.matcher(matcher_outputs, flat_targets)
+    # Retain a genuine pinned-upstream interface regression when its optional
+    # dependencies are available, as well as exercising E3A's safe path below.
+    upstream_matcher_cls, _ = adapter._load_upstream_classes()
+    upstream = upstream_matcher_cls(
+        cost_class=1., cost_mask=1., cost_dice=1., num_points=32, frames=3,
+    )
+    matches = upstream(matcher_outputs, flat_targets)
     assert len(matches) == 3
     assert all(torch.equal(matches[0][0], item[0]) for item in matches[1:])
     assert all(torch.equal(matches[0][1], item[1]) for item in matches[1:])

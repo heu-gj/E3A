@@ -7,6 +7,8 @@ from typing import Any
 
 import torch
 
+from e3a.supervision import frame_flags
+
 
 def collate_entity_targets(
     clip_targets: Sequence[Mapping[str, Any]],
@@ -17,6 +19,9 @@ def collate_entity_targets(
         labels: [N]
         ids: [N,T], using -1 for frames without a visible annotation
         masks: [N,T,H,W]
+        mask_valid: [N,T], defaults to known visible IDs only
+        pixel_valid: [T,H,W], defaults to a fully specified legacy mask grid
+        optional entity_supervision_valid / entity_classification_valid: scalar or [T]
 
     Returns a mapping suitable for VGGT-Ω's recursive gradient-accumulation
     chunker:
@@ -24,6 +29,8 @@ def collate_entity_targets(
         ids: [B,Nmax,T], padded with -1
         masks: [B,Nmax,T,H,W], padded with zero
         track_counts: [B]
+        pixel_valid: [B,T,H,W]
+        explicitly supplied scene/classification flags: [B,T]
 
     All clips must already use the same frame count and padded mask resolution.
     """
@@ -38,6 +45,15 @@ def collate_entity_targets(
     device: torch.device | None = None
 
     integer_dtypes = (torch.int8, torch.int16, torch.int32, torch.int64)
+    pixel_valid_clips: list[torch.Tensor] = []
+    classification_valid_clips: list[torch.Tensor] = []
+    scene_valid_clips: list[torch.Tensor] = []
+    has_classification_valid = any(
+        isinstance(t, Mapping) and "entity_classification_valid" in t for t in clip_targets
+    )
+    has_scene_valid = any(
+        isinstance(t, Mapping) and "entity_supervision_valid" in t for t in clip_targets
+    )
 
     for clip_index, target in enumerate(clip_targets):
         if not isinstance(target, Mapping):
@@ -87,7 +103,7 @@ def collate_entity_targets(
 
         mask_valid = target.get(
             "mask_valid",
-            torch.ones_like(track_ids, dtype=torch.bool),
+            track_ids >= 0,
         )
         if (
             not torch.is_tensor(mask_valid)
@@ -98,6 +114,27 @@ def collate_entity_targets(
         if mask_valid.device != clip_device:
             raise ValueError("mask_valid must share the entity target device.")
         mask_valid = mask_valid.to(torch.bool)
+        pixel_valid = target.get("pixel_valid")
+        if pixel_valid is None:
+            pixel_valid = torch.ones(
+                (clip_frames, *clip_mask_size), dtype=torch.bool, device=clip_device
+            )
+        if (not torch.is_tensor(pixel_valid) or pixel_valid.dtype != torch.bool
+                or pixel_valid.shape != (clip_frames, *clip_mask_size)):
+            raise ValueError("pixel_valid must be bool [T,H,W].")
+        if pixel_valid.device != clip_device:
+            raise ValueError("pixel_valid must share the entity target device.")
+        pixel_valid_clips.append(pixel_valid)
+        if has_classification_valid:
+            classification_valid_clips.append(frame_flags(
+                target.get("entity_classification_valid"), batch=1, frames=clip_frames,
+                device=clip_device, name="entity_classification_valid", per_clip=True,
+            )[0])
+        if has_scene_valid:
+            scene_valid_clips.append(frame_flags(
+                target.get("entity_supervision_valid"), batch=1, frames=clip_frames,
+                device=clip_device, name="entity_supervision_valid", per_clip=True,
+            )[0])
 
         masks_float = masks.to(torch.float32)
         if not torch.isfinite(masks_float).all():
@@ -166,13 +203,19 @@ def collate_entity_targets(
         masks_batch[batch_index, :count] = masks
         mask_valid_batch[batch_index, :count] = mask_valid
 
-    return {
+    result = {
         "labels": labels_batch,
         "ids": ids_batch,
         "masks": masks_batch,
         "mask_valid": mask_valid_batch,
         "track_counts": track_counts,
+        "pixel_valid": torch.stack(pixel_valid_clips),
     }
+    if has_classification_valid:
+        result["entity_classification_valid"] = torch.stack(classification_valid_clips)
+    if has_scene_valid:
+        result["entity_supervision_valid"] = torch.stack(scene_valid_clips)
+    return result
 
 
 
@@ -187,6 +230,8 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
 
     Missing task annotations are represented by zero tensors plus false
     validity masks. They are never converted into negative supervision.
+    Entity scene flags stay [B] for scalar inputs or [B,T] for frame flags.
+    Known positives do not depend on this No Object coverage gate.
     """
     if not isinstance(samples, Sequence) or len(samples) == 0:
         raise ValueError("samples must be a non-empty sequence.")
@@ -205,6 +250,8 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     if len(image_shape) != 4 or image_shape[1] != 3:
         raise ValueError("Sample images must have shape [T,3,H,W].")
     frame_count = image_shape[0]
+    if frame_count <= 0:
+        raise ValueError("Sample clips must contain at least one frame.")
     for index, (image, time) in enumerate(zip(images, timestamps, strict=True)):
         if tuple(image.shape) != image_shape:
             raise ValueError("All sample images must share [T,3,H,W] dimensions.")
@@ -218,6 +265,27 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     entity_batch = collate_entity_targets(entity_targets)
     batch_size = len(samples)
     device = images[0].device
+    scene_values: list[torch.Tensor] = []
+    frame_level_scene = False
+    for sample in samples:
+        value = sample.get("entity_supervision_valid",
+                           sample["entity_targets"].get("entity_supervision_valid"))
+        scene_values.append(frame_flags(
+            value, batch=1, frames=frame_count, device=device,
+            name="entity_supervision_valid", per_clip=True,
+        )[0])
+        frame_level_scene |= torch.is_tensor(value) and value.ndim > 0
+    scene_flags = torch.stack(scene_values)
+    if any("entity_classification_valid" in sample for sample in samples):
+        complete = []
+        for sample in samples:
+            value = sample.get("entity_classification_valid",
+                               sample["entity_targets"].get("entity_classification_valid"))
+            complete.append(frame_flags(
+                value, batch=1, frames=frame_count, device=device,
+                name="entity_classification_valid", per_clip=True,
+            )[0])
+        entity_batch["entity_classification_valid"] = torch.stack(complete)
     hand_keypoints = torch.zeros(
         batch_size, frame_count, 2, 21, 3, dtype=torch.float32, device=device
     )
@@ -319,6 +387,7 @@ def collate_e3a_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             dim=0,
         ),
         "entity_targets": entity_batch,
+        "entity_supervision_valid": scene_flags if frame_level_scene else scene_flags[:, 0],
         "hand_targets": hand_targets_batch,
         "interaction_targets": {
             "contact": contact,
