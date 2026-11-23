@@ -22,7 +22,7 @@ def _sha256(path: Path) -> str:
 
 def _write_csv(path: Path, rows: list[dict[str, Any]], fields: list[str]) -> None:
     with path.open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\\n")
+        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow(
@@ -96,25 +96,54 @@ def main() -> None:
         )
 
         for take in audit["takes"]:
+            camera_reports = take.get("cameras", [])
             row = {key: value for key, value in take.items() if key != "cameras"}
+            row["enumerated_nonhand_track_count"] = len(row.get("enumerated_nonhand_tracks", []))
+            row["mask_nonhand_track_count"] = len(row.get("mask_nonhand_tracks", []))
+            row["camera_record_count"] = len(camera_reports)
+            row["missing_camera_record_count"] = sum(
+                len(camera.get("missing_camera_tracks", [])) for camera in camera_reports
+            )
+            row["invalid_camera_coverage_track_count"] = sum(
+                len(camera.get("invalid_coverage_tracks", [])) for camera in camera_reports
+            )
             row["annotation_file"] = relative_path
             row["source_sha256"] = source_sha256
             take_rows.append(row)
             for camera in take.get("cameras", []):
                 camera_row = dict(camera)
+                camera_row["missing_camera_track_count"] = len(camera_row.get("missing_camera_tracks", []))
+                camera_row["invalid_coverage_track_count"] = len(camera_row.get("invalid_coverage_tracks", []))
                 camera_row["take_uid"] = take["take_uid"]
                 camera_row["annotation_file"] = relative_path
                 camera_row["source_sha256"] = source_sha256
                 camera_rows.append(camera_row)
 
+    valid_object_names_take_count = sum(
+        bool(row.get("object_names_valid")) for row in take_rows
+    )
+    matching_enumeration_take_count = sum(
+        bool(row.get("enumeration_matches")) for row in take_rows
+    )
     summary = {
         "annotation_file_count": len(source_files),
         "take_count": len(take_rows),
-        "takes_with_valid_object_names": sum(
-            bool(row.get("object_names_valid")) for row in take_rows
+        "takes_with_valid_object_names": valid_object_names_take_count,
+        "takes_with_matching_object_enumeration": matching_enumeration_take_count,
+        "object_enumeration_match_rate": (
+            matching_enumeration_take_count / valid_object_names_take_count
+            if valid_object_names_take_count
+            else None
         ),
-        "takes_with_matching_object_enumeration": sum(
-            bool(row.get("enumeration_matches")) for row in take_rows
+        "takes_with_sampled_mask_subset": sum(
+            bool(row.get("enumerated_only_tracks")) for row in take_rows
+        ),
+        "takes_with_missing_camera_records": sum(
+            row["missing_camera_record_count"] > 0 for row in take_rows
+        ),
+        "takes_without_camera_records": sum(
+            row["enumerated_nonhand_track_count"] > 0 and row["camera_record_count"] == 0
+            for row in take_rows
         ),
         "takes_with_any_eligible_camera": sum(
             bool(row.get("eligible_camera_count", 0)) for row in take_rows
@@ -144,7 +173,7 @@ def main() -> None:
     output_dir = args.output_dir.expanduser()
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "summary.json").write_text(
-        json.dumps(summary, indent=2, ensure_ascii=False) + "\\n",
+        json.dumps(summary, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
     _write_csv(
@@ -158,6 +187,11 @@ def main() -> None:
             "object_names_valid",
             "object_masks_valid",
             "enumeration_matches",
+            "enumerated_nonhand_track_count",
+            "mask_nonhand_track_count",
+            "camera_record_count",
+            "missing_camera_record_count",
+            "invalid_camera_coverage_track_count",
             "enumerated_nonhand_tracks",
             "mask_nonhand_tracks",
             "enumerated_only_tracks",
@@ -178,7 +212,9 @@ def main() -> None:
             "enumerated_track_count",
             "camera_track_coverage_count",
             "missing_camera_tracks",
+            "missing_camera_track_count",
             "invalid_coverage_tracks",
+            "invalid_coverage_track_count",
             "coverage_complete",
             "eligible_for_no_object",
             "common_annotated_frames",
