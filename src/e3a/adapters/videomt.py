@@ -1,4 +1,4 @@
-"""Thin E3A adapter around VidEoMT's official video matcher and criterion."""
+"""Validity-aware E3A adapter retaining VidEoMT's video matcher/loss contracts."""
 
 from __future__ import annotations
 
@@ -12,9 +12,15 @@ from typing import Any
 import torch
 from torch import nn
 
+from e3a.adapters.mask_validity import (
+    ValidityAwareConsistentMatcher,
+    ValidityAwareVideoCriterion,
+)
+from e3a.supervision import frame_flags
+
 
 class VidEoMTMaskCriterion(nn.Module):
-    """Train clip-consistent entity masks with VidEoMT's upstream implementation.
+    """Train clip-consistent masks with validity-aware VidEoMT task definitions.
 
     E3A predictions:
         mask_logits: [B,T,K,H,W]
@@ -25,12 +31,17 @@ class VidEoMTMaskCriterion(nn.Module):
         ids: [N,T] int64, stable non-negative track ID while visible, -1 otherwise
         masks: [N,T,H_gt,W_gt], binary/soft masks; zero wherever ids == -1
 
-    The adapter converts this clip-level schema to the flattened B*T contract
-    consumed by VidEoMT. The upstream consistent matcher assigns each GT track
+    The adapter converts this clip-level schema to VidEoMT's flattened B*T
+    contract. The validity-aware consistent matcher assigns each GT track
     to a query at its first visible frame and reuses that assignment across the
-    clip. The upstream criterion then supervises each frame's mask/class output.
-    Per-frame objectness is mean-pooled over observed frames to form a stable
-    clip-level entity logit, matching the clip-consistent class assignment.
+    clip. The validity-aware criterion supervises each frame's mask/class output.
+    Objectness remains per-frame: temporal pooling would leak classification
+    gradients into uncovered/padded frames. Slot assignment stays clip-consistent.
+
+    pixel_valid [T,H,W] controls spatial supervision. entity_supervision_valid
+    (scalar or [T]) gates No Object only; known positives remain supervised.
+    Optional entity_classification_valid [T] further restricts scene completeness.
+    Missing completeness defaults to false, never to a fully annotated scene.
 
     Training batches store entity_targets as padded tensors: labels [B,Nmax],
     ids [B,Nmax,T], masks [B,Nmax,T,H,W], and track_counts [B]. This keeps
@@ -92,21 +103,14 @@ class VidEoMTMaskCriterion(nn.Module):
 
         if criterion is None:
             if matcher is None:
-                matcher_cls, criterion_cls = self._load_upstream_classes()
-                matcher = matcher_cls(
+                matcher = ValidityAwareConsistentMatcher(
                     **costs,
                     num_points=num_points,
                     frames=frames,
                 )
-            else:
-                _, criterion_cls = self._load_upstream_classes()
-
-            criterion = criterion_cls(
-                num_classes=1,
+            criterion = ValidityAwareVideoCriterion(
                 matcher=matcher,
-                weight_dict=normalized_weights,
                 eos_coef=eos_coef,
-                losses=["labels", "masks"],
                 num_points=num_points,
                 oversample_ratio=oversample_ratio,
                 importance_sample_ratio=importance_sample_ratio,
@@ -120,6 +124,12 @@ class VidEoMTMaskCriterion(nn.Module):
             raise TypeError("criterion must be a torch.nn.Module.")
         if not isinstance(matcher, nn.Module):
             raise TypeError("matcher must be a torch.nn.Module.")
+        if not all(getattr(module, "supports_entity_validity", False)
+                   for module in (matcher, criterion)):
+            raise TypeError(
+                "Injected matcher/criterion must declare supports_entity_validity=True; "
+                "unmodified upstream components silently ignore E3A validity fields."
+            )
 
         self.frames = int(frames)
         self.num_points = int(num_points)
@@ -151,6 +161,11 @@ class VidEoMTMaskCriterion(nn.Module):
 
     @classmethod
     def _load_upstream_classes(cls):
+        """Load unmodified pinned classes for optional reference tests only.
+
+        They do not support E3A's validity contract and are not the default
+        training path. Explicit injection without the capability is rejected.
+        """
         repo_root = Path(__file__).resolve().parents[3]
         upstream_root = repo_root / "third_party" / "videomt"
         package_root = upstream_root / "videomt"
@@ -213,15 +228,15 @@ class VidEoMTMaskCriterion(nn.Module):
             and track_counts.ndim == 1
             and track_counts.shape[0] == track_ids.shape[0]
         ):
-            # Backward compatibility for old padded batches: real track rows
-            # are fully annotated, while collator padding is never supervision.
+            # Legacy batches certify visible positives, not explicit absence.
+            # Real rows and padding both need non-negative IDs for this default.
             row_valid = (
                 torch.arange(track_ids.shape[1], device=track_ids.device)[None, :]
                 < track_counts.to(device=track_ids.device, dtype=torch.int64)[:, None]
             )
-            mask_valid = row_valid[:, :, None].expand_as(track_ids)
+            mask_valid = row_valid[:, :, None] & (track_ids >= 0)
         else:
-            mask_valid = torch.ones_like(track_ids, dtype=torch.bool)
+            mask_valid = track_ids >= 0
         if not torch.is_tensor(mask_valid):
             raise TypeError("batched mask_valid must be a torch tensor.")
         values = (*base_values, mask_valid)
@@ -245,6 +260,25 @@ class VidEoMTMaskCriterion(nn.Module):
             raise ValueError("batched entity_targets must align with the image batch.")
         if min(masks.shape[-2:]) <= 0:
             raise ValueError("batched target masks must have non-empty spatial dimensions.")
+        pixel_valid = targets.get("pixel_valid")
+        if pixel_valid is None:
+            pixel_valid = torch.ones(
+                (batch_size, num_frames, *masks.shape[-2:]), dtype=torch.bool, device=device
+            )
+        if (not torch.is_tensor(pixel_valid) or pixel_valid.dtype != torch.bool
+                or pixel_valid.shape != (batch_size, num_frames, *masks.shape[-2:])):
+            raise ValueError("batched pixel_valid must be bool [B,T,H,W].")
+        if pixel_valid.device != device:
+            raise ValueError("pixel_valid must share the target device.")
+        scene_valid = frame_flags(
+            targets.get("entity_supervision_valid"), batch=batch_size, frames=num_frames,
+            device=device, name="entity_supervision_valid",
+        )
+        complete = frame_flags(
+            targets.get("entity_classification_valid", scene_valid),
+            batch=batch_size, frames=num_frames, device=device,
+            name="entity_classification_valid",
+        ) & scene_valid
         integer_dtypes = (torch.int8, torch.int16, torch.int32, torch.int64)
         if labels.dtype not in integer_dtypes:
             raise TypeError("batched labels must use an integer dtype.")
@@ -283,6 +317,9 @@ class VidEoMTMaskCriterion(nn.Module):
                     "ids": track_ids[batch_index, :count],
                     "masks": masks[batch_index, :count],
                     "mask_valid": mask_valid[batch_index, :count],
+                    "pixel_valid": pixel_valid[batch_index],
+                    "entity_supervision_valid": scene_valid[batch_index],
+                    "entity_classification_valid": complete[batch_index],
                 }
             )
         return clips
@@ -319,7 +356,7 @@ class VidEoMTMaskCriterion(nn.Module):
                 raise TypeError("labels, ids, and masks must be torch tensors.")
             mask_valid = target.get(
                 "mask_valid",
-                torch.ones_like(track_ids, dtype=torch.bool),
+                track_ids >= 0,
             )
             if not torch.is_tensor(mask_valid):
                 raise TypeError("mask_valid must be a torch tensor.")
@@ -346,6 +383,25 @@ class VidEoMTMaskCriterion(nn.Module):
                 raise ValueError("labels and ids must contain the same number of tracks.")
 
             spatial_size = (int(masks.shape[-2]), int(masks.shape[-1]))
+            pixel_valid = target.get("pixel_valid")
+            if pixel_valid is None:
+                pixel_valid = torch.ones(
+                    (num_frames, *spatial_size), dtype=torch.bool, device=device
+                )
+            if (not torch.is_tensor(pixel_valid) or pixel_valid.dtype != torch.bool
+                    or pixel_valid.shape != (num_frames, *spatial_size)):
+                raise ValueError("clip pixel_valid must be bool [T,H,W].")
+            if pixel_valid.device != device:
+                raise ValueError("pixel_valid must share the target device.")
+            scene_valid = frame_flags(
+                target.get("entity_supervision_valid"), batch=1, frames=num_frames,
+                device=device, name="entity_supervision_valid", per_clip=True,
+            )[0]
+            complete = frame_flags(
+                target.get("entity_classification_valid", scene_valid),
+                batch=1, frames=num_frames, device=device,
+                name="entity_classification_valid", per_clip=True,
+            )[0] & scene_valid
             if target_spatial_size is None:
                 target_spatial_size = spatial_size
             elif spatial_size != target_spatial_size:
@@ -385,9 +441,12 @@ class VidEoMTMaskCriterion(nn.Module):
                     f"clip {clip_index} has {track_count} visible tracks but only "
                     f"{num_queries} entity slots."
                 )
-            if track_ids.shape[0] and (~visible.any(dim=1)).any():
+            # Annotation-only rows may be wholly uncovered/absent in this clip.
+            # They do not become tracks or matches, but still constrain whether
+            # a frame is complete. In particular they must not invent negatives.
+            if (masks[~visible].flatten(1).sum(dim=1) > 0).any():
                 raise ValueError(
-                    f"clip {clip_index} contains a track row that is never visible."
+                    f"clip {clip_index} must use zero masks wherever track ID is -1."
                 )
 
             seen_ids: set[int] = set()
@@ -412,11 +471,6 @@ class VidEoMTMaskCriterion(nn.Module):
                     raise ValueError(
                         f"clip {clip_index} has a visible track frame with an empty mask."
                     )
-                absent_masks = row_masks[~visible[row]].to(torch.float32)
-                if (absent_masks.flatten(1).sum(dim=1) > 0).any():
-                    raise ValueError(
-                        f"clip {clip_index} must use zero masks wherever track ID is -1."
-                    )
 
             any_visible = any_visible or track_count > 0
             labels = labels.to(dtype=torch.int64)
@@ -428,6 +482,9 @@ class VidEoMTMaskCriterion(nn.Module):
                         "ids": track_ids[:, frame_index : frame_index + 1],
                         "masks": masks[:, frame_index : frame_index + 1],
                         "mask_valid": mask_valid[:, frame_index : frame_index + 1],
+                        "pixel_valid": pixel_valid[frame_index],
+                        "entity_supervision_valid": scene_valid[frame_index],
+                        "entity_classification_valid": complete[frame_index],
                     }
                 )
 
@@ -478,6 +535,29 @@ class VidEoMTMaskCriterion(nn.Module):
         if not torch.isfinite(mask_logits).all() or not torch.isfinite(objectness_logits).all():
             raise ValueError("mask and objectness logits must be finite.")
 
+        if isinstance(batch_or_targets, Mapping):
+            for field in ("entity_supervision_valid", "entity_classification_valid"):
+                if field not in batch_or_targets:
+                    continue
+                outer = frame_flags(
+                    batch_or_targets[field], batch=batch_size, frames=num_frames,
+                    device=mask_logits.device, name=field,
+                )
+                if isinstance(raw_targets, Mapping):
+                    inner = frame_flags(
+                        raw_targets.get(field, outer), batch=batch_size, frames=num_frames,
+                        device=mask_logits.device, name=field,
+                    )
+                    raw_targets = {**raw_targets, field: outer & inner}
+                elif isinstance(raw_targets, Sequence) and len(raw_targets) == batch_size:
+                    raw_targets = [
+                        {**target, field: outer[b] & frame_flags(
+                            target.get(field, outer[b]), batch=1, frames=num_frames,
+                            device=mask_logits.device, name=field, per_clip=True,
+                        )[0]}
+                        for b, target in enumerate(raw_targets)
+                    ]
+
         if isinstance(raw_targets, Mapping):
             targets = self._unpack_batched_targets(
                 raw_targets,
@@ -503,8 +583,7 @@ class VidEoMTMaskCriterion(nn.Module):
             height,
             width,
         )
-        clip_objectness = objectness_logits.float().mean(dim=1, keepdim=True)
-        flat_objectness = clip_objectness.expand(-1, num_frames, -1)
+        flat_objectness = objectness_logits.float()
         no_object_logits = torch.zeros_like(flat_objectness)
         flat_logits = torch.stack((flat_objectness, no_object_logits), dim=-1).reshape(
             batch_size * num_frames, num_queries, 2
@@ -554,7 +633,9 @@ class VidEoMTMaskCriterion(nn.Module):
                     )
                 )
             if "masks" in criterion_losses:
-                zero_mask_loss = flat_masks.sum() * 0.0
+                # An empty reduction stays zero even if ignored finite logits
+                # are so large that summing the entire grid would overflow.
+                zero_mask_loss = flat_masks.flatten()[:0].sum()
                 if any_visible:
                     valid_indices = []
                     valid_match_count = 0
@@ -625,7 +706,8 @@ class VidEoMTMaskCriterion(nn.Module):
                 source_indices, target_indices = indices[flat_index]
                 frame_track_ids = flattened_targets[flat_index]["ids"].reshape(-1)
                 for source_index, target_index in zip(
-                    source_indices.tolist(), target_indices.tolist(), strict=True
+                    source_indices.detach().to(device="cpu").tolist(),
+                    target_indices.detach().to(device="cpu").tolist(), strict=True
                 ):
                     track_id = int(frame_track_ids[target_index].item())
                     if track_id < 0:

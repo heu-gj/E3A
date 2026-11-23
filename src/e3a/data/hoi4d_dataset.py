@@ -580,6 +580,13 @@ class HOI4DDataset(Dataset[dict[str, Any]]):
         entity_targets["pixel_valid"] = torch.from_numpy(
             np.stack(pixel_valid_frames).astype(np.bool_)
         )
+        # The existing clip flag below only states that some positive masks
+        # are usable. HOI4D masks do not certify complete scene enumeration or
+        # explicit empty-scene annotation. Preserve that flag's old meaning and
+        # separately withhold No Object coverage, without dropping positives.
+        entity_targets["entity_classification_valid"] = torch.zeros(
+            self.clip_length, dtype=torch.bool
+        )
         entity_supervision_valid = bool(
             entity_targets["mask_valid"].any().item()
             and entity_targets["labels"].numel() > 0
@@ -705,40 +712,11 @@ def collate_hoi4d_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     _, frame_count, _, height, width = batch["images"].shape
     device = batch["images"].device
 
-    pixel_valid = []
-    entity_supervision_valid = []
-    for sample_index, sample in enumerate(samples):
-        targets = sample["entity_targets"]
-        value = targets.get("pixel_valid")
-        if value is None:
-            value = torch.ones(frame_count, height, width, dtype=torch.bool)
-        if (
-            not torch.is_tensor(value)
-            or value.dtype != torch.bool
-            or tuple(value.shape) != (frame_count, height, width)
-        ):
-            raise ValueError(
-                f"samples[{sample_index}] entity_targets.pixel_valid must be bool [T,H,W]."
-            )
-        pixel_valid.append(value.to(device=device))
-        explicit_valid = sample.get("entity_supervision_valid")
-        if explicit_valid is None:
-            default_mask_valid = targets.get(
-                "mask_valid", torch.ones_like(targets["ids"], dtype=torch.bool)
-            )
-            explicit_valid = bool(
-                targets["labels"].numel() > 0 and default_mask_valid.any()
-            )
-        if not isinstance(explicit_valid, (bool, np.bool_)):
-            raise TypeError("entity_supervision_valid must be a boolean.")
-        if explicit_valid and targets["labels"].numel() == 0:
-            raise ValueError("A clip with zero entity tracks cannot have valid entity supervision.")
-        entity_supervision_valid.append(bool(explicit_valid))
-
-    batch["entity_targets"]["pixel_valid"] = torch.stack(pixel_valid, dim=0)
-    batch["entity_supervision_valid"] = torch.tensor(
-        entity_supervision_valid, dtype=torch.bool, device=device
-    )
+    # Generic collation now preserves pixel validity; do not copy/stack it twice.
+    if batch["entity_targets"]["pixel_valid"].shape != (
+        len(samples), frame_count, height, width
+    ):
+        raise ValueError("HOI4D pixel_valid must align with image [B,T,H,W].")
 
     if any(sample.get("depth") is not None for sample in samples):
         depth_values = []
