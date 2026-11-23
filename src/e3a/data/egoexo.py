@@ -231,6 +231,48 @@ def decode_egoexo_relation_mask(mask_record: Mapping[str, Any]) -> np.ndarray:
     return decoded.astype(np.bool_, copy=False)
 
 
+def _is_egoexo_hand_track(track_name: str) -> bool:
+    normalized = re.sub(r"[_\s]+", " ", track_name.lower()).strip()
+    return re.fullmatch(r"(?:(?:left|right) )?hand(?: \d+)?", normalized) is not None
+
+
+def _egoexo_relation_track_sets(
+    take_record: Mapping[str, Any],
+    object_masks: Mapping[str, Any],
+    *,
+    exclude_hand_tracks: bool,
+) -> tuple[set[str], set[str], bool]:
+    object_names_record = take_record.get("object_names")
+    enumerated_names: set[str] = set()
+    enumeration_complete = False
+    if isinstance(object_names_record, Mapping):
+        annotations = object_names_record.get("annotation")
+        if isinstance(annotations, Sequence) and not isinstance(
+            annotations, (str, bytes)
+        ):
+            enumeration_complete = True
+            for annotation_record in annotations:
+                if not isinstance(annotation_record, Mapping):
+                    enumeration_complete = False
+                    break
+                track_name = annotation_record.get("track_id")
+                if not isinstance(track_name, str) or not track_name:
+                    enumeration_complete = False
+                    break
+                if not (exclude_hand_tracks and _is_egoexo_hand_track(track_name)):
+                    enumerated_names.add(track_name)
+
+    mask_names = {
+        str(object_name)
+        for object_name in object_masks
+        if not (
+            exclude_hand_tracks
+            and _is_egoexo_hand_track(str(object_name))
+        )
+    }
+    return enumerated_names, mask_names, enumeration_complete
+
+
 def build_egoexo_relation_clip_targets(
     relation_annotations: Mapping[str, Any],
     take_uid: str,
@@ -279,18 +321,26 @@ def build_egoexo_relation_clip_targets(
 
     decoder = mask_decoder or decode_egoexo_relation_mask
     prepared: list[dict[str, Any]] = []
+    coverage_sets: list[set[int]] = []
+
+    # object_masks can be a sampled subset of object_names. Never infer
+    # no-object labels unless the complete non-hand track sets agree.
+    enumerated_names, mask_names, enumeration_complete = (
+        _egoexo_relation_track_sets(
+            take_record,
+            object_masks,
+            exclude_hand_tracks=exclude_hand_tracks,
+        )
+    )
+    coverage_complete = enumeration_complete and enumerated_names == mask_names
     inferred_size = image_size
 
     for object_name in sorted(object_masks):
-        normalized_name = re.sub(r"[_\s]+", " ", str(object_name).lower()).strip()
-        is_hand_track = re.fullmatch(
-            r"(?:(?:left|right) )?hand(?: \d+)?",
-            normalized_name,
-        ) is not None
-        if exclude_hand_tracks and is_hand_track:
+        if exclude_hand_tracks and _is_egoexo_hand_track(str(object_name)):
             continue
         cameras = object_masks[object_name]
         if not isinstance(cameras, Mapping) or camera_name not in cameras:
+            coverage_complete = False
             continue
         camera_record = cameras[camera_name]
         if not isinstance(camera_record, Mapping):
@@ -309,6 +359,7 @@ def build_egoexo_relation_clip_targets(
         if not isinstance(annotation, Mapping):
             raise ValueError(f"Relation track {object_name!r} is missing its annotation mapping.")
         annotated_frames = {int(value) for value in annotated_frames_raw}
+        coverage_sets.append(annotated_frames)
         annotation_frames = {int(value) for value in annotation}
         if not annotation_frames.issubset(annotated_frames):
             raise ValueError(
@@ -392,14 +443,206 @@ def build_egoexo_relation_clip_targets(
                     binary.astype(np.float32)
                 )
 
+    frame_supervision_valid = torch.tensor(
+        [
+            bool(coverage_complete and coverage_sets)
+            and all(frame_number in coverage for coverage in coverage_sets)
+            for frame_number in frames
+        ],
+        dtype=torch.bool,
+    )
+    entity_supervision_valid = bool(
+        (track_count > 0 and mask_valid.any().item())
+        or (track_count == 0 and frame_supervision_valid.any().item())
+    )
     return {
         "labels": labels,
         "ids": ids,
         "masks": masks,
         "mask_valid": mask_valid,
+        "entity_supervision_valid": entity_supervision_valid,
+        "entity_frame_supervision_valid": frame_supervision_valid,
         "track_names": [track["name"] for track in prepared],
         "frame_numbers": frames,
     }
+
+
+def audit_egoexo_relation_coverage(
+    relation_annotations: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Audit metadata required for safe Ego-Exo4D no-object supervision.
+
+    This is read-only and does not decode masks. A camera is eligible only
+    when object_names and object_masks enumerate the same non-hand tracks and
+    every enumerated object has a valid annotated_frames list for that camera.
+    This proves coverage only within the Relation task's active-object set; it
+    does not certify that every background object in the video was enumerated.
+    """
+    root = relation_annotations.get("annotations", relation_annotations)
+    if not isinstance(root, Mapping):
+        raise TypeError("Ego-Exo4D relation annotations root must be an object.")
+
+    take_reports: list[dict[str, Any]] = []
+    for take_uid, take_record in root.items():
+        if not isinstance(take_record, Mapping):
+            take_reports.append(
+                {
+                    "take_uid": str(take_uid),
+                    "status": "INVALID_TAKE_RECORD",
+                    "object_names_valid": False,
+                    "object_masks_valid": False,
+                    "enumeration_matches": False,
+                    "enumerated_nonhand_tracks": [],
+                    "mask_nonhand_tracks": [],
+                    "enumerated_only_tracks": [],
+                    "mask_only_tracks": [],
+                    "cameras": [],
+                }
+            )
+            continue
+
+        raw_object_masks = take_record.get("object_masks")
+        object_masks_valid = isinstance(raw_object_masks, Mapping)
+        object_masks = raw_object_masks if object_masks_valid else {}
+
+        enumerated_names, mask_names, enumeration_complete = (
+            _egoexo_relation_track_sets(
+                take_record,
+                object_masks,
+                exclude_hand_tracks=True,
+            )
+        )
+        enumeration_matches = bool(
+            object_masks_valid
+            and enumeration_complete
+            and enumerated_names == mask_names
+        )
+        camera_names = sorted(
+            {
+                str(camera_name)
+                for track_name in mask_names
+                if isinstance(object_masks.get(track_name), Mapping)
+                for camera_name in object_masks[track_name]
+            }
+        )
+
+        camera_reports: list[dict[str, Any]] = []
+        for camera_name in camera_names:
+            missing_tracks: list[str] = []
+            invalid_tracks: list[str] = []
+            coverage_sets: list[set[int]] = []
+            for track_name in sorted(enumerated_names):
+                cameras = object_masks.get(track_name)
+                if not isinstance(cameras, Mapping) or camera_name not in cameras:
+                    missing_tracks.append(track_name)
+                    continue
+                camera_record = cameras[camera_name]
+                if not isinstance(camera_record, Mapping):
+                    invalid_tracks.append(track_name)
+                    continue
+                raw_frames = camera_record.get("annotated_frames")
+                if not isinstance(raw_frames, Sequence) or isinstance(
+                    raw_frames, (str, bytes)
+                ):
+                    invalid_tracks.append(track_name)
+                    continue
+                try:
+                    coverage_sets.append({int(frame) for frame in raw_frames})
+                except (TypeError, ValueError):
+                    invalid_tracks.append(track_name)
+
+            all_tracks_covered = bool(
+                enumerated_names
+                and not missing_tracks
+                and not invalid_tracks
+                and len(coverage_sets) == len(enumerated_names)
+            )
+            common_frames = (
+                sorted(set.intersection(*coverage_sets))
+                if all_tracks_covered
+                else []
+            )
+            coverage_complete = bool(enumeration_matches and all_tracks_covered)
+            camera_reports.append(
+                {
+                    "camera_name": camera_name,
+                    "enumerated_track_count": len(enumerated_names),
+                    "camera_track_coverage_count": len(coverage_sets),
+                    "missing_camera_tracks": missing_tracks,
+                    "invalid_coverage_tracks": invalid_tracks,
+                    "coverage_complete": coverage_complete,
+                    "eligible_for_no_object": bool(
+                        coverage_complete and common_frames
+                    ),
+                    "common_annotated_frames": common_frames,
+                    "common_annotated_frame_count": len(common_frames),
+                }
+            )
+
+        eligible_camera_count = sum(
+            bool(camera["eligible_for_no_object"]) for camera in camera_reports
+        )
+        if not object_masks_valid:
+            status = "MISSING_OBJECT_MASKS"
+        elif not enumeration_complete:
+            status = "INVALID_OBJECT_NAMES"
+        elif not enumeration_matches:
+            status = "OBJECT_ENUMERATION_MISMATCH"
+        elif eligible_camera_count:
+            status = "ELIGIBLE_CAMERA_FOUND"
+        else:
+            status = "NO_COMPLETE_CAMERA_COVERAGE"
+
+        take_reports.append(
+            {
+                "take_uid": str(take_uid),
+                "status": status,
+                "object_names_valid": enumeration_complete,
+                "object_masks_valid": object_masks_valid,
+                "enumeration_matches": enumeration_matches,
+                "enumerated_nonhand_tracks": sorted(enumerated_names),
+                "mask_nonhand_tracks": sorted(mask_names),
+                "enumerated_only_tracks": sorted(enumerated_names - mask_names),
+                "mask_only_tracks": sorted(mask_names - enumerated_names),
+                "camera_count": len(camera_reports),
+                "eligible_camera_count": eligible_camera_count,
+                "eligible_camera_frame_pairs": sum(
+                    camera["common_annotated_frame_count"]
+                    for camera in camera_reports
+                    if camera["eligible_for_no_object"]
+                ),
+                "cameras": camera_reports,
+            }
+        )
+
+    all_cameras = [
+        camera for take in take_reports for camera in take.get("cameras", [])
+    ]
+    summary = {
+        "take_count": len(take_reports),
+        "takes_with_valid_object_names": sum(
+            bool(take.get("object_names_valid")) for take in take_reports
+        ),
+        "takes_with_matching_object_enumeration": sum(
+            bool(take.get("enumeration_matches")) for take in take_reports
+        ),
+        "takes_with_any_eligible_camera": sum(
+            bool(take.get("eligible_camera_count", 0)) for take in take_reports
+        ),
+        "camera_count": len(all_cameras),
+        "cameras_with_complete_coverage": sum(
+            bool(camera["coverage_complete"]) for camera in all_cameras
+        ),
+        "eligible_camera_count": sum(
+            bool(camera["eligible_for_no_object"]) for camera in all_cameras
+        ),
+        "eligible_camera_frame_pairs": sum(
+            int(camera["common_annotated_frame_count"])
+            for camera in all_cameras
+            if camera["eligible_for_no_object"]
+        ),
+    }
+    return {"summary": summary, "takes": take_reports}
 
 
 def parse_egoexo_keystep_segments(

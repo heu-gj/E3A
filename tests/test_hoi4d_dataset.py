@@ -215,6 +215,7 @@ def test_dataset_reads_rgb_depth_masks_pose_action_and_raw_mano(tmp_path, monkey
     assert sample["entity_targets"]["mask_valid"].all()
     assert sample["entity_targets"]["pixel_valid"].all()
     assert sample["entity_supervision_valid"]
+    assert sample["entity_frame_supervision_valid"].tolist() == [False, False]
 
     assert sample["objpose_frame_ids"].tolist() == [1, 1]
     assert sample["objpose_records"][0]["frameId"] == 1
@@ -249,6 +250,7 @@ def test_dataset_marks_unknown_pixels_and_missing_entity_supervision(tmp_path, m
     assert sample["entity_targets"]["pixel_valid"][1].all()
     assert sample["entity_supervision_valid"]
     assert sample["entity_targets"]["mask_valid"].all()
+    assert sample["entity_frame_supervision_valid"].tolist() == [False, False]
 
 
 def test_empty_mask_clip_is_not_marked_as_negative_entity_supervision(tmp_path, monkeypatch):
@@ -285,6 +287,10 @@ def test_collator_preserves_pixel_depth_intrinsics_and_clip_validity(tmp_path, m
     assert batch["entity_targets"]["pixel_valid"].shape == (2, 2, 12, 16)
     assert not batch["entity_targets"]["pixel_valid"][1, 0, 0, 0].item()
     assert batch["entity_supervision_valid"].tolist() == [True, True]
+    assert batch["entity_frame_supervision_valid"].tolist() == [
+        [False, False],
+        [False, False],
+    ]
     assert batch["mano_parameters"]["valid"].shape == (2, 2, 2)
 
 
@@ -337,8 +343,12 @@ def test_hoi4d_collator_accepts_source_verified_empty_scene(tmp_path, monkeypatc
     # Simulate a source-backed complete annotation window with no objects.
     sample["entity_targets"]["pixel_valid"].fill_(True)
     sample["entity_supervision_valid"] = True
+    sample["entity_frame_supervision_valid"].fill_(True)
     batch = collate_hoi4d_batch([sample])
 
     assert batch["entity_supervision_valid"].tolist() == [True]
     assert batch["entity_targets"]["track_counts"].tolist() == [0]
     assert batch["entity_targets"]["pixel_valid"].all()
+    # The test explicitly marks a fully annotated empty scene, so the collator
+    # can safely infer per-frame no-object coverage.
+    assert batch["entity_frame_supervision_valid"].tolist() == [[True, True]]

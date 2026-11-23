@@ -32,6 +32,10 @@ def test_collate_e3a_batch_pads_tracks_and_keeps_missing_labels_invalid():
     assert batch["timestamps"].shape == (2, 2)
     assert batch["entity_targets"]["ids"].shape == (2, 2, 2)
     assert batch["entity_supervision_valid"].tolist() == [True, False]
+    assert batch["entity_frame_supervision_valid"].tolist() == [
+        [False, False],
+        [False, False],
+    ]
     assert batch["hand_targets"]["keypoints_camera"].shape == (2, 2, 2, 21, 3)
     assert batch["interaction_targets"]["contact"].shape == (2, 2, 2, 2)
     assert batch["anticipation_targets"]["action_valid"].tolist() == [False, False]
@@ -74,6 +78,7 @@ def test_collate_e3a_batch_respects_explicit_entity_supervision_validity():
     empty["entity_supervision_valid"] = True
     empty_batch = collate_e3a_batch([empty])
     assert empty_batch["entity_supervision_valid"].tolist() == [True]
+    assert empty_batch["entity_frame_supervision_valid"].tolist() == [[True, True]]
 
 
 def test_collate_e3a_batch_preserves_explicit_anticipation_targets():
@@ -93,3 +98,16 @@ def test_collate_e3a_batch_preserves_explicit_anticipation_targets():
     assert targets["action_labels"].tolist() == [3]
     assert targets["action_valid"].tolist() == [True]
     torch.testing.assert_close(targets["time_to_event"], torch.tensor([0.75]))
+
+
+
+def test_collate_e3a_batch_preserves_source_frame_entity_coverage():
+    sample = make_sample(0)
+    sample["entity_targets"]["entity_supervision_valid"] = True
+    sample["entity_targets"]["entity_frame_supervision_valid"] = torch.tensor(
+        [True, False], dtype=torch.bool
+    )
+    batch = collate_e3a_batch([sample])
+
+    assert batch["entity_supervision_valid"].tolist() == [True]
+    assert batch["entity_frame_supervision_valid"].tolist() == [[True, False]]

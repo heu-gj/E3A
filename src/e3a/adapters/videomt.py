@@ -522,13 +522,19 @@ class VidEoMTMaskCriterion(nn.Module):
     ) -> list[tuple[torch.Tensor, torch.Tensor]]:
         """Apply the pinned consistent matcher policy using known pixels only.
 
-        Fully valid masks continue through the upstream matcher unchanged. For
-        partially unknown masks, the first-visible-frame Hungarian assignment is
-        retained while its mask costs are evaluated only at valid pixel centers.
+        Fully annotated masks continue through the upstream matcher unchanged. If
+        either track-frame annotation or pixel coverage is partial, the first
+        pixel-valid visible frame establishes each track's clip-consistent slot.
         Returned indices are CPU tensors, as in the upstream VidEoMT matcher.
         """
         matcher = self.matcher
-        if all(bool(target["pixel_valid"].all().item()) for target in targets):
+        if all(
+            bool(
+                target["pixel_valid"].all().item()
+                and target["mask_valid"].all().item()
+            )
+            for target in targets
+        ):
             return matcher(outputs, targets)
 
         required = ("cost_class", "cost_mask", "cost_dice", "num_points", "frames")
@@ -862,9 +868,23 @@ class VidEoMTMaskCriterion(nn.Module):
             raw_entity_supervision_valid = batch_or_targets.get(
                 "entity_supervision_valid"
             )
+            raw_entity_frame_supervision_valid = batch_or_targets.get(
+                "entity_frame_supervision_valid"
+            )
+            if raw_entity_frame_supervision_valid is None and isinstance(
+                raw_targets, Mapping
+            ):
+                raw_entity_frame_supervision_valid = raw_targets.get(
+                    "entity_frame_supervision_valid"
+                )
+            if raw_entity_supervision_valid is None and isinstance(raw_targets, Mapping):
+                raw_entity_supervision_valid = raw_targets.get(
+                    "entity_supervision_valid"
+                )
         else:
             raw_targets = batch_or_targets
             raw_entity_supervision_valid = None
+            raw_entity_frame_supervision_valid = None
 
         if schedule_progress is not None and not math.isfinite(float(schedule_progress)):
             raise ValueError("schedule_progress must be finite when supplied.")
@@ -926,8 +946,15 @@ class VidEoMTMaskCriterion(nn.Module):
                     raise ValueError(
                         f"entity_targets[{clip_index}].mask_valid must be bool [N,T]."
                     )
+                nested_valid = target.get("entity_supervision_valid")
+                if nested_valid is not None and not isinstance(nested_valid, bool):
+                    raise TypeError(
+                        f"entity_targets[{clip_index}].entity_supervision_valid must be bool."
+                    )
                 supervision_values.append(
-                    bool(labels.numel() > 0 and mask_valid.any().item())
+                    nested_valid
+                    if nested_valid is not None
+                    else bool(labels.numel() > 0 and mask_valid.any().item())
                 )
             entity_supervision_valid = torch.tensor(
                 supervision_values,
@@ -946,6 +973,57 @@ class VidEoMTMaskCriterion(nn.Module):
             entity_supervision_valid = raw_entity_supervision_valid.to(
                 device=mask_logits.device
             )
+        if raw_entity_frame_supervision_valid is None:
+            frame_valid_values = []
+            for clip_index, target in enumerate(targets):
+                frame_valid = target.get("entity_frame_supervision_valid")
+                if frame_valid is None:
+                    labels = target.get("labels")
+                    if not torch.is_tensor(labels):
+                        raise TypeError(
+                            f"entity_targets[{clip_index}] must contain tensor labels."
+                        )
+                    # Do not infer complete object coverage from image/pixel validity.
+                    # The sole implicit positive case is a source-verified empty clip.
+                    verified_empty = (
+                        labels.numel() == 0
+                        and bool(entity_supervision_valid[clip_index].item())
+                    )
+                    frame_valid = torch.full(
+                        (num_frames,),
+                        verified_empty,
+                        dtype=torch.bool,
+                        device=mask_logits.device,
+                    )
+                if (
+                    not torch.is_tensor(frame_valid)
+                    or frame_valid.dtype != torch.bool
+                    or tuple(frame_valid.shape) != (num_frames,)
+                ):
+                    raise ValueError(
+                        f"entity_targets[{clip_index}].entity_frame_supervision_valid "
+                        "must be bool [T]."
+                    )
+                frame_valid_values.append(frame_valid)
+            entity_frame_supervision_valid = torch.stack(frame_valid_values, dim=0)
+        else:
+            if (
+                not torch.is_tensor(raw_entity_frame_supervision_valid)
+                or raw_entity_frame_supervision_valid.dtype != torch.bool
+                or tuple(raw_entity_frame_supervision_valid.shape) != (
+                    batch_size,
+                    num_frames,
+                )
+            ):
+                raise ValueError(
+                    "entity_frame_supervision_valid must be bool with shape [B,T]."
+                )
+            entity_frame_supervision_valid = raw_entity_frame_supervision_valid
+
+        entity_frame_supervision_valid = entity_frame_supervision_valid.to(
+            device=mask_logits.device
+        ) & entity_supervision_valid[:, None]
+
         targets = [
             target
             if is_valid
@@ -972,7 +1050,7 @@ class VidEoMTMaskCriterion(nn.Module):
         )
         # Class logits are clip-consistent, but unknown frames must not enter
         # the temporal pooling that produces those logits.
-        class_frame_valid = torch.tensor(
+        pixel_frame_valid = torch.tensor(
             [
                 bool(target["pixel_valid"].all().item())
                 for target in flattened_targets
@@ -980,7 +1058,9 @@ class VidEoMTMaskCriterion(nn.Module):
             dtype=torch.bool,
             device=objectness_logits.device,
         ).reshape(batch_size, num_frames)
-        class_frame_valid = class_frame_valid & entity_supervision_valid[:, None]
+        class_frame_valid = (
+            entity_frame_supervision_valid & pixel_frame_valid
+        )
         class_frame_weights = class_frame_valid.unsqueeze(-1).to(
             dtype=torch.float32
         )
@@ -1037,7 +1117,7 @@ class VidEoMTMaskCriterion(nn.Module):
                 for target in supervised_targets
             )
             supervised_indices = None
-            if any_visible and all_masks_annotated:
+            if any_visible and all_masks_annotated and bool(class_frame_valid.all().item()):
                 if return_matches:
                     criterion_forward = self.criterion.forward
                     supports_match_return = (
@@ -1082,10 +1162,11 @@ class VidEoMTMaskCriterion(nn.Module):
                     # A frame containing any unknown pixels cannot safely provide
                     # those negatives, even though its known pixels may be used by
                     # the mask matcher/loss.
+                    class_frame_valid_flat = class_frame_valid.reshape(-1)
                     class_valid_indices = [
                         index
-                        for index, target in enumerate(supervised_targets)
-                        if bool(target["pixel_valid"].all().item())
+                        for index, flat_index in enumerate(supervised_flat_indices)
+                        if bool(class_frame_valid_flat[flat_index].item())
                     ]
                     if class_valid_indices:
                         class_index_tensor = torch.as_tensor(
