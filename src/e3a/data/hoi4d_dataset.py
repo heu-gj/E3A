@@ -21,7 +21,6 @@ from PIL import Image
 from torch.utils.data import DataLoader, Dataset
 
 from e3a.data.collate import collate_e3a_batch
-from e3a.data.hoi4d_supervision import HOI4DSupervisionBuilder
 from e3a.data.hoi4d import (
     HOI4D_2D_CATEGORIES,
     build_hoi4d_anticipation_target,
@@ -30,6 +29,7 @@ from e3a.data.hoi4d import (
     hoi4d_color_palette,
     load_hoi4d_action_segments,
 )
+from e3a.data.hoi4d_supervision import HOI4DSupervisionBuilder
 
 
 @dataclass(frozen=True)

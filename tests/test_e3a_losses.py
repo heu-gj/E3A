@@ -296,3 +296,57 @@ def test_geometry_loss_rejects_track_id_changes_within_a_clip():
     }
     with pytest.raises(ValueError, match="one clip-local track ID"):
         criterion._geometry_losses(predictions, batch, [{101: 1}])
+
+
+
+def test_geometry_weight_is_included_in_joint_objective():
+    criterion = E3AMultiTaskLoss(
+        FakeMaskCriterion(),
+        weights={
+            "entity": 0.0,
+            "geometry": 2.0,
+            "hand": 0.0,
+            "hand_visibility": 0.0,
+            "interaction": 0.0,
+            "target_entity": 0.0,
+            "action": 0.0,
+            "time": 0.0,
+        },
+    )
+    target_centers = torch.tensor(
+        [[[[0.0, 0.0, 2.0], [1.0, 0.0, 2.0]]]]
+    )
+    predicted_centers = torch.zeros(1, 2, 3, 3)
+    predicted_centers[:, :, 1] = (
+        target_centers.permute(0, 2, 1, 3).squeeze(2) + torch.tensor([0.5, 0.0, 0.0])
+    )
+    predictions = {
+        "mask_logits": torch.zeros(1, 2, 3, 2, 2),
+        "entity_centers_camera": predicted_centers,
+        "entity_covariance_camera": torch.zeros(1, 2, 3, 3, 3),
+        "entity_geometry_valid": torch.ones(1, 2, 3, dtype=torch.bool),
+        "hand_keypoints_camera": torch.zeros(1, 2, 2, 21, 3),
+        "hand_joint_visibility_logits": torch.zeros(1, 2, 2, 21),
+        "interaction_logits": torch.zeros(1, 2, 2, 3),
+        "target_entity_logits": torch.zeros(1, 4),
+        "action_logits": torch.zeros(1, 2),
+        "time_log_mean": torch.zeros(1),
+        "time_log_scale": torch.zeros(1),
+    }
+    batch = {
+        "entity_targets": {
+            "ids": torch.tensor([[[101, 101]]]),
+            "track_counts": torch.tensor([1]),
+        },
+        "geometry_targets": {
+            "centers_camera": target_centers,
+            "covariance_camera": torch.zeros(1, 1, 2, 3, 3),
+            "valid": torch.ones(1, 1, 2, dtype=torch.bool),
+        },
+    }
+
+    losses = criterion(predictions, batch)
+    assert losses["loss_geometry"].item() > 0
+    torch.testing.assert_close(
+        losses["loss_objective"], 2.0 * losses["loss_geometry"]
+    )

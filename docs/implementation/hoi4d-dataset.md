@@ -90,6 +90,8 @@ normalizes predicted and target object centers/covariances by separate robust
 per-clip depth scales. This permits scale-invariant supervision of relative
 3D layout and object shape without treating raw depth as meters. It does not
 provide metric-scale supervision or establish cross-sequence metric consistency.
+These are per-frame camera-relative targets; this builder does not construct a
+world-frame trajectory because source camera trajectories are not consumed.
 
 The provisional category-local motion-mask instance IDs are reused for the
 matcher mapping, but this builder does not upgrade them to globally persistent
