@@ -5,6 +5,7 @@ Run from the repository's approved environment:
 ```bash
 python scripts/audit_hoi4d_handpose_coverage.py \
   --root "$HOI4D_ROOT" \
+  --archive "$HANDPOSE_ARCHIVE" \
   --output-dir "$AUDIT_OUTPUT"
 python -m pytest -q tests/test_hoi4d_handpose_coverage.py
 ```
@@ -31,6 +32,29 @@ ZIP/TAR members, when available, are streamed without extraction and compared by
 SHA256 to extracted hand files. ZIP streams validate CRC on reading. Extraction
 equivalence applies only to available local archives; download completeness stays
 NOT_VERIFIABLE without authoritative checksums or a completeness manifest.
+
+For archive-only reconciliation (without repeating MANO parameter parsing):
+
+```bash
+python scripts/audit_hoi4d_handpose_archive.py \
+  --root "$HOI4D_ROOT" --archive "$HANDPOSE_ARCHIVE" \
+  --output-dir "$AUDIT_OUTPUT"
+```
+
+`--archive` is repeatable and supports files outside the dataset root. Results
+separate `ARCHIVE_READABILITY`, `ARCHIVE_CRC_INTEGRITY`,
+`EXTRACTION_EQUIVALENCE` and `DOWNLOAD_COMPLETENESS`. Empty/no-hand archives,
+extra local files, duplicate/conflicting members, unsafe paths and read errors
+cannot yield equivalence PASS. Content disagreement is NEEDS_REVIEW, not proof
+that either source should be overwritten. Missing extracted files block
+equivalence; the tool never extracts or repairs them.
+
+Windows separators are normalized only when the exact side/seven-component
+sequence/filename hierarchy is unambiguous. All member occurrences remain in
+the disk-backed inventory, including rejected paths and duplicate members.
+Full ZIP bytes are hashed before/after; every non-directory member is streamed
+to EOF for CRC, and local hand files are independently hashed twice. SQLite and
+per-file CSV outputs contain sensitive relative identifiers and remain local.
 
 Reports, per-file inventories and source checksums are local research evidence.
 Do not commit raw pickles, masks, video, full real-data reports or sensitive paths.

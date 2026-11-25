@@ -114,7 +114,12 @@ def test_archive_equivalence_and_missing_members(tmp_path, missing, mismatch):
         if missing:
             z.writestr('Hand_pose/handpose_right_hand/' + SEQ + '/31.pickle', file.read_bytes())
     summary = m.audit(root, tmp_path / 'out')
-    assert summary['extraction_integrity'] == ('EXTRACTION_INCOMPLETE' if missing or mismatch else 'EXTRACTION_COMPLETE')
+    expected = ('EXTRACTION_INCOMPLETE' if missing else
+                'NOT_VERIFIABLE' if mismatch else 'EXTRACTION_COMPLETE')
+    assert summary['extraction_integrity'] == expected
+    comparison = json.loads((tmp_path / 'out/evidence/archive_extraction_comparison.json').read_text())
+    if mismatch:
+        assert comparison['EXTRACTION_EQUIVALENCE'] == 'NEEDS_REVIEW'
     assert summary['download_integrity'] == 'NOT_VERIFIABLE'
 
 
@@ -167,3 +172,228 @@ def test_cli_help_and_json_csv_serialization(tmp_path):
     with (output / 'evidence/left_hand_coverage.csv').open() as f:
         rows = list(csv.DictReader(f))
         assert len(rows) == 1 and rows[0]['sequence_id'] == SEQ
+
+
+def archive_fixture(tmp_path, entries, *, local=True, archive_name='hand_pose.zip'):
+    root = tmp_path / 'dataset'
+    root.mkdir(exist_ok=True)
+    file = put(root) if local else None
+    archive = tmp_path / archive_name  # Explicitly outside root.
+    with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_STORED) as z:
+        for path, content in entries:
+            z.writestr(path, content)
+    return root, archive, file
+
+
+MEMBER = 'wrapper/Hand_pose/handpose_left_hand/' + SEQ + '/30.pickle'
+
+
+def reconcile(root, archives, **kwargs):
+    from e3a.data.handpose_archive import reconcile as run
+    return run(root, archives, **kwargs)
+
+
+def test_external_archive_exact_sha_and_side_separation(tmp_path):
+    root = tmp_path / 'dataset'
+    file = put(root)
+    archive = tmp_path / 'outside.zip'
+    with zipfile.ZipFile(archive, 'w') as z:
+        z.writestr(MEMBER, file.read_bytes())
+    result = reconcile(root, [archive], output=tmp_path / 'report')
+    assert result['EXTRACTION_EQUIVALENCE'] == 'PASS'
+    assert result['ARCHIVE_CRC_INTEGRITY'] == 'PASS'
+    assert result['DOWNLOAD_COMPLETENESS'] == 'NOT_VERIFIABLE'
+    assert result['sides']['left']['unique_valid_members'] == 1
+    assert result['sides']['right']['unique_valid_members'] == 0
+    with (tmp_path / 'report/evidence/member_comparison.csv').open() as f:
+        row = list(csv.DictReader(f))[0]
+        assert row['seq'] == SEQ and row['raw'] == MEMBER
+        assert row['result'] == 'EXACT_MATCH' and len(row['digest']) == 64
+
+
+@pytest.mark.parametrize('entries', [[], [('readme.txt', b'no hand data')]])
+def test_empty_or_no_hand_archive_never_complete(tmp_path, entries):
+    root, archive, _ = archive_fixture(tmp_path, entries, local=False)
+    result = reconcile(root, [archive])
+    assert result['EXTRACTION_EQUIVALENCE'] != 'PASS'
+    assert result['extraction_integrity'] != 'EXTRACTION_COMPLETE'
+
+
+def test_missing_extracted_file_blocked(tmp_path):
+    root, archive, _ = archive_fixture(tmp_path, [(MEMBER, b'bytes')], local=False)
+    result = reconcile(root, [archive])
+    assert result['EXTRACTION_EQUIVALENCE'] == 'BLOCKED'
+    assert len(result['missing_paths']) == 1
+
+
+def test_local_extra_is_not_equivalent(tmp_path):
+    root = tmp_path / 'dataset'
+    file = put(root)
+    put(root, side='right')
+    archive = tmp_path / 'hand.zip'
+    with zipfile.ZipFile(archive, 'w') as z:
+        z.writestr(MEMBER, file.read_bytes())
+    result = reconcile(root, [archive])
+    assert result['EXTRACTION_EQUIVALENCE'] == 'NEEDS_REVIEW'
+    assert result['sides']['right']['extra_files'] == 1
+    assert result['extraction_integrity'] != 'EXTRACTION_COMPLETE'
+
+
+def test_content_mismatch_requires_review(tmp_path):
+    root, archive, _ = archive_fixture(tmp_path, [(MEMBER, b'wrong')])
+    result = reconcile(root, [archive])
+    assert result['EXTRACTION_EQUIVALENCE'] == 'NEEDS_REVIEW'
+    assert len(result['mismatch_paths']) == 1
+
+
+@pytest.mark.parametrize('conflict', [False, True])
+def test_duplicate_archive_members_never_silently_override(tmp_path, conflict):
+    root, archive, _ = archive_fixture(tmp_path, [(MEMBER, b'a'), (MEMBER, b'b' if conflict else b'a')], local=False)
+    result = reconcile(root, [archive])
+    assert result['archives'][0]['duplicate_members'] == 1
+    assert result['archives'][0]['conflicting_members'] == int(conflict)
+    assert result['EXTRACTION_EQUIVALENCE'] != 'PASS'
+
+
+def test_conflicting_members_across_archives(tmp_path):
+    root, a, _ = archive_fixture(tmp_path, [(MEMBER, b'a')], local=False)
+    b = tmp_path / 'second.zip'
+    with zipfile.ZipFile(b, 'w') as z:
+        z.writestr(MEMBER, b'b')
+    result = reconcile(root, [a, b])
+    assert result['archives'][1]['conflicting_members'] == 1
+    assert result['EXTRACTION_EQUIVALENCE'] != 'PASS'
+
+
+@pytest.mark.parametrize('bad_path', ['/' + MEMBER, '../' + MEMBER,
+                                     'C:\\' + MEMBER.replace('/', '\\'),
+                                     'root/../' + MEMBER])
+def test_unsafe_paths_reported_and_never_extracted(tmp_path, bad_path):
+    root, archive, _ = archive_fixture(tmp_path, [(bad_path, b'a')], local=False)
+    result = reconcile(root, [archive])
+    assert result['archives'][0]['invalid_members'] == 1
+    assert result['EXTRACTION_EQUIVALENCE'] != 'PASS'
+
+
+def test_windows_relative_paths_are_normalized_strictly(tmp_path):
+    root = tmp_path / 'dataset'
+    file = put(root)
+    archive = tmp_path / 'hand.zip'
+    with zipfile.ZipFile(archive, 'w') as z:
+        z.writestr(MEMBER.replace('/', '\\'), file.read_bytes())
+    result = reconcile(root, [archive])
+    assert result['EXTRACTION_EQUIVALENCE'] == 'PASS'
+
+
+def test_crc_error_detected_from_full_member_read(tmp_path):
+    root, archive, _ = archive_fixture(tmp_path, [(MEMBER, b'payload-unique-123')], local=False)
+    data = bytearray(archive.read_bytes())
+    index = data.index(b'payload-unique-123')
+    data[index] ^= 0xff
+    archive.write_bytes(data)
+    result = reconcile(root, [archive])
+    assert result['ARCHIVE_CRC_INTEGRITY'] == 'BLOCKED'
+    assert result['archives'][0]['crc_errors'] == 1
+
+
+def test_unreadable_archive_blocks_crc_and_equivalence(tmp_path):
+    root = tmp_path / 'dataset'
+    root.mkdir()
+    archive = tmp_path / 'bad.zip'
+    archive.write_bytes(b'not zip')
+    result = reconcile(root, [archive])
+    assert result['ARCHIVE_READABILITY'] == 'BLOCKED'
+    assert result['ARCHIVE_CRC_INTEGRITY'] == 'BLOCKED'
+    assert result['EXTRACTION_EQUIVALENCE'] == 'BLOCKED'
+
+
+@pytest.mark.parametrize('which', ['zip', 'local'])
+def test_source_changed_after_hash_prevents_pass(tmp_path, monkeypatch, which):
+    from e3a.data import handpose_archive as engine
+    root = tmp_path / 'dataset'
+    file = put(root)
+    archive = tmp_path / 'hand.zip'
+    with zipfile.ZipFile(archive, 'w') as z:
+        z.writestr(MEMBER, file.read_bytes())
+    original = engine.stable_hash
+    calls = {}
+    def changed(path):
+        digest, stamp = original(path)
+        calls[path] = calls.get(path, 0) + 1
+        if path == (archive if which == 'zip' else file) and calls[path] == 2:
+            stamp = (*stamp[:-1], stamp[-1] + 1)
+        return digest, stamp
+    monkeypatch.setattr(engine, 'stable_hash', changed)
+    result = engine.reconcile(root, [archive])
+    assert result['EXTRACTION_EQUIVALENCE'] == 'BLOCKED'
+    if which == 'local':
+        assert result['ARCHIVE_CRC_INTEGRITY'] == 'PASS'
+
+
+def test_zero_size_member_and_wrapper_directory(tmp_path):
+    root, archive, _ = archive_fixture(tmp_path, [('wrapper/', b''), (MEMBER, b'')], local=False)
+    result = reconcile(root, [archive])
+    assert result['archives'][0]['zero_byte_files'] == 1
+    assert result['archives'][0]['invalid_members'] == 0
+
+
+def test_hand01_explicit_external_archive_parameter(tmp_path):
+    root = tmp_path / 'dataset'
+    file = put(root)
+    archive = tmp_path / 'outside.zip'
+    with zipfile.ZipFile(archive, 'w') as z:
+        z.writestr(MEMBER, file.read_bytes())
+    result = m.audit(root, tmp_path / 'out', archive_paths=[archive])
+    assert result['extraction_integrity'] == 'EXTRACTION_COMPLETE'
+
+
+def test_ambiguous_multiple_hand_roots_are_not_guessed(tmp_path):
+    path = 'handpose_right_hand/' + MEMBER
+    root, archive, _ = archive_fixture(tmp_path, [(path, b'a')], local=False)
+    result = reconcile(root, [archive])
+    assert result['archives'][0]['invalid_members'] == 1
+
+
+def test_two_wrapper_paths_same_destination_report_duplicate(tmp_path):
+    root = tmp_path / 'dataset'
+    file = put(root)
+    archive = tmp_path / 'hand.zip'
+    with zipfile.ZipFile(archive, 'w') as z:
+        z.writestr(MEMBER, file.read_bytes())
+        z.writestr('second/' + MEMBER, file.read_bytes())
+    result = reconcile(root, [archive])
+    assert result['archives'][0]['duplicate_members'] == 1
+    assert result['EXTRACTION_EQUIVALENCE'] == 'NEEDS_REVIEW'
+
+
+def test_same_file_size_is_not_sha_equivalence(tmp_path):
+    root = tmp_path / 'dataset'
+    file = put(root)
+    data = bytearray(file.read_bytes())
+    data[-1] ^= 1
+    archive = tmp_path / 'hand.zip'
+    with zipfile.ZipFile(archive, 'w') as z:
+        z.writestr(MEMBER, data)
+    result = reconcile(root, [archive])
+    assert result['sides']['left']['classification_counts']['CONTENT_MISMATCH'] == 1
+    assert result['EXTRACTION_EQUIVALENCE'] == 'NEEDS_REVIEW'
+
+
+def test_read_failure_one_member_does_not_skip_later_entries(tmp_path):
+    root, archive, _ = archive_fixture(tmp_path, [(MEMBER, b'bad-payload'),
+        (MEMBER.replace('30.pickle', '31.pickle'), b'valid-payload')], local=False)
+    data = bytearray(archive.read_bytes())
+    data[data.index(b'bad-payload')] ^= 1
+    archive.write_bytes(data)
+    result = reconcile(root, [archive], output=tmp_path / 'report')
+    assert result['archives'][0]['crc_errors'] == 1
+    assert result['archives'][0]['members_streamed'] == 1
+    assert len(result['missing_paths']) == 1
+
+
+def test_local_extra_files_csv_keeps_explicit_classification(tmp_path):
+    root, archive, _ = archive_fixture(tmp_path, [], local=True)
+    reconcile(root, [archive], output=tmp_path / 'report')
+    with (tmp_path / 'report/evidence/extra_files.csv').open() as f:
+        rows = list(csv.DictReader(f))
+    assert len(rows) == 1 and rows[0]['result'] == 'EXTRA_EXTRACTED_FILE'
