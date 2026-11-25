@@ -11,8 +11,6 @@ import hashlib
 import json
 import random
 import sqlite3
-import tarfile
-import zipfile
 from collections import Counter, defaultdict
 from pathlib import Path, PurePosixPath
 
@@ -121,78 +119,20 @@ def write_csv(path, rows, columns):
 
 
 def archive_member_path(name):
-    p = PurePosixPath(name)
-    if p.is_absolute() or ".." in p.parts:
-        return None
-    for i, part in enumerate(p.parts):
-        if part in ("handpose_right_hand", "handpose_left_hand"):
-            return (HAND_ROOT / Path(*p.parts[i:])).as_posix()
-    return None
+    from e3a.data.handpose_archive import normalize_member
+    result, _ = normalize_member(name)
+    return result['path'] if result else None
 
 
-def compare_archives(root, db):
-    archives = sorted(p for p in root.rglob("*") if p.is_file() and "hand" in p.name.lower()
-                      and "pose" in p.name.lower() and
-                      (p.name.lower().endswith(".zip") or ".tar" in p.name.lower()))
-    results = []
-    db.execute("CREATE TABLE members(path TEXT PRIMARY KEY, digest TEXT)")
-    for archive in archives:
-        before = archive.stat()
-        row = {"path": archive.relative_to(root).as_posix(), "size": before.st_size,
-               "members": 0, "matched": 0, "missing": [], "mismatch": [],
-               "duplicate_members": [], "unsafe_members": [], "errors": []}
-        def member(name, stream):
-            if not name.lower().endswith(".pickle"):
-                return
-            dest = archive_member_path(name)
-            if dest is None:
-                row["unsafe_members"].append(name)
-                return
-            row["members"] += 1
-            digest = sha_stream(stream)  # ZIP stream reaches EOF and verifies CRC.
-            prior = db.execute("SELECT digest FROM members WHERE path=?", (dest,)).fetchone()
-            if prior:
-                row["duplicate_members"].append({"path": dest, "conflicting": prior[0] != digest})
-            else:
-                db.execute("INSERT INTO members VALUES (?,?)", (dest, digest))
-            actual = db.execute("SELECT digest FROM files WHERE path=?", (dest,)).fetchone()
-            if actual is None:
-                row["missing"].append(dest)
-            elif actual[0] != digest:
-                row["mismatch"].append(dest)
-            else:
-                row["matched"] += 1
-        try:
-            if archive.name.lower().endswith(".zip"):
-                with zipfile.ZipFile(archive) as z:
-                    for entry in z.infolist():
-                        if not entry.is_dir():
-                            with z.open(entry) as stream:
-                                member(entry.filename, stream)
-            else:
-                with tarfile.open(archive, "r|*") as t:
-                    for entry in t:
-                        if entry.isfile():
-                            with t.extractfile(entry) as stream:
-                                member(entry.name, stream)
-        except Exception as exc:
-            row["errors"].append(type(exc).__name__)
-        after = archive.stat()
-        row["source_stat_unchanged"] = (before.st_size, before.st_mtime_ns) == (after.st_size, after.st_mtime_ns)
-        results.append(row)
-        print(json.dumps({"archive": row['path'], "members": row['members'], "matched": row['matched']}), flush=True)
-    db.commit()
-    extra = [r[0] for r in db.execute("SELECT path FROM files WHERE path NOT IN (SELECT path FROM members) ORDER BY path")]
-    integrity = "NOT_VERIFIABLE"
-    if results:
-        integrity = "EXTRACTION_INCOMPLETE" if any(x["missing"] or x["mismatch"] or x["errors"] or x["unsafe_members"] for x in results) else "EXTRACTION_COMPLETE"
-    return {"archives": results, "extracted_extra_paths": extra if results else [],
-            "extraction_integrity": integrity,
-            "extraction_scope": "Byte equivalence to available local archives only; no official release manifest supplied.",
-            "download_integrity": "NOT_VERIFIABLE", "official_checksum_manifest": "NOT_AVAILABLE"}
+def compare_archives(root, db, archive_paths=None):
+    from e3a.data.handpose_archive import reconcile
+    archives = archive_paths if archive_paths is not None else sorted(
+        p for p in root.rglob('*') if p.is_file() and 'hand' in p.name.lower()
+        and 'pose' in p.name.lower() and (p.suffix.lower() == '.zip' or '.tar' in p.name.lower()))
+    return reconcile(root, archives, local_db=db)
 
 
-def audit(root, output):
+def audit(root, output, archive_paths=None):
     root, output = Path(root).resolve(), Path(output).resolve()
     if output == root or root in output.parents:
         raise ValueError("Audit output must be outside the dataset.")
@@ -322,7 +262,7 @@ def audit(root, output):
                     "frame_indices": json.dumps(sorted(frames[side].get(s, set())))} for s in universe],
                   ['sequence_id', 'files', 'unique_numeric_frames', 'parser_valid_frames', 'frame_indices'])
     write_csv(evidence / 'missing_sequence_report.csv', differences, ['sequence_id', 'reason'])
-    archive = compare_archives(root, db)
+    archive = compare_archives(root, db, archive_paths)
     write_json(evidence / 'archive_extraction_comparison.json', archive)
     candidates = sorted(set(universe) - set(FIXED))
     selected = list(FIXED) + random.Random(20261124).sample(candidates, min(10, len(candidates)))
@@ -375,8 +315,9 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--root', required=True, type=Path)
     p.add_argument('--output-dir', required=True, type=Path)
+    p.add_argument('--archive', type=Path, action='append', help='Explicit ZIP/TAR, including outside dataset root; repeatable.')
     args = p.parse_args()
-    print(json.dumps(audit(args.root, args.output_dir), sort_keys=True), flush=True)
+    print(json.dumps(audit(args.root, args.output_dir, args.archive), sort_keys=True), flush=True)
 
 
 if __name__ == '__main__':
