@@ -62,6 +62,10 @@ VidEoMT's matcher/criterion additionally require SciPy and Detectron2. Detectron
 
 No project-wide E3A license is declared yet. Each upstream's terms continue to apply to its own source and derivative materials. Do not commit datasets, model weights, access tokens, or private annotations.
 
+## Dataset audit references
+
+- [HOI4D Official Data Catalog](docs/data_audit/HOI4D_OFFICIAL_DATA_CATALOG.md): official download categories, release-list reconciliation, local package crosswalk, and 4D-seg generation limitations.
+
 ## Current implementation status
 
 The current foundation includes the pinned VGGT-Ω feature path, native E3A query-to-mask decoding, clip-level persistent entity pooling, official camera/depth unprojection, 3D hand-pose and hand-object interaction heads, target/action/time anticipation heads, a joint multi-task loss, and a VidEoMT adapter that exposes the same clip-consistent track-to-slot assignments to downstream losses. E3AModel runs these heads in one forward pass; E3AMultiTaskLoss returns the single loss_objective required by the reused VGGT-Ω trainer. HOI4D and Ego-Exo4D raw annotation readers, audited action vocabularies, full dataset-backed training configuration, approved-checkpoint parity, and target GPU validation remain open. SAM 3.1 is optional teacher/baseline only and is not loaded by the online model. See docs/implementation/roadmap.md.
