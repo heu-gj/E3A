@@ -15,6 +15,9 @@ Acceptance: adapter output parity with official VGGT-Ω; no E3A-specific model h
 
 ## P1 — HOI4D + Ego-Exo4D data and label contract
 
+> HOI4D source baseline: [official data catalog](../data_audit/HOI4D_OFFICIAL_DATA_CATALOG.md). Official download categories and raw layout are cataloged; list-file consistency is NEEDS_REVIEW, local CAD mapping is NOT_MAPPED, and the published 4D-seg generator is BLOCKED pending input/path/calibration validation. Do not treat this catalog as physical-GT acceptance.
+
+
 - [x] Verify official HOI4D data organization, action interval fields, palette-coded 2D motion masks, category/instance maps, object pose fields, and MANO parameter fields.
 - [x] Verify Ego-Exo4D relation mask JSON fields, encoded-mask representation, annotated_frames semantics, EgoPose 3D hand-joint schema, and Keystep segment schema.
 - [x] Implement the official HOI4D RGB palette decoder and clip-level object-track conversion.
