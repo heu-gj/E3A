@@ -32,4 +32,37 @@ class GeometryHead(nn.Module):
             depth,
             min_mass=self.min_entity_mass,
         )
-        return {**geometry, **pooled}
+
+        extrinsics = geometry["extrinsics_camera_from_world"]
+        rotation = extrinsics[..., :3]
+        translation = extrinsics[..., 3]
+        centers_camera = (
+            torch.matmul(
+                rotation.unsqueeze(2),
+                pooled["entity_centers_world"].unsqueeze(-1),
+            ).squeeze(-1)
+            + translation.unsqueeze(2)
+        )
+        covariance_camera = (
+            rotation.unsqueeze(2)
+            @ pooled["entity_covariance_world"]
+            @ rotation.transpose(-1, -2).unsqueeze(2)
+        )
+        geometry_valid = pooled["entity_geometry_valid"]
+        centers_camera = torch.where(
+            geometry_valid.unsqueeze(-1),
+            centers_camera,
+            torch.zeros_like(centers_camera),
+        )
+        covariance_camera = torch.where(
+            geometry_valid[..., None, None],
+            covariance_camera,
+            torch.zeros_like(covariance_camera),
+        )
+
+        return {
+            **geometry,
+            **pooled,
+            "entity_centers_camera": centers_camera,
+            "entity_covariance_camera": covariance_camera,
+        }

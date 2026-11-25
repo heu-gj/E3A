@@ -21,6 +21,7 @@ from PIL import Image
 from torch.utils.data import DataLoader, Dataset
 
 from e3a.data.collate import collate_e3a_batch
+from e3a.data.hoi4d_supervision import HOI4DSupervisionBuilder
 from e3a.data.hoi4d import (
     HOI4D_2D_CATEGORIES,
     build_hoi4d_anticipation_target,
@@ -835,6 +836,11 @@ def collate_hoi4d_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
         ]
     if any(sample.get("metadata") is not None for sample in samples):
         batch["metadata"] = [dict(sample.get("metadata", {})) for sample in samples]
+
+    # Derive geometry only when source depth and intrinsics were both collated.
+    # Invalid/missing calibration remains invalid rather than being guessed.
+    if "depth" in batch and "intrinsics" in batch:
+        batch = HOI4DSupervisionBuilder()(batch)
     return batch
 
 

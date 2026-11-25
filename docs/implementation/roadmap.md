@@ -2,6 +2,9 @@
 
 A milestone is complete only when its acceptance tests pass and the evidence is recorded. A directory existing or a forward pass returning tensors is not sufficient.
 
+**Current execution scope:** HOI4D only. Ego-Exo4D work is deferred and is not
+a dependency for the first end-to-end E3A training run.
+
 ## P0 — Reproducible upstream baseline
 
 - [x] Pin VGGT-Ω, SAM 3, and VidEoMT as Git submodules.
@@ -61,6 +64,9 @@ Acceptance: pretrained geometry outputs remain unchanged when E3A tokens are abs
 - [x] Reuse VidEoMT's official clip-consistent matcher and criterion.
 - [x] Expose the upstream matcher assignment as GT-track-ID to E3A-slot mapping for downstream target/interaction supervision.
 - [x] Add CPU tests for native mask decoding, gradients, temporal pooling, matcher assignments, and empty clips.
+- [ ] Build HOI4D camera-frame entity center/covariance targets from depth, intrinsics, masks, and validity.
+- [ ] Add matcher-aligned, scale-invariant center/covariance geometry losses.
+- [ ] Enable metric geometry supervision only after an explicit depth-unit conversion is established.
 - [ ] Validate source dataset track IDs, visibility, and masks against the adapter contract.
 - [ ] Add dataset-backed tests for partial visibility, occlusion, invalid depth, and coordinate transforms.
 - [ ] Run the full model with an approved VGGT-Ω checkpoint on target GPU hardware.
@@ -97,6 +103,7 @@ Acceptance: the model predicts future target/action/time from observed frames on
 
 - [x] Add E3AMultiTaskLoss with one loss_objective for the upstream VGGT-Ω Trainer.
 - [x] Add batch-first E3A collation for entity, hand, interaction, and anticipation targets.
+- [ ] Add batch-first HOI4D geometry targets to the HOI4D-aware collator.
 - [ ] Add deterministic source-video sampling and complete dataset readers.
 - [ ] Create the runnable Hydra training config after the label vocabulary and dataset schema are frozen.
 - [ ] Start with frozen VGGT-Ω and train only E3A-owned modules.

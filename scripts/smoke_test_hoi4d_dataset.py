@@ -81,6 +81,8 @@ def main() -> None:
     mano_valid_frames = 0
     objpose_records = 0
     depth_valid_pixels = 0
+    geometry_valid_track_frames = 0
+    geometry_metric_valid_clips = 0
     action_segments = 0
     action_valid_clips = 0
     time_valid_clips = 0
@@ -100,6 +102,13 @@ def main() -> None:
             objpose_records += int(batch["objpose_record_present"].sum().item())
         if "depth_valid" in batch:
             depth_valid_pixels += int(batch["depth_valid"].sum().item())
+        if "geometry_targets" in batch:
+            geometry_valid_track_frames += int(
+                batch["geometry_targets"]["valid"].sum().item()
+            )
+            geometry_metric_valid_clips += int(
+                batch["geometry_targets"]["metric_valid"].sum().item()
+            )
         if batches == 1:
             action_segments = len(batch.get("action_segments", [[]])[0])
         action_valid_clips += int(
@@ -115,6 +124,18 @@ def main() -> None:
                 "entity_masks": list(batch["entity_targets"]["masks"].shape),
                 "pixel_valid": list(batch["entity_targets"]["pixel_valid"].shape),
                 "intrinsics": list(batch["intrinsics"].shape) if "intrinsics" in batch else None,
+                "geometry_centers_camera": (
+                    list(batch["geometry_targets"]["centers_camera"].shape)
+                    if "geometry_targets" in batch else None
+                ),
+                "geometry_covariance_camera": (
+                    list(batch["geometry_targets"]["covariance_camera"].shape)
+                    if "geometry_targets" in batch else None
+                ),
+                "geometry_valid": (
+                    list(batch["geometry_targets"]["valid"].shape)
+                    if "geometry_targets" in batch else None
+                ),
             }
         if args.max_batches and batches >= args.max_batches:
             break
@@ -134,6 +155,8 @@ def main() -> None:
         "mano_valid_hand_frames": mano_valid_frames,
         "objpose_records_read": objpose_records,
         "depth_valid_pixels": depth_valid_pixels,
+        "geometry_valid_track_frames": geometry_valid_track_frames,
+        "geometry_metric_valid_clips": geometry_metric_valid_clips,
         "action_segments_loaded": action_segments,
         "action_supervised_clips": action_valid_clips,
         "time_supervised_clips": time_valid_clips,

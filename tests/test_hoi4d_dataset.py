@@ -286,6 +286,10 @@ def test_collator_preserves_pixel_depth_intrinsics_and_clip_validity(tmp_path, m
     assert not batch["entity_targets"]["pixel_valid"][1, 0, 0, 0].item()
     assert batch["entity_supervision_valid"].tolist() == [True, True]
     assert batch["mano_parameters"]["valid"].shape == (2, 2, 2)
+    assert batch["geometry_targets"]["centers_camera"].shape == (2, 1, 2, 3)
+    assert batch["geometry_targets"]["valid"].all()
+    assert batch["geometry_targets"]["units"] == ["unknown", "unknown"]
+    assert not batch["geometry_targets"]["metric_valid"].any()
 
 
 def test_make_dataloader_uses_hoi4d_collator(tmp_path, monkeypatch):
