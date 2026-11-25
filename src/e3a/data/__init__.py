@@ -6,10 +6,10 @@ from e3a.data.egoexo import (
     build_egoexo_anticipation_target,
     build_egoexo_keystep_vocabulary,
     build_egoexo_relation_clip_targets,
-    load_egoexo_keystep_segments,
-    parse_egoexo_keystep_segments,
     load_egoexo_hand_pose_annotations,
+    load_egoexo_keystep_segments,
     parse_egoexo_hand_pose_annotations,
+    parse_egoexo_keystep_segments,
     resolve_egoexo_video_path,
 )
 from e3a.data.hoi4d import (

@@ -86,3 +86,14 @@ def test_geometry_builder_rejects_singular_valid_intrinsics():
     batch["intrinsics"][0, 2] = 0
     with pytest.raises(ValueError, match="invertible"):
         build_hoi4d_geometry_targets(batch)
+
+
+
+def test_geometry_builder_never_marks_zero_support_valid_when_min_points_is_zero():
+    batch = make_batch()
+    batch["depth_valid"].zero_()
+
+    targets = HOI4DSupervisionBuilder(min_points=0).build_geometry_targets(batch)
+
+    assert not targets["valid"].any()
+    assert torch.count_nonzero(targets["point_mass"]) == 0

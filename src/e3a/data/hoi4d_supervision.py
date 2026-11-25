@@ -208,7 +208,11 @@ class HOI4DSupervisionBuilder:
                         * valid_pixels.to(dtype=torch.float32)
                     )
                     mass = weights.sum()
-                    if not torch.isfinite(mass) or float(mass.item()) < self.min_points:
+                    if (
+                        not torch.isfinite(mass)
+                        or float(mass.item()) <= self.eps
+                        or float(mass.item()) < self.min_points
+                    ):
                         continue
                     center = (
                         weights.unsqueeze(-1) * camera_points

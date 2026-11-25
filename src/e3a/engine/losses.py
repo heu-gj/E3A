@@ -107,7 +107,10 @@ class E3AMultiTaskLoss(nn.Module):
         batch_size, frames, slots, _ = predicted_centers.shape
         if predicted_covariance.shape != (batch_size, frames, slots, 3, 3):
             raise ValueError("Predicted entity covariance must have shape [B,T,K,3,3].")
-        if predicted_valid.shape != (batch_size, frames, slots) or predicted_valid.dtype != torch.bool:
+        if (
+            predicted_valid.shape != (batch_size, frames, slots)
+            or predicted_valid.dtype != torch.bool
+        ):
             raise TypeError("entity_geometry_valid must be bool [B,T,K].")
         if target_centers.ndim != 4 or target_centers.shape[0] != batch_size:
             raise ValueError("Target centers must have shape [B,N,T,3].")
@@ -116,7 +119,10 @@ class E3AMultiTaskLoss(nn.Module):
             raise ValueError("Target centers must have shape [B,N,T,3].")
         if target_covariance.shape != (batch_size, max_tracks, frames, 3, 3):
             raise ValueError("Target covariance must have shape [B,N,T,3,3].")
-        if target_valid.shape != (batch_size, max_tracks, frames) or target_valid.dtype != torch.bool:
+        if (
+            target_valid.shape != (batch_size, max_tracks, frames)
+            or target_valid.dtype != torch.bool
+        ):
             raise TypeError("geometry_targets.valid must be bool [B,N,T].")
         if ids.shape != (batch_size, max_tracks, frames):
             raise ValueError("entity target IDs must have shape [B,N,T].")

@@ -10,8 +10,8 @@ from PIL import Image
 from e3a.data.hoi4d import hoi4d_color_palette
 from e3a.data.hoi4d_dataset import (
     HOI4DDataset,
-    _NumpyArraysOnlyUnpickler,
     _decode_mask_with_validity,
+    _NumpyArraysOnlyUnpickler,
     collate_hoi4d_batch,
     make_hoi4d_dataloader,
     resolve_hoi4d_sequence_paths,

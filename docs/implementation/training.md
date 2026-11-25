@@ -26,6 +26,14 @@ scales. This supervises scale-invariant relative 3D layout and object shape;
 it is not metric-scale supervision. Geometry loss is zero when geometry
 targets are missing or invalid.
 
+The camera-frame geometry loss is intentionally invariant to the predicted
+camera extrinsics: VGGT-Ω first unprojects depth into world coordinates, then
+GeometryHead transforms the pooled result back into the same camera frame.
+The two pose transforms cancel algebraically. Consequently, this loss
+supervises depth/intrinsics-conditioned camera-relative geometry, but does not
+supervise camera pose or cross-frame world alignment. Those remain separate
+requirements for world-frame persistent-state learning.
+
 ## Canonical batch contract
 
 Use e3a.data.collate.collate_e3a_batch to collate per-sample dictionaries. Every sample contains:

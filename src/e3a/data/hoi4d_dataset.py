@@ -183,7 +183,8 @@ def _read_video_frames(
             else:
                 if value.ndim != 3 or value.shape[-1] != 3 or value.dtype != np.uint8:
                     raise TypeError(
-                        f"HOI4D RGB must decode as uint8 BGR [H,W,3], got {value.shape}/{value.dtype}."
+                        "HOI4D RGB must decode as uint8 BGR [H,W,3], "
+                        f"got {value.shape}/{value.dtype}."
                     )
                 value = np.ascontiguousarray(value[..., ::-1])
             selected[frame_index] = value.copy()
@@ -702,7 +703,10 @@ class HOI4DDataset(Dataset[dict[str, Any]]):
                 "objpose_coordinate_frame": "unknown",
                 "objpose_units": "unknown",
                 "depth_units": "unknown",
-                "mano_status": "raw parameters and 2D keypoints only; no MANO forward reconstruction",
+                "mano_status": (
+                    "raw parameters and 2D keypoints only; "
+                    "no MANO forward reconstruction"
+                ),
             },
         }
 

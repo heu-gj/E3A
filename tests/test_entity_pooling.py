@@ -74,3 +74,15 @@ def test_pooling_ignores_non_finite_world_points():
         atol=1e-4,
         rtol=1e-4,
     )
+
+
+
+def test_pooling_never_marks_zero_support_valid_when_min_mass_is_zero():
+    points = torch.ones(1, 1, 2, 2, 3)
+    depth = torch.zeros(1, 1, 2, 2)
+    logits = torch.full((1, 1, 1, 2, 2), 10.0)
+
+    output = pool_entity_geometry(logits, points, depth, min_mass=0.0)
+
+    assert not output["entity_geometry_valid"].any()
+    assert torch.count_nonzero(output["entity_mask_mass"]) == 0
