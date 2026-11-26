@@ -95,7 +95,7 @@ def pool_entity_geometry(
     )
     weights = probabilities * valid.unsqueeze(2).to(probabilities.dtype)
     mass = weights.sum(dim=(-2, -1))
-    geometry_valid = mass >= min_mass
+    geometry_valid = (mass > eps) & (mass >= min_mass)
 
     safe_points = torch.where(valid.unsqueeze(-1), points, torch.zeros_like(points))
     point_grid = safe_points.unsqueeze(2)

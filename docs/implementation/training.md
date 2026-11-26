@@ -16,7 +16,23 @@ E3A does not fork the training loop. E3ATrainer overrides only task-specific ass
 
 Instantiate e3a.models.e3a_model.E3AModel as the model and e3a.engine.losses.E3AMultiTaskLoss as the loss. E3AModel performs one shared VGGT-Ω forward and returns masks, 3D entity states, hand pose, pairwise interactions, target-entity logits, action logits, and time-to-event distribution parameters.
 
-E3AMultiTaskLoss returns the single loss_objective required by the upstream Trainer. It internally calls VidEoMTMaskCriterion.forward_with_matches once; the returned clip-local GT-track-to-query-slot map is reused to supervise interaction pairs and target-entity selection. There is one optimizer and one joint backward pass.
+E3AMultiTaskLoss returns the single loss_objective required by the upstream Trainer. It internally calls VidEoMTMaskCriterion.forward_with_matches once; the returned clip-local GT-track-to-query-slot map is reused to supervise geometry, interaction pairs, and target-entity selection. There is one optimizer and one joint backward pass.
+
+The geometry objective contains center and covariance terms. It maps each
+matched HOI4D GT track to the same E3A entity slot used by the mask criterion.
+Because HOI4D depth units are not assumed to be meters, predicted and target
+camera-frame geometry are normalized by separate robust per-clip object-depth
+scales. This supervises scale-invariant relative 3D layout and object shape;
+it is not metric-scale supervision. Geometry loss is zero when geometry
+targets are missing or invalid.
+
+The camera-frame geometry loss is intentionally invariant to the predicted
+camera extrinsics: VGGT-Ω first unprojects depth into world coordinates, then
+GeometryHead transforms the pooled result back into the same camera frame.
+The two pose transforms cancel algebraically. Consequently, this loss
+supervises depth/intrinsics-conditioned camera-relative geometry, but does not
+supervise camera pose or cross-frame world alignment. Those remain separate
+requirements for world-frame persistent-state learning.
 
 ## Canonical batch contract
 
@@ -35,6 +51,7 @@ The collator returns batch-first tensors:
 - hand_targets keypoints_camera [B,T,2,21,3], valid [B,T,2,21]
 - interaction_targets contact/valid [B,T,2,Nmax]
 - anticipation_targets one scalar per clip
+- HOI4D geometry_targets centers_camera [B,Nmax,T,3], covariance_camera [B,Nmax,T,3,3], valid [B,Nmax,T]
 
 Missing task annotations are represented by zero placeholders and false validity masks. They are not treated as negative examples. Per-track mask_valid is also padded false. The VidEoMT adapter filters only invalid matched mask pairs from the upstream point-sampled mask loss while retaining clip-consistent matching and class supervision.
 

@@ -12,15 +12,16 @@ from torch import nn
 
 
 class E3AMultiTaskLoss(nn.Module):
-    """Combine entity masks, hand pose, interaction, and anticipation losses.
+    """Combine entity masks, geometry, hand pose, interaction, and anticipation losses.
 
     The mask criterion supplies clip-consistent GT-track-to-query assignments.
-    Those same assignments are reused to supervise interaction pairs and the
-    future target slot, avoiding a second tracking/association model.
+    Those same assignments are reused to supervise geometry, interaction
+    pairs, and the future target slot, avoiding a second tracking model.
     """
 
     _WEIGHT_NAMES = (
         "entity",
+        "geometry",
         "hand",
         "hand_visibility",
         "interaction",
@@ -74,6 +75,171 @@ class E3AMultiTaskLoss(nn.Module):
                 f"Target '{key}' must have shape {shape}, got {tuple(value.shape)}."
             )
         return value
+
+    def _geometry_losses(
+        self,
+        predictions: Mapping[str, torch.Tensor],
+        batch: Mapping[str, Any],
+        track_to_slot: list[dict[int, int]],
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        zero = self._zero(predictions["mask_logits"])
+        if "geometry_targets" not in batch:
+            return zero, zero, zero
+
+        targets = batch["geometry_targets"]
+        entity_targets = batch.get("entity_targets")
+        if not isinstance(targets, Mapping) or not isinstance(entity_targets, Mapping):
+            raise TypeError("geometry_targets and entity_targets must be mappings.")
+
+        predicted_centers = self._require_tensor(predictions, "entity_centers_camera")
+        predicted_covariance = self._require_tensor(
+            predictions, "entity_covariance_camera"
+        )
+        predicted_valid = self._require_tensor(predictions, "entity_geometry_valid")
+        target_centers = self._require_tensor(targets, "centers_camera")
+        target_covariance = self._require_tensor(targets, "covariance_camera")
+        target_valid = self._require_tensor(targets, "valid")
+        ids = self._require_tensor(entity_targets, "ids")
+        counts = self._require_tensor(entity_targets, "track_counts")
+
+        if predicted_centers.ndim != 4 or predicted_centers.shape[-1] != 3:
+            raise ValueError("Predicted entity centers must have shape [B,T,K,3].")
+        batch_size, frames, slots, _ = predicted_centers.shape
+        if predicted_covariance.shape != (batch_size, frames, slots, 3, 3):
+            raise ValueError("Predicted entity covariance must have shape [B,T,K,3,3].")
+        if (
+            predicted_valid.shape != (batch_size, frames, slots)
+            or predicted_valid.dtype != torch.bool
+        ):
+            raise TypeError("entity_geometry_valid must be bool [B,T,K].")
+        if target_centers.ndim != 4 or target_centers.shape[0] != batch_size:
+            raise ValueError("Target centers must have shape [B,N,T,3].")
+        max_tracks = target_centers.shape[1]
+        if target_centers.shape != (batch_size, max_tracks, frames, 3):
+            raise ValueError("Target centers must have shape [B,N,T,3].")
+        if target_covariance.shape != (batch_size, max_tracks, frames, 3, 3):
+            raise ValueError("Target covariance must have shape [B,N,T,3,3].")
+        if (
+            target_valid.shape != (batch_size, max_tracks, frames)
+            or target_valid.dtype != torch.bool
+        ):
+            raise TypeError("geometry_targets.valid must be bool [B,N,T].")
+        if ids.shape != (batch_size, max_tracks, frames):
+            raise ValueError("entity target IDs must have shape [B,N,T].")
+        if counts.shape != (batch_size,):
+            raise ValueError("entity track_counts must have shape [B].")
+        if len(track_to_slot) != batch_size:
+            raise ValueError("Track-slot assignments must align with geometry batch.")
+        if ids.dtype not in (torch.int8, torch.int16, torch.int32, torch.int64):
+            raise TypeError("entity target IDs must use an integer dtype.")
+        if counts.dtype not in (torch.int8, torch.int16, torch.int32, torch.int64):
+            raise TypeError("entity track_counts must use an integer dtype.")
+
+        predicted_centers = predicted_centers.float()
+        predicted_covariance = predicted_covariance.float()
+        target_centers = target_centers.to(
+            device=predicted_centers.device, dtype=torch.float32
+        )
+        target_covariance = target_covariance.to(
+            device=predicted_centers.device, dtype=torch.float32
+        )
+        target_valid = target_valid.to(device=predicted_centers.device)
+        predicted_valid = predicted_valid.to(device=predicted_centers.device)
+        ids = ids.to(device=predicted_centers.device, dtype=torch.int64)
+        counts = counts.to(device=predicted_centers.device, dtype=torch.int64)
+
+        clip_center_losses: list[torch.Tensor] = []
+        clip_covariance_losses: list[torch.Tensor] = []
+        for batch_index in range(batch_size):
+            count = int(counts[batch_index].item())
+            if count < 0 or count > max_tracks:
+                raise ValueError("entity track count is outside the padded target range.")
+            matched_predictions: list[torch.Tensor] = []
+            matched_targets: list[torch.Tensor] = []
+            matched_predicted_covariance: list[torch.Tensor] = []
+            matched_target_covariance: list[torch.Tensor] = []
+
+            for track_index in range(count):
+                track_ids = ids[batch_index, track_index]
+                visible_ids = track_ids[track_ids >= 0]
+                if visible_ids.numel() == 0:
+                    continue
+                unique_ids = torch.unique(visible_ids)
+                if unique_ids.numel() != 1:
+                    raise ValueError(
+                        "Each HOI4D entity target row must retain one clip-local track ID."
+                    )
+                track_id = int(unique_ids[0].item())
+                slot = track_to_slot[batch_index].get(track_id)
+                if slot is None:
+                    continue
+                if slot < 0 or slot >= slots:
+                    raise RuntimeError("VidEoMT returned an entity slot outside model output.")
+
+                frame_valid = (
+                    target_valid[batch_index, track_index]
+                    & (track_ids >= 0)
+                    & predicted_valid[batch_index, :, slot]
+                )
+                if not frame_valid.any():
+                    continue
+                frame_indices = frame_valid.nonzero(as_tuple=False).flatten()
+                selected_target_centers = target_centers[
+                    batch_index, track_index, frame_indices
+                ]
+                selected_predicted_centers = predicted_centers[
+                    batch_index, frame_indices, slot
+                ]
+                selected_target_covariance = target_covariance[
+                    batch_index, track_index, frame_indices
+                ]
+                selected_predicted_covariance = predicted_covariance[
+                    batch_index, frame_indices, slot
+                ]
+                if not torch.isfinite(selected_target_centers).all() or not torch.isfinite(
+                    selected_target_covariance
+                ).all():
+                    raise ValueError("Valid HOI4D geometry targets must be finite.")
+                if not torch.isfinite(selected_predicted_centers).all() or not torch.isfinite(
+                    selected_predicted_covariance
+                ).all():
+                    raise FloatingPointError("Valid predicted entity geometry must be finite.")
+
+                matched_targets.append(selected_target_centers)
+                matched_predictions.append(selected_predicted_centers)
+                matched_target_covariance.append(selected_target_covariance)
+                matched_predicted_covariance.append(selected_predicted_covariance)
+
+            if not matched_targets:
+                continue
+
+            target_center_values = torch.cat(matched_targets, dim=0)
+            predicted_center_values = torch.cat(matched_predictions, dim=0)
+            target_covariance_values = torch.cat(matched_target_covariance, dim=0)
+            predicted_covariance_values = torch.cat(matched_predicted_covariance, dim=0)
+
+            # Depth units remain source-native. Separate per-clip scales preserve
+            # relative 3D layout and shape without pretending raw values are meters.
+            target_scale = target_center_values[:, 2].abs().median().clamp_min(1e-6)
+            predicted_scale = predicted_center_values[:, 2].abs().median().clamp_min(1e-6)
+            center_loss = F.smooth_l1_loss(
+                predicted_center_values / predicted_scale,
+                target_center_values / target_scale,
+                reduction="mean",
+            )
+            covariance_loss = F.smooth_l1_loss(
+                predicted_covariance_values / predicted_scale.square(),
+                target_covariance_values / target_scale.square(),
+                reduction="mean",
+            )
+            clip_center_losses.append(center_loss)
+            clip_covariance_losses.append(covariance_loss)
+
+        if not clip_center_losses:
+            return zero, zero, zero
+        loss_center = torch.stack(clip_center_losses).mean()
+        loss_covariance = torch.stack(clip_covariance_losses).mean()
+        return loss_center, loss_covariance, loss_center + loss_covariance
 
     def _hand_losses(
         self,
@@ -358,6 +524,9 @@ class E3AMultiTaskLoss(nn.Module):
             schedule_progress,
         )
         loss_entity = entity_losses["loss_objective"]
+        loss_geometry_center, loss_geometry_covariance, loss_geometry = (
+            self._geometry_losses(predictions, batch, track_to_slot)
+        )
         loss_hand, loss_hand_visibility = self._hand_losses(predictions, batch)
         loss_interaction = self._interaction_loss(predictions, batch, track_to_slot)
         loss_target, loss_action, loss_time = self._anticipation_losses(
@@ -368,6 +537,7 @@ class E3AMultiTaskLoss(nn.Module):
 
         objective = (
             self.weights["entity"] * loss_entity
+            + self.weights["geometry"] * loss_geometry
             + self.weights["hand"] * loss_hand
             + self.weights["hand_visibility"] * loss_hand_visibility
             + self.weights["interaction"] * loss_interaction
@@ -377,6 +547,9 @@ class E3AMultiTaskLoss(nn.Module):
         )
         return {
             "loss_entity": loss_entity,
+            "loss_geometry_center": loss_geometry_center,
+            "loss_geometry_covariance": loss_geometry_covariance,
+            "loss_geometry": loss_geometry,
             "loss_hand": loss_hand,
             "loss_hand_visibility": loss_hand_visibility,
             "loss_interaction": loss_interaction,

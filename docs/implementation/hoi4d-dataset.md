@@ -63,7 +63,39 @@ Each item contains:
 
 The HOI4D-aware collator delegates the canonical E3A tensors to
 collate_e3a_batch and additionally batches depth, intrinsics, frame indices,
-MANO raw parameters, pixel validity, and clip-level entity validity.
+MANO raw parameters, pixel validity, and clip-level entity validity. When depth
+and intrinsics are present, it also invokes HOI4DSupervisionBuilder and adds
+geometry_targets to the batch.
+
+## Canonical geometry supervision
+
+HOI4DSupervisionBuilder uses source depth, released camera intrinsics, entity
+masks, mask_valid, depth_valid, and pixel_valid to produce:
+
+- centers_camera: [B,N,T,3], mask-weighted 3D entity centers
+- covariance_camera: [B,N,T,3,3], mask-weighted 3D covariance
+- valid: [B,N,T], true only when the track/frame mask, camera intrinsics,
+  depth, and at least one valid masked depth pixel are available
+- point_mass: [B,N,T], valid mask-weighted depth-pixel mass
+- units: the source depth-unit declaration carried through from the Dataset
+- metric_valid: false until an explicit metric depth conversion is supplied
+
+The builder unprojects pixels with the per-sequence camera matrix in the
+OpenCV camera convention. It excludes invalid depth and unknown mask pixels.
+It does not use objpose: the object-pose coordinate frame and physical units
+remain outside this target contract.
+
+HOI4D depth is preserved in its source numeric unit. The geometry loss
+normalizes predicted and target object centers/covariances by separate robust
+per-clip depth scales. This permits scale-invariant supervision of relative
+3D layout and object shape without treating raw depth as meters. It does not
+provide metric-scale supervision or establish cross-sequence metric consistency.
+These are per-frame camera-relative targets; this builder does not construct a
+world-frame trajectory because source camera trajectories are not consumed.
+
+The provisional category-local motion-mask instance IDs are reused for the
+matcher mapping, but this builder does not upgrade them to globally persistent
+physical identities. Existing identity-status metadata remains authoritative.
 
 ## Data-integrity rules
 
@@ -112,7 +144,7 @@ claim physical GT validation.
 
 Run the unit tests:
 
-    python -m pytest -q tests/test_hoi4d_dataset.py tests/test_hoi4d_data.py tests/test_e3a_collate.py
+    python -m pytest -q tests/test_hoi4d_dataset.py tests/test_hoi4d_data.py tests/test_e3a_collate.py tests/test_hoi4d_supervision.py tests/test_geometry_head.py tests/test_e3a_losses.py
 
 A synthetic integration fixture exercises video decoding contracts, mask
 validity, raw pose preservation, MANO pickle restrictions, action/time targets,

@@ -29,6 +29,7 @@ from e3a.data.hoi4d import (
     hoi4d_color_palette,
     load_hoi4d_action_segments,
 )
+from e3a.data.hoi4d_supervision import HOI4DSupervisionBuilder
 
 
 @dataclass(frozen=True)
@@ -182,7 +183,8 @@ def _read_video_frames(
             else:
                 if value.ndim != 3 or value.shape[-1] != 3 or value.dtype != np.uint8:
                     raise TypeError(
-                        f"HOI4D RGB must decode as uint8 BGR [H,W,3], got {value.shape}/{value.dtype}."
+                        "HOI4D RGB must decode as uint8 BGR [H,W,3], "
+                        f"got {value.shape}/{value.dtype}."
                     )
                 value = np.ascontiguousarray(value[..., ::-1])
             selected[frame_index] = value.copy()
@@ -701,7 +703,10 @@ class HOI4DDataset(Dataset[dict[str, Any]]):
                 "objpose_coordinate_frame": "unknown",
                 "objpose_units": "unknown",
                 "depth_units": "unknown",
-                "mano_status": "raw parameters and 2D keypoints only; no MANO forward reconstruction",
+                "mano_status": (
+                    "raw parameters and 2D keypoints only; "
+                    "no MANO forward reconstruction"
+                ),
             },
         }
 
@@ -835,6 +840,11 @@ def collate_hoi4d_batch(samples: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
         ]
     if any(sample.get("metadata") is not None for sample in samples):
         batch["metadata"] = [dict(sample.get("metadata", {})) for sample in samples]
+
+    # Derive geometry only when source depth and intrinsics were both collated.
+    # Invalid/missing calibration remains invalid rather than being guessed.
+    if "depth" in batch and "intrinsics" in batch:
+        batch = HOI4DSupervisionBuilder()(batch)
     return batch
 
 
